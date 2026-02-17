@@ -51,7 +51,7 @@ const SearchableSelect = ({ options, value, onChange, placeholder, recentIds = [
   }, [isOpen]);
 
   return (
-    <div className="relative w-full" ref={wrapperRef}>
+    <div className="relative w-full isolate" ref={wrapperRef}>
       <div
         className={`w-full p-2.5 md:p-2.5 rounded-xl bg-muted border text-body font-bold cursor-pointer flex justify-between items-center transition-all hover:bg-gray-100 dark:hover:bg-gray-800 ${isOpen ? 'border-primary ring-1 ring-primary' : 'border-border text-foreground'} min-h-[44px]`}
         onClick={() => setIsOpen(!isOpen)}
@@ -64,8 +64,8 @@ const SearchableSelect = ({ options, value, onChange, placeholder, recentIds = [
         </span>
         <div className="icon-text-container flex items-center flex-shrink-0">
           {value && (
-            <div 
-              onClick={(e) => { e.stopPropagation(); onChange(''); setSearch(''); }} 
+            <div
+              onClick={(e) => { e.stopPropagation(); onChange(''); setSearch(''); }}
               className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full icon-wrapper flex-shrink-0"
             >
               <X size={12} className="icon-sm icon-stroke-normal" />
@@ -78,8 +78,8 @@ const SearchableSelect = ({ options, value, onChange, placeholder, recentIds = [
       </div>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-xl shadow-xl z-50 max-h-60 overflow-hidden flex flex-col animate-fade-in">
-          <div className="p-2 border-b border-border sticky top-0 bg-card">
+        <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-xl shadow-xl z-[60] max-h-60 overflow-hidden flex flex-col animate-fade-in w-full min-w-0">
+          <div className="p-2 border-b border-border sticky top-0 bg-card z-10">
             <div className="flex items-center gap-2 bg-muted rounded-lg px-3 py-2 border border-transparent focus-within:border-primary/50 transition-colors">
               <Search size={12} className="flex-shrink-0 text-muted-foreground" />
               <input
