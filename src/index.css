@@ -1,0 +1,714 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  * {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    letter-spacing: -0.03em;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    font-weight: 700;
+    color: #1A1A1A;
+  }
+  
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #FFFFFF;
+  }
+  
+  p, span, div {
+    line-height: 1.5;
+  }
+  
+  .text-heading {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #1A1A1A;
+  }
+  
+  .dark .text-heading {
+    color: #FFFFFF;
+  }
+  
+  .text-body {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .text-subtext {
+    color: #8B95A1;
+    font-weight: 400;
+  }
+  
+  .font-black {
+    font-weight: 700;
+  }
+
+  /* 모바일 최적화 (768px 미만) */
+  @media (max-width: 767px) {
+    /* 본문 최소 폰트 크기 16px 고정 - rem 단위 사용 */
+    html {
+      font-size: 16px;
+    }
+    
+    body {
+      font-size: 1rem; /* 16px */
+      line-height: 1.6;
+    }
+    
+    /* Fluid Typography - 최소 16px 보장 */
+    .text-xs { font-size: clamp(1rem, 2.5vw, 0.875rem) !important; } /* 16px - 14px */
+    .text-sm { font-size: clamp(1rem, 2.5vw, 0.875rem) !important; } /* 16px - 14px */
+    .text-base { font-size: clamp(1rem, 2.5vw, 1rem) !important; } /* 16px - 16px */
+    .text-lg { font-size: clamp(1.125rem, 3vw, 1.125rem) !important; } /* 18px - 18px */
+    .text-xl { font-size: clamp(1.25rem, 3.5vw, 1.25rem) !important; } /* 20px - 20px */
+    .text-2xl { font-size: clamp(1.5rem, 4vw, 1.5rem) !important; } /* 24px - 24px */
+    
+    /* 중요 숫자 강조 (카카오페이 스타일) */
+    .text-amount {
+      font-size: clamp(1.125rem, 3.5vw, 1.5rem) !important; /* 18px - 24px */
+      font-weight: 700 !important;
+      color: #14B8B0;
+    }
+    
+    .text-quantity {
+      font-size: clamp(1.125rem, 3.5vw, 1.25rem) !important; /* 18px - 20px */
+      font-weight: 600 !important;
+    }
+    
+    /* 입력창 최소 16px 보장 (아이폰 자동 줌 방지) */
+    input, textarea, select {
+      font-size: 1rem !important; /* 16px */
+      min-height: 2.75rem; /* 44px */
+    }
+    
+    /* 터치 타겟 확보 */
+    button, a, .clickable {
+      min-height: 2.75rem; /* 44px */
+      min-width: 2.75rem; /* 44px */
+      padding: 0.75rem 1rem; /* 12px 16px */
+    }
+    
+    /* 아이콘 최소 크기 보장 */
+    .icon-min {
+      width: 1.5rem !important; /* 24px */
+      height: 1.5rem !important; /* 24px */
+      min-width: 1.5rem !important;
+      min-height: 1.5rem !important;
+      flex-shrink: 0 !important;
+    }
+    
+    .icon-touch-area {
+      min-width: 2.75rem !important; /* 44px */
+      min-height: 2.75rem !important; /* 44px */
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+    
+    /* 모바일 카드 레이아웃 스타일 */
+    .mobile-card {
+      display: block;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 1px solid hsl(var(--border));
+      border-radius: 0.75rem;
+      background: hsl(var(--card));
+      border-left: 4px solid #14B8B0; /* 청록색 포인트 */
+    }
+    
+    .mobile-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid hsl(var(--border) / 0.5);
+    }
+    
+    .mobile-card-title {
+      font-size: clamp(1.125rem, 3.5vw, 1.25rem) !important; /* 18px - 20px */
+      font-weight: 600;
+      color: hsl(var(--foreground));
+      margin: 0;
+    }
+    
+    .mobile-card-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1rem) !important; /* 16px - 16px */
+      color: hsl(var(--muted-foreground));
+      margin: 0.25rem 0 0 0;
+    }
+    
+    .mobile-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .mobile-card-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+    
+    .mobile-card-label {
+      font-size: clamp(1rem, 2.5vw, 1rem) !important; /* 16px - 16px */
+      color: hsl(var(--muted-foreground));
+      font-weight: 500;
+    }
+    
+    .mobile-card-value {
+      font-size: clamp(1rem, 2.5vw, 1.125rem) !important; /* 16px - 18px */
+      color: hsl(var(--foreground));
+      font-weight: 600;
+    }
+    
+    .mobile-card-highlight {
+      color: #14B8B0;
+      font-weight: 700;
+      font-size: clamp(1.125rem, 3.5vw, 1.25rem) !important; /* 18px - 20px */
+    }
+    
+    /* 테이블 모바일 최적화 */
+    table {
+      display: none;
+    }
+    
+    .mobile-table-card {
+      display: block;
+    }
+    
+    /* 레이아웃 전략 변경 - 세로 정렬 */
+    .mobile-column {
+      flex-direction: column !important;
+    }
+    
+    .mobile-stack {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+    }
+    
+    /* Flexbox 레이아웃 최적화 */
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .flex-between {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .flex-start {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    
+    /* 아이콘 최적화 - 모든 아이콘 컴포넌트 일괄 적용 */
+    .icon-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+    
+    .icon-fixed {
+      width: 1.5rem; /* 24px */
+      height: 1.5rem; /* 24px */
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+    
+    .icon-sm {
+      width: 1rem; /* 16px */
+      height: 1rem; /* 16px */
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+    
+    .icon-lg {
+      width: 2rem; /* 32px */
+      height: 2rem; /* 32px */
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .icon-lg-mobile-sm {
+        width: 1.5rem; /* 24px */
+        height: 1.5rem; /* 24px */
+      }
+    }
+    
+    .rounded-2px {
+      border-radius: 2px;
+    }
+    
+    .rounded-6px {
+      border-radius: 6px;
+    }
+    
+    .icon-min {
+      width: 1.5rem !important; /* 24px */
+      height: 1.5rem !important; /* 24px */
+      aspect-ratio: 1 / 1 !important;
+      min-width: 1.5rem !important;
+      min-height: 1.5rem !important;
+      flex-shrink: 0 !important;
+      object-fit: contain !important;
+    }
+    
+    .icon-touch-area {
+      min-width: 2.75rem !important; /* 44px */
+      min-height: 2.75rem !important; /* 44px */
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      position: relative;
+    }
+    
+    /* 아이콘과 텍스트 정렬을 위한 컨테이너 */
+    .icon-text-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem; /* 8px 간격 */
+      min-width: 0;
+    }
+    
+    .icon-text-container-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem; /* 6px 간격 */
+      min-width: 0;
+    }
+    
+    .icon-text-container-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem; /* 12px 간격 */
+      min-width: 0;
+    }
+    
+    /* 텍스트 오버플로우 처리 */
+    .text-ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+      flex: 1;
+    }
+    
+    .text-ellipsis-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-width: 0;
+    }
+    
+    /* 카카오페이 스타일 아이콘 선 두께 조정 */
+    .icon-stroke-bold {
+      stroke-width: 2.5 !important;
+    }
+    
+    .icon-stroke-normal {
+      stroke-width: 2 !important;
+    }
+    
+    .icon-stroke-thin {
+      stroke-width: 1.5 !important;
+    }
+    
+    /* 브랜드 컬러 아이콘 */
+    .icon-primary {
+      color: #14B8B0;
+    }
+    
+    .icon-muted {
+      color: hsl(var(--muted-foreground));
+    }
+    
+    .icon-foreground {
+      color: hsl(var(--foreground));
+    }
+    
+    /* 절대 위치 아이콘을 위한 부모 기준점 */
+    .icon-relative-parent {
+      position: relative;
+    }
+    
+    .icon-absolute {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .icon-absolute-right {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .icon-absolute-left {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    /* 여백 및 넘침 방지 */
+    .overflow-hidden {
+      overflow: hidden;
+    }
+    
+    .gap-sm {
+      gap: 0.5rem; /* 8px */
+    }
+    
+    .gap-md {
+      gap: 0.75rem; /* 12px */
+    }
+    
+    .gap-lg {
+      gap: 1rem; /* 16px */
+    }
+    
+    /* 행간 확보 */
+    p, span, div {
+      line-height: 1.6;
+    }
+    
+    /* 제목 비율 상대적 조정 - rem 단위 */
+    h1 { font-size: clamp(1.125rem, 4vw, 1.25rem); } /* 18px - 20px */
+    h2 { font-size: clamp(1rem, 3vw, 1.125rem); } /* 16px - 18px */
+    h3 { font-size: clamp(0.875rem, 2.5vw, 1rem); } /* 14px - 16px */
+  }
+  
+  /* 작은 모바일 화면 (480px 이하) */
+  @media (max-width: 479px) {
+    /* 더 적극적인 폰트 크기 보장 */
+    .text-xs, .text-sm, .text-base {
+      font-size: 1rem !important; /* 고정 16px */
+    }
+    
+    /* 핵심 정보 강조 */
+    .mobile-card-title {
+      font-size: 1.25rem !important; /* 20px */
+    }
+    
+    .mobile-card-highlight {
+      font-size: 1.25rem !important; /* 20px */
+    }
+    
+    .text-amount {
+      font-size: 1.375rem !important; /* 22px */
+    }
+    
+    /* 불필요한 요소 숨기기 */
+    .mobile-hide {
+      display: none !important;
+    }
+    
+    /* 세로 정렬 강화 */
+    .mobile-force-column {
+      flex-direction: column !important;
+    }
+    
+    /* 터치 영역 확대 */
+    button, a, .clickable {
+      min-height: 3rem !important; /* 48px */
+      min-width: 3rem !important; /* 48px */
+    }
+  }
+  
+  /* PC 환경 (768px 이상) */
+  @media (min-width: 768px) {
+    .mobile-table-card {
+      display: none;
+    }
+    
+    table {
+      display: table;
+    }
+  }
+  :root {
+    --background: 36 33% 97%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 174 73% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 95% 58%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 10% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 174 73% 46%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 174 73% 46%;
+
+    --radius: 1.25rem;
+
+    /* 시각적 위계 색상 */
+    --heading-color: 220 20% 10%; /* #1A1A1A */
+    --heading-color-dark: 0 0% 100%; /* #FFFFFF */
+    --subtext-color: 215 10% 60%; /* #8B95A1 */
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 10% 30%;
+    --sidebar-primary: 174 73% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 174 73% 46%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 13% 93%;
+    --sidebar-ring: 174 73% 46%;
+
+    /* Custom app tokens */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 45 93% 15%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --shadow-soft: 0 4px 20px -2px hsla(0, 0%, 0%, 0.05);
+    --shadow-card: 0 2px 10px hsla(0, 0%, 0%, 0.03);
+    --shadow-neon: 0 0 10px hsla(174, 73%, 46%, 0.3);
+    --shadow-float: 0 10px 30px -10px hsla(174, 73%, 46%, 0.4);
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 88%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 88%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 88%;
+
+    --primary: 174 73% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 95% 58%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 75%;
+
+    --accent: 174 73% 46%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 88%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 174 73% 46%;
+
+    /* 시각적 위계 색상 (다크 모드) */
+    --heading-color: 0 0% 100%; /* #FFFFFF */
+    --subtext-color: 215 10% 70%; /* 더 밝은 부가 설명 색상 */
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 174 73% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 174 73% 46%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 174 73% 46%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 10%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: clamp(14px, 0.75rem + 0.35vw, 16px);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* KakaoPay-style Typography - Pretendard Optimized */
+.text-display {
+  font-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.text-headline {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.text-title {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.text-body-large {
+  font-size: clamp(1rem, 1.5vw + 0.25rem, 1.125rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.text-body {
+  font-size: clamp(0.875rem, 1vw + 0.25rem, 1rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.text-caption {
+  font-size: clamp(0.75rem, 0.5vw + 0.25rem, 0.875rem);
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+/* Responsive micro text: scales from mobile to desktop */
+.text-micro { font-size: clamp(8px, 0.45rem + 0.15vw, 10px); }
+.text-micro-sm { font-size: clamp(9px, 0.5rem + 0.15vw, 11px); }
+.text-micro-md { font-size: clamp(10px, 0.55rem + 0.2vw, 13px); }
+.text-micro-lg { font-size: clamp(11px, 0.6rem + 0.2vw, 14px); }
+
+/* KakaoPay-style Spacing */
+.spacing-section {
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+}
+
+.spacing-card {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.spacing-compact {
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.spacing-loose {
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* KakaoPay-style Card Variants */
+.card-kakao {
+  border-radius: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  transition: all 0.2s ease-in-out;
+}
+
+.card-kakao:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.card-kakao-large {
+  border-radius: 1.5rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+.card-kakao-compact {
+  border-radius: 1rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* INOPNC Logo Styles */
+.logo-desktop {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.4rem, 2.4vw + 0.4rem, 2rem); /* 20% smaller than text-headline */
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.logo-mobile {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem); /* Keep mobile size as is */
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Safe area for mobile bottom nav */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Print Styles */
+@media print {
+  @page { margin: 1cm; size: A4; }
+  body { background-color: white !important; color: black !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print, nav, aside, header, .fab-button { display: none !important; }
+  main { margin: 0 !important; padding: 0 !important; width: 100% !important; height: auto !important; overflow: visible !important; }
+}
