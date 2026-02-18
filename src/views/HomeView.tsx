@@ -216,7 +216,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
     const today = new Date().toISOString().split('T')[0];
     const days: React.ReactNode[] = [];
 
-    for (let i = 0; i < firstDay; i++) days.push(<div key={`empty-${i}`} className="min-h-[100px] border-r border-b border-border bg-muted/30"></div>);
+    for (let i = 0; i < firstDay; i++) days.push(<div key={`empty-${i}`} className="min-h-[100px] border-r border-b border-border bg-muted/30 dark:border-[#3a3a3a] dark:bg-[#2b2b2b]"></div>);
 
     for (let d = 1; d <= lastDate; d++) {
       const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
@@ -238,9 +238,9 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
 
       days.push(
         <div key={d} onClick={() => { setSelectedDate(dateStr); setLogModalDate(dateStr); setLogModalOpen(true); }}
-          className={`min-h-[80px] border-r border-b border-border p-0.5 cursor-pointer transition-colors relative group flex flex-col ${isSelected ? 'bg-accent ring-2 ring-inset ring-primary' : 'hover:bg-muted'} ${isToday ? 'bg-accent/50' : 'bg-card'}`}
+          className={`min-h-[80px] border-r border-b border-border dark:border-[#3a3a3a] p-0.5 cursor-pointer transition-colors relative group flex flex-col ${isSelected ? 'bg-accent ring-2 ring-inset ring-primary dark:bg-[#464646] dark:ring-[#7aa2ff]' : isToday ? 'bg-accent/50 dark:bg-[#434343]' : 'bg-card dark:bg-[#3a3a3a]'} ${!isSelected ? 'hover:bg-muted dark:hover:bg-[#4a4a4a]' : ''}`}
         >
-          <div className={`text-xs font-bold px-0.5 mb-0.5 ${isToday ? 'text-primary' : 'text-foreground'}`}>{d}</div>
+          <div className={`text-xs font-bold px-0.5 mb-0.5 ${isToday ? 'text-primary dark:text-[#a6c8ff]' : 'text-foreground dark:text-[#f3f3f3]'}`}>{d}</div>
           <div className="flex-1 flex flex-col gap-0.5 overflow-hidden">
             {(() => {
               const siteEntries = Object.entries(logsBySite);
@@ -271,22 +271,26 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                     if (needsTruncate && usedLines >= MAX_LINES - 1) {
                       if (idx === siteData.length - 1 || usedLines === MAX_LINES - 1) {
                         const remaining = siteData.slice(idx).reduce((s, d) => s + d.siteLogs.length, 0);
-                        return <div key="more" className="text-muted-foreground text-center font-bold" style={{ fontSize: '9px', lineHeight: '13px' }}>+{remaining}건</div>;
+                        return <div key="more" className="text-muted-foreground dark:text-[#e0e0e0] text-center font-bold" style={{ fontSize: '9px', lineHeight: '13px' }}>+{remaining}건</div>;
                       }
                       return null;
                     }
                     usedLines += lines;
                     return (
-                      <div key={siteId} className={`rounded-[2px] px-0.5 ${theme.header}`} style={{ fontSize: '10px', lineHeight: '13px' }}>
+                      <div
+                        key={siteId}
+                        className={`rounded-[2px] px-0.5 border ${theme.border} ${theme.header}`}
+                        style={{ ...(theme.styleVars as React.CSSProperties), fontSize: '10px', lineHeight: '13px' }}
+                      >
                         <span className="font-bold">{site?.name?.slice(0, 4) || '미지정'}</span>
                         {Object.entries(mdGroups).map(([md, names]) => (
-                          <div key={md} className={`opacity-80 ${md === '0' || md === '0.5' ? 'text-red-500 font-bold' : ''}`}>
+                          <div key={md} className={`opacity-80 dark:opacity-95 ${md === '0' || md === '0.5' ? 'text-red-500 dark:text-red-300 font-bold' : ''}`}>
                             {md === '0' ? (
-                              <span className="text-red-500">휴무</span>
+                              <span className="text-red-500 dark:text-red-300">휴무</span>
                             ) : (
                               <>
                                 {names.map((n, i) => <span key={i}>({n})</span>)}
-                                <span className={`ml-0.5 font-bold ${md === '0.5' ? 'text-red-500' : ''}`}>{md}</span>
+                                <span className={`ml-0.5 font-bold ${md === '0.5' ? 'text-red-500 dark:text-red-300' : ''}`}>{md}</span>
                               </>
                             )}
                           </div>
@@ -350,7 +354,10 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                   });
                   return (
                     <div key={siteId} className="flex flex-wrap items-center gap-2">
-                      <span className={`inline-flex items-center text-micro-lg font-bold px-2 py-1 rounded-lg ${theme.header}`}>
+                      <span
+                        className={`inline-flex items-center text-micro-lg font-bold px-2 py-1 rounded-lg border ${theme.border} ${theme.header}`}
+                        style={{ ...(theme.styleVars as React.CSSProperties) }}
+                      >
                         {site?.name || '미지정'}
                       </span>
                       {Object.entries(mdGroups).map(([md, names]) => (
@@ -432,34 +439,34 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
           </div>
           
           {/* 날짜 네비게이션과 캘린더 통합 컨테이너 */}
-          <div className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden">
-            <div className="flex justify-center items-center gap-4 p-4 border-b border-border bg-muted/50">
+          <div className="bg-card dark:bg-[#1f1f1f] rounded-2xl shadow-sm border border-border dark:border-[#3a3a3a] overflow-hidden">
+            <div className="flex justify-center items-center gap-4 p-4 border-b border-border dark:border-[#3a3a3a] bg-muted/50 dark:bg-[#262626]">
               <button 
                 onClick={(e) => { e.stopPropagation(); setCalMonth(new Date(calMonth.getFullYear(), calMonth.getMonth() - 1, 1)); }} 
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-muted-foreground transition-colors"
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#353535] text-muted-foreground dark:text-[#d6d6d6] transition-colors"
               >
                 <ChevronLeft size={16} />
               </button>
               <div className="relative flex-shrink-0">
                 <button 
                   onClick={() => { setMonthYearPickerOpen(!monthYearPickerOpen); }} 
-                  className="text-center text-lg font-bold text-foreground min-w-[120px] hover:text-primary transition-colors cursor-pointer"
+                  className="text-center text-lg font-bold text-foreground dark:text-[#f3f3f3] min-w-[120px] hover:text-primary transition-colors cursor-pointer"
                 >
                   {calMonth.getFullYear()}년 {calMonth.getMonth() + 1}월
                 </button>
                 {monthYearPickerOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-card border border-border rounded-2xl shadow-2xl z-50 w-64 p-4 animate-fade-in">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-card dark:bg-[#242424] border border-border dark:border-[#3a3a3a] rounded-2xl shadow-2xl z-50 w-64 p-4 animate-fade-in">
                     <div className="flex justify-between items-center mb-4">
-                      <button onClick={() => setMonthYearPickerViewYear(monthYearPickerViewYear - 1)} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"><ChevronLeft size={16} /></button>
-                      <span className="font-bold text-lg text-foreground">{monthYearPickerViewYear}년</span>
-                      <button onClick={() => setMonthYearPickerViewYear(monthYearPickerViewYear + 1)} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"><ChevronRight size={16} /></button>
+                      <button onClick={() => setMonthYearPickerViewYear(monthYearPickerViewYear - 1)} className="p-1 hover:bg-gray-100 dark:hover:bg-[#353535] rounded-full"><ChevronLeft size={16} /></button>
+                      <span className="font-bold text-lg text-foreground dark:text-[#f3f3f3]">{monthYearPickerViewYear}년</span>
+                      <button onClick={() => setMonthYearPickerViewYear(monthYearPickerViewYear + 1)} className="p-1 hover:bg-gray-100 dark:hover:bg-[#353535] rounded-full"><ChevronRight size={16} /></button>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       {Array.from({ length: 12 }, (_, i) => (
                         <button
                           key={i}
                           onClick={() => { setCalMonth(new Date(monthYearPickerViewYear, i, 1)); setMonthYearPickerOpen(false); }}
-                          className={`py-2 rounded-lg text-sm font-bold transition-colors ${calMonth.getMonth() === i && calMonth.getFullYear() === monthYearPickerViewYear ? 'bg-primary text-primary-foreground' : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-muted-foreground'}`}
+                          className={`py-2 rounded-lg text-sm font-bold transition-colors ${calMonth.getMonth() === i && calMonth.getFullYear() === monthYearPickerViewYear ? 'bg-primary text-primary-foreground' : 'hover:bg-gray-100 dark:hover:bg-[#353535] text-muted-foreground dark:text-[#d6d6d6]'}`}
                         >
                           {i + 1}월
                         </button>
@@ -470,7 +477,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
               </div>
               <button 
                 onClick={(e) => { e.stopPropagation(); setCalMonth(new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 1)); }} 
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-muted-foreground transition-colors"
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#353535] text-muted-foreground dark:text-[#d6d6d6] transition-colors"
               >
                 <ChevronRight size={16} />
               </button>
@@ -479,9 +486,9 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
             {/* 캘린더 콘텐츠 */}
             {viewMode === 'calendar' ? (
               <>
-                <div className="grid grid-cols-7 border-b border-border bg-muted/50">
+                <div className="grid grid-cols-7 border-b border-border dark:border-[#3a3a3a] bg-muted/50 dark:bg-[#262626]">
                   {['일', '월', '화', '수', '목', '금', '토'].map((d, i) => (
-                    <div key={d} className={`text-center py-3 text-xs font-bold ${i === 0 ? 'text-red-500' : 'text-muted-foreground'}`}>{d}</div>
+                    <div key={d} className={`text-center py-3 text-xs font-bold ${i === 0 ? 'text-red-500 dark:text-red-400' : 'text-muted-foreground dark:text-[#d6d6d6]'}`}>{d}</div>
                   ))}
                 </div>
                 <div className="grid grid-cols-7">{generateCalendar()}</div>
