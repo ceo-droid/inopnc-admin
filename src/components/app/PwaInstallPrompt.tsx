@@ -37,12 +37,7 @@ export default function PwaInstallPrompt() {
         </button>
 
         <div className="flex flex-col items-center text-center">
-          <img
-            src="/icons/icon-192x192.png"
-            alt="INOPNC 앱 아이콘"
-            className="h-16 w-16 rounded-2xl border border-border/70 shadow-sm"
-          />
-          <div className="mt-3 rounded-full bg-primary/10 p-2 text-primary">
+          <div className="rounded-full bg-primary/10 p-2 text-primary">
             <Download size={16} />
           </div>
 
