@@ -23,18 +23,18 @@ export default function PwaInstallPrompt() {
 
   const description = useMemo(() => {
     if (isInstallable) {
-      return 'Install the app for faster access from your home screen.';
+      return '\uC571\uC73C\uB85C \uC124\uCE58\uD558\uBA74 \uD648 \uD654\uBA74\uC5D0\uC11C \uB354 \uBE60\uB974\uAC8C \uC2E4\uD589\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.';
     }
 
     if (manualHint) {
       return isIOS
-        ? 'Use Safari share and choose "Add to Home Screen".'
-        : 'Use browser menu and choose "Add to Home screen" or "Install app".';
+        ? 'Safari \uACF5\uC720 \uC2DC\uD2B8\uB97C \uC5F4\uACE0 \"\uD648 \uD654\uBA74\uC5D0 \uCD94\uAC00\"\uB97C \uC120\uD0DD\uD558\uC138\uC694.'
+        : '\uBE0C\uB77C\uC6B0\uC800 \uBA54\uB274\uC5D0\uC11C \"\uD648 \uD654\uBA74\uC5D0 \uCD94\uAC00\" \uB610\uB294 \"\uC571 \uC124\uCE58\"\uB97C \uC120\uD0DD\uD558\uC138\uC694.';
     }
 
     return isIOS
-      ? 'Tap confirm to open share sheet, then choose "Add to Home Screen".'
-      : 'Tap confirm and choose "Add to Home screen" or "Install app" from browser menu.';
+      ? '\uD655\uC778\uC744 \uB204\uB974\uBA74 \uACF5\uC720 \uC2DC\uD2B8\uAC00 \uC5F4\uB9BD\uB2C8\uB2E4. \"\uD648 \uD654\uBA74\uC5D0 \uCD94\uAC00\"\uB97C \uC120\uD0DD\uD558\uC138\uC694.'
+      : '\uD655\uC778\uC744 \uB204\uB978 \uD6C4 \uBE0C\uB77C\uC6B0\uC800 \uBA54\uB274\uC5D0\uC11C \"\uD648 \uD654\uBA74\uC5D0 \uCD94\uAC00\" \uB610\uB294 \"\uC571 \uC124\uCE58\"\uB97C \uC120\uD0DD\uD558\uC138\uC694.';
   }, [isInstallable, isIOS, manualHint]);
 
   if (!isVisible) return null;
