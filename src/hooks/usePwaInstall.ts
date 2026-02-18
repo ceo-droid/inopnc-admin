@@ -10,6 +10,11 @@ const isIOSDevice = () => {
   return /iphone|ipad|ipod/i.test(navigator.userAgent);
 };
 
+const isMobileDevice = () => {
+  if (typeof navigator === 'undefined') return false;
+  return /android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent);
+};
+
 const isStandaloneMode = () => {
   if (typeof window === 'undefined') return false;
   const navStandalone = (window.navigator as Navigator & { standalone?: boolean }).standalone === true;
@@ -58,9 +63,9 @@ export const usePwaInstall = () => {
   }, [deferredPrompt]);
 
   const isIOS = useMemo(() => isIOSDevice(), []);
+  const isMobile = useMemo(() => isMobileDevice(), []);
   const isStandalone = useMemo(() => isInstalled || isStandaloneMode(), [isInstalled]);
   const isInstallable = !!deferredPrompt && !isStandalone;
 
-  return { isIOS, isStandalone, isInstallable, promptInstall };
+  return { isIOS, isMobile, isStandalone, isInstallable, promptInstall };
 };
-
