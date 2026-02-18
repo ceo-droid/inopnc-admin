@@ -216,7 +216,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
     const today = new Date().toISOString().split('T')[0];
     const days: React.ReactNode[] = [];
 
-    for (let i = 0; i < firstDay; i++) days.push(<div key={`empty-${i}`} className="min-h-[100px] border-r border-b border-border bg-muted/30 dark:border-[#3a3a3a] dark:bg-[#2b2b2b]"></div>);
+    for (let i = 0; i < firstDay; i++) days.push(<div key={`empty-${i}`} className="min-h-[100px] border-r border-b border-border bg-muted/30 dark:border-[#3a3a3a] dark:bg-[#262626]"></div>);
 
     for (let d = 1; d <= lastDate; d++) {
       const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
@@ -238,7 +238,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
 
       days.push(
         <div key={d} onClick={() => { setSelectedDate(dateStr); setLogModalDate(dateStr); setLogModalOpen(true); }}
-          className={`min-h-[80px] border-r border-b border-border dark:border-[#3a3a3a] p-0.5 cursor-pointer transition-colors relative group flex flex-col ${isSelected ? 'bg-accent ring-2 ring-inset ring-primary dark:bg-[#464646] dark:ring-[#7aa2ff]' : isToday ? 'bg-accent/50 dark:bg-[#434343]' : 'bg-card dark:bg-[#3a3a3a]'} ${!isSelected ? 'hover:bg-muted dark:hover:bg-[#4a4a4a]' : ''}`}
+          className={`min-h-[80px] border-r border-b border-border dark:border-[#3a3a3a] p-0.5 cursor-pointer transition-colors relative group flex flex-col ${isSelected ? 'bg-accent ring-2 ring-inset ring-primary dark:bg-[#3c3c3c] dark:ring-[#7aa2ff]' : isToday ? 'bg-accent/50 dark:bg-[#353535]' : 'bg-card dark:bg-[#2f2f2f]'} ${!isSelected ? 'hover:bg-muted dark:hover:bg-[#3a3a3a]' : ''}`}
         >
           <div className={`text-xs font-bold px-0.5 mb-0.5 ${isToday ? 'text-primary dark:text-[#a6c8ff]' : 'text-foreground dark:text-[#f3f3f3]'}`}>{d}</div>
           <div className="flex-1 flex flex-col gap-0.5 overflow-hidden">
