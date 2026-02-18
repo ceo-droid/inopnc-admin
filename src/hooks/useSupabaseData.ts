@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef, type MutableRefObject } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import type { AppState, Site, Worker, WorkLog, Transaction, ChecklistItem } from '@/types';
+import type { AppState, Site, Worker, WorkLog, Transaction, ChecklistItem, Customer } from '@/types';
 
-const EMPTY_STATE: AppState = { sites: [], workers: [], workLogs: [], transactions: [], checklists: [] };
+const EMPTY_STATE: AppState = { sites: [], customers: [], workers: [], workLogs: [], transactions: [], checklists: [] };
 const PAGED_TABLES = new Set(['work_logs', 'transactions', 'checklists']);
 const PAGE_SIZE = 1000;
 const PAGE_CONCURRENCY = 4;
@@ -12,10 +12,12 @@ const CACHE_TTL_MS = 5 * 60 * 1000;
 
 const TABLE_SELECTS: Record<string, string> = {
   sites: 'id,name,budget,company_name,status,created_at',
+  customers: 'id,name,contact,created_at',
   workers: 'id,name,daily,created_at',
   work_logs: 'id,date,site_id,worker_id,md,note,created_at',
   transactions: 'id,date,site_id,category,description,amount,created_at',
-  checklists: 'id,type,date,title,amount,status,memo,created_at',
+  checklists:
+    'id,type,date,title,amount,status,memo,supplier,quantity,unit_price,shipping_type,payment_status,created_at',
 };
 
 const isBrowser = () => typeof window !== 'undefined';
@@ -29,9 +31,13 @@ function readCache(): AppState | null {
     const raw = localStorage.getItem(CACHE_KEY);
     if (!raw) return null;
 
-    const parsed = JSON.parse(raw) as AppState;
+    const parsed = JSON.parse(raw) as Partial<AppState>;
     if (!parsed || !Array.isArray(parsed.sites) || !Array.isArray(parsed.workers)) return null;
-    return parsed;
+    return {
+      ...EMPTY_STATE,
+      ...parsed,
+      customers: Array.isArray(parsed.customers) ? parsed.customers : [],
+    };
   } catch {
     return null;
   }
@@ -138,6 +144,14 @@ function mapWorker(w: any): Worker {
   return { id: w.id, name: w.name, daily: w.daily || 150000 };
 }
 
+function mapCustomer(c: any): Customer {
+  return {
+    id: c.id,
+    name: c.name,
+    contact: c.contact || '',
+  };
+}
+
 function mapWorkLog(l: any): WorkLog {
   return {
     id: l.id,
@@ -171,13 +185,19 @@ function mapChecklist(c: any): ChecklistItem {
     amount: c.amount || 0,
     status: c.status || 'pending',
     memo: c.memo || '',
+    supplier: c.supplier || '',
+    quantity: c.quantity == null ? undefined : Number(c.quantity) || 0,
+    unitPrice: c.unit_price == null ? undefined : Number(c.unit_price) || 0,
+    shippingType: c.shipping_type || undefined,
+    paymentStatus: c.payment_status || undefined,
   };
 }
 
-type TableKey = 'sites' | 'workers' | 'workLogs' | 'transactions' | 'checklists';
+type TableKey = 'sites' | 'customers' | 'workers' | 'workLogs' | 'transactions' | 'checklists';
 
 const TABLE_CONFIG: Record<string, { key: TableKey; mapper: (r: any) => any }> = {
   sites: { key: 'sites', mapper: mapSite },
+  customers: { key: 'customers', mapper: mapCustomer },
   workers: { key: 'workers', mapper: mapWorker },
   work_logs: { key: 'workLogs', mapper: mapWorkLog },
   transactions: { key: 'transactions', mapper: mapTransaction },
@@ -203,8 +223,9 @@ export const useSupabaseData = (addToast: (msg: string, type: 'success' | 'error
     if (!silent) setLoading(true);
 
     try {
-      const [sitesData, workersData, logsData, transData, checkData] = await Promise.all([
+      const [sitesData, customersData, workersData, logsData, transData, checkData] = await Promise.all([
         fetchAll<any>('sites', 'created_at', true),
+        fetchAll<any>('customers', 'created_at', true),
         fetchAll<any>('workers', 'created_at', true),
         fetchAll<any>('work_logs', 'date', false),
         fetchAll<any>('transactions', 'date', false),
@@ -213,6 +234,7 @@ export const useSupabaseData = (addToast: (msg: string, type: 'success' | 'error
 
       const nextState: AppState = {
         sites: sitesData.map(mapSite),
+        customers: customersData.map(mapCustomer),
         workers: workersData.map(mapWorker),
         workLogs: logsData.map(mapWorkLog),
         transactions: transData.map(mapTransaction),
@@ -278,6 +300,7 @@ export const useSupabaseData = (addToast: (msg: string, type: 'success' | 'error
     const channel = (supabase as any)
       .channel('realtime-all')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'sites' }, handleChange('sites'))
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'customers' }, handleChange('customers'))
       .on('postgres_changes', { event: '*', schema: 'public', table: 'workers' }, handleChange('workers'))
       .on('postgres_changes', { event: '*', schema: 'public', table: 'work_logs' }, handleChange('work_logs'))
       .on('postgres_changes', { event: '*', schema: 'public', table: 'transactions' }, handleChange('transactions'))
@@ -335,6 +358,16 @@ async function syncChanges(
       );
     }
 
+    if (prev.customers !== next.customers) {
+      tasks.push(
+        syncTable('customers', prev.customers, next.customers, (c: Customer) => ({
+          id: c.id,
+          name: c.name,
+          contact: c.contact || null,
+        }))
+      );
+    }
+
     if (prev.workers !== next.workers) {
       tasks.push(
         syncTable('workers', prev.workers, next.workers, (w: Worker) => ({
@@ -362,7 +395,18 @@ async function syncChanges(
     if (prev.checklists !== next.checklists) {
       tasks.push(
         syncTable('checklists', prev.checklists, next.checklists, (c: ChecklistItem) => ({
-          id: c.id, type: c.type, date: c.date, title: c.title, amount: c.amount, status: c.status, memo: c.memo || null,
+          id: c.id,
+          type: c.type,
+          date: c.date,
+          title: c.title,
+          amount: c.amount,
+          status: c.status,
+          memo: c.memo || null,
+          supplier: c.supplier || null,
+          quantity: c.quantity ?? null,
+          unit_price: c.unitPrice ?? null,
+          shipping_type: c.shippingType || null,
+          payment_status: c.paymentStatus || null,
         }))
       );
     }

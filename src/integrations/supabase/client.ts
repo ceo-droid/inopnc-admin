@@ -17,29 +17,59 @@ const ENV_SUPABASE_KEY = isPlaceholder(RAW_ENV_SUPABASE_KEY)
   ? undefined
   : RAW_ENV_SUPABASE_KEY;
 
-// Fallback to the current project so production still works even if env vars are missing on Vercel.
-const SUPABASE_URL = ENV_SUPABASE_URL || 'https://gbdcwxrnemirswlecwwh.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY =
-  ENV_SUPABASE_KEY || 'sb_publishable_oZ5xCxhRkD7mhk_vn8e4dg_Ic_gNZij';
-const hasSupabaseEnv = Boolean(ENV_SUPABASE_URL && ENV_SUPABASE_KEY);
+const SUPABASE_URL = ENV_SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = ENV_SUPABASE_KEY;
+const hasSupabaseEnv = Boolean(SUPABASE_URL && SUPABASE_PUBLISHABLE_KEY);
+
+const missingEnvError = {
+  code: 'SUPABASE_ENV_MISSING',
+  message: 'Missing VITE_SUPABASE_URL/VITE_SUPABASE_PUBLISHABLE_KEY. Check .env or deployment env vars.',
+};
+
+const createDisabledSupabaseClient = (): any => {
+  const result = { data: null, error: missingEnvError };
+  let proxy: any;
+  const target = () => proxy;
+  proxy = new Proxy(target, {
+    get(_target, prop) {
+      if (prop === 'then') {
+        return (onFulfilled?: (value: typeof result) => unknown, onRejected?: (reason: unknown) => unknown) =>
+          Promise.resolve(result).then(onFulfilled, onRejected);
+      }
+      if (prop === 'catch') {
+        return (onRejected?: (reason: unknown) => unknown) => Promise.resolve(result).catch(onRejected);
+      }
+      if (prop === 'finally') {
+        return (onFinally?: () => unknown) => Promise.resolve(result).finally(onFinally);
+      }
+      return proxy;
+    },
+    apply() {
+      return proxy;
+    },
+  });
+  return proxy;
+};
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
 if (!hasSupabaseEnv) {
   console.warn(
-    '[supabase] Missing env vars. Using baked fallback config for this project.'
+    '[supabase] Missing env vars. Supabase client is running in disabled mode.'
   );
 }
 
-export const supabase = createClient<Database>(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY,
-  {
-  auth: {
-    storage: localStorage,
-    persistSession: true,
-    autoRefreshToken: true,
-  }
-}
-);
+export const supabase = hasSupabaseEnv
+  ? createClient<Database>(
+      SUPABASE_URL!,
+      SUPABASE_PUBLISHABLE_KEY!,
+      {
+        auth: {
+          storage: localStorage,
+          persistSession: true,
+          autoRefreshToken: true,
+        },
+      }
+    )
+  : (createDisabledSupabaseClient() as any);

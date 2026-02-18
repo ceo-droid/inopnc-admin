@@ -75,7 +75,7 @@ export default function PwaInstallPrompt() {
       <div className="relative w-full max-w-sm rounded-3xl border border-border bg-card shadow-2xl px-5 py-6">
         <button
           onClick={handleDismiss}
-          className="absolute right-3 top-3 rounded-lg p-1 text-muted-foreground transition hover:bg-muted hover:text-foreground"
+          className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted hover:text-foreground"
           aria-label={LABELS.close}
         >
           <X size={16} />

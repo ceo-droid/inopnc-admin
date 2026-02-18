@@ -21,9 +21,14 @@ export type Database = {
           date: string
           id: string
           memo: string | null
+          payment_status: string | null
+          quantity: number | null
           status: string
+          shipping_type: string | null
+          supplier: string | null
           title: string
           type: string
+          unit_price: number | null
         }
         Insert: {
           amount?: number
@@ -31,9 +36,14 @@ export type Database = {
           date: string
           id?: string
           memo?: string | null
+          payment_status?: string | null
+          quantity?: number | null
           status?: string
+          shipping_type?: string | null
+          supplier?: string | null
           title: string
           type?: string
+          unit_price?: number | null
         }
         Update: {
           amount?: number
@@ -41,9 +51,35 @@ export type Database = {
           date?: string
           id?: string
           memo?: string | null
+          payment_status?: string | null
+          quantity?: number | null
           status?: string
+          shipping_type?: string | null
+          supplier?: string | null
           title?: string
           type?: string
+          unit_price?: number | null
+        }
+        Relationships: []
+      }
+      customers: {
+        Row: {
+          contact: string | null
+          created_at: string
+          id: string
+          name: string
+        }
+        Insert: {
+          contact?: string | null
+          created_at?: string
+          id?: string
+          name: string
+        }
+        Update: {
+          contact?: string | null
+          created_at?: string
+          id?: string
+          name?: string
         }
         Relationships: []
       }

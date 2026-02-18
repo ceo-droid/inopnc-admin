@@ -17,6 +17,7 @@ interface SearchableSelectProps {
   searchable?: boolean;
   compact?: boolean;
   clearable?: boolean;
+  allowCustomValue?: boolean;
 }
 
 const SearchableSelect = ({
@@ -29,6 +30,7 @@ const SearchableSelect = ({
   searchable = true,
   compact = false,
   clearable = true,
+  allowCustomValue = false,
 }: SearchableSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState('');
@@ -57,6 +59,16 @@ const SearchableSelect = ({
         (o.sub && o.sub.toLowerCase().includes(search.toLowerCase()))
     );
   }, [options, recentIds, search]);
+
+  const customCandidate = useMemo(() => {
+    const input = search.trim();
+    if (!allowCustomValue || !searchable || !input) return null;
+    const normalizedInput = input.toLowerCase();
+    const exists = options.some(
+      (o) => o.id.toLowerCase() === normalizedInput || o.label.toLowerCase() === normalizedInput
+    );
+    return exists ? null : input;
+  }, [allowCustomValue, options, search, searchable]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -160,7 +172,26 @@ const SearchableSelect = ({
             </div>
           )}
           <div className="overflow-y-auto flex-1 overscroll-contain">
-            {sortedOptions.length === 0 && (
+            {customCandidate && (
+              <button
+                onClick={() => {
+                  onChange(customCandidate);
+                  setIsOpen(false);
+                  setSearch('');
+                }}
+                className="w-full text-left px-3 py-2.5 hover:bg-[#f5f5f5] hover:!text-black text-[15px] md:text-sm leading-[1.35] font-semibold transition-all duration-200 ease border-b border-border flex justify-between items-center gap-2 group min-h-[44px] text-foreground"
+              >
+                <div className="min-w-0 flex-1">
+                  <div className="font-semibold group-hover:!text-black transition-colors truncate">
+                    {customCandidate}
+                  </div>
+                  <div className="text-caption text-muted-foreground truncate">
+                    직접 입력값 사용
+                  </div>
+                </div>
+              </button>
+            )}
+            {sortedOptions.length === 0 && !customCandidate && (
               <div className="p-4 text-center text-sm font-semibold text-muted-foreground">
                 검색 결과가 없습니다.
               </div>

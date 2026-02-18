@@ -169,7 +169,8 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
   };
 
   const payrollData = useMemo(() => {
-    let logs = data.workLogs;
+    // sort/filter on a cloned array to avoid mutating source state order
+    let logs = [...data.workLogs];
     if (!payShowAll) {
       const y = payMonth.getFullYear();
       const m = payMonth.getMonth() + 1;
@@ -204,7 +205,10 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
     const ws = XLSX.utils.json_to_sheet(excelData);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, '출력현황');
-    XLSX.writeFile(wb, `출력현황_${payMonth.getFullYear()}_${String(payMonth.getMonth() + 1).padStart(2, '0')}.xlsx`);
+    const fileSuffix = payShowAll
+      ? 'all'
+      : `${payMonth.getFullYear()}_${String(payMonth.getMonth() + 1).padStart(2, '0')}`;
+    XLSX.writeFile(wb, `출력현황_${fileSuffix}.xlsx`);
     addToast('엑셀 다운로드 완료', 'success');
   };
 
@@ -238,7 +242,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
 
       days.push(
         <div key={d} onClick={() => { setSelectedDate(dateStr); setLogModalDate(dateStr); setLogModalOpen(true); }}
-          className={`min-h-[80px] border-r border-b border-border dark:border-[#3a3a3a] p-0.5 cursor-pointer transition-colors relative group flex flex-col ${isSelected ? 'bg-accent ring-2 ring-inset ring-primary dark:bg-[#3c3c3c] dark:ring-[#7aa2ff]' : isToday ? 'bg-accent/50 dark:bg-[#353535]' : 'bg-card dark:bg-[#2f2f2f]'} ${!isSelected ? 'hover:bg-muted dark:hover:bg-[#3a3a3a]' : ''}`}
+          className={`min-h-[80px] border-r border-b border-border dark:border-[#3a3a3a] p-0.5 cursor-pointer transition-colors relative group flex flex-col ${isSelected ? 'bg-accent/15 ring-2 ring-inset ring-primary dark:bg-[#3c3c3c] dark:ring-[#7aa2ff]' : isToday ? 'bg-accent/50 dark:bg-[#353535]' : 'bg-card dark:bg-[#2f2f2f]'} ${!isSelected ? 'hover:bg-muted dark:hover:bg-[#3a3a3a]' : ''}`}
         >
           <div className={`text-xs font-bold px-0.5 mb-0.5 ${isToday ? 'text-primary dark:text-[#a6c8ff]' : 'text-foreground dark:text-[#f3f3f3]'}`}>{d}</div>
           <div className="flex-1 flex flex-col gap-0.5 overflow-hidden">
@@ -457,16 +461,16 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                 {monthYearPickerOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-card dark:bg-[#242424] border border-border dark:border-[#3a3a3a] rounded-2xl shadow-2xl z-50 w-64 p-4 animate-fade-in">
                     <div className="flex justify-between items-center mb-4">
-                      <button onClick={() => setMonthYearPickerViewYear(monthYearPickerViewYear - 1)} className="p-1 hover:bg-gray-100 dark:hover:bg-[#353535] rounded-full"><ChevronLeft size={16} /></button>
+                      <button onClick={() => setMonthYearPickerViewYear(monthYearPickerViewYear - 1)} className="h-8 w-8 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-[#353535] rounded-full"><ChevronLeft size={16} /></button>
                       <span className="font-bold text-lg text-foreground dark:text-[#f3f3f3]">{monthYearPickerViewYear}년</span>
-                      <button onClick={() => setMonthYearPickerViewYear(monthYearPickerViewYear + 1)} className="p-1 hover:bg-gray-100 dark:hover:bg-[#353535] rounded-full"><ChevronRight size={16} /></button>
+                      <button onClick={() => setMonthYearPickerViewYear(monthYearPickerViewYear + 1)} className="h-8 w-8 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-[#353535] rounded-full"><ChevronRight size={16} /></button>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       {Array.from({ length: 12 }, (_, i) => (
                         <button
                           key={i}
                           onClick={() => { setCalMonth(new Date(monthYearPickerViewYear, i, 1)); setMonthYearPickerOpen(false); }}
-                          className={`py-2 rounded-lg text-sm font-bold transition-colors ${calMonth.getMonth() === i && calMonth.getFullYear() === monthYearPickerViewYear ? 'bg-primary text-primary-foreground' : 'hover:bg-gray-100 dark:hover:bg-[#353535] text-muted-foreground dark:text-[#d6d6d6]'}`}
+                          className={`h-9 flex items-center justify-center rounded-lg text-sm font-bold transition-colors ${calMonth.getMonth() === i && calMonth.getFullYear() === monthYearPickerViewYear ? 'bg-primary text-primary-foreground' : 'hover:bg-gray-100 dark:hover:bg-[#353535] text-muted-foreground dark:text-[#d6d6d6]'}`}
                         >
                           {i + 1}월
                         </button>
@@ -501,25 +505,28 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       </div>
 
       {/* Payroll Table Section */}
-      <div className="flex items-center justify-between gap-2 mb-2 h-[44px]">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between gap-2 mb-2 min-w-0">
+        <div className="flex items-center gap-2 min-w-0">
           <h3 className="font-sans font-extrabold text-[20px] md:text-[22px] text-foreground whitespace-nowrap">
             출력현황
           </h3>
         </div>
-        <div className="flex gap-1.5 ml-auto h-full items-center">
-          <button
-            onClick={() => setPayShowAll(!payShowAll)}
-            className={`h-full px-4 rounded-full text-xs font-bold border transition-all whitespace-nowrap flex items-center justify-center ${payShowAll ? 'bg-primary text-primary-foreground border-primary shadow-neon' : 'bg-card text-muted-foreground border-border shadow-sm hover:text-foreground'}`}
+        <div className="flex gap-1.5 ml-auto h-[40px] items-center min-w-0 flex-shrink">
+          <div
+            className={`h-full rounded-full border transition-all whitespace-nowrap flex items-center justify-center min-w-[136px] sm:min-w-[152px] px-1.5 sm:px-2 flex-shrink ${
+              !payShowAll
+                ? 'bg-primary/10 border-primary shadow-sm'
+                : 'bg-card border-border shadow-sm'
+            }`}
           >
-            전체
-          </button>
+            <MonthYearPicker date={payMonth} onChange={setPayMonth} showAll={payShowAll} onSelectAll={() => setPayShowAll(true)} />
+          </div>
           <button 
             onClick={exportToExcel} 
-            className="h-full px-4 rounded-full transition-all whitespace-nowrap flex items-center justify-center gap-1 border-none shadow-sm bg-primary text-primary-foreground hover:brightness-110"
+            className="h-full w-10 sm:w-auto px-0 sm:px-4 rounded-full transition-all whitespace-nowrap flex items-center justify-center gap-1 border-none shadow-sm bg-primary text-primary-foreground hover:brightness-110 flex-shrink-0"
           >
             <Download size={14} />
-            <span className="text-xs font-bold">다운로드</span>
+            <span className="hidden sm:inline text-xs font-bold truncate">다운로드</span>
           </button>
         </div>
       </div>
@@ -528,7 +535,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       <div className="mb-4">
         <div className="bg-muted rounded-xl px-4 py-2 border border-border h-[44px] flex items-center w-full">
           <div className="flex w-full items-center justify-between gap-3 text-[14px] font-bold">
-            <span>{String(payMonth.getFullYear()).slice(2)}년 {payMonth.getMonth() + 1}월</span>
+            <span>{payShowAll ? '전체 기간' : `${String(payMonth.getFullYear()).slice(2)}년 ${payMonth.getMonth() + 1}월`}</span>
             <span>현장 {new Set(payrollData.map(r => r.siteName)).size}개</span>
             <span className="text-primary text-[14px]">총 공수 {totals.md}</span>
           </div>

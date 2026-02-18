@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Plus, Trash2, Check, CheckSquare } from 'lucide-react';
 import type { AppState, ChecklistItem, ChecklistType } from '@/types';
 import { formatCurrency } from '@/lib/helpers';
@@ -15,6 +15,7 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
   const [newItemType, setNewItemType] = useState<ChecklistType>('task');
   const [newItemTitle, setNewItemTitle] = useState('');
   const [newItemAmount, setNewItemAmount] = useState('');
+  const [newItemUnitPrice, setNewItemUnitPrice] = useState('38000');
   const [newItemDate, setNewItemDate] = useState(new Date().toISOString().split('T')[0]);
   const [filterType, setFilterType] = useState<ChecklistType | 'all'>('all');
   
@@ -27,7 +28,7 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
   // 항목 필드 상태 (받을돈, 줄돈, 업무용)
   const [newItemContent, setNewItemContent] = useState('');
   
-  const MATERIAL_UNIT_PRICE = 38000; // 자재 단가
+  const MATERIAL_UNIT_PRICE = parseInt(newItemUnitPrice.replace(/,/g, '')) || 38000; // 자재 단가
 
   const sortedChecklists = [...data.checklists]
     .filter(c => filterType === 'all' || c.type === filterType)
@@ -37,18 +38,40 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
       return b.date.localeCompare(a.date);
     });
 
+  const supplierOptions = useMemo(() => {
+    const seen = new Set<string>();
+    const options: { id: string; label: string }[] = [];
+
+    const addOption = (raw: string | undefined) => {
+      const label = String(raw || '').trim();
+      if (!label) return;
+      const key = label.toLowerCase().replace(/\s+/g, '');
+      if (seen.has(key)) return;
+      seen.add(key);
+      options.push({ id: label, label });
+    };
+
+    data.customers.forEach((customer) => addOption(customer.name));
+    data.sites.forEach((site) => addOption(site.company_name || ''));
+    addOption(newItemSupplier);
+    addOption(newItemTitle);
+
+    return options;
+  }, [data.customers, data.sites, newItemSupplier, newItemTitle]);
+
   const addItem = () => {
     if (!newItemTitle) return alert('제목을 입력해주세요.');
     
     let amount = 0;
-    let supplier, quantity, shippingType, paymentStatus;
+    let supplier, quantity, shippingType, paymentStatus, unitPrice;
     
     if (newItemType === 'material') {
       if (!newItemSupplier) return alert('거래처를 입력해주세요.');
       if (!newItemQuantity) return alert('수량을 입력해주세요.');
       
       quantity = parseInt(newItemQuantity.replace(/,/g, '')) || 0;
-      amount = quantity * MATERIAL_UNIT_PRICE;
+      unitPrice = MATERIAL_UNIT_PRICE;
+      amount = quantity * unitPrice;
       supplier = newItemSupplier;
       shippingType = newItemShippingType;
       paymentStatus = newItemPaymentStatus;
@@ -66,19 +89,39 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
       ...(newItemType === 'material' && {
         supplier,
         quantity,
-        unitPrice: MATERIAL_UNIT_PRICE,
+        unitPrice,
         shippingType,
         paymentStatus
       })
     };
-    
-    setData(prev => ({ ...prev, checklists: [...prev.checklists, newItem] }));
+
+    const selectedCustomerName = (newItemType === 'material' ? newItemSupplier : newItemTitle).trim();
+    const normalizedSelectedCustomerName = selectedCustomerName.toLowerCase().replace(/\s+/g, '');
+
+    setData(prev => {
+      const hasCustomer =
+        !!normalizedSelectedCustomerName &&
+        prev.customers.some(
+          (customer) =>
+            customer.name.trim().toLowerCase().replace(/\s+/g, '') === normalizedSelectedCustomerName
+        );
+
+      return {
+        ...prev,
+        customers:
+          normalizedSelectedCustomerName && !hasCustomer
+            ? [...prev.customers, { id: crypto.randomUUID(), name: selectedCustomerName, contact: '' }]
+            : prev.customers,
+        checklists: [...prev.checklists, newItem],
+      };
+    });
     // 폼 초기화
     setNewItemTitle('');
     setNewItemAmount('');
     setNewItemContent('');
     setNewItemSupplier('');
     setNewItemQuantity('');
+    setNewItemUnitPrice('38000');
     setNewItemShippingType('prepaid');
     setNewItemPaymentStatus('not_requested');
     
@@ -144,13 +187,8 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
                     // 자재 탭에서는 title을 빈 문자열로 유지
                     setNewItemTitle('');
                   }}
-                  options={data.sites.map(site => ({
-                    id: site.company_name || site.name,
-                    value: site.company_name || site.name,
-                    label: site.company_name || site.name
-                  })).filter((option, index, self) => 
-                    self.findIndex(o => o.value === option.value) === index
-                  )}
+                  options={supplierOptions}
+                  allowCustomValue
                   placeholder="거래처 선택 또는 입력"
                 />
               ) : (
@@ -160,13 +198,8 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
                     setNewItemTitle(value);
                     // 자동 설정 제거 - 사용자가 직접 입력하도록 유지
                   }}
-                  options={data.sites.map(site => ({
-                    id: site.company_name || site.name,
-                    value: site.company_name || site.name,
-                    label: site.company_name || site.name
-                  })).filter((option, index, self) => 
-                    self.findIndex(o => o.value === option.value) === index
-                  )}
+                  options={supplierOptions}
+                  allowCustomValue
                   placeholder="거래처 선택 또는 입력"
                 />
               )}
@@ -205,10 +238,22 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
             {newItemType !== 'task' && (
               <div>
                 <label className="text-micro-md text-muted-foreground mb-1 block font-bold">
-                  금액(세전)
+                  금액
                 </label>
                 <div className="relative">
-                  <input type="number" placeholder="0" value={newItemAmount} onChange={e => setNewItemAmount(e.target.value)} className="w-full p-2.5 md:p-2.5 rounded-xl bg-muted border border-border text-base md:text-sm text-foreground outline-none font-black text-right pr-8 min-h-[44px]" />
+                  <input
+                    type="number"
+                    placeholder={newItemType === 'material' ? '38000' : '0'}
+                    value={newItemType === 'material' ? newItemUnitPrice : newItemAmount}
+                    onChange={e => {
+                      if (newItemType === 'material') {
+                        setNewItemUnitPrice(e.target.value);
+                      } else {
+                        setNewItemAmount(e.target.value);
+                      }
+                    }}
+                    className="w-full p-2.5 md:p-2.5 rounded-xl bg-muted border border-border text-base md:text-sm text-foreground outline-none font-black text-right pr-8 min-h-[44px]"
+                  />
                   <span className="absolute right-3 top-2.5 md:top-2.5 text-base md:text-sm font-bold text-muted-foreground">원</span>
                 </div>
               </div>
@@ -232,9 +277,9 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
                     <div className="relative">
                       <input 
                         type="number" 
-                        value={MATERIAL_UNIT_PRICE} 
-                        disabled 
-                        className="w-full p-2.5 rounded-xl bg-muted border border-border text-xs font-bold text-foreground outline-none text-right pr-8 opacity-60 min-h-[44px]" 
+                        value={newItemUnitPrice}
+                        onChange={e => setNewItemUnitPrice(e.target.value)}
+                        className="w-full p-2.5 rounded-xl bg-muted border border-border text-xs font-bold text-foreground outline-none text-right pr-8 min-h-[44px]" 
                       />
                       <span className="absolute right-3 top-2.5 text-sm font-bold text-muted-foreground">원</span>
                     </div>

@@ -17,6 +17,12 @@ export interface Worker {
   daily: number;
 }
 
+export interface Customer {
+  id: string;
+  name: string;
+  contact: string;
+}
+
 export type SiteStatus = 'scheduled' | 'active' | 'completed';
 
 export interface Site {
@@ -59,6 +65,7 @@ export interface ChecklistItem {
 
 export interface AppState {
   sites: Site[];
+  customers: Customer[];
   workers: Worker[];
   workLogs: WorkLog[];
   transactions: Transaction[];

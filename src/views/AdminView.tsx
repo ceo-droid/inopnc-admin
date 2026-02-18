@@ -1,7 +1,7 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import { Building2, Users, Plus, Edit2, Trash2, X, FileUp, Search } from 'lucide-react';
-import type { AppState, Site, Worker, SiteStatus } from '@/types';
-import { formatCurrency, hashString } from '@/lib/helpers';
+import type { AppState, Site, Worker, SiteStatus, Customer } from '@/types';
+import { formatCurrency } from '@/lib/helpers';
 import AppCard from '@/components/app/AppCard';
 import AppBadge from '@/components/app/AppBadge';
 import SearchableSelect from '@/components/app/SearchableSelect';
@@ -25,10 +25,8 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
   const [siteStatusFilter, setSiteStatusFilter] = useState<SiteStatus | 'all'>('all');
   const [workerSearch, setWorkerSearch] = useState('');
   
-  // 거래처 관리 상태
-  const [customers, setCustomers] = useState<Array<{ id: string; name: string; contact: string }>>([]);
   const [isCustomerModalOpen, setIsCustomerModalOpen] = useState(false);
-  const [editingCustomer, setEditingCustomer] = useState<{ id: string; name: string; contact: string } | null>(null);
+  const [editingCustomer, setEditingCustomer] = useState<Customer | null>(null);
   const [customerSearch, setCustomerSearch] = useState('');
 
   const filteredSites = useMemo(() => {
@@ -45,15 +43,60 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
   }, [data.workers, workerSearch]);
 
   const filteredCustomers = useMemo(() => {
-    if (!customerSearch) return customers;
-    return customers.filter(customer => 
+    if (!customerSearch) return data.customers;
+    return data.customers.filter(customer => 
       customer.name.toLowerCase().includes(customerSearch.toLowerCase()) ||
       (customer.contact && customer.contact.toLowerCase().includes(customerSearch.toLowerCase()))
     );
-  }, [customers, customerSearch]);
+  }, [data.customers, customerSearch]);
 
   const initialSite: Site = { id: '', name: '', budget: 0, company_name: '', status: 'scheduled' };
   const initialWorker: Worker = { id: '', name: '', daily: 150000 };
+
+  const normalizeCustomerName = useCallback(
+    (name: string) => String(name || '').trim().toLowerCase().replace(/\s+/g, ''),
+    []
+  );
+
+  const sortCustomers = useCallback(
+    (rows: Customer[]) => [...rows].sort((a, b) => a.name.localeCompare(b.name, 'ko-KR')),
+    []
+  );
+
+  const syncCustomersFromCompanyNames = useCallback((names: string[]) => {
+    const normalized = Array.from(
+      new Set(
+        names
+          .map((name) => String(name || '').trim())
+          .filter(Boolean)
+      )
+    );
+    if (!normalized.length) return;
+
+    setData((prev) => {
+      const keyMap = new Set(prev.customers.map((row) => normalizeCustomerName(row.name)));
+      const additions = normalized
+        .filter((name) => !keyMap.has(normalizeCustomerName(name)))
+        .map((name) => ({
+          id: crypto.randomUUID(),
+          name,
+          contact: '',
+        }));
+      if (!additions.length) return prev;
+      return {
+        ...prev,
+        customers: sortCustomers([...prev.customers, ...additions]),
+      };
+    });
+  }, [normalizeCustomerName, setData, sortCustomers]);
+
+  useEffect(() => {
+    syncCustomersFromCompanyNames(
+      data.sites
+        .map((site) => site.company_name || '')
+        .filter(Boolean)
+    );
+  }, [data.sites, syncCustomersFromCompanyNames]);
 
   const openCreateSiteModal = () => {setEditingSite({ ...initialSite });setIsSiteModalOpen(true);};
   const openEditSiteModal = (site: Site) => {setEditingSite({ ...site });setIsSiteModalOpen(true);};
@@ -65,7 +108,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
     setEditingCustomer({ id: '', name: '', contact: '' });
     setIsCustomerModalOpen(true);
   };
-  const openEditCustomerModal = (customer: { id: string; name: string; contact: string }) => {
+  const openEditCustomerModal = (customer: Customer) => {
     setEditingCustomer({ ...customer });
     setIsCustomerModalOpen(true);
   };
@@ -74,29 +117,57 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
       addToast('거래처명을 입력해주세요', 'error');
       return;
     }
-    
-    if (editingCustomer.id) {
-      // 기존 거래처 수정
-      setCustomers(customers.map(c => 
-        c.id === editingCustomer.id ? editingCustomer : c
-      ));
-      addToast('거래처가 수정되었습니다.', 'success');
-    } else {
-      // 새 거래처 추가
-      const newCustomer = {
-        ...editingCustomer,
-        id: Date.now().toString(),
-      };
-      setCustomers([...customers, newCustomer]);
-      addToast('거래처가 추가되었습니다.', 'success');
+
+    const normalizedName = normalizeCustomerName(editingCustomer.name);
+    const duplicate = data.customers.find(
+      (row) => normalizeCustomerName(row.name) === normalizedName && row.id !== editingCustomer.id
+    );
+    if (duplicate) {
+      addToast('동일한 거래처명이 이미 있습니다.', 'error');
+      return;
     }
-    
+
+    setData((prev) => {
+      if (editingCustomer.id) {
+        return {
+          ...prev,
+          customers: sortCustomers(
+            prev.customers.map((row) =>
+              row.id === editingCustomer.id
+                ? {
+                    ...row,
+                    name: editingCustomer.name.trim(),
+                    contact: editingCustomer.contact?.trim() || '',
+                  }
+                : row
+            )
+          ),
+        };
+      }
+
+      const newCustomer: Customer = {
+        id: crypto.randomUUID(),
+        name: editingCustomer.name.trim(),
+        contact: editingCustomer.contact?.trim() || '',
+      };
+      return {
+        ...prev,
+        customers: sortCustomers([...prev.customers, newCustomer]),
+      };
+    });
+    addToast(editingCustomer.id ? '거래처가 수정되었습니다.' : '거래처가 추가되었습니다.', 'success');
     setIsCustomerModalOpen(false);
+    setEditingCustomer(null);
   };
-  const deleteCustomer = (customer: { id: string; name: string; contact: string }) => {
+  const deleteCustomer = (customer: Customer) => {
     if (window.confirm(`"${customer.name}" 거래처를 삭제하시겠습니까?`)) {
-      setCustomers(customers.filter(c => c.id !== customer.id));
+      setData((prev) => ({
+        ...prev,
+        customers: prev.customers.filter((row) => row.id !== customer.id),
+      }));
       addToast('거래처가 삭제되었습니다.', 'success');
+      setIsCustomerModalOpen(false);
+      setEditingCustomer(null);
     }
   };
 
@@ -177,6 +248,11 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
       ...prev,
       sites: [...prev.sites.map(s => updatedIds.has(s.id) ? updatedSites.find(u => u.id === s.id)! : s), ...newSites],
     }));
+    syncCustomersFromCompanyNames(
+      [...newSites, ...updatedSites]
+        .map((site) => site.company_name || '')
+        .filter(Boolean)
+    );
     const msgs: string[] = [];
     if (newSites.length > 0) msgs.push(`${newSites.length}개 추가`);
     if (updatedSites.length > 0) msgs.push(`${updatedSites.length}개 업데이트`);
@@ -238,6 +314,9 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
         ...prev,
         sites: prev.sites.map((s) => (s.id === duplicatedByName.id ? mergedSite : s)),
       }));
+      if (mergedSite.company_name?.trim()) {
+        syncCustomersFromCompanyNames([mergedSite.company_name]);
+      }
       addToast('동일 현장으로 병합하여 업데이트했습니다.', 'info');
       setIsSiteModalOpen(false);setEditingSite(null);
       return;
@@ -249,6 +328,9 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
     } else {
       setData((prev) => ({ ...prev, sites: [...prev.sites, newSite] }));
       addToast('새 현장이 추가되었습니다.', 'success');
+    }
+    if (newSite.company_name?.trim()) {
+      syncCustomersFromCompanyNames([newSite.company_name]);
     }
     setIsSiteModalOpen(false);setEditingSite(null);
   };
@@ -306,7 +388,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
   const getSiteStatusLabel = (status: SiteStatus) => status === 'active' ? '진행중' : status === 'completed' ? '완료' : '예정';
   const getSiteStatusColor = (status: SiteStatus) => status === 'active' ? 'primary' : status === 'completed' ? 'dark' : 'warning';
 
-  const renderTabButton = (tab: 'sites' | 'workers', label: string, icon: React.ReactNode) => (
+  const renderTabButton = (tab: 'sites' | 'workers' | 'customers', label: string, icon: React.ReactNode) => (
     <button
       onClick={() => setActiveTab(tab)}
       className={`flex-1 rounded-2xl transition-all text-sm md:text-xs font-black tracking-tight px-4 py-2 flex items-center justify-center gap-2 ${
@@ -351,7 +433,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
                 onChange={setCustomerSearch}
                 options={[
                   { id: '', label: '전체 거래처' },
-                  ...customers.map(customer => ({
+                  ...data.customers.map(customer => ({
                     id: customer.id,
                     label: `${customer.name}${customer.contact ? ` (${customer.contact})` : ''}`
                   }))
@@ -656,17 +738,21 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
                 />
               </div>
               <div className="flex gap-2 pt-4">
-                <button 
-                  onClick={() => setIsCustomerModalOpen(false)}
-                  className="flex-1 bg-muted text-foreground p-3 rounded-xl border border-border font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                >
-                  취소
-                </button>
-                <button 
+                {editingCustomer.id && (
+                  <button
+                    onClick={() => deleteCustomer(editingCustomer)}
+                    className="p-4 rounded-xl bg-red-50 dark:bg-red-900/30 text-red-500 dark:text-red-400 font-bold icon-wrapper"
+                    title="거래처 삭제"
+                    aria-label="거래처 삭제"
+                  >
+                    <Trash2 size={20} className="icon-lg icon-stroke-normal icon-lg-mobile-sm" />
+                  </button>
+                )}
+                <button
                   onClick={saveCustomer}
-                  className="flex-1 bg-primary text-primary-foreground p-3 rounded-xl font-bold shadow-lg shadow-neon hover:scale-105 transition-transform"
+                  className="flex-1 py-4 bg-foreground dark:bg-[#14B8B0] text-background dark:text-white rounded-xl font-bold text-sm shadow-xl"
                 >
-                  {editingCustomer.id ? '수정' : '추가'}
+                  {editingCustomer.id ? '수정사항 저장' : '새 거래처 추가'}
                 </button>
               </div>
             </div>
