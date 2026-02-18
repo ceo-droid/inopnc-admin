@@ -349,7 +349,7 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
           {sortedChecklists.length === 0 && <div className="text-center py-10 text-muted-foreground text-xs bg-card rounded-2xl">등록된 항목이 없습니다.</div>}
           {sortedChecklists.map(item => (
             <div key={item.id} className={`flex items-center p-4 bg-card rounded-2xl border transition-all ${item.status === 'completed' ? 'opacity-60 border-border' : 'border-border shadow-sm'}`}>
-              <button onClick={() => toggleStatus(item.id)} className={`w-[8px] h-[8px] md:w-[14px] md:h-[14px] rounded-full border-2 flex items-center justify-center mr-3 transition-colors flex-shrink-0 flex-none self-start ${
+              <button onClick={() => toggleStatus(item.id)} className={`!w-6 !h-6 !min-w-6 !min-h-6 !p-0 md:!w-[14px] md:!h-[14px] md:!min-w-[14px] md:!min-h-[14px] rounded-full border-2 flex items-center justify-center mr-2 md:mr-3 transition-colors flex-shrink-0 flex-none self-center ${
   item.status === 'completed' 
     ? 'bg-primary border-primary text-white' 
     : 'border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-600 hover:border-primary hover:bg-primary/5 dark:hover:border-primary dark:hover:bg-primary/10'
