@@ -21,7 +21,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
 }) => {
   return (
     <header className="md:hidden sticky top-0 z-40 bg-background/80 backdrop-blur-md px-4 py-4 flex justify-between items-center border-b border-border">
-      <span onClick={() => setActiveTab('home')} className="logo-mobile text-foreground tracking-tighter cursor-pointer font-extrabold text-[22px]">금전출납</span>
+      <span onClick={() => setActiveTab('home')} className="logo-mobile text-foreground tracking-tighter cursor-pointer font-extrabold text-[20px]">금전출납</span>
       <div className="flex items-center gap-3">
         <button 
           onClick={onClearCache} 

@@ -132,6 +132,13 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
     });
   };
 
+  const normalizeNameKey = (v: unknown) =>
+    String(v ?? '')
+      .replace(/\uFEFF/g, '')
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, '');
+
   const processSiteRows = (rawData: Record<string, unknown>[]) => {
     const jsonData = cleanHeaders(rawData);
     if (!jsonData?.length) { addToast('데이터가 없습니다.', 'error'); return; }
@@ -145,14 +152,15 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
     const norm = (v: unknown) => String(v ?? '').trim();
     const newSites: Site[] = [];
     const updatedSites: Site[] = [];
-    const existingMap = new Map(data.sites.map((s) => [s.name, s]));
+    const existingMap = new Map(data.sites.map((s) => [normalizeNameKey(s.name), s]));
     for (const row of jsonData) {
       const name = norm(row[nameCol!]);
       if (!name) continue;
+      const nameKey = normalizeNameKey(name);
       const rawBudget = budgetCol ? row[budgetCol] : 0;
       const budget = typeof rawBudget === 'number' ? rawBudget : parseInt(String(rawBudget ?? '0').replace(/,/g, '')) || 0;
       const company = companyCol ? norm(row[companyCol]) : '';
-      const existingSite = existingMap.get(name);
+      const existingSite = existingMap.get(nameKey);
       if (existingSite) {
         if (existingSite.budget !== budget || (company && existingSite.company_name !== company)) {
           updatedSites.push({ ...existingSite, budget: budget as number, ...(company ? { company_name: company } : {}) });
@@ -160,7 +168,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
       } else {
         const id = crypto.randomUUID();
         newSites.push({ id, name, budget: budget as number, company_name: company, status: 'active' });
-        existingMap.set(name, newSites[newSites.length - 1]);
+        existingMap.set(nameKey, newSites[newSites.length - 1]);
       }
     }
     if (newSites.length === 0 && updatedSites.length === 0) { addToast('변경할 현장이 없습니다.', 'info'); return; }
@@ -210,6 +218,31 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
     if (!editingSite || !editingSite.name) return;
     let newSite = { ...editingSite };
     if (!newSite.id) newSite.id = crypto.randomUUID();
+
+    const duplicatedByName = data.sites.find(
+      (s) => normalizeNameKey(s.name) === normalizeNameKey(newSite.name) && s.id !== newSite.id
+    );
+    if (duplicatedByName) {
+      if (editingSite.id) {
+        addToast('동일한 현장명이 이미 존재합니다. 이름을 확인해주세요.', 'error');
+        return;
+      }
+
+      const mergedSite = {
+        ...duplicatedByName,
+        budget: newSite.budget,
+        company_name: newSite.company_name || duplicatedByName.company_name,
+        status: newSite.status || duplicatedByName.status,
+      };
+      setData((prev) => ({
+        ...prev,
+        sites: prev.sites.map((s) => (s.id === duplicatedByName.id ? mergedSite : s)),
+      }));
+      addToast('동일 현장으로 병합하여 업데이트했습니다.', 'info');
+      setIsSiteModalOpen(false);setEditingSite(null);
+      return;
+    }
+
     if (data.sites.find((s) => s.id === newSite.id)) {
       setData((prev) => ({ ...prev, sites: prev.sites.map((s) => s.id === newSite.id ? newSite : s) }));
       addToast('현장 정보가 수정되었습니다.', 'success');
@@ -232,6 +265,26 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
     if (!editingWorker || !editingWorker.name) return;
     let newWorker = { ...editingWorker };
     if (!newWorker.id) newWorker.id = crypto.randomUUID();
+
+    const duplicatedByName = data.workers.find(
+      (w) => normalizeNameKey(w.name) === normalizeNameKey(newWorker.name) && w.id !== newWorker.id
+    );
+    if (duplicatedByName) {
+      if (editingWorker.id) {
+        addToast('동일한 작업자명이 이미 존재합니다. 이름을 확인해주세요.', 'error');
+        return;
+      }
+
+      const mergedWorker = { ...duplicatedByName, daily: newWorker.daily };
+      setData((prev) => ({
+        ...prev,
+        workers: prev.workers.map((w) => (w.id === duplicatedByName.id ? mergedWorker : w)),
+      }));
+      addToast('동일 작업자로 병합하여 업데이트했습니다.', 'info');
+      setIsWorkerModalOpen(false);setEditingWorker(null);
+      return;
+    }
+
     if (data.workers.find((w) => w.id === newWorker.id)) {
       setData((prev) => ({ ...prev, workers: prev.workers.map((w) => w.id === newWorker.id ? newWorker : w) }));
       addToast('작업자 정보가 수정되었습니다.', 'success');

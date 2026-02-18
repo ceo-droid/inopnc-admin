@@ -11,6 +11,7 @@ import ChecklistView from '@/views/ChecklistView';
 import AdminView from '@/views/AdminView';
 import WorkLogModal from '@/components/app/WorkLogModal';
 import NotificationModal from '@/components/app/NotificationModal';
+import PwaInstallPrompt from '@/components/app/PwaInstallPrompt';
 import DesktopSidebar from '@/components/layout/DesktopSidebar';
 import MobileHeader from '@/components/layout/MobileHeader';
 import MobileBottomNav from '@/components/layout/MobileBottomNav';
@@ -82,6 +83,7 @@ const Index = () => {
 
       <WorkLogModal data={data} setData={setData} addToast={addToast} isLogModalOpen={isLogModalOpen} setLogModalOpen={setLogModalOpen} logModalDate={logModalDate} recentSiteIds={recentSiteIds} recentWorkerIds={recentWorkerIds} />
       <NotificationModal isOpen={isNotifModalOpen} onClose={() => setNotifModalOpen(false)} checklists={data.checklists} setData={setData} addToast={addToast} />
+      <PwaInstallPrompt />
 
       <ToastContainer toasts={toasts} />
     </div>

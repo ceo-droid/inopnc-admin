@@ -30,7 +30,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
   const [calFilterWorker, setCalFilterWorker] = useState('');
   const [viewMode, setViewMode] = useState<'calendar' | 'list'>('calendar');
   const [payMonthOverride, setPayMonthOverride] = useState<Date | null>(null);
-  const [payShowAll, setPayShowAll] = useState(false);
+  const [payShowAll, setPayShowAll] = useState(true);
   const payMonth = payMonthOverride || calMonth;
   const setPayMonth = (d: Date) => { setPayMonthOverride(d); setPayShowAll(false); };
   const [payFilterSite, setPayFilterSite] = useState('');
@@ -55,8 +55,9 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       const rows: Record<string, unknown>[] = Array.isArray(parsed.data) ? parsed.data as Record<string, unknown>[] : [];
       if (rows.length === 0) { addToast('CSV 데이터가 비어있습니다.', 'error'); return; }
 
-      const existingWorkersByName = new Map(data.workers.map(w => [w.name, w] as const));
-      const existingSitesByName = new Map(data.sites.map(s => [s.name, s] as const));
+      const normalizeNameKey = (v: string) => normalizeText(v).toLowerCase().replace(/\s+/g, '');
+      const existingWorkersByName = new Map(data.workers.map(w => [normalizeNameKey(w.name), w] as const));
+      const existingSitesByName = new Map(data.sites.map(s => [normalizeNameKey(s.name), s] as const));
       const workerDailyCandidates: Record<string, number[]> = {};
       const siteCompanyCandidates: Record<string, Record<string, number>> = {};
 
@@ -85,7 +86,8 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       const workerIdByName: Record<string, string> = {};
       const mergedWorkers: Worker[] = [...data.workers];
       for (const name of new Set([...Object.keys(workerDailyCandidates), ...normalized.map(r => r.workerName)])) {
-        const existed = existingWorkersByName.get(name);
+        const nameKey = normalizeNameKey(name);
+        const existed = existingWorkersByName.get(nameKey);
         if (existed) {
           const med = median(workerDailyCandidates[name] || []);
           workerIdByName[name] = existed.id;
@@ -95,14 +97,17 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
           const med = median(workerDailyCandidates[name] || []);
           const id = crypto.randomUUID();
           workerIdByName[name] = id;
-          mergedWorkers.push({ id, name, daily: med > 0 ? med : 150000 });
+          const created = { id, name, daily: med > 0 ? med : 150000 };
+          mergedWorkers.push(created);
+          existingWorkersByName.set(nameKey, created);
         }
       }
 
       const siteIdByName: Record<string, string> = {};
       const mergedSites: Site[] = [...data.sites];
       for (const siteName of new Set([...Object.keys(siteCompanyCandidates), ...normalized.map(r => r.siteName)])) {
-        const existed = existingSitesByName.get(siteName);
+        const siteKey = normalizeNameKey(siteName);
+        const existed = existingSitesByName.get(siteKey);
         const companyCounts = siteCompanyCandidates[siteName] || {};
         const topCompany = Object.entries(companyCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || existed?.company_name || '';
         if (existed) {
@@ -114,13 +119,15 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
           const match = findBestMatch(siteName, data.sites);
           if (match) {
             siteIdByName[siteName] = match.siteId;
-            existingSitesByName.set(siteName, data.sites.find(s => s.id === match.siteId)!);
+            existingSitesByName.set(siteKey, data.sites.find(s => s.id === match.siteId)!);
             const idx = mergedSites.findIndex(s => s.id === match.siteId);
             if (idx >= 0) mergedSites[idx] = { ...mergedSites[idx], company_name: topCompany || mergedSites[idx].company_name };
           } else {
             const id = crypto.randomUUID();
+            const created = { id, name: siteName, company_name: topCompany, budget: 0, status: 'active' as const };
             siteIdByName[siteName] = id;
-            mergedSites.push({ id, name: siteName, company_name: topCompany, budget: 0, status: 'active' });
+            mergedSites.push(created);
+            existingSitesByName.set(siteKey, created);
           }
         }
       }
@@ -158,7 +165,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       setPayFilterSite('');
       setPayFilterWorker('');
       setPayFilterCompany('');
-      setPayShowAll(false);
+      setPayShowAll(true);
       
       addToast(`CSV 반영 완료 · 작업일지 ${importedLogs.length}건`, 'success');
     } catch (e: unknown) {
@@ -533,10 +540,10 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
           />
         </div>
         <div className="bg-muted rounded-xl px-4 py-2 border border-border h-[44px] flex items-center">
-          <div className="flex items-center gap-3 text-xs font-bold">
+          <div className="flex items-center gap-3 text-[11px] font-bold">
             <span>{String(payMonth.getFullYear()).slice(2)}년 {payMonth.getMonth() + 1}월</span>
             <span>현장 {new Set(payrollData.map(r => r.siteName)).size}개</span>
-            <span className="text-primary text-xs">총 공수 {totals.md}</span>
+            <span className="text-primary text-[11px]">총 공수 {totals.md}</span>
           </div>
         </div>
       </div>
@@ -552,7 +559,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                 <div key={`${row.id}-${idx}`} className="bg-card border border-border p-2 rounded-6px">
                   <div className="flex justify-between items-center mb-1">
                     <span className="font-bold text-sm">{row.workerName}</span>
-                    <span className="text-xs text-muted-foreground">{row.date}</span>
+                    <span className="text-xs text-muted-foreground font-medium">{row.date}</span>
                   </div>
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-muted-foreground">{row.siteName}</span>

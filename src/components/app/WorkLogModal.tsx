@@ -25,6 +25,7 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
   const todaysLogs = useMemo(() => data.workLogs.filter(l => l.date === logModalDate), [data.workLogs, logModalDate]);
   const selectedWorker = useMemo(() => data.workers.find(w => w.id === targetWorkerId), [data.workers, targetWorkerId]);
   const previewPayroll = useMemo(() => calcPayroll(selectedWorker?.daily || 0, targetMd), [selectedWorker?.daily, targetMd]);
+  const buildLogKey = (date: string, workerId: string, siteId: string, md: number) => `${date}|${workerId}|${siteId}|${md}`;
 
   useEffect(() => { if (isLogModalOpen) resetInputs(); }, [isLogModalOpen]);
 
@@ -35,6 +36,12 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
   const handleAdd = () => {
     if (!targetSiteId) return alert('현장을 선택해주세요.');
     if (!targetWorkerId) return alert('작업자를 선택해주세요.');
+    const newKey = buildLogKey(logModalDate, targetWorkerId, targetSiteId, targetMd);
+    const duplicate = data.workLogs.some((l) => buildLogKey(l.date, l.worker_id, l.site_id, l.md) === newKey);
+    if (duplicate) {
+      addToast('이미 공수 내역이 존재합니다.', 'info');
+      return;
+    }
     const newLog: WorkLog = { id: crypto.randomUUID(), date: logModalDate, site_id: targetSiteId, worker_id: targetWorkerId, md: targetMd, note: targetMemo };
     setData(prev => ({ ...prev, workLogs: [...prev.workLogs, newLog] }));
     addToast('공수가 등록되었습니다.', 'success');
@@ -59,6 +66,12 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
 
   const handleUpdate = () => {
     if (!editingLogId || !targetSiteId || !targetWorkerId) return;
+    const nextKey = buildLogKey(logModalDate, targetWorkerId, targetSiteId, targetMd);
+    const duplicate = data.workLogs.some((l) => l.id !== editingLogId && buildLogKey(l.date, l.worker_id, l.site_id, l.md) === nextKey);
+    if (duplicate) {
+      addToast('수정 결과가 기존 내역과 중복됩니다.', 'error');
+      return;
+    }
     setData(prev => ({ ...prev, workLogs: prev.workLogs.map(l => l.id === editingLogId ? { ...l, site_id: targetSiteId, worker_id: targetWorkerId, md: targetMd, note: targetMemo } : l) }));
     addToast('공수 내역이 수정되었습니다.', 'success');
     resetInputs();

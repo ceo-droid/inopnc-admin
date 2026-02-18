@@ -1,7 +1,7 @@
 import React, { useState, useRef, useMemo } from 'react';
-import { Wallet, Search, Plus, FileSpreadsheet, Download, Trash2, ChevronDown, Edit2, X } from 'lucide-react';
-import type { AppState, Transaction, ExpenseCategory } from '@/types';
-import { formatCurrency, calcPayroll } from '@/lib/helpers';
+import { Wallet, Search, Plus, FileSpreadsheet, Download, Trash2, ChevronDown, Edit2, Pen, X } from 'lucide-react';
+import type { AppState, Transaction, ExpenseCategory, WorkLog } from '@/types';
+import { formatCurrency, calcPayroll, normalizeText } from '@/lib/helpers';
 import AppCard from '@/components/app/AppCard';
 import SearchableSelect from '@/components/app/SearchableSelect';
 import * as XLSX from 'xlsx';
@@ -18,6 +18,7 @@ interface ExpenseViewProps {
 }
 
 const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }: ExpenseViewProps) => {
+  type ProfitDetailMode = 'labor' | 'expense';
   const [expSiteId, setExpSiteId] = useState('');
   const [expWorkerId, setExpWorkerId] = useState('');
   const [expDesc, setExpDesc] = useState('');
@@ -28,40 +29,351 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
   const [showAllTransactions, setShowAllTransactions] = useState(false);
   const [expenseSearch, setExpenseSearch] = useState('');
   const [editingTx, setEditingTx] = useState<Transaction | null>(null);
+  const [profitDetail, setProfitDetail] = useState<{ siteId: string; mode: ProfitDetailMode } | null>(null);
+  const [editingLaborId, setEditingLaborId] = useState<string | null>(null);
+  const [editingExpenseId, setEditingExpenseId] = useState<string | null>(null);
+  const [editingLaborDraft, setEditingLaborDraft] = useState<{ date: string; worker_id: string; md: string; note: string }>({
+    date: '',
+    worker_id: '',
+    md: '1',
+    note: '',
+  });
+  const [editingExpenseDraft, setEditingExpenseDraft] = useState<{ date: string; category: string; description: string; amount: string }>({
+    date: '',
+    category: '',
+    description: '',
+    amount: '0',
+  });
 
   const categories: ExpenseCategory[] = ['아침', '점심', '저녁', '주유', '숙박', '자재', '기타'];
   const excelInputRef = useRef<HTMLInputElement>(null);
+  const detailScrollRef = useRef<HTMLDivElement>(null);
+  const txKey = (date: string, description: string, amount: number) =>
+    `${normalizeText(date)}|${normalizeText(description)}|${Number(amount) || 0}`;
 
   const sortedTransactions = [...data.transactions].sort((a, b) => b.date.localeCompare(a.date));
 
   const workersById = useMemo(() => Object.fromEntries(data.workers.map(w => [w.id, w] as const)), [data.workers]);
+  const sitesById = useMemo(() => new Map(data.sites.map(s => [s.id, s] as const)), [data.sites]);
+  const siteIdByNormalizedName = useMemo(() => {
+    const map = new Map<string, string>();
+    data.sites.forEach((site) => {
+      const key = normalizeText(site.name).toLowerCase();
+      if (key && !map.has(key)) map.set(key, site.id);
+    });
+    return map;
+  }, [data.sites]);
+
+  const resolveSiteId = useMemo(() => {
+    const cache = new Map<string, string>();
+    return (rawValue: string | undefined | null): string => {
+      const raw = String(rawValue ?? '').trim();
+      if (!raw) return '';
+
+      if (sitesById.has(raw)) return raw;
+
+      const key = normalizeText(raw).toLowerCase();
+      if (!key) return '';
+
+      const cached = cache.get(key);
+      if (cached !== undefined) return cached;
+
+      const byName = siteIdByNormalizedName.get(key);
+      if (byName) {
+        cache.set(key, byName);
+        return byName;
+      }
+
+      const match = findBestMatch(raw, data.sites);
+      const resolved = match?.siteId || '';
+      cache.set(key, resolved);
+      return resolved;
+    };
+  }, [data.sites, sitesById, siteIdByNormalizedName]);
 
   const siteStats = useMemo(() => {
+    const laborBySite = new Map<string, { gross: number; tax: number; net: number }>();
+    const expenseBySite = new Map<string, number>();
+
+    data.workLogs.forEach((log) => {
+      const siteId = resolveSiteId(log.site_id);
+      if (!siteId) return;
+
+      const daily = workersById[log.worker_id]?.daily || 0;
+      const { gross, tax, net } = calcPayroll(daily, log.md);
+      const prev = laborBySite.get(siteId) || { gross: 0, tax: 0, net: 0 };
+      laborBySite.set(siteId, {
+        gross: prev.gross + gross,
+        tax: prev.tax + tax,
+        net: prev.net + net,
+      });
+    });
+
+    data.transactions.forEach((t) => {
+      const siteId = resolveSiteId(t.site_id);
+      if (!siteId) return;
+      expenseBySite.set(siteId, (expenseBySite.get(siteId) || 0) + (Number(t.amount) || 0));
+    });
+
     return data.sites.map(site => {
-      const laborAgg = data.workLogs.filter(l => l.site_id === site.id).reduce((acc, log) => {
-        const daily = workersById[log.worker_id]?.daily || 0;
-        const { gross, tax, net } = calcPayroll(daily, log.md);
-        acc.gross += gross; acc.tax += tax; acc.net += net;
-        return acc;
-      }, { gross: 0, tax: 0, net: 0 });
-      const expenseCost = data.transactions.filter(t => t.site_id === site.id).reduce((acc, t) => acc + t.amount, 0);
+      const laborAgg = laborBySite.get(site.id) || { gross: 0, tax: 0, net: 0 };
+      const expenseCost = expenseBySite.get(site.id) || 0;
       const totalCost = laborAgg.gross + expenseCost;
       const profit = site.budget - totalCost;
       return { ...site, laborCost: laborAgg.gross, laborTax: laborAgg.tax, laborNet: laborAgg.net, expenseCost, totalCost, profit };
     });
-  }, [data.sites, data.workLogs, data.transactions, workersById]);
+  }, [data.sites, data.workLogs, data.transactions, workersById, resolveSiteId]);
 
   const filteredStats = useMemo(() => {
     if (!profitSearch) return siteStats;
     return siteStats.filter(s => s.id === profitSearch);
   }, [siteStats, profitSearch]);
 
+  const laborDetailsBySite = useMemo(() => {
+    const map = new Map<string, Array<{
+      id: string;
+      date: string;
+      workerId: string;
+      workerName: string;
+      md: number;
+      daily: number;
+      gross: number;
+      tax: number;
+      net: number;
+      note: string;
+    }>>();
+
+    data.workLogs.forEach((log) => {
+      const siteId = resolveSiteId(log.site_id);
+      if (!siteId) return;
+
+      const worker = workersById[log.worker_id];
+      const daily = worker?.daily || 0;
+      const { gross, tax, net } = calcPayroll(daily, log.md);
+      const row = {
+        id: log.id,
+        date: log.date,
+        workerId: log.worker_id,
+        workerName: worker?.name || '-',
+        md: log.md,
+        daily,
+        gross,
+        tax,
+        net,
+        note: log.note || '',
+      };
+
+      if (!map.has(siteId)) map.set(siteId, []);
+      map.get(siteId)!.push(row);
+    });
+
+    map.forEach((rows) => rows.sort((a, b) => b.date.localeCompare(a.date)));
+    return map;
+  }, [data.workLogs, workersById, resolveSiteId]);
+
+  const expenseDetailsBySite = useMemo(() => {
+    const map = new Map<string, Array<{
+      id: string;
+      date: string;
+      category: string;
+      description: string;
+      amount: number;
+      workerName: string;
+    }>>();
+
+    data.transactions.forEach((t) => {
+      const siteId = resolveSiteId(t.site_id);
+      if (!siteId) return;
+
+      const workerName = t.worker_id ? (workersById[t.worker_id]?.name || '') : '';
+      const row = {
+        id: t.id,
+        date: t.date,
+        category: String(t.category || ''),
+        description: String(t.description || ''),
+        amount: Number(t.amount) || 0,
+        workerName,
+      };
+
+      if (!map.has(siteId)) map.set(siteId, []);
+      map.get(siteId)!.push(row);
+    });
+
+    map.forEach((rows) => rows.sort((a, b) => b.date.localeCompare(a.date)));
+    return map;
+  }, [data.transactions, resolveSiteId, workersById]);
+
+  const selectedDetailSite = useMemo(
+    () => (profitDetail ? (sitesById.get(profitDetail.siteId) || null) : null),
+    [profitDetail, sitesById]
+  );
+  const selectedLaborDetails = useMemo(
+    () => (profitDetail ? (laborDetailsBySite.get(profitDetail.siteId) || []) : []),
+    [profitDetail, laborDetailsBySite]
+  );
+  const selectedExpenseDetails = useMemo(
+    () => (profitDetail ? (expenseDetailsBySite.get(profitDetail.siteId) || []) : []),
+    [profitDetail, expenseDetailsBySite]
+  );
+  const selectedLaborTotals = useMemo(
+    () =>
+      selectedLaborDetails.reduce(
+        (acc, row) => ({
+          gross: acc.gross + row.gross,
+          tax: acc.tax + row.tax,
+          net: acc.net + row.net,
+          md: acc.md + row.md,
+        }),
+        { gross: 0, tax: 0, net: 0, md: 0 }
+      ),
+    [selectedLaborDetails]
+  );
+  const selectedExpenseTotal = useMemo(
+    () => selectedExpenseDetails.reduce((sum, row) => sum + row.amount, 0),
+    [selectedExpenseDetails]
+  );
+
+  const closeProfitDetail = () => {
+    setProfitDetail(null);
+    setEditingLaborId(null);
+    setEditingExpenseId(null);
+  };
+
+  const preserveDetailScroll = (updater: () => void) => {
+    const top = detailScrollRef.current?.scrollTop ?? 0;
+    updater();
+    requestAnimationFrame(() => {
+      if (detailScrollRef.current) detailScrollRef.current.scrollTop = top;
+    });
+  };
+
+  const startLaborEdit = (rowId: string) => {
+    const log = data.workLogs.find((l) => l.id === rowId);
+    if (!log) return;
+    setEditingExpenseId(null);
+    setEditingLaborId(rowId);
+    setEditingLaborDraft({
+      date: log.date,
+      worker_id: log.worker_id,
+      md: String(log.md),
+      note: log.note || '',
+    });
+  };
+
+  const saveLaborEdit = () => {
+    if (!profitDetail || !editingLaborId) return;
+
+    const date = normalizeText(editingLaborDraft.date);
+    const workerId = normalizeText(editingLaborDraft.worker_id);
+    const md = Number(editingLaborDraft.md);
+    const note = editingLaborDraft.note || '';
+
+    if (!date) {
+      addToast('날짜를 입력해주세요.', 'error');
+      return;
+    }
+    if (!workerId) {
+      addToast('작업자를 선택해주세요.', 'error');
+      return;
+    }
+    if (!Number.isFinite(md) || md < 0) {
+      addToast('공수 값을 확인해주세요.', 'error');
+      return;
+    }
+
+    const duplicate = data.workLogs.some((l) => {
+      if (l.id === editingLaborId) return false;
+      const siteId = resolveSiteId(l.site_id);
+      return siteId === profitDetail.siteId && l.date === date && l.worker_id === workerId && Number(l.md) === md;
+    });
+
+    if (duplicate) {
+      addToast('동일 노무비 내역이 이미 존재합니다.', 'error');
+      return;
+    }
+
+    setData((prev) => ({
+      ...prev,
+      workLogs: prev.workLogs.map((l: WorkLog) =>
+        l.id === editingLaborId
+          ? { ...l, date, worker_id: workerId, site_id: profitDetail.siteId, md, note }
+          : l
+      ),
+    }));
+
+    setEditingLaborId(null);
+    addToast('노무비 내역을 저장했습니다.', 'success');
+  };
+
+  const startExpenseEdit = (rowId: string) => {
+    const tx = data.transactions.find((t) => t.id === rowId);
+    if (!tx) return;
+    setEditingLaborId(null);
+    setEditingExpenseId(rowId);
+    setEditingExpenseDraft({
+      date: tx.date,
+      category: String(tx.category || ''),
+      description: String(tx.description || ''),
+      amount: String(tx.amount ?? 0),
+    });
+  };
+
+  const saveExpenseEdit = () => {
+    if (!profitDetail || !editingExpenseId) return;
+
+    const date = normalizeText(editingExpenseDraft.date);
+    const category = normalizeText(editingExpenseDraft.category);
+    const description = editingExpenseDraft.description || '';
+    const amount = parseInt(String(editingExpenseDraft.amount || '').replace(/,/g, ''), 10);
+
+    if (!date) {
+      addToast('날짜를 입력해주세요.', 'error');
+      return;
+    }
+    if (!category) {
+      addToast('항목을 입력해주세요.', 'error');
+      return;
+    }
+    if (!Number.isFinite(amount) || amount <= 0) {
+      addToast('금액을 확인해주세요.', 'error');
+      return;
+    }
+
+    const nextKey = txKey(date, description, amount);
+    const duplicate = data.transactions.some(
+      (t) => t.id !== editingExpenseId && txKey(t.date, t.description, Number(t.amount) || 0) === nextKey
+    );
+    if (duplicate) {
+      addToast('동일 경비 내역이 이미 존재합니다.', 'error');
+      return;
+    }
+
+    setData((prev) => ({
+      ...prev,
+      transactions: prev.transactions.map((t) =>
+        t.id === editingExpenseId
+          ? { ...t, date, category, description, amount, site_id: profitDetail.siteId }
+          : t
+      ),
+    }));
+
+    setEditingExpenseId(null);
+    addToast('경비 내역을 저장했습니다.', 'success');
+  };
+
   const handleAddTransaction = () => {
     if (!expCategory || !expAmount) return alert('항목(카테고리)과 금액을 입력해주세요.');
+    const amount = parseInt(expAmount.replace(/,/g, ''), 10);
+    const description = expDesc || expCategory;
+    const newKey = txKey(expDate, description, amount);
+    if (data.transactions.some((t) => txKey(t.date, t.description, Number(t.amount) || 0) === newKey)) {
+      addToast('이미 경비 내역이 존재합니다.', 'info');
+      return;
+    }
     const newItem: Transaction = {
       id: crypto.randomUUID(), date: expDate, site_id: expSiteId, worker_id: expWorkerId,
-      type: 'expense', category: expCategory, description: expDesc || expCategory,
-      amount: parseInt(expAmount.replace(/,/g, '')),
+      type: 'expense', category: expCategory, description,
+      amount,
     };
     setData(prev => ({ ...prev, transactions: [...prev.transactions, newItem] }));
     setExpDesc(''); setExpAmount(''); setExpCategory('');
@@ -123,8 +435,14 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
 
     // 중복 방지: 기존 데이터와 (date+description+amount) 조합이 동일한 건 제외
     setData(prev => {
-      const existingKeys = new Set(prev.transactions.map(t => `${t.date}|${t.description}|${t.amount}`));
-      const uniqueNew = newTransactions.filter(t => !existingKeys.has(`${t.date}|${t.description}|${t.amount}`));
+      const existingKeys = new Set(prev.transactions.map(t => txKey(t.date, t.description, Number(t.amount) || 0)));
+      const acceptedKeys = new Set(existingKeys);
+      const uniqueNew = newTransactions.filter(t => {
+        const key = txKey(t.date, t.description, Number(t.amount) || 0);
+        if (acceptedKeys.has(key)) return false;
+        acceptedKeys.add(key);
+        return true;
+      });
       const skipped = newTransactions.length - uniqueNew.length;
       if (skipped > 0) {
         addToast(`${skipped}건 중복 제외, ${uniqueNew.length}건 등록`, 'info');
@@ -182,6 +500,12 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
 
   const handleSaveEditTx = () => {
     if (!editingTx) return;
+    const editKey = txKey(editingTx.date, editingTx.description, Number(editingTx.amount) || 0);
+    const duplicate = data.transactions.some((t) => t.id !== editingTx.id && txKey(t.date, t.description, Number(t.amount) || 0) === editKey);
+    if (duplicate) {
+      addToast('수정 결과가 기존 내역과 중복됩니다.', 'error');
+      return;
+    }
     setData(prev => ({ ...prev, transactions: prev.transactions.map(t => t.id === editingTx.id ? editingTx : t) }));
     addToast('수정되었습니다.', 'success');
     setEditingTx(null);
@@ -260,17 +584,33 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
                     <span className="text-sm text-muted-foreground font-bold">예산 {formatCurrency(stat.budget)}</span>
                   </div>
                   <div className="space-y-1.5 mb-3">
-                    <div className="flex justify-between text-xs items-center p-2 bg-orange-50 dark:bg-orange-900/10 rounded-xl">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setEditingExpenseId(null);
+                        setEditingLaborId(null);
+                        setProfitDetail({ siteId: stat.id, mode: 'labor' });
+                      }}
+                      className="w-full flex justify-between text-xs items-center p-2 bg-orange-50 dark:bg-orange-900/10 rounded-xl hover:ring-1 hover:ring-orange-200 dark:hover:ring-orange-800 transition-colors text-left"
+                    >
                       <div className="flex flex-col">
                         <span className="text-orange-600 font-bold leading-tight">노무비</span>
                         <span className="text-micro-md text-muted-foreground mt-0.5">세금 -{formatCurrency(stat.laborTax)} · 실지급 -{formatCurrency(stat.laborNet)}</span>
                       </div>
                       <span className="font-bold text-orange-500 whitespace-nowrap ml-2">-{formatCurrency(stat.laborCost)}</span>
-                    </div>
-                    <div className="flex justify-between text-xs items-center p-2 bg-teal-50 dark:bg-teal-900/10 rounded-xl">
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setEditingExpenseId(null);
+                        setEditingLaborId(null);
+                        setProfitDetail({ siteId: stat.id, mode: 'expense' });
+                      }}
+                      className="w-full flex justify-between text-xs items-center p-2 bg-teal-50 dark:bg-teal-900/10 rounded-xl hover:ring-1 hover:ring-teal-200 dark:hover:ring-teal-800 transition-colors text-left"
+                    >
                       <span className="text-teal-500 font-bold">경비</span>
                       <span className="font-bold text-teal-600">-{formatCurrency(stat.expenseCost)}</span>
-                    </div>
+                    </button>
                     <div className="h-px bg-border"></div>
                     <div className="flex justify-between text-sm px-1">
                       <span className="font-bold text-foreground">순수익</span>
@@ -376,7 +716,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
           </div>
           {(() => {
             const filtered = expenseSearch
-              ? sortedTransactions.filter(t => t.site_id === expenseSearch)
+              ? sortedTransactions.filter(t => resolveSiteId(t.site_id) === expenseSearch)
               : sortedTransactions;
             const displayed = showAllTransactions ? filtered : filtered.slice(0, 5);
             const hasMore = filtered.length > 5 && !showAllTransactions;
@@ -386,7 +726,8 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
             return (
               <>
                 {displayed.map(t => {
-                  const site = data.sites.find(s => s.id === t.site_id);
+                  const resolvedSiteId = resolveSiteId(t.site_id);
+                  const site = resolvedSiteId ? sitesById.get(resolvedSiteId) : undefined;
                   const worker = data.workers.find(w => w.id === t.worker_id);
                   return (
                     <div key={t.id} className="flex justify-between items-center p-4 bg-card rounded-2xl border border-border shadow-sm">
@@ -426,6 +767,256 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
           })()}
         </div>
       </div>
+
+      {/* Profit Detail Modal */}
+      {profitDetail && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center p-3 md:p-4 bg-black/55 backdrop-blur-sm animate-fade-in">
+          <div className="bg-card w-full max-w-3xl rounded-3xl shadow-2xl p-4 md:p-6 max-h-[90vh] flex flex-col">
+            <div className="flex justify-between items-center gap-3 mb-4">
+              <div className="min-w-0">
+                <h3 className="text-base md:text-lg font-bold text-foreground truncate">
+                  {selectedDetailSite?.name || '현장'} 상세내역
+                </h3>
+              </div>
+              <button
+                onClick={closeProfitDetail}
+                className="h-8 w-8 inline-flex items-center justify-center rounded-full bg-muted text-muted-foreground hover:text-foreground"
+                aria-label="상세 닫기"
+              >
+                <X className="h-4 w-4 icon-stroke-normal" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setEditingExpenseId(null);
+                  setEditingLaborId(null);
+                  setProfitDetail((prev) => (prev ? { ...prev, mode: 'labor' } : prev));
+                }}
+                className={`rounded-xl border px-3 py-2 text-xs md:text-sm font-bold transition-colors ${
+                  profitDetail.mode === 'labor'
+                    ? 'bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-900/20 dark:text-orange-300 dark:border-orange-800'
+                    : 'bg-muted text-muted-foreground border-border hover:text-foreground'
+                }`}
+              >
+                노무비 상세 ({selectedLaborDetails.length}건)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEditingExpenseId(null);
+                  setEditingLaborId(null);
+                  setProfitDetail((prev) => (prev ? { ...prev, mode: 'expense' } : prev));
+                }}
+                className={`rounded-xl border px-3 py-2 text-xs md:text-sm font-bold transition-colors ${
+                  profitDetail.mode === 'expense'
+                    ? 'bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-900/20 dark:text-teal-300 dark:border-teal-800'
+                    : 'bg-muted text-muted-foreground border-border hover:text-foreground'
+                }`}
+              >
+                경비 상세 ({selectedExpenseDetails.length}건)
+              </button>
+            </div>
+
+            <div className="mb-3 rounded-xl border border-border bg-muted/40 px-3 py-2 text-xs">
+              {profitDetail.mode === 'labor' ? (
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span className="font-bold text-foreground">총 공수 {selectedLaborTotals.md.toFixed(1)}</span>
+                  <span className="text-muted-foreground">세금 -{formatCurrency(selectedLaborTotals.tax)}</span>
+                  <span className="text-muted-foreground">실지급 -{formatCurrency(selectedLaborTotals.net)}</span>
+                  <span className="font-bold text-orange-600 ml-auto">-{formatCurrency(selectedLaborTotals.gross)}</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-3">
+                  <span className="font-bold text-foreground">총 {selectedExpenseDetails.length}건</span>
+                  <span className="font-bold text-teal-600 ml-auto">-{formatCurrency(selectedExpenseTotal)}</span>
+                </div>
+              )}
+            </div>
+
+            <div ref={detailScrollRef} data-dropdown-boundary className="overflow-y-auto flex-1 pr-0.5 space-y-1.5 overscroll-contain">
+              {profitDetail.mode === 'labor' ? (
+                selectedLaborDetails.length === 0 ? (
+                  <div className="text-center py-10 text-muted-foreground text-sm">노무비 내역이 없습니다.</div>
+                ) : (
+                  selectedLaborDetails.map((row) => (
+                    <div key={row.id} className="rounded-lg border border-border bg-card px-3 py-2.5">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="flex-1 min-w-0 text-sm md:text-[15px] leading-snug font-bold text-foreground truncate">
+                          {row.date} · {row.workerName}
+                        </span>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <span className="text-micro-md px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300">
+                            {row.md}공수
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => startLaborEdit(row.id)}
+                            aria-label="노무비 수정"
+                            title="수정"
+                            className="h-5 w-5 inline-flex items-center justify-center text-muted-foreground hover:text-foreground"
+                          >
+                            <Pen size={14} />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="mt-0.5 text-[11px] md:text-xs leading-snug text-muted-foreground">
+                        일당 {formatCurrency(row.daily)} · 세금 -{formatCurrency(row.tax)} · 실지급 -{formatCurrency(row.net)}
+                      </div>
+                      {row.note && (
+                        <div className="mt-1 text-[11px] md:text-xs leading-snug text-foreground bg-muted rounded-md px-2 py-1 break-words">{row.note}</div>
+                      )}
+                      <div className="mt-1 text-right font-black text-sm leading-none text-orange-600">-{formatCurrency(row.gross)}</div>
+                      {editingLaborId === row.id && (
+                        <div className="mt-2 space-y-2 border border-border rounded-md md:rounded-lg p-2 bg-muted/40">
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <input
+                              type="date"
+                              value={editingLaborDraft.date}
+                              onChange={(e) => setEditingLaborDraft((prev) => ({ ...prev, date: e.target.value }))}
+                              className="w-full px-2.5 py-2 rounded-md md:rounded-lg bg-card border border-border text-xs font-semibold text-foreground outline-none"
+                            />
+                            <SearchableSelect
+                              options={[{ id: '', label: '작업자 선택' }, ...data.workers.map((w) => ({ id: w.id, label: w.name }))]}
+                              value={editingLaborDraft.worker_id}
+                              onChange={(val) =>
+                                preserveDetailScroll(() =>
+                                  setEditingLaborDraft((prev) => ({ ...prev, worker_id: val }))
+                                )
+                              }
+                              placeholder="작업자 선택"
+                              recentIds={recentWorkerIds}
+                              autoFocusSearch={false}
+                              searchable
+                            />
+                            <input
+                              type="number"
+                              step="0.5"
+                              min="0"
+                              value={editingLaborDraft.md}
+                              onChange={(e) => setEditingLaborDraft((prev) => ({ ...prev, md: e.target.value }))}
+                              className="w-full px-2.5 py-2 rounded-md md:rounded-lg bg-card border border-border text-xs font-semibold text-foreground outline-none"
+                              placeholder="공수"
+                            />
+                          </div>
+                          <input
+                            type="text"
+                            value={editingLaborDraft.note}
+                            onChange={(e) => setEditingLaborDraft((prev) => ({ ...prev, note: e.target.value }))}
+                            className="w-full px-2.5 py-2 rounded-md md:rounded-lg bg-card border border-border text-xs font-semibold text-foreground outline-none"
+                            placeholder="메모"
+                          />
+                          <div className="flex gap-2 justify-end">
+                            <button
+                              type="button"
+                              onClick={() => setEditingLaborId(null)}
+                              className="px-3 py-1.5 rounded-md md:rounded-lg border border-border text-xs font-bold text-muted-foreground hover:text-foreground"
+                            >
+                              취소
+                            </button>
+                            <button
+                              type="button"
+                              onClick={saveLaborEdit}
+                              className="px-3 py-1.5 rounded-md md:rounded-lg bg-orange-500 text-white text-xs font-bold"
+                            >
+                              저장
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))
+                )
+              ) : selectedExpenseDetails.length === 0 ? (
+                <div className="text-center py-10 text-muted-foreground text-sm">경비 내역이 없습니다.</div>
+              ) : (
+                selectedExpenseDetails.map((row) => (
+                  <div key={row.id} className="rounded-lg border border-border bg-card px-3 py-2.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="flex-1 min-w-0 text-sm md:text-[15px] leading-snug font-bold text-foreground truncate">
+                        {row.date} · {row.category}
+                        {row.workerName ? ` · ${row.workerName}` : ''}
+                      </span>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <span className="font-black text-sm text-teal-600">-{formatCurrency(row.amount)}</span>
+                        <button
+                          type="button"
+                          onClick={() => startExpenseEdit(row.id)}
+                          aria-label="경비 수정"
+                          title="수정"
+                          className="h-5 w-5 inline-flex items-center justify-center text-muted-foreground hover:text-foreground"
+                        >
+                          <Pen size={14} />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="mt-0.5 text-[11px] md:text-xs leading-snug text-muted-foreground break-words">{row.description || '-'}</div>
+                    {editingExpenseId === row.id && (
+                      <div className="mt-2 space-y-2 border border-border rounded-md md:rounded-lg p-2 bg-muted/40">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                          <input
+                            type="date"
+                            value={editingExpenseDraft.date}
+                            onChange={(e) => setEditingExpenseDraft((prev) => ({ ...prev, date: e.target.value }))}
+                            className="w-full px-2.5 py-2 rounded-md md:rounded-lg bg-card border border-border text-xs font-semibold text-foreground outline-none"
+                          />
+                          <SearchableSelect
+                            options={[{ id: '', label: '항목 선택' }, ...categories.map((c) => ({ id: c, label: c }))]}
+                            value={editingExpenseDraft.category}
+                            onChange={(val) =>
+                              preserveDetailScroll(() =>
+                                setEditingExpenseDraft((prev) => ({ ...prev, category: val }))
+                              )
+                            }
+                            placeholder="항목 선택"
+                            autoFocusSearch={false}
+                            searchable={false}
+                            clearable={false}
+                            compact
+                          />
+                          <input
+                            type="number"
+                            min="0"
+                            value={editingExpenseDraft.amount}
+                            onChange={(e) => setEditingExpenseDraft((prev) => ({ ...prev, amount: e.target.value }))}
+                            className="w-full px-2.5 py-2 rounded-md md:rounded-lg bg-card border border-border text-xs font-semibold text-foreground outline-none"
+                            placeholder="금액"
+                          />
+                        </div>
+                        <input
+                          type="text"
+                          value={editingExpenseDraft.description}
+                          onChange={(e) => setEditingExpenseDraft((prev) => ({ ...prev, description: e.target.value }))}
+                          className="w-full px-2.5 py-2 rounded-md md:rounded-lg bg-card border border-border text-xs font-semibold text-foreground outline-none"
+                          placeholder="상세 내용"
+                        />
+                        <div className="flex gap-2 justify-end">
+                          <button
+                            type="button"
+                            onClick={() => setEditingExpenseId(null)}
+                            className="px-3 py-1.5 rounded-md md:rounded-lg border border-border text-xs font-bold text-muted-foreground hover:text-foreground"
+                          >
+                            취소
+                          </button>
+                          <button
+                            type="button"
+                            onClick={saveExpenseEdit}
+                            className="px-3 py-1.5 rounded-md md:rounded-lg bg-teal-600 text-white text-xs font-bold"
+                          >
+                            저장
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Edit Transaction Modal */}
       {editingTx && (
