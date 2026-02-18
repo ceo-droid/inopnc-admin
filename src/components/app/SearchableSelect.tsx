@@ -89,7 +89,7 @@ const SearchableSelect = ({
       Math.floor(viewportHeight * 0.55),
       Math.floor((bottomBoundary - topBoundary) - 12)
     );
-    const nextMaxHeight = Math.max(160, Math.min(hardCap, Math.floor(available)));
+    const nextMaxHeight = Math.max(0, Math.min(hardCap, Math.floor(available)));
     setOpenUpward(shouldOpenUp);
     setPanelMaxHeight(nextMaxHeight);
   }, []);
@@ -106,7 +106,7 @@ const SearchableSelect = ({
   }, [isOpen, updateMenuLayout]);
 
   return (
-    <div className="relative w-full isolate" ref={wrapperRef}>
+    <div className={`relative w-full isolate ${isOpen ? 'z-[90]' : 'z-0'}`} ref={wrapperRef}>
       <div
         className={`w-full rounded-xl bg-muted border text-body font-bold cursor-pointer flex justify-between items-center transition-all hover:bg-gray-100 dark:hover:bg-gray-800 ${isOpen ? 'border-primary ring-1 ring-primary' : 'border-border text-foreground'} min-h-[44px] px-2.5 pr-4 ${compact ? 'py-2' : 'py-2.5'}`}
         onClick={() => setIsOpen(!isOpen)}

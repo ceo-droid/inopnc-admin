@@ -33,9 +33,6 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
   const [payShowAll, setPayShowAll] = useState(true);
   const payMonth = payMonthOverride || calMonth;
   const setPayMonth = (d: Date) => { setPayMonthOverride(d); setPayShowAll(false); };
-  const [payFilterSite, setPayFilterSite] = useState('');
-  const [payFilterWorker, setPayFilterWorker] = useState('');
-  const [payFilterCompany, setPayFilterCompany] = useState('');
   const [payDateDesc, setPayDateDesc] = useState(true);
   const [monthYearPickerOpen, setMonthYearPickerOpen] = useState(false);
   const [monthYearPickerViewYear, setMonthYearPickerViewYear] = useState(calMonth.getFullYear());
@@ -162,9 +159,6 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
         }
         return { ...prev, workers: mergedWorkers, sites: mergedSites, workLogs: [...prev.workLogs, ...newLogs] };
       });
-      setPayFilterSite('');
-      setPayFilterWorker('');
-      setPayFilterCompany('');
       setPayShowAll(true);
       
       addToast(`CSV 반영 완료 · 작업일지 ${importedLogs.length}건`, 'success');
@@ -182,13 +176,9 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       const monthPrefix = `${y}-${String(m).padStart(2, '0')}`;
       logs = logs.filter(l => l.date.startsWith(monthPrefix));
     }
-    // 개별 필터 적용 (캘린더 필터와 독립적으로 작동)
-    if (payFilterWorker) logs = logs.filter(l => workersById[l.worker_id]?.name === payFilterWorker);
-    if (payFilterSite) logs = logs.filter(l => sitesById[l.site_id]?.name === payFilterSite);
-    if (payFilterCompany) {
-      const companySiteIds = new Set(data.sites.filter(s => s.company_name === payFilterCompany).map(s => s.id));
-      logs = logs.filter(l => companySiteIds.has(l.site_id));
-    }
+    // 상단 현장/작업자 필터를 급여표에도 동일하게 적용
+    if (calFilterWorker) logs = logs.filter(l => workersById[l.worker_id]?.name === calFilterWorker);
+    if (calFilterSite) logs = logs.filter(l => sitesById[l.site_id]?.name === calFilterSite);
     if (payDateDesc) {
       logs.sort((a, b) => b.date.localeCompare(a.date));
     } else {
@@ -201,7 +191,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       return { ...log, workerName: worker?.name || '미등록', siteName: site?.name || '삭제된 현장', companyName: site?.company_name || '-', gross, tax, net };
     });
     return result;
-  }, [data.workLogs, data.workers, data.sites, payMonth, payShowAll, payFilterWorker, payFilterSite, payFilterCompany, payDateDesc, workersById, sitesById]);
+  }, [data.workLogs, payMonth, payShowAll, calFilterWorker, calFilterSite, payDateDesc, workersById, sitesById]);
 
   const totals = payrollData.reduce((acc, curr) => ({ md: acc.md + curr.md, gross: acc.gross + curr.gross, tax: acc.tax + curr.tax, net: acc.net + curr.net }), { md: 0, gross: 0, tax: 0, net: 0 });
 
@@ -415,7 +405,6 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
             </div>
             
             {/* 구분선 */}
-            <div className="w-px h-6 bg-gray-300 dark:bg-gray-600 flex-shrink-0 mx-0.5 md:mx-2" />
             
             {/* 우측: 뷰 전환 탭 메뉴 - AdminView 스타일 적용 */}
             <div className="flex flex-1 h-full rounded-2xl bg-muted/80 border border-border/60 p-0.5 shadow-inner gap-0.5 min-w-0">
@@ -507,7 +496,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       {/* Payroll Table Section */}
       <div className="flex items-center justify-between gap-2 mb-2 h-[44px]">
         <div className="flex items-center gap-2">
-          <h3 className="font-extrabold text-[20px] md:text-[22px] text-foreground whitespace-nowrap">
+          <h3 className="font-sans font-extrabold text-[20px] md:text-[22px] text-foreground whitespace-nowrap">
             출력현황
           </h3>
         </div>
@@ -529,21 +518,12 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       </div>
       
       {/* 집계 정보 */}
-      <div className="flex justify-between items-center mb-4 gap-3">
-        <div className="flex-1 max-w-[300px]">
-          <SearchableSelect 
-            options={[{ id: '', label: '전체 작업자' }, ...data.workers.map(w => ({ id: w.id, label: w.name }))]} 
-            value={payFilterWorker} 
-            onChange={setPayFilterWorker} 
-            placeholder="작업자 필터" 
-            recentIds={recentWorkerIds} 
-          />
-        </div>
-        <div className="bg-muted rounded-xl px-4 py-2 border border-border h-[44px] flex items-center">
-          <div className="flex items-center gap-3 text-[11px] font-bold">
+      <div className="mb-4">
+        <div className="bg-muted rounded-xl px-4 py-2 border border-border h-[44px] flex items-center w-full">
+          <div className="flex w-full items-center justify-between gap-3 text-[14px] font-bold">
             <span>{String(payMonth.getFullYear()).slice(2)}년 {payMonth.getMonth() + 1}월</span>
             <span>현장 {new Set(payrollData.map(r => r.siteName)).size}개</span>
-            <span className="text-primary text-[11px]">총 공수 {totals.md}</span>
+            <span className="text-primary text-[14px]">총 공수 {totals.md}</span>
           </div>
         </div>
       </div>
