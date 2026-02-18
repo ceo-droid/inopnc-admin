@@ -2,10 +2,20 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const ENV_SUPABASE_URL =
+const RAW_ENV_SUPABASE_URL =
   import.meta.env.VITE_SUPABASE_URL || import.meta.env.VITE_SUPABASE_PROJECT_URL;
-const ENV_SUPABASE_KEY =
+const RAW_ENV_SUPABASE_KEY =
   import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+const isPlaceholder = (value: string | undefined) =>
+  !value || value.toLowerCase().includes('placeholder');
+
+const ENV_SUPABASE_URL = isPlaceholder(RAW_ENV_SUPABASE_URL)
+  ? undefined
+  : RAW_ENV_SUPABASE_URL;
+const ENV_SUPABASE_KEY = isPlaceholder(RAW_ENV_SUPABASE_KEY)
+  ? undefined
+  : RAW_ENV_SUPABASE_KEY;
 
 // Fallback to the current project so production still works even if env vars are missing on Vercel.
 const SUPABASE_URL = ENV_SUPABASE_URL || 'https://gbdcwxrnemirswlecwwh.supabase.co';
