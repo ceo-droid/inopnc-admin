@@ -1,8 +1,3 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="16" cy="16" r="15.5" fill="#DCDFE5"/>
-  <ellipse cx="8.9" cy="16.6" rx="3.8" ry="7.2" transform="rotate(24 8.9 16.6)" fill="#3C9BCD"/>
-  <path d="M5.8 16.2C7 11.2 11.8 8.8 16.4 9.4C20.2 9.8 23.8 12.1 25 15.6" stroke="#D4262E" stroke-width="4.6"/>
-  <ellipse cx="21.2" cy="24.2" rx="2.5" ry="4.5" transform="rotate(-26 21.2 24.2)" fill="#4169BD"/>
-  <ellipse cx="16.2" cy="21.6" rx="5.1" ry="7.7" transform="rotate(-12 16.2 21.6)" fill="#DCDFE5"/>
-  <circle cx="17.4" cy="4.8" r="2.2" fill="#C62027"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <image href="/logo-icon.png" x="0" y="0" width="192" height="192" />
 </svg>
