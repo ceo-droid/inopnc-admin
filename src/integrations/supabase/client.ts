@@ -2,22 +2,29 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-const hasSupabaseEnv = Boolean(SUPABASE_URL && SUPABASE_PUBLISHABLE_KEY);
+const ENV_SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL || import.meta.env.VITE_SUPABASE_PROJECT_URL;
+const ENV_SUPABASE_KEY =
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// Fallback to the current project so production still works even if env vars are missing on Vercel.
+const SUPABASE_URL = ENV_SUPABASE_URL || 'https://gbdcwxrnemirswlecwwh.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY =
+  ENV_SUPABASE_KEY || 'sb_publishable_oZ5xCxhRkD7mhk_vn8e4dg_Ic_gNZij';
+const hasSupabaseEnv = Boolean(ENV_SUPABASE_URL && ENV_SUPABASE_KEY);
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
 if (!hasSupabaseEnv) {
   console.warn(
-    '[supabase] Missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY. Running in degraded mode.'
+    '[supabase] Missing env vars. Using baked fallback config for this project.'
   );
 }
 
 export const supabase = createClient<Database>(
-  SUPABASE_URL || 'https://placeholder.supabase.co',
-  SUPABASE_PUBLISHABLE_KEY || 'placeholder-key',
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY,
   {
   auth: {
     storage: localStorage,
