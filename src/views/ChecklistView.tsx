@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import { Plus, Trash2, Check, CheckSquare } from 'lucide-react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Plus, Trash2, Pencil } from 'lucide-react';
 import type { AppState, ChecklistItem, ChecklistType } from '@/types';
 import { formatCurrency } from '@/lib/helpers';
 import AppCard from '@/components/app/AppCard';
@@ -9,9 +9,11 @@ interface ChecklistViewProps {
   data: AppState;
   setData: React.Dispatch<React.SetStateAction<AppState>>;
   addToast: (msg: string, type: 'success' | 'error' | 'info') => void;
+  focusItemId?: string | null;
+  onFocusItemHandled?: () => void;
 }
 
-const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
+const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandled }: ChecklistViewProps) => {
   const [newItemType, setNewItemType] = useState<ChecklistType>('task');
   const [newItemTitle, setNewItemTitle] = useState('');
   const [newItemAmount, setNewItemAmount] = useState('');
@@ -27,6 +29,10 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
   
   // 항목 필드 상태 (받을돈, 줄돈, 업무용)
   const [newItemContent, setNewItemContent] = useState('');
+  const [editingItemId, setEditingItemId] = useState<string | null>(null);
+  const [focusedItemId, setFocusedItemId] = useState<string | null>(null);
+  const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const focusTimerRef = useRef<number | null>(null);
   
   const MATERIAL_UNIT_PRICE = parseInt(newItemUnitPrice.replace(/,/g, '')) || 38000; // 자재 단가
 
@@ -37,6 +43,40 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
       if (a.status !== 'completed' && b.status === 'completed') return -1;
       return b.date.localeCompare(a.date);
     });
+
+  useEffect(() => {
+    if (!focusItemId) return;
+    setFilterType('all');
+
+    const hasTarget = data.checklists.some((item) => item.id === focusItemId);
+    if (!hasTarget) {
+      onFocusItemHandled?.();
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      const target = itemRefs.current[focusItemId];
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setFocusedItemId(focusItemId);
+
+        if (focusTimerRef.current) window.clearTimeout(focusTimerRef.current);
+        focusTimerRef.current = window.setTimeout(() => {
+          setFocusedItemId((prev) => (prev === focusItemId ? null : prev));
+        }, 2200);
+      }
+
+      onFocusItemHandled?.();
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [data.checklists, focusItemId, onFocusItemHandled]);
+
+  useEffect(() => {
+    return () => {
+      if (focusTimerRef.current) window.clearTimeout(focusTimerRef.current);
+    };
+  }, []);
 
   const supplierOptions = useMemo(() => {
     const seen = new Set<string>();
@@ -59,63 +99,7 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
     return options;
   }, [data.customers, data.sites, newItemSupplier, newItemTitle]);
 
-  const addItem = () => {
-    if (!newItemTitle) return alert('제목을 입력해주세요.');
-    
-    let amount = 0;
-    let supplier, quantity, shippingType, paymentStatus, unitPrice;
-    
-    if (newItemType === 'material') {
-      if (!newItemSupplier) return alert('거래처를 입력해주세요.');
-      if (!newItemQuantity) return alert('수량을 입력해주세요.');
-      
-      quantity = parseInt(newItemQuantity.replace(/,/g, '')) || 0;
-      unitPrice = MATERIAL_UNIT_PRICE;
-      amount = quantity * unitPrice;
-      supplier = newItemSupplier;
-      shippingType = newItemShippingType;
-      paymentStatus = newItemPaymentStatus;
-    } else {
-      amount = parseInt(newItemAmount.replace(/,/g, '')) || 0;
-    }
-    
-    const newItem: ChecklistItem = {
-      id: crypto.randomUUID(), 
-      type: newItemType, 
-      date: newItemDate,
-      title: newItemType === 'material' ? newItemSupplier : `${newItemTitle} - ${newItemContent}`, 
-      amount,
-      status: 'pending',
-      ...(newItemType === 'material' && {
-        supplier,
-        quantity,
-        unitPrice,
-        shippingType,
-        paymentStatus
-      })
-    };
-
-    const selectedCustomerName = (newItemType === 'material' ? newItemSupplier : newItemTitle).trim();
-    const normalizedSelectedCustomerName = selectedCustomerName.toLowerCase().replace(/\s+/g, '');
-
-    setData(prev => {
-      const hasCustomer =
-        !!normalizedSelectedCustomerName &&
-        prev.customers.some(
-          (customer) =>
-            customer.name.trim().toLowerCase().replace(/\s+/g, '') === normalizedSelectedCustomerName
-        );
-
-      return {
-        ...prev,
-        customers:
-          normalizedSelectedCustomerName && !hasCustomer
-            ? [...prev.customers, { id: crypto.randomUUID(), name: selectedCustomerName, contact: '' }]
-            : prev.customers,
-        checklists: [...prev.checklists, newItem],
-      };
-    });
-    // 폼 초기화
+  const resetForm = () => {
     setNewItemTitle('');
     setNewItemAmount('');
     setNewItemContent('');
@@ -124,8 +108,139 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
     setNewItemUnitPrice('38000');
     setNewItemShippingType('prepaid');
     setNewItemPaymentStatus('not_requested');
-    
-    addToast('항목이 등록되었습니다.', 'success');
+  };
+
+  const saveItem = () => {
+    if (newItemType === 'material') {
+      if (!newItemSupplier.trim()) return alert('거래처를 입력해주세요.');
+      if (!newItemQuantity.trim()) return alert('수량을 입력해주세요.');
+    } else if (!newItemTitle.trim()) {
+      return alert('거래처를 입력해주세요.');
+    }
+
+    let amount = 0;
+    let supplier: string | undefined;
+    let quantity: number | undefined;
+    let shippingType: 'prepaid' | 'postpaid' | 'delivery' | undefined;
+    let paymentStatus: 'requested' | 'not_requested' | 'received' | 'not_received' | undefined;
+    let unitPrice: number | undefined;
+
+    if (newItemType === 'material') {
+      quantity = parseInt(newItemQuantity.replace(/,/g, ''), 10) || 0;
+      unitPrice = MATERIAL_UNIT_PRICE;
+      amount = quantity * unitPrice;
+      supplier = newItemSupplier.trim();
+      shippingType = newItemShippingType;
+      paymentStatus = newItemPaymentStatus;
+    } else {
+      amount = parseInt(newItemAmount.replace(/,/g, ''), 10) || 0;
+    }
+
+    const composedTitle =
+      newItemType === 'material'
+        ? newItemSupplier.trim()
+        : `${newItemTitle.trim()}${newItemContent.trim() ? ` - ${newItemContent.trim()}` : ''}`;
+
+    const draftItem: ChecklistItem = {
+      id: editingItemId ?? crypto.randomUUID(),
+      type: newItemType,
+      date: newItemDate,
+      title: composedTitle,
+      amount,
+      status: 'pending',
+      ...(newItemType === 'material' && {
+        supplier,
+        quantity,
+        unitPrice,
+        shippingType,
+        paymentStatus,
+      }),
+    };
+
+    const selectedCustomerName = (newItemType === 'material' ? newItemSupplier : newItemTitle).trim();
+    const normalizedSelectedCustomerName = selectedCustomerName.toLowerCase().replace(/\s+/g, '');
+    const isEditing = !!editingItemId;
+
+    setData((prev) => {
+      const hasCustomer =
+        !!normalizedSelectedCustomerName &&
+        prev.customers.some(
+          (customer) =>
+            customer.name.trim().toLowerCase().replace(/\s+/g, '') === normalizedSelectedCustomerName
+        );
+
+      const customers =
+        normalizedSelectedCustomerName && !hasCustomer
+          ? [...prev.customers, { id: crypto.randomUUID(), name: selectedCustomerName, contact: '' }]
+          : prev.customers;
+
+      const checklists = isEditing
+        ? prev.checklists.map((item) => {
+            if (item.id !== editingItemId) return item;
+            return {
+              id: item.id,
+              type: draftItem.type,
+              date: draftItem.date,
+              title: draftItem.title,
+              amount: draftItem.amount,
+              status: item.status,
+              ...(draftItem.type === 'material' && {
+                supplier: draftItem.supplier,
+                quantity: draftItem.quantity,
+                unitPrice: draftItem.unitPrice,
+                shippingType: draftItem.shippingType,
+                paymentStatus: draftItem.paymentStatus,
+              }),
+            };
+          })
+        : [...prev.checklists, draftItem];
+
+      return {
+        ...prev,
+        customers,
+        checklists,
+      };
+    });
+
+    if (isEditing) setEditingItemId(null);
+    resetForm();
+    addToast(isEditing ? '항목이 수정되었습니다.' : '항목이 등록되었습니다.', 'success');
+  };
+
+  const startEditItem = (item: ChecklistItem) => {
+    setEditingItemId(item.id);
+    setNewItemType(item.type);
+    setNewItemDate(item.date);
+
+    if (item.type === 'material') {
+      setNewItemSupplier(item.supplier || item.title || '');
+      setNewItemQuantity(item.quantity ? String(item.quantity) : '');
+      setNewItemUnitPrice(item.unitPrice ? String(item.unitPrice) : '38000');
+      setNewItemShippingType(item.shippingType || 'prepaid');
+      setNewItemPaymentStatus(item.paymentStatus || 'not_requested');
+      setNewItemTitle('');
+      setNewItemContent(item.memo || '');
+      setNewItemAmount('');
+    } else {
+      const [title, ...contentParts] = item.title.split(' - ');
+      setNewItemTitle(title || '');
+      setNewItemContent(contentParts.join(' - '));
+      setNewItemAmount(item.amount ? String(item.amount) : '');
+      setNewItemSupplier('');
+      setNewItemQuantity('');
+      setNewItemUnitPrice('38000');
+      setNewItemShippingType('prepaid');
+      setNewItemPaymentStatus('not_requested');
+    }
+
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const cancelEdit = () => {
+    setEditingItemId(null);
+    resetForm();
   };
 
   const toggleStatus = (id: string) => {
@@ -138,6 +253,7 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
   const deleteItem = (id: string) => {
     if (confirm('삭제하시겠습니까?')) {
       setData(prev => ({ ...prev, checklists: prev.checklists.filter(c => c.id !== id) }));
+      if (editingItemId === id) cancelEdit();
       addToast('삭제되었습니다.', 'info');
     }
   };
@@ -177,7 +293,7 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
             </div>
             <div>
               <label className="block text-[11.8px] font-medium text-muted-foreground mb-1">
-                {newItemType === 'material' ? '거래처' : newItemType === 'task' ? '거래처' : '거래처'}
+                거래처
               </label>
               {newItemType === 'material' ? (
                 <SearchableSelect
@@ -339,16 +455,41 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
                 </div>
               </>
             )}
-            <button onClick={addItem} className="w-full py-3 bg-primary hover:brightness-110 text-primary-foreground rounded-xl font-bold text-xs shadow-lg shadow-neon transition-all active:scale-95 flex items-center justify-center gap-1">
-              <Plus size={14} /> 등록하기
+            <button onClick={saveItem} className="w-full py-3 bg-primary hover:brightness-110 text-primary-foreground rounded-xl font-bold text-xs shadow-lg shadow-neon transition-all active:scale-95 flex items-center justify-center gap-1">
+              <Plus size={14} /> {editingItemId ? '수정 저장' : '등록하기'}
             </button>
+            {editingItemId && (
+              <button
+                onClick={cancelEdit}
+                className="w-full py-3 bg-card border border-border text-muted-foreground rounded-xl font-bold text-xs transition-all hover:text-foreground"
+              >
+                수정 취소
+              </button>
+            )}
           </div>
         </AppCard>
 
         <div className="md:col-span-2 space-y-3">
           {sortedChecklists.length === 0 && <div className="text-center py-10 text-muted-foreground text-xs bg-card rounded-2xl">등록된 항목이 없습니다.</div>}
-          {sortedChecklists.map(item => (
-            <div key={item.id} className={`flex items-center p-4 bg-card rounded-2xl border transition-all ${item.status === 'completed' ? 'opacity-60 border-border' : 'border-border shadow-sm'}`}>
+          {sortedChecklists.map(item => {
+            const isEditingItem = editingItemId === item.id;
+            const isFocusedItem = focusedItemId === item.id;
+            return (
+            <div
+              key={item.id}
+              ref={(el) => {
+                itemRefs.current[item.id] = el;
+              }}
+              className={`flex items-center p-4 bg-card rounded-2xl border transition-all ${
+                isEditingItem
+                  ? 'border-primary/50 ring-1 ring-primary/30'
+                  : isFocusedItem
+                    ? 'border-primary/50 ring-1 ring-primary/30 shadow-sm'
+                    : item.status === 'completed'
+                      ? 'opacity-60 border-border'
+                      : 'border-border shadow-sm'
+              }`}
+            >
               <button onClick={() => toggleStatus(item.id)} className={`!w-6 !h-6 !min-w-6 !min-h-6 !p-0 md:!w-[14px] md:!h-[14px] md:!min-w-[14px] md:!min-h-[14px] rounded-full border-2 flex items-center justify-center mr-2 md:mr-3 transition-colors flex-shrink-0 flex-none self-center ${
   item.status === 'completed' 
     ? 'bg-primary border-primary text-white' 
@@ -399,9 +540,20 @@ const ChecklistView = ({ data, setData, addToast }: ChecklistViewProps) => {
                   </div>
                 )}
               </div>
-              <button onClick={() => deleteItem(item.id)} className="text-muted-foreground/30 hover:text-destructive p-2"><Trash2 size={16} /></button>
+              <div className="flex items-center">
+                <button
+                  onClick={() => startEditItem(item)}
+                  className="text-muted-foreground/40 hover:text-foreground p-2"
+                  title="수정"
+                  aria-label="수정"
+                >
+                  <Pencil size={16} />
+                </button>
+                <button onClick={() => deleteItem(item.id)} className="text-muted-foreground/30 hover:text-destructive p-2"><Trash2 size={16} /></button>
+              </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

@@ -23,6 +23,7 @@ const Index = () => {
   const [isLogModalOpen, setLogModalOpen] = useState(false);
   const [logModalDate, setLogModalDate] = useState<string>(new Date().toISOString().split('T')[0]);
   const [isNotifModalOpen, setNotifModalOpen] = useState(false);
+  const [focusChecklistItemId, setFocusChecklistItemId] = useState<string | null>(null);
 
   const { darkMode, toggleTheme } = useTheme();
   const { toasts, addToast } = useToast();
@@ -42,6 +43,12 @@ const Index = () => {
   const recentWorkerIds = useMemo(() => Array.from(new Set(data.workLogs.map((l) => l.worker_id))).slice(0, 5), [data.workLogs]);
 
   const hasNotifications = data.checklists.some((i) => i.status !== 'completed');
+
+  const handleNavigateToChecklistItem = (id: string) => {
+    setActiveTab('checklist');
+    setFocusChecklistItemId(id);
+    setNotifModalOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors md:pl-64 safe-area-pb">
@@ -73,7 +80,15 @@ const Index = () => {
           <>
             {activeTab === 'home' && <HomeView data={data} setData={setData} addToast={addToast} selectedDate={selectedDate} setSelectedDate={setSelectedDate} setLogModalOpen={setLogModalOpen} setLogModalDate={setLogModalDate} recentSiteIds={recentSiteIds} recentWorkerIds={recentWorkerIds} />}
             {activeTab === 'expenses' && <ExpenseView data={data} setData={setData} addToast={addToast} recentSiteIds={recentSiteIds} recentWorkerIds={recentWorkerIds} />}
-            {activeTab === 'checklist' && <ChecklistView data={data} setData={setData} addToast={addToast} />}
+            {activeTab === 'checklist' && (
+              <ChecklistView
+                data={data}
+                setData={setData}
+                addToast={addToast}
+                focusItemId={focusChecklistItemId}
+                onFocusItemHandled={() => setFocusChecklistItemId(null)}
+              />
+            )}
             {activeTab === 'admin' && <AdminView data={data} setData={setData} addToast={addToast} />}
           </>
         )}
@@ -82,7 +97,14 @@ const Index = () => {
       <MobileBottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <WorkLogModal data={data} setData={setData} addToast={addToast} isLogModalOpen={isLogModalOpen} setLogModalOpen={setLogModalOpen} logModalDate={logModalDate} recentSiteIds={recentSiteIds} recentWorkerIds={recentWorkerIds} />
-      <NotificationModal isOpen={isNotifModalOpen} onClose={() => setNotifModalOpen(false)} checklists={data.checklists} setData={setData} addToast={addToast} />
+      <NotificationModal
+        isOpen={isNotifModalOpen}
+        onClose={() => setNotifModalOpen(false)}
+        checklists={data.checklists}
+        setData={setData}
+        addToast={addToast}
+        onItemNavigate={handleNavigateToChecklistItem}
+      />
       <PwaInstallPrompt />
 
       <ToastContainer toasts={toasts} />

@@ -9,9 +9,10 @@ interface NotificationModalProps {
   checklists: ChecklistItem[];
   setData: React.Dispatch<React.SetStateAction<AppState>>;
   addToast: (msg: string, type: 'success' | 'error' | 'info') => void;
+  onItemNavigate?: (id: string) => void;
 }
 
-const NotificationModal = ({ isOpen, onClose, checklists, setData, addToast }: NotificationModalProps) => {
+const NotificationModal = ({ isOpen, onClose, checklists, setData, addToast, onItemNavigate }: NotificationModalProps) => {
   if (!isOpen) return null;
   
   const sortedItems = [...checklists].sort((a, b) => {
@@ -65,10 +66,19 @@ const NotificationModal = ({ isOpen, onClose, checklists, setData, addToast }: N
           ) : (
             <div className="space-y-3">
               {sortedItems.map(item => (
-                <div key={item.id} className={`p-4 rounded-2xl border transition-all ${item.status === 'completed' ? 'bg-muted/50 border-border/50 opacity-75' : 'bg-muted border-border'}`}>
+                <div
+                  key={item.id}
+                  onClick={() => onItemNavigate?.(item.id)}
+                  className={`p-4 rounded-2xl border transition-all ${
+                    item.status === 'completed' ? 'bg-muted/50 border-border/50 opacity-75' : 'bg-muted border-border'
+                  } ${onItemNavigate ? 'cursor-pointer hover:border-primary/40' : ''}`}
+                >
                   <div className="flex items-start gap-3">
                     <button 
-                      onClick={() => toggleStatus(item.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleStatus(item.id);
+                      }}
                       className="mt-0.5 text-primary hover:text-primary/80 transition-colors flex-shrink-0"
                     >
                       {item.status === 'completed' ? <CheckCircle size={20} /> : <Circle size={20} />}
