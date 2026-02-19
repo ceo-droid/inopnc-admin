@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Plus, Trash2, Pencil } from 'lucide-react';
 import type { AppState, ChecklistItem, ChecklistType } from '@/types';
-import { formatCurrency } from '@/lib/helpers';
+import { formatCurrency, toLocalISODate } from '@/lib/helpers';
 import AppCard from '@/components/app/AppCard';
 import SearchableSelect from '@/components/app/SearchableSelect';
 
@@ -18,7 +18,7 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
   const [newItemTitle, setNewItemTitle] = useState('');
   const [newItemAmount, setNewItemAmount] = useState('');
   const [newItemUnitPrice, setNewItemUnitPrice] = useState('38000');
-  const [newItemDate, setNewItemDate] = useState(new Date().toISOString().split('T')[0]);
+  const [newItemDate, setNewItemDate] = useState(() => toLocalISODate());
   const [filterType, setFilterType] = useState<ChecklistType | 'all'>('all');
   
   // 자재 관리 상태

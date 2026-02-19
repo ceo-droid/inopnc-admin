@@ -1,7 +1,7 @@
 import React, { useState, useRef, useMemo } from 'react';
 import { FileSpreadsheet, Download, Users, FileUp, Grid, List, ChevronLeft, ChevronRight, Filter, X } from 'lucide-react';
 import type { AppState, WorkLog, Worker, Site } from '@/types';
-import { formatCurrency, calcPayroll, getSiteTheme, hashString, normalizeText, num, parseKoreanDateToISO, median } from '@/lib/helpers';
+import { formatCurrency, calcPayroll, getSiteTheme, hashString, normalizeText, num, parseKoreanDateToISO, median, toLocalISODate, parseISODateLocal } from '@/lib/helpers';
 import MonthYearPicker from '@/components/app/MonthYearPicker';
 import SearchableSelect from '@/components/app/SearchableSelect';
 import * as XLSX from 'xlsx';
@@ -143,9 +143,11 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
 
       const latest = importedLogs.map(l => l.date).sort().slice(-1)[0];
       if (latest) {
-        const d = new Date(latest);
-        setCalMonth(new Date(d.getFullYear(), d.getMonth(), 1));
-        setPayMonth(new Date(d.getFullYear(), d.getMonth(), 1));
+        const d = parseISODateLocal(latest);
+        if (d) {
+          setCalMonth(new Date(d.getFullYear(), d.getMonth(), 1));
+          setPayMonth(new Date(d.getFullYear(), d.getMonth(), 1));
+        }
         setSelectedDate(latest);
       }
 
@@ -217,7 +219,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
     const month = calMonth.getMonth();
     const firstDay = new Date(year, month, 1).getDay();
     const lastDate = new Date(year, month + 1, 0).getDate();
-    const today = new Date().toISOString().split('T')[0];
+    const today = toLocalISODate();
     const days: React.ReactNode[] = [];
 
     for (let i = 0; i < firstDay; i++) days.push(<div key={`empty-${i}`} className="min-h-[100px] border-r border-b border-border bg-muted/30 dark:border-[#3a3a3a] dark:bg-[#262626]"></div>);
@@ -316,7 +318,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
     const year = calMonth.getFullYear();
     const month = calMonth.getMonth();
     const lastDate = new Date(year, month + 1, 0).getDate();
-    const today = new Date().toISOString().split('T')[0];
+    const today = toLocalISODate();
     const daysList: React.ReactNode[] = [];
 
     for (let d = 1; d <= lastDate; d++) {

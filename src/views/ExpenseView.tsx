@@ -1,7 +1,7 @@
 import React, { useState, useRef, useMemo } from 'react';
 import { Wallet, Search, Plus, FileSpreadsheet, Download, Trash2, ChevronDown, Edit2, Pen, X } from 'lucide-react';
 import type { AppState, Transaction, ExpenseCategory, WorkLog } from '@/types';
-import { formatCurrency, calcPayroll, normalizeText } from '@/lib/helpers';
+import { formatCurrency, calcPayroll, normalizeText, toLocalISODate } from '@/lib/helpers';
 import AppCard from '@/components/app/AppCard';
 import SearchableSelect from '@/components/app/SearchableSelect';
 import * as XLSX from 'xlsx';
@@ -24,7 +24,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
   const [expDesc, setExpDesc] = useState('');
   const [expCategory, setExpCategory] = useState<ExpenseCategory | ''>('');
   const [expAmount, setExpAmount] = useState('');
-  const [expDate, setExpDate] = useState(new Date().toISOString().split('T')[0]);
+  const [expDate, setExpDate] = useState(() => toLocalISODate());
   const [profitSearch, setProfitSearch] = useState('');
   const [showAllTransactions, setShowAllTransactions] = useState(false);
   const [expenseSearch, setExpenseSearch] = useState('');
@@ -542,7 +542,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
     const ws = XLSX.utils.json_to_sheet(excelData);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, '수익보고서');
-    XLSX.writeFile(wb, `현장별_수익보고서_${new Date().toISOString().slice(0, 10)}.xlsx`);
+    XLSX.writeFile(wb, `현장별_수익보고서_${toLocalISODate()}.xlsx`);
     addToast('수익보고서 다운로드가 완료되었습니다.', 'success');
   };
 

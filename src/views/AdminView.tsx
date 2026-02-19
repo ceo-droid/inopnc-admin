@@ -30,23 +30,33 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
   const [customerSearch, setCustomerSearch] = useState('');
 
   const filteredSites = useMemo(() => {
+    const normalizedSearch = siteSearch.trim().toLowerCase();
     return data.sites.filter(s => {
-      const matchesSearch = !siteSearch || s.name.toLowerCase().includes(siteSearch.toLowerCase()) || (s.company_name || '').toLowerCase().includes(siteSearch.toLowerCase());
+      const matchesSelectedSite = !!siteSearch && s.id === siteSearch;
+      const matchesTextSearch =
+        !!normalizedSearch &&
+        (s.name.toLowerCase().includes(normalizedSearch) ||
+          (s.company_name || '').toLowerCase().includes(normalizedSearch));
+      const matchesSearch = !siteSearch || matchesSelectedSite || matchesTextSearch;
       const matchesStatus = siteStatusFilter === 'all' || s.status === siteStatusFilter;
       return matchesSearch && matchesStatus;
     });
   }, [data.sites, siteSearch, siteStatusFilter]);
 
   const filteredWorkers = useMemo(() => {
+    const normalizedSearch = workerSearch.trim().toLowerCase();
     if (!workerSearch) return data.workers;
-    return data.workers.filter(w => w.name.toLowerCase().includes(workerSearch.toLowerCase()));
+    return data.workers.filter(w => w.id === workerSearch || (!!normalizedSearch && w.name.toLowerCase().includes(normalizedSearch)));
   }, [data.workers, workerSearch]);
 
   const filteredCustomers = useMemo(() => {
+    const normalizedSearch = customerSearch.trim().toLowerCase();
     if (!customerSearch) return data.customers;
     return data.customers.filter(customer => 
-      customer.name.toLowerCase().includes(customerSearch.toLowerCase()) ||
-      (customer.contact && customer.contact.toLowerCase().includes(customerSearch.toLowerCase()))
+      customer.id === customerSearch ||
+      (!!normalizedSearch &&
+        (customer.name.toLowerCase().includes(normalizedSearch) ||
+          (customer.contact && customer.contact.toLowerCase().includes(normalizedSearch))))
     );
   }, [data.customers, customerSearch]);
 

@@ -5,6 +5,7 @@ import { useTheme } from '@/hooks/useTheme';
 import { useToast } from '@/hooks/useToast';
 import { clearCache } from '@/utils/cache';
 import { type TabId } from '@/constants/navigation';
+import { toLocalISODate } from '@/lib/helpers';
 import HomeView from '@/views/HomeView';
 import ExpenseView from '@/views/ExpenseView';
 import ChecklistView from '@/views/ChecklistView';
@@ -19,9 +20,9 @@ import ToastContainer from '@/components/layout/ToastContainer';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState<TabId>('home');
-  const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
+  const [selectedDate, setSelectedDate] = useState<string>(() => toLocalISODate());
   const [isLogModalOpen, setLogModalOpen] = useState(false);
-  const [logModalDate, setLogModalDate] = useState<string>(new Date().toISOString().split('T')[0]);
+  const [logModalDate, setLogModalDate] = useState<string>(() => toLocalISODate());
   const [isNotifModalOpen, setNotifModalOpen] = useState(false);
   const [focusChecklistItemId, setFocusChecklistItemId] = useState<string | null>(null);
 

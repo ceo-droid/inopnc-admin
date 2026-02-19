@@ -21,6 +21,23 @@ export const num = (v: unknown, fallback = 0) => {
   return Number.isFinite(n) ? n : fallback;
 };
 
+export const toLocalISODate = (date: Date = new Date()) => {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+};
+
+export const parseISODateLocal = (value: string) => {
+  const s = normalizeText(value);
+  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (iso) {
+    return new Date(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3]));
+  }
+  const fallback = new Date(s);
+  return Number.isNaN(fallback.getTime()) ? null : fallback;
+};
+
 export const parseKoreanDateToISO = (raw: string) => {
   const s = normalizeText(raw);
   if (!s) return '';
@@ -37,7 +54,7 @@ export const parseKoreanDateToISO = (raw: string) => {
     }
   }
   const d = new Date(s);
-  if (!isNaN(d.getTime())) return d.toISOString().split('T')[0];
+  if (!isNaN(d.getTime())) return toLocalISODate(d);
   return '';
 };
 
@@ -123,10 +140,8 @@ export const getSiteTheme = (siteId: string) => {
 };
 
 export const formatDateFriendly = (dateStr: string) => {
-  const date = new Date(dateStr);
-  const today = new Date();
-  const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  if (d.getTime() === t.getTime()) return "오늘";
+  const date = parseISODateLocal(dateStr);
+  if (!date) return dateStr;
+  if (toLocalISODate(date) === toLocalISODate()) return "오늘";
   return `${date.getMonth() + 1}월 ${date.getDate()}일`;
 };
