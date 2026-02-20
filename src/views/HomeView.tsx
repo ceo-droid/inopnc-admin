@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useCallback } from 'react';
 import { FileSpreadsheet, Download, Users, FileUp, Grid, List, ChevronLeft, ChevronRight, Filter, X } from 'lucide-react';
 import type { AppState, WorkLog, Worker, Site } from '@/types';
 import { formatCurrency, calcPayroll, getSiteTheme, hashString, normalizeText, num, parseKoreanDateToISO, median, toLocalISODate, parseISODateLocal } from '@/lib/helpers';
@@ -42,6 +42,11 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
 
   const workersById = useMemo(() => Object.fromEntries(data.workers.map(w => [w.id, w] as const)), [data.workers]);
   const sitesById = useMemo(() => Object.fromEntries(data.sites.map(s => [s.id, s] as const)), [data.sites]);
+  const isHolidaySiteId = useCallback((siteId: string) => {
+    const siteNameKey = normalizeText(sitesById[siteId]?.name || '').toLowerCase().replace(/\s+/g, '');
+    return siteNameKey.includes('휴무');
+  }, [sitesById]);
+  const getEffectiveMd = useCallback((siteId: string, md: number) => (isHolidaySiteId(siteId) ? 0 : md), [isHolidaySiteId]);
 
   const importPayrollCsv = async (file: File) => {
     try {
@@ -190,11 +195,21 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
     let result = logs.map(log => {
       const worker = workersById[log.worker_id];
       const site = sitesById[log.site_id];
-      const { gross, tax, net } = calcPayroll(worker?.daily || 0, log.md);
-      return { ...log, workerName: worker?.name || '미등록', siteName: site?.name || '삭제된 현장', companyName: site?.company_name || '-', gross, tax, net };
+      const effectiveMd = getEffectiveMd(log.site_id, log.md);
+      const { gross, tax, net } = calcPayroll(worker?.daily || 0, effectiveMd);
+      return {
+        ...log,
+        md: effectiveMd,
+        workerName: worker?.name || '미등록',
+        siteName: site?.name || '삭제된 현장',
+        companyName: site?.company_name || '-',
+        gross,
+        tax,
+        net,
+      };
     });
     return result;
-  }, [data.workLogs, payMonth, payShowAll, calFilterWorker, calFilterSite, payDateDesc, workersById, sitesById]);
+  }, [data.workLogs, payMonth, payShowAll, calFilterWorker, calFilterSite, payDateDesc, workersById, sitesById, getEffectiveMd]);
 
   const totals = payrollData.reduce((acc, curr) => ({ md: acc.md + curr.md, gross: acc.gross + curr.gross, tax: acc.tax + curr.tax, net: acc.net + curr.net }), { md: 0, gross: 0, tax: 0, net: 0 });
 
@@ -259,9 +274,11 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                 const theme = getSiteTheme(siteId);
                 const mdGroups: Record<number, string[]> = {};
                 siteLogs.forEach(log => {
-                  const surname = workersById[log.worker_id]?.name?.slice(0, 1) || '?';
-                  if (!mdGroups[log.md]) mdGroups[log.md] = [];
-                  mdGroups[log.md].push(surname);
+                  const effectiveMd = getEffectiveMd(log.site_id, log.md);
+                  const workerName = workersById[log.worker_id]?.name || '?';
+                  const displayName = workerName.slice(0, 1);
+                  if (!mdGroups[effectiveMd]) mdGroups[effectiveMd] = [];
+                  mdGroups[effectiveMd].push(displayName);
                 });
                 const lines = 1 + Object.keys(mdGroups).length; // title + worker lines
                 totalLines += lines;
@@ -292,7 +309,10 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                         {Object.entries(mdGroups).map(([md, names]) => (
                           <div key={md} className={`opacity-80 dark:opacity-95 ${md === '0' || md === '0.5' ? 'text-red-500 dark:text-red-300 font-bold' : ''}`}>
                             {md === '0' ? (
-                              <span className="text-red-500 dark:text-red-300">휴무</span>
+                              <>
+                                {names.map((n, i) => <span key={i}>({n})</span>)}
+                                <span className="ml-0.5 text-red-500 dark:text-red-300">휴무</span>
+                              </>
                             ) : (
                               <>
                                 {names.map((n, i) => <span key={i}>({n})</span>)}
@@ -354,9 +374,11 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                   const siteLogs = logs as WorkLog[];
                   const mdGroups: Record<number, string[]> = {};
                   siteLogs.forEach(log => {
+                    const effectiveMd = getEffectiveMd(log.site_id, log.md);
                     const wName = workersById[log.worker_id]?.name || '?';
-                    if (!mdGroups[log.md]) mdGroups[log.md] = [];
-                    mdGroups[log.md].push(`(${wName.slice(0, 1)})`);
+                    const displayName = `(${wName.slice(0, 1)})`;
+                    if (!mdGroups[effectiveMd]) mdGroups[effectiveMd] = [];
+                    mdGroups[effectiveMd].push(displayName);
                   });
                   return (
                     <div key={siteId} className="flex flex-wrap items-center gap-2">
@@ -368,7 +390,13 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                       </span>
                       {Object.entries(mdGroups).map(([md, names]) => (
                         <span key={md} className="text-micro-lg text-muted-foreground">
-                          {names.join('')} <span className="font-bold text-foreground">{md}공수</span>
+                          {md === '0' ? (
+                            <span className="font-bold text-red-500 dark:text-red-300">{names.join('')} 휴무</span>
+                          ) : (
+                            <>
+                              {names.join('')} <span className="font-bold text-foreground">{md}공수</span>
+                            </>
+                          )}
                         </span>
                       ))}
                     </div>
@@ -538,7 +566,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
         <div className="bg-muted rounded-xl px-4 py-2 border border-border h-[44px] flex items-center w-full">
           <div className="flex w-full items-center justify-between gap-3 text-[14px] font-bold">
             <span>{payShowAll ? '전체 기간' : `${String(payMonth.getFullYear()).slice(2)}년 ${payMonth.getMonth() + 1}월`}</span>
-            <span>현장 {new Set(payrollData.map(r => r.siteName)).size}개</span>
+            <span>현장 {new Set(payrollData.filter(r => r.md > 0).map(r => r.siteName)).size}개</span>
             <span className="text-primary text-[14px]">총 공수 {totals.md}</span>
           </div>
         </div>
@@ -603,7 +631,9 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                     <td className="py-2.5 px-3 text-muted-foreground font-medium whitespace-nowrap max-w-[100px] truncate">{row.companyName}</td>
                     <td className="py-2.5 px-3 text-foreground whitespace-nowrap">{row.siteName}</td>
                     <td className="py-2.5 px-3 text-center whitespace-nowrap">
-                      <span className="inline-block px-2 py-0.5 rounded font-bold bg-primary text-primary-foreground">{row.md}</span>
+                      <span className={`inline-block px-2 py-0.5 rounded font-bold ${row.md === 0 ? 'bg-red-100 dark:bg-red-900/30 text-red-600' : 'bg-primary text-primary-foreground'}`}>
+                        {row.md === 0 ? '휴무' : row.md}
+                      </span>
                     </td>
                     <td className="py-2.5 px-3 text-right text-foreground font-medium whitespace-nowrap">{formatCurrency(row.gross)}</td>
                     <td className="py-2.5 px-3 text-right text-red-500 whitespace-nowrap">-{formatCurrency(row.tax)}</td>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { X, Plus, Edit2, Save, Trash2 } from 'lucide-react';
 import type { AppState, WorkLog } from '@/types';
-import { formatCurrency, calcPayroll, formatMd, formatDateFriendly } from '@/lib/helpers';
+import { formatCurrency, calcPayroll, formatMd, formatDateFriendly, normalizeText } from '@/lib/helpers';
 import SearchableSelect from './SearchableSelect';
 
 interface WorkLogModalProps {
@@ -22,12 +22,35 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
   const [targetMemo, setTargetMemo] = useState('');
   const [editingLogId, setEditingLogId] = useState<string | null>(null);
 
+  const sitesById = useMemo(() => Object.fromEntries(data.sites.map((site) => [site.id, site] as const)), [data.sites]);
   const todaysLogs = useMemo(() => data.workLogs.filter(l => l.date === logModalDate), [data.workLogs, logModalDate]);
   const selectedWorker = useMemo(() => data.workers.find(w => w.id === targetWorkerId), [data.workers, targetWorkerId]);
-  const previewPayroll = useMemo(() => calcPayroll(selectedWorker?.daily || 0, targetMd), [selectedWorker?.daily, targetMd]);
+  const selectedSite = useMemo(() => sitesById[targetSiteId], [sitesById, targetSiteId]);
+
+  const isHolidaySiteId = (siteId: string) => {
+    const siteNameKey = normalizeText(sitesById[siteId]?.name || '').toLowerCase().replace(/\s+/g, '');
+    return siteNameKey.includes('휴무');
+  };
+
+  const getEffectiveMd = (siteId: string, md: number) => (isHolidaySiteId(siteId) ? 0 : md);
+  const isHolidaySiteSelected = isHolidaySiteId(targetSiteId);
+  const effectiveTargetMd = getEffectiveMd(targetSiteId, targetMd);
+  const previewPayroll = useMemo(
+    () => calcPayroll(selectedWorker?.daily || 0, effectiveTargetMd),
+    [selectedWorker?.daily, effectiveTargetMd]
+  );
   const buildLogKey = (date: string, workerId: string, siteId: string, md: number) => `${date}|${workerId}|${siteId}|${md}`;
 
   useEffect(() => { if (isLogModalOpen) resetInputs(); }, [isLogModalOpen]);
+  useEffect(() => {
+    if (!isLogModalOpen || editingLogId || !targetSiteId) return;
+    setTargetMemo(selectedSite?.company_name?.trim() || '');
+  }, [isLogModalOpen, editingLogId, selectedSite?.company_name, targetSiteId]);
+  useEffect(() => {
+    if (isHolidaySiteSelected && targetMd !== 0) {
+      setTargetMd(0);
+    }
+  }, [isHolidaySiteSelected, targetMd]);
 
   if (!isLogModalOpen) return null;
 
@@ -36,22 +59,31 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
   const handleAdd = () => {
     if (!targetSiteId) return alert('현장을 선택해주세요.');
     if (!targetWorkerId) return alert('작업자를 선택해주세요.');
-    const newKey = buildLogKey(logModalDate, targetWorkerId, targetSiteId, targetMd);
-    const duplicate = data.workLogs.some((l) => buildLogKey(l.date, l.worker_id, l.site_id, l.md) === newKey);
+    const nextMd = getEffectiveMd(targetSiteId, targetMd);
+    const newKey = buildLogKey(logModalDate, targetWorkerId, targetSiteId, nextMd);
+    const duplicate = data.workLogs.some(
+      (l) => buildLogKey(l.date, l.worker_id, l.site_id, getEffectiveMd(l.site_id, l.md)) === newKey
+    );
     if (duplicate) {
       addToast('이미 공수 내역이 존재합니다.', 'info');
       return;
     }
-    const newLog: WorkLog = { id: crypto.randomUUID(), date: logModalDate, site_id: targetSiteId, worker_id: targetWorkerId, md: targetMd, note: targetMemo };
+    const newLog: WorkLog = {
+      id: crypto.randomUUID(),
+      date: logModalDate,
+      site_id: targetSiteId,
+      worker_id: targetWorkerId,
+      md: nextMd,
+      note: targetMemo.trim(),
+    };
     setData(prev => ({ ...prev, workLogs: [...prev.workLogs, newLog] }));
     addToast('공수가 등록되었습니다.', 'success');
-    setTargetWorkerId(''); setTargetMemo(''); setTargetMd(1.0);
   };
 
   const handleEdit = (log: WorkLog) => { 
     setTargetSiteId(log.site_id); 
     setTargetWorkerId(log.worker_id); 
-    setTargetMd(log.md); 
+    setTargetMd(getEffectiveMd(log.site_id, log.md)); 
     setTargetMemo(log.note || ''); 
     setEditingLogId(log.id);
     
@@ -66,13 +98,25 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
 
   const handleUpdate = () => {
     if (!editingLogId || !targetSiteId || !targetWorkerId) return;
-    const nextKey = buildLogKey(logModalDate, targetWorkerId, targetSiteId, targetMd);
-    const duplicate = data.workLogs.some((l) => l.id !== editingLogId && buildLogKey(l.date, l.worker_id, l.site_id, l.md) === nextKey);
+    const nextMd = getEffectiveMd(targetSiteId, targetMd);
+    const nextKey = buildLogKey(logModalDate, targetWorkerId, targetSiteId, nextMd);
+    const duplicate = data.workLogs.some(
+      (l) =>
+        l.id !== editingLogId &&
+        buildLogKey(l.date, l.worker_id, l.site_id, getEffectiveMd(l.site_id, l.md)) === nextKey
+    );
     if (duplicate) {
       addToast('수정 결과가 기존 내역과 중복됩니다.', 'error');
       return;
     }
-    setData(prev => ({ ...prev, workLogs: prev.workLogs.map(l => l.id === editingLogId ? { ...l, site_id: targetSiteId, worker_id: targetWorkerId, md: targetMd, note: targetMemo } : l) }));
+    setData(prev => ({
+      ...prev,
+      workLogs: prev.workLogs.map((l) =>
+        l.id === editingLogId
+          ? { ...l, site_id: targetSiteId, worker_id: targetWorkerId, md: nextMd, note: targetMemo.trim() }
+          : l
+      ),
+    }));
     addToast('공수 내역이 수정되었습니다.', 'success');
     resetInputs();
   };
@@ -100,7 +144,13 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
           <div className="worklog-edit-form space-y-4 transition-all duration-300">
             <div>
               <label className="block text-[11.8px] font-medium text-muted-foreground mb-1">현장 선택</label>
-              <SearchableSelect options={data.sites.map(s => ({ id: s.id, label: s.name, sub: s.company_name }))} value={targetSiteId} onChange={setTargetSiteId} placeholder="현장 검색..." recentIds={recentSiteIds} />
+              <SearchableSelect
+                options={data.sites.map((s) => ({ id: s.id, label: s.name, sub: s.company_name }))}
+                value={targetSiteId}
+                onChange={setTargetSiteId}
+                placeholder="현장 검색..."
+                recentIds={recentSiteIds}
+              />
             </div>
             <div>
               <label className="block text-[11.8px] font-medium text-muted-foreground mb-1">작업자 선택</label>
@@ -127,16 +177,28 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
                   <div className="text-[11px] font-black text-blue-700 dark:text-blue-200">{selectedWorker ? formatCurrency(previewPayroll.net) : '-'}</div>
                 </div>
               </div>
-              <div className="mt-2 text-[10px] text-muted-foreground">공수 {formatMd(targetMd)} 기준 · 세금은 원 단위 절사</div>
+              <div className="mt-2 text-[10px] text-muted-foreground">공수 {formatMd(effectiveTargetMd)} 기준 · 세금은 원 단위 절사</div>
             </div>
 
             <div className="flex gap-4">
               <div className="w-1/3">
                 <label className="block text-[11.8px] font-medium text-muted-foreground mb-1">공수</label>
                 <div className="flex items-center bg-card rounded-xl border border-border overflow-hidden h-[42px]">
-                  <button onClick={() => setTargetMd(Math.max(0, targetMd - 0.5))} className="w-10 h-full flex items-center justify-center bg-muted hover:bg-gray-100 dark:hover:bg-gray-800 text-muted-foreground font-bold border-r border-border">-</button>
-                  <div className="flex-1 text-center font-semibold text-sm">{targetMd === 0 ? <span className="text-red-500 font-medium">휴무</span> : targetMd}</div>
-                  <button onClick={() => setTargetMd(Math.min(3.5, targetMd + 0.5))} className="w-10 h-full flex items-center justify-center bg-muted hover:bg-gray-100 dark:hover:bg-gray-800 text-muted-foreground font-bold border-l border-border">+</button>
+                  <button
+                    onClick={() => { if (!isHolidaySiteSelected) setTargetMd(Math.max(0, targetMd - 0.5)); }}
+                    disabled={isHolidaySiteSelected}
+                    className={`w-10 h-full flex items-center justify-center bg-muted text-muted-foreground font-bold border-r border-border ${isHolidaySiteSelected ? 'opacity-40 cursor-not-allowed' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
+                  >
+                    -
+                  </button>
+                  <div className="flex-1 text-center font-semibold text-sm">{effectiveTargetMd === 0 ? <span className="text-red-500 font-medium">휴무</span> : effectiveTargetMd}</div>
+                  <button
+                    onClick={() => { if (!isHolidaySiteSelected) setTargetMd(Math.min(3.5, targetMd + 0.5)); }}
+                    disabled={isHolidaySiteSelected}
+                    className={`w-10 h-full flex items-center justify-center bg-muted text-muted-foreground font-bold border-l border-border ${isHolidaySiteSelected ? 'opacity-40 cursor-not-allowed' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
               <div className="flex-1">
@@ -161,8 +223,8 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
           {/* Log List - Grouped by Site */}
           <div>
             <h4 className="text-xs font-medium text-muted-foreground mb-2 px-1">
-            총 현장수 ({new Set(todaysLogs.filter(log => log.md > 0).map(log => log.site_id)).size}건), 
-            등록된 공수({todaysLogs.filter(log => log.md > 0).reduce((sum, log) => sum + log.md, 0).toFixed(1)})
+            총 현장수 ({new Set(todaysLogs.filter(log => getEffectiveMd(log.site_id, log.md) > 0).map(log => log.site_id)).size}건), 
+            등록된 공수({todaysLogs.filter(log => getEffectiveMd(log.site_id, log.md) > 0).reduce((sum, log) => sum + getEffectiveMd(log.site_id, log.md), 0).toFixed(1)})
           </h4>
             <div className="space-y-4">
               {todaysLogs.length === 0 && <div className="text-center py-8 text-muted-foreground text-xs border border-dashed border-border rounded-xl">아직 등록된 공수가 없습니다.</div>}
@@ -181,7 +243,7 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
                       <div className="flex items-center justify-between">
                         <span className="text-sm font-bold text-foreground">{site?.name || '삭제된 현장'}</span>
                         <span className="text-[10px] text-current font-bold bg-primary/10 text-primary px-2 py-1 rounded-full">
-                          {siteLogs.filter(log => log.md > 0).reduce((sum, log) => sum + log.md, 0).toFixed(1)}공수
+                          {siteLogs.filter(log => getEffectiveMd(log.site_id, log.md) > 0).reduce((sum, log) => sum + getEffectiveMd(log.site_id, log.md), 0).toFixed(1)}공수
                         </span>
                       </div>
                     </div>
@@ -190,13 +252,14 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
                     <div className="divide-y divide-border">
                       {siteLogs.map(log => {
                         const worker = data.workers.find(w => w.id === log.worker_id);
+                        const effectiveMd = getEffectiveMd(log.site_id, log.md);
                         const isEditing = editingLogId === log.id;
                         return (
                           <div key={log.id} className={`p-4 transition-all ${isEditing ? 'bg-gray-100 dark:bg-gray-800' : 'hover:bg-muted/50'}`}>
                             <div className="flex justify-between items-start">
                               <div className="flex items-center gap-3">
                                 <span className="text-sm font-extrabold text-foreground">{worker?.name || '미등록'}</span>
-                                <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${log.md === 0 ? 'bg-red-100 dark:bg-red-900/30 text-red-600' : log.md === 0.5 ? 'bg-red-100 dark:bg-red-900/30 text-red-600' : 'bg-teal-100 dark:bg-teal-900/30 text-teal-600'}`}>{log.md === 0 ? '휴무' : `${log.md}공수`}</span>
+                                <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${effectiveMd === 0 ? 'bg-red-100 dark:bg-red-900/30 text-red-600' : effectiveMd === 0.5 ? 'bg-red-100 dark:bg-red-900/30 text-red-600' : 'bg-teal-100 dark:bg-teal-900/30 text-teal-600'}`}>{effectiveMd === 0 ? '휴무' : `${effectiveMd}공수`}</span>
                               </div>
                               <div className="flex gap-1">
                                 <button 

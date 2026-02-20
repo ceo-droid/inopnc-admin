@@ -60,6 +60,26 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
     );
   }, [data.customers, customerSearch]);
 
+  const siteCompanyOptions = useMemo(() => {
+    const seen = new Set<string>();
+    const options: { id: string; label: string }[] = [];
+
+    const addOption = (raw: string | undefined) => {
+      const label = String(raw || '').trim();
+      if (!label) return;
+      const key = label.toLowerCase().replace(/\s+/g, '');
+      if (seen.has(key)) return;
+      seen.add(key);
+      options.push({ id: label, label });
+    };
+
+    data.customers.forEach((customer) => addOption(customer.name));
+    data.sites.forEach((site) => addOption(site.company_name || ''));
+    addOption(editingSite?.company_name);
+
+    return options;
+  }, [data.customers, data.sites, editingSite?.company_name]);
+
   const initialSite: Site = { id: '', name: '', budget: 0, company_name: '', status: 'scheduled' };
   const initialWorker: Worker = { id: '', name: '', daily: 150000 };
 
@@ -688,7 +708,13 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
               </div>
               <div>
                 <label className="block text-[10px] font-bold text-muted-foreground mb-1">거래처명 (건설사)</label>
-                <input type="text" placeholder="거래처 이름 입력" value={editingSite.company_name || ''} onChange={(e) => setEditingSite({ ...editingSite, company_name: e.target.value })} className="w-full p-3 md:p-3 rounded-xl bg-muted border border-border text-base md:text-sm font-bold text-foreground outline-none min-h-[44px]" />
+                <SearchableSelect
+                  value={editingSite.company_name || ''}
+                  onChange={(value) => setEditingSite({ ...editingSite, company_name: value })}
+                  options={siteCompanyOptions}
+                  allowCustomValue
+                  placeholder="거래처 이름 입력"
+                />
               </div>
               <div>
                 <label className="block text-[10px] font-bold text-muted-foreground mb-1">예산 (원)</label>
