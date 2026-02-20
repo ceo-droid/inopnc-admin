@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { X, Plus, Edit2, Save, Trash2 } from 'lucide-react';
 import type { AppState, WorkLog } from '@/types';
-import { formatCurrency, calcPayroll, formatMd, formatDateFriendly, normalizeText } from '@/lib/helpers';
+import { formatCurrency, calcPayroll, formatMd, normalizeText, parseISODateLocal } from '@/lib/helpers';
 import SearchableSelect from './SearchableSelect';
 
 interface WorkLogModalProps {
@@ -25,6 +25,15 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
   const sitesById = useMemo(() => Object.fromEntries(data.sites.map((site) => [site.id, site] as const)), [data.sites]);
   const todaysLogs = useMemo(() => data.workLogs.filter(l => l.date === logModalDate), [data.workLogs, logModalDate]);
   const selectedWorker = useMemo(() => data.workers.find(w => w.id === targetWorkerId), [data.workers, targetWorkerId]);
+  const formattedLogModalDate = useMemo(() => {
+    const date = parseISODateLocal(logModalDate);
+    if (!date) return logModalDate;
+    const yy = String(date.getFullYear()).slice(-2);
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const weekday = ['일', '월', '화', '수', '목', '금', '토'][date.getDay()];
+    return `${yy}년${month}월${day}일(${weekday})`;
+  }, [logModalDate]);
 
   const isHolidaySiteId = (siteId: string) => {
     const siteNameKey = normalizeText(sitesById[siteId]?.name || '').toLowerCase().replace(/\s+/g, '');
@@ -130,7 +139,7 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
         <div className="flex justify-between items-center p-6 border-b border-border shrink-0">
           <div className="flex items-center gap-3">
             <h3 className="text-xl font-bold text-foreground">공수 등록</h3>
-            <p className="text-sm text-muted-foreground font-medium">{formatDateFriendly(logModalDate)} ({logModalDate})</p>
+            <p className="text-sm text-muted-foreground font-medium">{formattedLogModalDate}</p>
           </div>
           <button onClick={() => setLogModalOpen(false)} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full text-muted-foreground"><X size={20} /></button>
         </div>
