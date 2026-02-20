@@ -25,7 +25,6 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
   const sitesById = useMemo(() => Object.fromEntries(data.sites.map((site) => [site.id, site] as const)), [data.sites]);
   const todaysLogs = useMemo(() => data.workLogs.filter(l => l.date === logModalDate), [data.workLogs, logModalDate]);
   const selectedWorker = useMemo(() => data.workers.find(w => w.id === targetWorkerId), [data.workers, targetWorkerId]);
-  const selectedSite = useMemo(() => sitesById[targetSiteId], [sitesById, targetSiteId]);
 
   const isHolidaySiteId = (siteId: string) => {
     const siteNameKey = normalizeText(sitesById[siteId]?.name || '').toLowerCase().replace(/\s+/g, '');
@@ -42,10 +41,6 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
   const buildLogKey = (date: string, workerId: string, siteId: string, md: number) => `${date}|${workerId}|${siteId}|${md}`;
 
   useEffect(() => { if (isLogModalOpen) resetInputs(); }, [isLogModalOpen]);
-  useEffect(() => {
-    if (!isLogModalOpen || editingLogId || !targetSiteId) return;
-    setTargetMemo(selectedSite?.company_name?.trim() || '');
-  }, [isLogModalOpen, editingLogId, selectedSite?.company_name, targetSiteId]);
   useEffect(() => {
     if (isHolidaySiteSelected && targetMd !== 0) {
       setTargetMd(0);
@@ -241,7 +236,12 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
                     {/* Site Header */}
                     <div className="bg-muted px-4 py-2 border-b border-border">
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-bold text-foreground">{site?.name || '삭제된 현장'}</span>
+                        <div className="min-w-0">
+                          <div className="text-sm font-bold text-foreground truncate">{site?.name || '삭제된 현장'}</div>
+                          {site?.company_name?.trim() && (
+                            <div className="text-[10px] text-muted-foreground truncate">{site.company_name}</div>
+                          )}
+                        </div>
                         <span className="text-[10px] text-current font-bold bg-primary/10 text-primary px-2 py-1 rounded-full">
                           {siteLogs.filter(log => getEffectiveMd(log.site_id, log.md) > 0).reduce((sum, log) => sum + getEffectiveMd(log.site_id, log.md), 0).toFixed(1)}공수
                         </span>
