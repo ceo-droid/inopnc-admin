@@ -176,11 +176,7 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
       const rawTitle = String(item.title || '').trim();
       const titleKey = normalizeCompanyName(rawTitle);
       const supplierKey = normalizeCompanyName(supplier);
-      const sameAsSupplier =
-        !!titleKey &&
-        !!supplierKey &&
-        Math.min(titleKey.length, supplierKey.length) >= 3 &&
-        (titleKey === supplierKey || titleKey.includes(supplierKey) || supplierKey.includes(titleKey));
+      const sameAsSupplier = !!titleKey && !!supplierKey && titleKey === supplierKey;
       return {
         title: sameAsSupplier ? supplier : rawTitle || supplier,
         supplier,
@@ -349,10 +345,7 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
       const sameAsSupplier =
         !!supplierFromField &&
         !!normalizedTitle &&
-        Math.min(normalizeCompanyName(supplierFromField).length, normalizeCompanyName(normalizedTitle).length) >= 3 &&
-        (normalizeCompanyName(supplierFromField) === normalizeCompanyName(normalizedTitle) ||
-          normalizeCompanyName(supplierFromField).includes(normalizeCompanyName(normalizedTitle)) ||
-          normalizeCompanyName(normalizedTitle).includes(normalizeCompanyName(supplierFromField)));
+        normalizeCompanyName(supplierFromField) === normalizeCompanyName(normalizedTitle);
       setNewItemSupplier(supplierFromField);
       setNewItemQuantity(item.quantity ? String(item.quantity) : '');
       setNewItemUnitPrice(item.unitPrice ? String(item.unitPrice) : '38000');
