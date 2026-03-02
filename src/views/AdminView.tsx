@@ -1,6 +1,12 @@
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import { Building2, Users, Plus, Edit2, Trash2, X, FileUp, Search } from 'lucide-react';
 import type { AppState, Site, Worker, SiteStatus, Customer } from '@/types';
+import {
+  canonicalizeCompanyName,
+  findSimilarCompanyName,
+  isSpecialCompanyName,
+  normalizeCompanyName,
+} from '@/lib/companyName';
 import { formatCurrency } from '@/lib/helpers';
 import AppCard from '@/components/app/AppCard';
 import AppBadge from '@/components/app/AppBadge';
@@ -73,9 +79,9 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
       options.push({ id: label, label });
     };
 
-    data.customers.forEach((customer) => addOption(customer.name));
-    data.sites.forEach((site) => addOption(site.company_name || ''));
-    addOption(editingSite?.company_name);
+    data.customers.forEach((customer) => addOption(canonicalizeCompanyName(customer.name)));
+    data.sites.forEach((site) => addOption(canonicalizeCompanyName(site.company_name || '')));
+    addOption(canonicalizeCompanyName(editingSite?.company_name || ''));
 
     return options;
   }, [data.customers, data.sites, editingSite?.company_name]);
@@ -84,7 +90,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
   const initialWorker: Worker = { id: '', name: '', daily: 150000 };
 
   const normalizeCustomerName = useCallback(
-    (name: string) => String(name || '').trim().toLowerCase().replace(/\s+/g, ''),
+    (name: string) => normalizeCompanyName(canonicalizeCompanyName(name)),
     []
   );
 
@@ -97,7 +103,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
     const normalized = Array.from(
       new Set(
         names
-          .map((name) => String(name || '').trim())
+          .map((name) => canonicalizeCompanyName(String(name || '').trim()))
           .filter(Boolean)
       )
     );
@@ -105,13 +111,15 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
 
     setData((prev) => {
       const keyMap = new Set(prev.customers.map((row) => normalizeCustomerName(row.name)));
-      const additions = normalized
-        .filter((name) => !keyMap.has(normalizeCustomerName(name)))
-        .map((name) => ({
+      const additions: Customer[] = [];
+      for (const name of normalized) {
+        if (keyMap.has(normalizeCustomerName(name))) continue;
+        additions.push({
           id: crypto.randomUUID(),
           name,
           contact: '',
-        }));
+        });
+      }
       if (!additions.length) return prev;
       return {
         ...prev,
@@ -127,6 +135,57 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
         .filter(Boolean)
     );
   }, [data.sites, syncCustomersFromCompanyNames]);
+
+  useEffect(() => {
+    setData((prev) => {
+      let changed = false;
+      let specialIndex = -1;
+      const customers = prev.customers.reduce<Customer[]>((acc, row) => {
+        if (!isSpecialCompanyName(row.name)) {
+          acc.push(row);
+          return acc;
+        }
+
+        const canonical = canonicalizeCompanyName(row.name);
+        if (specialIndex === -1) {
+          specialIndex = acc.length;
+          if (canonical !== String(row.name || '').trim()) changed = true;
+          acc.push({ ...row, name: canonical });
+          return acc;
+        }
+
+        changed = true;
+        const existing = acc[specialIndex];
+        const hasContact = String(existing.contact || '').trim();
+        const nextContact = String(row.contact || '').trim();
+        if (!hasContact && nextContact) {
+          acc[specialIndex] = { ...existing, contact: nextContact };
+        }
+        return acc;
+      }, []);
+
+      const sites = prev.sites.map((site) => {
+        const companyName = String(site.company_name || '').trim();
+        if (!companyName) return site;
+        const canonical = canonicalizeCompanyName(companyName);
+        if (canonical === companyName) return site;
+        changed = true;
+        return { ...site, company_name: canonical };
+      });
+
+      const checklists = prev.checklists.map((item) => {
+        const supplier = String(item.supplier || '').trim();
+        if (!supplier) return item;
+        const canonical = canonicalizeCompanyName(supplier);
+        if (canonical === supplier) return item;
+        changed = true;
+        return { ...item, supplier: canonical };
+      });
+
+      if (!changed) return prev;
+      return { ...prev, customers, sites, checklists };
+    });
+  }, [setData]);
 
   const openCreateSiteModal = () => {setEditingSite({ ...initialSite });setIsSiteModalOpen(true);};
   const openEditSiteModal = (site: Site) => {setEditingSite({ ...site });setIsSiteModalOpen(true);};
@@ -148,12 +207,25 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
       return;
     }
 
-    const normalizedName = normalizeCustomerName(editingCustomer.name);
+    const normalizedNameValue = canonicalizeCompanyName(editingCustomer.name);
+    const normalizedName = normalizeCustomerName(normalizedNameValue);
     const duplicate = data.customers.find(
       (row) => normalizeCustomerName(row.name) === normalizedName && row.id !== editingCustomer.id
     );
     if (duplicate) {
       addToast('동일한 거래처명이 이미 있습니다.', 'error');
+      return;
+    }
+
+    const similarDuplicate = findSimilarCompanyName(
+      normalizedNameValue,
+      data.customers
+        .filter((row) => row.id !== editingCustomer.id)
+        .map((row) => row.name),
+      3
+    );
+    if (similarDuplicate && normalizeCustomerName(similarDuplicate) !== normalizedName) {
+      addToast(`유사 거래처명이 있습니다: ${similarDuplicate}`, 'error');
       return;
     }
 
@@ -166,7 +238,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
               row.id === editingCustomer.id
                 ? {
                     ...row,
-                    name: editingCustomer.name.trim(),
+                    name: normalizedNameValue,
                     contact: editingCustomer.contact?.trim() || '',
                   }
                 : row
@@ -177,7 +249,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
 
       const newCustomer: Customer = {
         id: crypto.randomUUID(),
-        name: editingCustomer.name.trim(),
+        name: normalizedNameValue,
         contact: editingCustomer.contact?.trim() || '',
       };
       return {

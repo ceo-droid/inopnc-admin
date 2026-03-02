@@ -1,6 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Plus, Trash2, Pencil } from 'lucide-react';
 import type { AppState, ChecklistItem, ChecklistType } from '@/types';
+import {
+  canonicalizeCompanyName,
+  findSimilarCompanyName,
+  isSpecialCompanyName,
+  normalizeCompanyName,
+} from '@/lib/companyName';
 import { formatCurrency, toLocalISODate } from '@/lib/helpers';
 import AppCard from '@/components/app/AppCard';
 import SearchableSelect from '@/components/app/SearchableSelect';
@@ -91,13 +97,119 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
       options.push({ id: label, label });
     };
 
-    data.customers.forEach((customer) => addOption(customer.name));
-    data.sites.forEach((site) => addOption(site.company_name || ''));
-    addOption(newItemSupplier);
-    addOption(newItemTitle);
+    data.customers.forEach((customer) => addOption(canonicalizeCompanyName(customer.name)));
+    data.sites.forEach((site) => addOption(canonicalizeCompanyName(site.company_name || '')));
+    addOption(canonicalizeCompanyName(newItemSupplier));
+    addOption(canonicalizeCompanyName(newItemTitle));
 
     return options;
   }, [data.customers, data.sites, newItemSupplier, newItemTitle]);
+
+  useEffect(() => {
+    setData((prev) => {
+      let changed = false;
+      let specialIndex = -1;
+      const customers = prev.customers.reduce<typeof prev.customers>((acc, customer) => {
+        if (!isSpecialCompanyName(customer.name)) {
+          acc.push(customer);
+          return acc;
+        }
+
+        const canonical = canonicalizeCompanyName(customer.name);
+        if (specialIndex === -1) {
+          specialIndex = acc.length;
+          if (canonical !== String(customer.name || '').trim()) changed = true;
+          acc.push({ ...customer, name: canonical });
+          return acc;
+        }
+
+        changed = true;
+        const existing = acc[specialIndex];
+        const hasContact = String(existing.contact || '').trim();
+        const nextContact = String(customer.contact || '').trim();
+        if (!hasContact && nextContact) {
+          acc[specialIndex] = { ...existing, contact: nextContact };
+        }
+        return acc;
+      }, []);
+
+      const sites = prev.sites.map((site) => {
+        const companyName = String(site.company_name || '').trim();
+        if (!companyName) return site;
+        const canonical = canonicalizeCompanyName(companyName);
+        if (canonical === companyName) return site;
+        changed = true;
+        return { ...site, company_name: canonical };
+      });
+
+      const checklists = prev.checklists.map((item) => {
+        const supplier = String(item.supplier || '').trim();
+        if (!supplier) return item;
+        const canonical = canonicalizeCompanyName(supplier);
+        if (canonical === supplier) return item;
+        changed = true;
+        return { ...item, supplier: canonical };
+      });
+
+      if (!changed) return prev;
+      return { ...prev, customers, sites, checklists };
+    });
+  }, [setData]);
+
+  const resolveSupplierDisplay = (supplier?: string) => {
+    const raw = String(supplier || '').trim();
+    if (!raw) return '';
+    const matchedSite = data.sites.find((site) => site.id === raw);
+    return canonicalizeCompanyName(matchedSite?.company_name || matchedSite?.name || raw);
+  };
+
+  const splitLegacyTitle = (title: string) => {
+    const normalizedTitle = String(title || '').trim();
+    const [head, ...rest] = normalizedTitle.split(' - ');
+    if (rest.length === 0) return { supplier: '', content: normalizedTitle };
+    return { supplier: head.trim(), content: rest.join(' - ').trim() };
+  };
+
+  const getChecklistCardDisplay = (item: ChecklistItem) => {
+    if (item.type === 'material') {
+      const supplier = resolveSupplierDisplay(item.supplier);
+      const rawTitle = String(item.title || '').trim();
+      const titleKey = normalizeCompanyName(rawTitle);
+      const supplierKey = normalizeCompanyName(supplier);
+      const sameAsSupplier =
+        !!titleKey &&
+        !!supplierKey &&
+        Math.min(titleKey.length, supplierKey.length) >= 3 &&
+        (titleKey === supplierKey || titleKey.includes(supplierKey) || supplierKey.includes(titleKey));
+      return {
+        title: sameAsSupplier ? supplier : rawTitle || supplier,
+        supplier,
+      };
+    }
+
+    const supplierFromField = resolveSupplierDisplay(item.supplier);
+    if (supplierFromField) {
+      const rawTitle = String(item.title || '').trim();
+      const content = rawTitle && rawTitle !== supplierFromField ? rawTitle : '';
+      return {
+        title: content || supplierFromField,
+        supplier: supplierFromField,
+      };
+    }
+
+    const legacy = splitLegacyTitle(item.title || '');
+    if (legacy.supplier) {
+      return {
+        title: legacy.content || legacy.supplier,
+        supplier: legacy.supplier,
+      };
+    }
+
+    return {
+      title: legacy.content || item.title,
+      supplier: '',
+    };
+  };
 
   const resetForm = () => {
     setNewItemTitle('');
@@ -124,22 +236,36 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
     let shippingType: 'prepaid' | 'postpaid' | 'delivery' | undefined;
     let paymentStatus: 'requested' | 'not_requested' | 'received' | 'not_received' | undefined;
     let unitPrice: number | undefined;
+    const selectedSupplierRawName = (newItemType === 'material' ? newItemSupplier : newItemTitle).trim();
+    const canonicalSupplierName = canonicalizeCompanyName(selectedSupplierRawName);
+    const duplicateSupplierName = findSimilarCompanyName(
+      canonicalSupplierName,
+      data.customers.map((customer) => customer.name)
+    );
+    const selectedSupplierName = duplicateSupplierName || canonicalSupplierName;
+    const selectedMaterialName = newItemTitle.trim();
+    const content = newItemContent.trim();
+    const hasSimilarDuplicate =
+      !!canonicalSupplierName &&
+      !!duplicateSupplierName &&
+      normalizeCompanyName(canonicalSupplierName) !== normalizeCompanyName(duplicateSupplierName);
 
     if (newItemType === 'material') {
       quantity = parseInt(newItemQuantity.replace(/,/g, ''), 10) || 0;
       unitPrice = MATERIAL_UNIT_PRICE;
       amount = quantity * unitPrice;
-      supplier = newItemSupplier.trim();
+      supplier = selectedSupplierName;
       shippingType = newItemShippingType;
       paymentStatus = newItemPaymentStatus;
     } else {
       amount = parseInt(newItemAmount.replace(/,/g, ''), 10) || 0;
+      supplier = selectedSupplierName;
     }
 
     const composedTitle =
       newItemType === 'material'
-        ? newItemSupplier.trim()
-        : `${newItemTitle.trim()}${newItemContent.trim() ? ` - ${newItemContent.trim()}` : ''}`;
+        ? selectedMaterialName || selectedSupplierName
+        : content || selectedSupplierName;
 
     const draftItem: ChecklistItem = {
       id: editingItemId ?? crypto.randomUUID(),
@@ -148,8 +274,9 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
       title: composedTitle,
       amount,
       status: 'pending',
+      ...(supplier && { supplier }),
       ...(newItemType === 'material' && {
-        supplier,
+        memo: content,
         quantity,
         unitPrice,
         shippingType,
@@ -157,8 +284,8 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
       }),
     };
 
-    const selectedCustomerName = (newItemType === 'material' ? newItemSupplier : newItemTitle).trim();
-    const normalizedSelectedCustomerName = selectedCustomerName.toLowerCase().replace(/\s+/g, '');
+    const selectedCustomerName = selectedSupplierName;
+    const normalizedSelectedCustomerName = normalizeCompanyName(selectedCustomerName);
     const isEditing = !!editingItemId;
 
     setData((prev) => {
@@ -166,7 +293,7 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
         !!normalizedSelectedCustomerName &&
         prev.customers.some(
           (customer) =>
-            customer.name.trim().toLowerCase().replace(/\s+/g, '') === normalizedSelectedCustomerName
+            normalizeCompanyName(canonicalizeCompanyName(customer.name)) === normalizedSelectedCustomerName
         );
 
       const customers =
@@ -184,8 +311,9 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
               title: draftItem.title,
               amount: draftItem.amount,
               status: item.status,
+              memo: draftItem.type === 'material' ? draftItem.memo : item.memo,
+              ...(draftItem.supplier && { supplier: draftItem.supplier }),
               ...(draftItem.type === 'material' && {
-                supplier: draftItem.supplier,
                 quantity: draftItem.quantity,
                 unitPrice: draftItem.unitPrice,
                 shippingType: draftItem.shippingType,
@@ -202,6 +330,9 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
       };
     });
 
+    if (hasSimilarDuplicate) {
+      addToast('유사 거래처명이 있어 기존 거래처명으로 저장했습니다.', 'info');
+    }
     if (isEditing) setEditingItemId(null);
     resetForm();
     addToast(isEditing ? '항목이 수정되었습니다.' : '항목이 등록되었습니다.', 'success');
@@ -213,18 +344,39 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
     setNewItemDate(item.date);
 
     if (item.type === 'material') {
-      setNewItemSupplier(item.supplier || item.title || '');
+      const supplierFromField = resolveSupplierDisplay(item.supplier || item.title || '');
+      const normalizedTitle = String(item.title || '').trim();
+      const sameAsSupplier =
+        !!supplierFromField &&
+        !!normalizedTitle &&
+        Math.min(normalizeCompanyName(supplierFromField).length, normalizeCompanyName(normalizedTitle).length) >= 3 &&
+        (normalizeCompanyName(supplierFromField) === normalizeCompanyName(normalizedTitle) ||
+          normalizeCompanyName(supplierFromField).includes(normalizeCompanyName(normalizedTitle)) ||
+          normalizeCompanyName(normalizedTitle).includes(normalizeCompanyName(supplierFromField)));
+      setNewItemSupplier(supplierFromField);
       setNewItemQuantity(item.quantity ? String(item.quantity) : '');
       setNewItemUnitPrice(item.unitPrice ? String(item.unitPrice) : '38000');
       setNewItemShippingType(item.shippingType || 'prepaid');
       setNewItemPaymentStatus(item.paymentStatus || 'not_requested');
-      setNewItemTitle('');
+      setNewItemTitle(sameAsSupplier ? '' : normalizedTitle);
       setNewItemContent(item.memo || '');
       setNewItemAmount('');
     } else {
-      const [title, ...contentParts] = item.title.split(' - ');
-      setNewItemTitle(title || '');
-      setNewItemContent(contentParts.join(' - '));
+      const supplierFromField = resolveSupplierDisplay(item.supplier);
+      if (supplierFromField) {
+        setNewItemTitle(supplierFromField);
+        const normalizedTitle = String(item.title || '').trim();
+        setNewItemContent(normalizedTitle && normalizedTitle !== supplierFromField ? normalizedTitle : '');
+      } else {
+        const legacy = splitLegacyTitle(item.title || '');
+        if (legacy.supplier) {
+          setNewItemTitle(legacy.supplier);
+          setNewItemContent(legacy.content);
+        } else {
+          setNewItemTitle(legacy.content);
+          setNewItemContent('');
+        }
+      }
       setNewItemAmount(item.amount ? String(item.amount) : '');
       setNewItemSupplier('');
       setNewItemQuantity('');
@@ -474,6 +626,7 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
           {sortedChecklists.map(item => {
             const isEditingItem = editingItemId === item.id;
             const isFocusedItem = focusedItemId === item.id;
+            const cardDisplay = getChecklistCardDisplay(item);
             return (
             <div
               key={item.id}
@@ -508,15 +661,21 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
                   </span>
                   <span className="text-micro-md text-muted-foreground">{item.date}</span>
                 </div>
-                <div className={`font-bold text-sm ${item.status === 'completed' ? 'text-muted-foreground line-through' : 'text-foreground'}`}>{item.title}</div>
-                
-                {/* 자재 항목 추가 정보 */}
-                {item.type === 'material' && item.supplier && (
+                <div className={`font-bold text-sm ${item.status === 'completed' ? 'text-muted-foreground line-through' : 'text-foreground'}`}>{cardDisplay.title}</div>
+                 
+                 {/* 자재 항목 추가 정보 */}
+                {item.type === 'material' && cardDisplay.supplier && (
                   <div className="text-xs text-muted-foreground mt-1">
-                    거래처: {data.sites.find(site => site.id === item.supplier)?.company_name || data.sites.find(site => site.id === item.supplier)?.name || item.supplier} | 수량: {item.quantity || 0}개 | 단가: {formatCurrency(item.unitPrice || 0)}원
+                    거래처: {cardDisplay.supplier} | 수량: {item.quantity || 0}개 | 단가: {formatCurrency(item.unitPrice || 0)}원
                   </div>
                 )}
-                
+
+                {item.type !== 'material' && cardDisplay.supplier && cardDisplay.title !== cardDisplay.supplier && (
+                  <div className="text-xs text-muted-foreground mt-1">
+                    거래처: {cardDisplay.supplier}
+                  </div>
+                )}
+                 
                 {item.amount > 0 && (
                   <div className={`text-xs font-black mt-1 ${
                     item.type === 'receivable' ? 'text-blue-500' : 
