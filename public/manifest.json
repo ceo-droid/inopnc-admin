@@ -2,6 +2,7 @@
   "name": "INOPNC - 스마트 공수관리",
   "short_name": "INOPNC",
   "description": "스마트 건설 공수관리 시스템 - 현장 관리, 경비, 인건비를 한눈에",
+  "id": "/",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -62,6 +62,7 @@ export default defineConfig(({ mode }) => ({
         short_name: "INOPNC",
         description:
           "Construction site work and expense management app for field teams.",
+        id: "/",
         theme_color: "#ffffff",
         background_color: "#ffffff",
         display: "standalone",
