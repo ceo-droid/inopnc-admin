@@ -8,7 +8,7 @@ interface MobileBottomNavProps {
 
 const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ activeTab, setActiveTab }) => {
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 flex justify-between items-center z-40 safe-area-pb my-0 pt-4 pb-4">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 flex justify-between items-center z-40 safe-area-pb my-0 pt-4 pb-4 handset-landscape-bottom-nav">
       {navItems.map((item) => (
         <button 
           key={item.id} 

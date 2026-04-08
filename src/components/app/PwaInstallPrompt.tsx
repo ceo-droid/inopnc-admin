@@ -72,7 +72,7 @@ export default function PwaInstallPrompt() {
 
   return (
     <div className="fixed inset-0 z-[120] bg-background/80 backdrop-blur-sm p-4 flex items-center justify-center">
-      <div className="relative w-full max-w-sm rounded-3xl border border-border bg-card shadow-2xl px-5 py-6">
+      <div className="relative w-full max-w-sm rounded-3xl border border-border bg-card shadow-2xl px-5 py-6 handset-landscape-modal-panel handset-landscape-scroll-panel">
         <button
           onClick={handleDismiss}
           className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted hover:text-foreground"

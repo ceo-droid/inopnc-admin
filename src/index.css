@@ -710,3 +710,137 @@
   .no-print, nav, aside, header, .fab-button { display: none !important; }
   main { margin: 0 !important; padding: 0 !important; width: 100% !important; height: auto !important; overflow: visible !important; }
 }
+
+@media (orientation: landscape) and (max-height: 767px) and (pointer: coarse) {
+  .handset-landscape-shell {
+    padding-left: 0 !important;
+  }
+
+  .handset-landscape-sidebar {
+    display: none !important;
+  }
+
+  .handset-landscape-header {
+    display: flex !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+  .handset-landscape-header-title {
+    font-size: 1.125rem !important;
+  }
+
+  .handset-landscape-header button {
+    min-width: 2.5rem !important;
+    min-height: 2.5rem !important;
+    padding: 0.5rem !important;
+  }
+
+  .handset-landscape-main {
+    max-width: none !important;
+    min-height: calc(100dvh - 3.5rem) !important;
+    padding: 0.75rem 1rem calc(4.75rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .handset-landscape-bottom-nav {
+    display: flex !important;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .handset-landscape-bottom-nav button {
+    flex: 1 1 0;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 0.25rem 0 !important;
+  }
+
+  .handset-landscape-bottom-nav svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .handset-landscape-bottom-nav span {
+    font-size: 10px !important;
+  }
+
+  .handset-landscape-view {
+    max-width: none !important;
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .handset-landscape-form-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  .handset-landscape-toolbar {
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
+  }
+
+  .handset-landscape-toolbar > * {
+    min-width: 0;
+  }
+
+  .handset-landscape-summary-row {
+    flex-wrap: wrap;
+    justify-content: flex-start !important;
+    row-gap: 0.25rem;
+  }
+
+  .handset-landscape-show-block {
+    display: block !important;
+  }
+
+  .handset-landscape-hide {
+    display: none !important;
+  }
+
+  .handset-landscape-card-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem !important;
+  }
+
+  .handset-landscape-card-grid > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .handset-landscape-calendar-weekdays > div {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .handset-landscape-calendar-grid {
+    grid-auto-rows: minmax(60px, auto);
+  }
+
+  .handset-landscape-calendar-cell {
+    min-height: 60px !important;
+  }
+
+  .handset-landscape-calendar-date {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.125rem !important;
+  }
+
+  .handset-landscape-calendar-entry {
+    font-size: 9px !important;
+    line-height: 11px !important;
+  }
+
+  .handset-landscape-modal-panel {
+    max-height: 92dvh !important;
+  }
+
+  .handset-landscape-scroll-panel {
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+  }
+
+  .handset-landscape-modal-body {
+    padding: 1rem !important;
+  }
+}

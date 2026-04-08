@@ -53,14 +53,14 @@ const NotificationModal = ({ isOpen, onClose, checklists, setData, addToast, onI
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-      <div className="bg-card w-full max-w-md rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
+      <div className="bg-card w-full max-w-md rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] handset-landscape-modal-panel">
         <div className="flex justify-between items-center p-6 border-b border-border shrink-0">
           <h3 className="text-xl font-bold text-foreground">체크리스트 알림</h3>
           <button onClick={onClose} className="p-2 bg-muted rounded-full text-muted-foreground icon-wrapper">
             <X size={16} className="icon-fixed icon-stroke-normal" />
           </button>
         </div>
-        <div className="p-6 overflow-y-auto">
+        <div className="p-6 overflow-y-auto handset-landscape-modal-body">
           {sortedItems.length === 0 ? (
             <div className="text-center text-muted-foreground text-sm py-4">등록된 항목이 없습니다.</div>
           ) : (

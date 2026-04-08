@@ -52,7 +52,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors md:pl-64 safe-area-pb">
+    <div className="min-h-screen bg-background text-foreground transition-colors md:pl-64 safe-area-pb handset-landscape-shell">
       <DesktopSidebar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -72,7 +72,7 @@ const Index = () => {
         hasNotifications={hasNotifications}
       />
 
-      <main className="p-kakao md:p-kakao-xl max-w-7xl mx-auto min-h-screen">
+      <main className="p-kakao md:p-kakao-xl max-w-7xl mx-auto min-h-screen handset-landscape-main">
         {loading ? (
           <div className="flex items-center justify-center py-32">
             <Loader2 className="animate-spin text-primary" size={32} />

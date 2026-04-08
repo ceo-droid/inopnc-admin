@@ -237,7 +237,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
     const today = toLocalISODate();
     const days: React.ReactNode[] = [];
 
-    for (let i = 0; i < firstDay; i++) days.push(<div key={`empty-${i}`} className="min-h-[100px] border-r border-b border-border bg-muted/30 dark:border-[#3a3a3a] dark:bg-[#262626]"></div>);
+    for (let i = 0; i < firstDay; i++) days.push(<div key={`empty-${i}`} className="min-h-[100px] border-r border-b border-border bg-muted/30 dark:border-[#3a3a3a] dark:bg-[#262626] handset-landscape-calendar-cell"></div>);
 
     for (let d = 1; d <= lastDate; d++) {
       const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
@@ -259,9 +259,9 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
 
       days.push(
         <div key={d} onClick={() => { setSelectedDate(dateStr); setLogModalDate(dateStr); setLogModalOpen(true); }}
-          className={`min-h-[80px] border-r border-b border-border dark:border-[#3a3a3a] p-0.5 cursor-pointer transition-colors relative group flex flex-col ${isSelected ? 'bg-accent/15 ring-2 ring-inset ring-primary dark:bg-[#3c3c3c] dark:ring-[#7aa2ff]' : isToday ? 'bg-accent/50 dark:bg-[#353535]' : 'bg-card dark:bg-[#2f2f2f]'} ${!isSelected ? 'hover:bg-muted dark:hover:bg-[#3a3a3a]' : ''}`}
+          className={`min-h-[80px] border-r border-b border-border dark:border-[#3a3a3a] p-0.5 cursor-pointer transition-colors relative group flex flex-col handset-landscape-calendar-cell ${isSelected ? 'bg-accent/15 ring-2 ring-inset ring-primary dark:bg-[#3c3c3c] dark:ring-[#7aa2ff]' : isToday ? 'bg-accent/50 dark:bg-[#353535]' : 'bg-card dark:bg-[#2f2f2f]'} ${!isSelected ? 'hover:bg-muted dark:hover:bg-[#3a3a3a]' : ''}`}
         >
-          <div className={`text-xs font-bold px-0.5 mb-0.5 ${isToday ? 'text-primary dark:text-[#a6c8ff]' : 'text-foreground dark:text-[#f3f3f3]'}`}>{d}</div>
+          <div className={`text-xs font-bold px-0.5 mb-0.5 handset-landscape-calendar-date ${isToday ? 'text-primary dark:text-[#a6c8ff]' : 'text-foreground dark:text-[#f3f3f3]'}`}>{d}</div>
           <div className="flex-1 flex flex-col gap-0.5 overflow-hidden">
             {(() => {
               const siteEntries = Object.entries(logsBySite);
@@ -302,7 +302,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
                     return (
                       <div
                         key={siteId}
-                        className={`rounded-[2px] px-0.5 border ${theme.border} ${theme.header}`}
+                        className={`rounded-[2px] px-0.5 border handset-landscape-calendar-entry ${theme.border} ${theme.header}`}
                         style={{ ...(theme.styleVars as React.CSSProperties), fontSize: '10px', lineHeight: '13px' }}
                       >
                         <span className="font-bold">{site?.name?.slice(0, 4) || '미지정'}</span>
@@ -412,7 +412,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
   };
 
   return (
-    <div className="animate-fade-in pb-24 space-y-6">
+    <div className="animate-fade-in pb-24 space-y-6 handset-landscape-view">
       {/* Calendar Section */}
       <div>
         <div className="flex flex-col gap-4 mb-4">
@@ -473,7 +473,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
           </div>
           
           {/* 날짜 네비게이션과 캘린더 통합 컨테이너 */}
-          <div className="bg-card dark:bg-[#1f1f1f] rounded-2xl shadow-sm border border-border dark:border-[#3a3a3a] overflow-hidden">
+          <div className="bg-card dark:bg-[#1f1f1f] rounded-2xl shadow-sm border border-border dark:border-[#3a3a3a] overflow-hidden handset-landscape-calendar-shell">
             <div className="flex justify-center items-center gap-4 p-4 border-b border-border dark:border-[#3a3a3a] bg-muted/50 dark:bg-[#262626]">
               <button 
                 onClick={(e) => { e.stopPropagation(); setCalMonth(new Date(calMonth.getFullYear(), calMonth.getMonth() - 1, 1)); }} 
@@ -520,12 +520,12 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
             {/* 캘린더 콘텐츠 */}
             {viewMode === 'calendar' ? (
               <>
-                <div className="grid grid-cols-7 border-b border-border dark:border-[#3a3a3a] bg-muted/50 dark:bg-[#262626]">
+                <div className="grid grid-cols-7 border-b border-border dark:border-[#3a3a3a] bg-muted/50 dark:bg-[#262626] handset-landscape-calendar-weekdays">
                   {['일', '월', '화', '수', '목', '금', '토'].map((d, i) => (
                     <div key={d} className={`text-center py-3 text-xs font-bold ${i === 0 ? 'text-red-500 dark:text-red-400' : 'text-muted-foreground dark:text-[#d6d6d6]'}`}>{d}</div>
                   ))}
                 </div>
-                <div className="grid grid-cols-7">{generateCalendar()}</div>
+                <div className="grid grid-cols-7 handset-landscape-calendar-grid">{generateCalendar()}</div>
               </>
             ) : (
               <div>{generateListView()}</div>
@@ -564,7 +564,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
       {/* 집계 정보 */}
       <div className="mb-4">
         <div className="bg-muted rounded-xl px-4 py-2 border border-border h-[44px] flex items-center w-full">
-          <div className="flex w-full items-center justify-between gap-3 text-[14px] font-bold">
+          <div className="flex w-full items-center justify-between gap-3 text-[14px] font-bold handset-landscape-summary-row">
             <span>{payShowAll ? '전체 기간' : `${String(payMonth.getFullYear()).slice(2)}년 ${payMonth.getMonth() + 1}월`}</span>
             <span>현장 {new Set(payrollData.filter(r => r.md > 0).map(r => r.siteName)).size}개</span>
             <span className="text-primary text-[14px]">총 공수 {totals.md}</span>
@@ -574,11 +574,11 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
 
       <div className="bg-card rounded-2xl md:rounded-3xl p-3 md:p-6 shadow-soft border border-transparent dark:border-border w-full">
         {/* 모바일 카드 뷰 */}
-        <div className="md:hidden">
+        <div className="md:hidden handset-landscape-show-block">
           {payrollData.length === 0 ? (
             <div className="py-10 text-center text-muted-foreground">데이터가 없습니다.</div>
           ) : (
-            <div className="space-y-2">
+            <div className="space-y-2 handset-landscape-card-grid">
               {payrollData.map((row, idx) => (
                 <div key={`${row.id}-${idx}`} className="bg-card border border-border p-2 rounded-6px">
                   <div className="flex justify-between items-center mb-1">
@@ -603,7 +603,7 @@ const HomeView = ({ data, setData, addToast, selectedDate, setSelectedDate, setL
         </div>
 
         {/* 데스크톱 테이블 뷰 */}
-        <div className="hidden md:block overflow-x-auto rounded-xl border border-border w-full" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <div className="hidden md:block overflow-x-auto rounded-xl border border-border w-full handset-landscape-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
           <table className="min-w-[700px] w-full text-[11px] md:text-xs text-left">
             <thead className="bg-muted/50 border-b border-border text-muted-foreground font-bold">
               <tr>

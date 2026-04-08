@@ -135,7 +135,7 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-      <div className="bg-card w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="bg-card w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] handset-landscape-modal-panel">
         <div className="flex justify-between items-center p-6 border-b border-border shrink-0">
           <div className="flex items-center gap-3">
             <h3 className="text-xl font-bold text-foreground">공수 등록</h3>
@@ -144,7 +144,7 @@ const WorkLogModal = ({ data, setData, addToast, isLogModalOpen, setLogModalOpen
           <button onClick={() => setLogModalOpen(false)} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full text-muted-foreground"><X size={20} /></button>
         </div>
 
-        <div className="overflow-y-auto flex-1 p-6 space-y-6">
+        <div className="overflow-y-auto flex-1 p-6 space-y-6 handset-landscape-modal-body">
           <div className="worklog-edit-form space-y-4 transition-all duration-300">
             <div>
               <label className="block text-[11.8px] font-medium text-muted-foreground mb-1">현장 선택</label>

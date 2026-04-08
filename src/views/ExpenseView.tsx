@@ -547,7 +547,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
   };
 
   return (
-    <div className="pb-24 animate-fade-in max-w-4xl mx-auto">
+    <div className="pb-24 animate-fade-in max-w-4xl mx-auto handset-landscape-view">
       <div className="flex justify-between items-center mb-6">
         <h3 className="font-extrabold text-[22px] text-foreground flex items-center gap-2"> 수익현황</h3>
         <button onClick={downloadProfitReport} className="px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all flex items-center justify-center gap-2 bg-primary text-primary-foreground shadow-neon active:scale-95">
@@ -636,7 +636,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
 
       <h3 className="font-extrabold text-[22px] text-foreground mb-4 flex items-center gap-2"> 경비 지출 입력</h3>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 handset-landscape-form-grid">
         <AppCard className="md:col-span-1 h-fit">
           <div className="space-y-4">
             <div>
@@ -696,7 +696,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
         </AppCard>
 
         <div className="md:col-span-2 space-y-3">
-          <div className="flex items-center justify-between gap-2 px-1">
+          <div className="flex items-center justify-between gap-2 px-1 handset-landscape-toolbar">
             <h3 className="font-extrabold text-[22px] text-foreground whitespace-nowrap">최근 지출 내역</h3>
             <div className="relative flex-1 max-w-[200px]">
               <SearchableSelect
@@ -771,7 +771,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
       {/* Profit Detail Modal */}
       {profitDetail && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-3 md:p-4 bg-black/55 backdrop-blur-sm animate-fade-in">
-          <div className="bg-card w-full max-w-3xl rounded-3xl shadow-2xl p-4 md:p-6 max-h-[90vh] flex flex-col">
+          <div className="bg-card w-full max-w-3xl rounded-3xl shadow-2xl p-4 md:p-6 max-h-[90vh] flex flex-col handset-landscape-modal-panel">
             <div className="flex justify-between items-center gap-3 mb-4">
               <div className="min-w-0">
                 <h3 className="text-base md:text-lg font-bold text-foreground truncate">
@@ -1021,7 +1021,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
       {/* Edit Transaction Modal */}
       {editingTx && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-          <div className="bg-card w-full max-w-sm rounded-3xl shadow-2xl p-6">
+          <div className="bg-card w-full max-w-sm rounded-3xl shadow-2xl p-6 handset-landscape-modal-panel handset-landscape-scroll-panel">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-lg font-bold text-foreground">지출 내역 수정</h3>
               <button onClick={() => setEditingTx(null)} className="p-2 bg-muted rounded-full text-muted-foreground icon-wrapper">

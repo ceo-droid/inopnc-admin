@@ -505,7 +505,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
   );
 
   return (
-    <div className="pb-24 animate-fade-in">
+    <div className="pb-24 animate-fade-in handset-landscape-view">
       <div className="flex w-full rounded-2xl bg-muted/80 border border-border/60 p-0.5 shadow-inner gap-0.5 mb-6">
         {renderTabButton('sites', '현장 관리', <Building2 size={14} className="shrink-0" />)}
         {renderTabButton('workers', '작업자 관리', <Users size={14} className="shrink-0" />)}
@@ -514,7 +514,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
 
       <AppCard>
         {/* Action Buttons */}
-        <div className="flex items-center justify-between gap-2 mb-6">
+        <div className="flex items-center justify-between gap-2 mb-6 handset-landscape-toolbar">
           <div className="flex-1 min-w-0">
             {activeTab === 'sites' ? (
               <SearchableSelect
@@ -595,7 +595,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
             </div>
             <div className="space-y-3">
               {/* PC 테이블 뷰 */}
-              <table className="hidden md:table w-full">
+              <table className="hidden md:table w-full handset-landscape-hide">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="text-left p-3 text-sm font-semibold text-foreground">현장명</th>
@@ -631,7 +631,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
               </table>
 
               {/* 모바일 카드 뷰 */}
-              <div className="mobile-table-card md:hidden">
+              <div className="mobile-table-card md:hidden handset-landscape-card-grid">
                 {filteredSites.map((s) =>
                 <div key={s.id} onClick={() => openEditSiteModal(s)} className="relative flex items-center justify-between p-4 bg-muted rounded-2xl cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group my-2">
                     <div>
@@ -660,7 +660,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
           <>
             <div className="space-y-3">
               {/* PC 테이블 뷰 */}
-              <table className="hidden md:table w-full">
+              <table className="hidden md:table w-full handset-landscape-hide">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="text-left p-3 text-sm font-semibold text-foreground">작업자명</th>
@@ -688,7 +688,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
               </table>
 
               {/* 모바일 카드 뷰 */}
-              <div className="mobile-table-card md:hidden">
+              <div className="mobile-table-card md:hidden handset-landscape-card-grid">
                 {filteredWorkers.map((w) =>
                 <div key={w.id} onClick={() => openEditWorkerModal(w)} className="flex items-center justify-between p-4 bg-muted rounded-2xl cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group my-2">
                     <div>
@@ -713,7 +713,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
           <>
             <div className="space-y-3">
               {/* PC 테이블 뷰 */}
-              <table className="hidden md:table w-full">
+              <table className="hidden md:table w-full handset-landscape-hide">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="text-left p-3 text-sm font-semibold text-foreground">거래처명</th>
@@ -741,7 +741,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
               </table>
 
               {/* 모바일 카드 뷰 */}
-              <div className="mobile-table-card md:hidden">
+              <div className="mobile-table-card md:hidden handset-landscape-card-grid">
                 {filteredCustomers.map((customer) =>
                   <div key={customer.id} onClick={() => openEditCustomerModal(customer)} className="flex items-center justify-between p-4 bg-muted rounded-2xl cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group my-2">
                     <div>
@@ -766,7 +766,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
       {/* Site Modal */}
       {isSiteModalOpen && editingSite &&
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-          <div className="bg-card w-full max-w-sm rounded-3xl shadow-2xl p-6 overflow-hidden">
+          <div className="bg-card w-full max-w-sm rounded-3xl shadow-2xl p-6 overflow-hidden handset-landscape-modal-panel handset-landscape-scroll-panel">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-lg font-bold text-foreground">{editingSite.id ? '현장 정보 수정' : '새 현장 추가'}</h3>
               <button onClick={() => setIsSiteModalOpen(false)} className="p-2 bg-muted rounded-full text-muted-foreground icon-wrapper">
@@ -816,7 +816,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
       {/* Customer Modal */}
       {isCustomerModalOpen && editingCustomer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-          <div className="bg-card w-full max-w-sm rounded-3xl shadow-2xl p-6 overflow-hidden">
+          <div className="bg-card w-full max-w-sm rounded-3xl shadow-2xl p-6 overflow-hidden handset-landscape-modal-panel handset-landscape-scroll-panel">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-lg font-bold text-foreground">{editingCustomer.id ? '거래처 정보 수정' : '새 거래처 추가'}</h3>
               <button onClick={() => setIsCustomerModalOpen(false)} className="p-2 bg-muted rounded-full text-muted-foreground icon-wrapper">
@@ -871,7 +871,7 @@ const AdminView = ({ data, setData, addToast }: AdminViewProps) => {
       {/* Worker Modal */}
       {isWorkerModalOpen && editingWorker &&
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-          <div className="bg-card w-full max-w-sm rounded-3xl shadow-2xl p-6 overflow-hidden">
+          <div className="bg-card w-full max-w-sm rounded-3xl shadow-2xl p-6 overflow-hidden handset-landscape-modal-panel handset-landscape-scroll-panel">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-lg font-bold text-foreground">{editingWorker.id ? '작업자 정보 수정' : '새 작업자 추가'}</h3>
               <button onClick={() => setIsWorkerModalOpen(false)} className="p-2 bg-muted rounded-full text-muted-foreground icon-wrapper">

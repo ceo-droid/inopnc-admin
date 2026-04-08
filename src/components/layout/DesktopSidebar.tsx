@@ -22,7 +22,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
   hasNotifications
 }) => {
   return (
-    <aside className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 bg-card border-r border-border flex-col p-6 z-50">
+    <aside className="hidden md:flex fixed left-0 top-0 bottom-0 w-64 bg-card border-r border-border flex-col p-6 z-50 handset-landscape-sidebar">
       <div className="flex items-center gap-3 mb-kakao-xl">
         <span onClick={() => setActiveTab('home')} className="logo-desktop text-foreground tracking-tighter cursor-pointer">INOPNC</span>
       </div>

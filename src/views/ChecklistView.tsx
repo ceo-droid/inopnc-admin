@@ -411,11 +411,11 @@ const ChecklistView = ({ data, setData, addToast, focusItemId, onFocusItemHandle
   };
 
   return (
-    <div className="pb-24 animate-fade-in max-w-4xl mx-auto">
+    <div className="pb-24 animate-fade-in max-w-4xl mx-auto handset-landscape-view">
 
       <h3 className="font-extrabold text-[22px] mb-4 flex items-center gap-2"> 새 항목 등록</h3>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 handset-landscape-form-grid">
         <AppCard className="md:col-span-1 h-fit">
           <div className="space-y-4">
             <div>

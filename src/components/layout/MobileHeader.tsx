@@ -20,10 +20,10 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({
   hasNotifications
 }) => {
   return (
-    <header className="md:hidden sticky top-0 z-40 bg-background/80 backdrop-blur-md px-4 py-4 flex justify-between items-center border-b border-border">
+    <header className="md:hidden sticky top-0 z-40 bg-background/80 backdrop-blur-md px-4 py-4 flex justify-between items-center border-b border-border handset-landscape-header">
       <span
         onClick={() => setActiveTab('home')}
-        className="cursor-pointer font-sans font-extrabold text-[20px] md:text-[22px] text-foreground whitespace-nowrap"
+        className="cursor-pointer font-sans font-extrabold text-[20px] md:text-[22px] text-foreground whitespace-nowrap handset-landscape-header-title"
       >
         금전출납
       </span>
