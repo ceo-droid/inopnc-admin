@@ -679,17 +679,21 @@
 
 /* INOPNC Logo Styles */
 .logo-desktop {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Pretendard', sans-serif;
   font-size: clamp(1.4rem, 2.4vw + 0.4rem, 2rem); /* 20% smaller than text-headline */
   font-weight: 800;
+  font-style: normal;
+  font-synthesis: none;
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
 
 .logo-mobile {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Pretendard', sans-serif;
   font-size: 20px;
   font-weight: 800;
+  font-style: normal;
+  font-synthesis: none;
   line-height: 1.2;
   letter-spacing: -0.005em;
 }
