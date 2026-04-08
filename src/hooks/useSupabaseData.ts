@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef, type MutableRefObject } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import type { AppState, Site, Worker, WorkLog, Transaction, ChecklistItem, Customer } from '@/types';
+import { normalizeMdValue } from '@/lib/helpers';
 
 const EMPTY_STATE: AppState = { sites: [], customers: [], workers: [], workLogs: [], transactions: [], checklists: [] };
 const PAGED_TABLES = new Set(['work_logs', 'transactions', 'checklists']);
@@ -158,7 +159,7 @@ function mapWorkLog(l: any): WorkLog {
     date: l.date,
     site_id: l.site_id,
     worker_id: l.worker_id,
-    md: parseFloat(l.md) || 1,
+    md: normalizeMdValue(l.md, 1),
     note: l.note || '',
   };
 }

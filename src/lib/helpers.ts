@@ -21,6 +21,11 @@ export const num = (v: unknown, fallback = 0) => {
   return Number.isFinite(n) ? n : fallback;
 };
 
+export const normalizeMdValue = (v: unknown, fallback = 1) => {
+  const parsed = num(v, Number.NaN);
+  return Number.isFinite(parsed) ? parsed : fallback;
+};
+
 export const toLocalISODate = (date: Date = new Date()) => {
   const y = date.getFullYear();
   const m = String(date.getMonth() + 1).padStart(2, '0');
