@@ -1,0 +1,49 @@
+entity,current_table,current_field,current_type,current_problem,target_semantic,recommended_action,risk,migration_dependency
+site,sites,id,uuid,None; UUID is stable,Contract/profit unit identity,KEEP,LOW,None
+site,sites,name,text,Normalized name is UNIQUE and incorrectly acts as identity,Non-unique display name,REMOVE_CONSTRAINT_LATER,HIGH,site_code populated and duplicate-name UI verified
+site,sites,(missing),-,No business identity,site_code text unique non-null,ADD_COLUMN,HIGH,canonical site-code mapping and collision validation
+site,sites,company_name,text,Free text mixes customer assignment and display,operational_customer_id uuid,ADD_COLUMN,HIGH,customers reconciliation then shadow FK
+site,sites,budget,numeric,Actually contract supply amount; ambiguous name,contract_supply_amount numeric nullable,ADD_COLUMN,HIGH,semantic backfill validation and dual-read
+site,sites,(missing),-,Cost budget cannot be represented,cost_budget_amount numeric nullable,ADD_COLUMN,MEDIUM,None; never infer from contract amount
+site,sites,status,text,Unconstrained vocabulary,PLANNED|ACTIVE|COMPLETED|ARCHIVED,KEEP,MEDIUM,status mapping and validation
+site,sites,(missing),-,Shared physical label cannot be expressed separately,physical_location_name and site_group_key nullable,ADD_COLUMN,LOW,None
+customer,customers,id,uuid,None; UUID is stable,Operational customer identity,KEEP,LOW,None
+customer,customers,name,text,Normalized name UNIQUE is valid only for operational customer,Operational standard name,KEEP,MEDIUM,alias reconciliation
+customer_alias,customers,(missing),-,Legal/source/tax names are lost or collapsed,customer_aliases with alias_name and alias_type,ADD_TABLE,HIGH,customers UUID retained and alias collision rules
+worker,workers,id,uuid,None; UUID is stable,Worker identity,KEEP,LOW,None
+worker,workers,name,text,Normalized name UNIQUE is a provisional identity rule,Display name with reviewed uniqueness,KEEP,MEDIUM,worker identity reconciliation
+worker,workers,daily,numeric,Falsy fallback exists and history is recalculated from current rate,current_daily_rate default for future entries,KEEP,HIGH,application dual semantics then rename later
+work_log,work_logs,id,uuid,None; UUID is stable,Immutable event identity,KEEP,LOW,None
+work_log,work_logs,date,text,Invalid or blank dates can reach calendar,work_date date non-null,ADD_COLUMN,HIGH,parse/backfill/quarantine invalid rows
+work_log,work_logs,site_id,text,No FK and assignment stored as text,site_uuid uuid nullable shadow assignment,ADD_COLUMN,HIGH,orphan validation and dual read/write
+work_log,work_logs,worker_id,text,No FK and identity stored as text,worker_uuid uuid non-null shadow reference,ADD_COLUMN,HIGH,orphan validation and dual read/write
+work_log,work_logs,md,numeric,Raw/countable MD and entry semantics are conflated,raw_md numeric,ADD_COLUMN,HIGH,canonical backfill by entry_type
+work_log,work_logs,(missing),-,Holiday/other cannot preserve display while excluding MD,entry_type and countable_md,ADD_COLUMN,HIGH,canonical entry classification
+work_log,work_logs,(missing),-,Historical rate basis is not preserved,daily_rate_snapshot numeric nullable,ADD_COLUMN,HIGH,canonical historical labor input
+work_log,work_logs,(missing),-,Labor is recomputed from mutable workers.daily,labor_amount numeric and labor_source,ADD_COLUMN,HIGH,historical labor validation before activation
+work_log,work_logs,(missing),-,Direct versus overhead cost is implicit,cost_scope SITE|OVERHEAD|NONE,ADD_COLUMN,MEDIUM,entry classification
+work_log,work_logs,(missing),-,Import provenance/idempotency absent,source_type/source_row_key/source_fingerprint/import_batch_id,ADD_COLUMN,HIGH,import_batches table and fingerprint specification
+work_log,work_logs,(missing),-,Mapping confidence and review are not recorded,mapping_status/mapping_basis/review_reason,ADD_COLUMN,MEDIUM,state vocabulary
+work_log,work_logs,(missing),-,Hard delete loses evidence,is_active/void_reason/superseded_by,ADD_COLUMN,HIGH,audit log and void workflow
+work_log,work_logs,"UNIQUE(date,worker_id,site_id,md)",unique index,Legitimate repeated entries are rejected,No business-key uniqueness; fingerprint only for imports,REMOVE_CONSTRAINT_LATER,HIGH,new idempotency active and duplicate review
+transaction,transactions,id,uuid,None; UUID is stable,Cost source-event identity,KEEP,LOW,None
+transaction,transactions,date,text,Card date and approval timestamp are conflated,transaction_date date and approved_at timestamptz,ADD_COLUMN,HIGH,parse/backfill with ambiguity review
+transaction,transactions,site_id,text,Assignment overwrites source and permits only one site,Move assignment truth to expense_allocations,DEPRECATE_LATER,HIGH,allocation backfill and dual-read parity
+transaction,transactions,category,text,Source category and assigned reporting category are conflated,source_category preserved; allocation category authoritative,ADD_COLUMN,MEDIUM,allocation backfill
+transaction,transactions,description,text,Merchant/user/evidence are flattened,merchant/worker_id/card_last4/approval_no,ADD_COLUMN,HIGH,parser evidence availability
+transaction,transactions,amount,numeric,Original approval amount and correction semantics are absent,original_amount numeric with status/void lineage,ADD_COLUMN,HIGH,amount reconciliation and allocation validation
+transaction,transactions,(missing),-,Manual/card/import origin is unknown,source_type CARD|MANUAL|IMPORT,ADD_COLUMN,HIGH,classification/backfill
+transaction,transactions,(missing),-,No robust idempotency/provenance,source_row_key/source_fingerprint/import_batch_id,ADD_COLUMN,HIGH,import_batches table and collision test
+transaction,transactions,(missing),-,Unallocated/partial/full state is implicit,mapping_status UNALLOCATED|PARTIAL|FULL|REVIEW_REQUIRED,ADD_COLUMN,MEDIUM,allocation read model
+transaction,transactions,(missing),-,Hard delete/correction loses evidence,status/is_void/superseded_by,ADD_COLUMN,HIGH,audit and correction workflow
+transaction,transactions,"UNIQUE(date,description,amount)",unique index,Rejects legitimate equal approvals and is not idempotent,No such uniqueness; source fingerprint scoped by source,REMOVE_CONSTRAINT_LATER,HIGH,fingerprints backfilled and import verified
+expense_allocation,transactions,site_id,text,No split allocation; source and assignment coupled,expense_allocations table,ADD_TABLE,HIGH,transactions enrichment and backfill
+import_batch,-,(missing),-,No file-level provenance or idempotency metrics,import_batches table,ADD_TABLE,HIGH,source SHA-256 and state model
+audit,-,(missing),-,Material edits and reassignments are untraceable,audit_logs append-only table,ADD_TABLE,HIGH,actor/role model and immutable policy
+obligation,checklists,type/status/payment_status,text,Task/material and receivable/payable/invoice/settlement are conflated,financial_obligations table,ADD_TABLE,HIGH,checklist classification and compatibility read
+obligation,checklists,date,text,Single date cannot represent due and invoice lifecycle,due_date date nullable plus lifecycle timestamps,ADD_TABLE,MEDIUM,financial_obligations
+obligation,checklists,amount,numeric,Supply VAT and total are conflated,supply_amount/vat_amount/total_amount,ADD_TABLE,HIGH,reconciliation rule
+obligation,checklists,(missing),-,No customer/site referential scope,customer_id/site_id uuid,ADD_TABLE,HIGH,customer/site orphan validation
+checklist,checklists,all,mixed,Existing operational task/material flows must remain available,Legacy compatibility source during transition,KEEP,MEDIUM,new obligation path proven before deprecation
+authorization,all,current RLS,policy,Public/anon broad CRUD has authentication but no row authorization,Role and organization/site scoped RLS,REPLACE_READ_PATH_LATER,CRITICAL,profiles/memberships/site_access plus staged authenticated rollout
+financial_summary,frontend,component calculations,TypeScript,Home/Expense/export paths can diverge,site_financial_summary_v2 security-invoker view,REPLACE_READ_PATH_LATER,HIGH,new columns/allocations and parity checks

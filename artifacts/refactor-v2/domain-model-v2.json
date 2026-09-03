@@ -1,0 +1,94 @@
+{
+  "model_version": "2026-09-03.v2-design",
+  "design_only": true,
+  "entities": {
+    "customers": {"kind":"SOURCE_MASTER","fields":["id:uuid","name:text","contact:text?","status:text","created_at:timestamptz"],"identity":"id","business_rule":"Operational standard customer; name is not legal-source evidence."},
+    "customer_aliases": {"kind":"SOURCE_EVIDENCE","fields":["id:uuid","customer_id:uuid","alias_name:text","alias_type:SOURCE|LEGAL|TAX_INVOICE|OPERATIONAL","source_fingerprint:text?","created_at:timestamptz"],"identity":"id"},
+    "sites": {"kind":"SOURCE_MASTER","fields":["id:uuid","site_code:text","name:text","operational_customer_id:uuid","contract_supply_amount:numeric?","cost_budget_amount:numeric?","status:PLANNED|ACTIVE|COMPLETED|ARCHIVED","physical_location_name:text?","site_group_key:text?"],"identity":"id","business_identity":"site_code"},
+    "workers": {"kind":"SOURCE_MASTER","fields":["id:uuid","name:text","current_daily_rate:numeric","status:text"],"identity":"id","business_rule":"Current rate supplies only the default for a new work log."},
+    "work_logs": {"kind":"SOURCE_PLUS_ASSIGNMENT","fields":["id:uuid","work_date:date","worker_id:uuid","site_id:uuid?","entry_type:NORMAL_WORK|HOLIDAY|OTHER","raw_md:numeric","countable_md:numeric","daily_rate_snapshot:numeric?","labor_amount:numeric","labor_source:CALCULATED|MANUAL_OVERRIDE|HISTORICAL_IMPORT","cost_scope:SITE|OVERHEAD|NONE","note:text?","source_type:text","source_row_key:text?","source_fingerprint:text?","import_batch_id:uuid?","mapping_status:AUTO|SUGGEST|REVIEW_REQUIRED|CONFIRMED","mapping_basis:text?","review_reason:text?","is_active:boolean","superseded_by:uuid?"],"identity":"id","immutable_source_fields":["source_type","source_row_key","source_fingerprint","import_batch_id"]},
+    "transactions": {"kind":"SOURCE_EVENT","fields":["id:uuid","transaction_date:date","approved_at:timestamptz?","source_type:CARD|MANUAL|IMPORT","worker_id:uuid?","card_last4:text?","approval_no:text?","merchant:text?","description:text?","original_amount:numeric","source_category:text?","source_row_key:text?","source_fingerprint:text","import_batch_id:uuid?","mapping_status:UNALLOCATED|PARTIAL|FULL|REVIEW_REQUIRED","status:ACTIVE|VOID|SUPERSEDED","superseded_by:uuid?"],"identity":"id","immutable_source_fields":["approved_at","card_last4","approval_no","merchant","source_row_key","source_fingerprint","import_batch_id"]},
+    "expense_allocations": {"kind":"ASSIGNMENT","fields":["id:uuid","transaction_id:uuid","site_id:uuid?","category:text","allocated_amount:numeric","allocation_status:ACTIVE|VOID|SUPERSEDED","mapping_basis:AUTO|SUGGEST|USER_CONFIRMED","review_reason:text?","work_log_id:uuid?","created_at:timestamptz","updated_at:timestamptz","created_by:uuid","updated_by:uuid"],"identity":"id"},
+    "import_batches": {"kind":"SOURCE_EVIDENCE","fields":["id:uuid","source_type:text","filename:text","source_sha256:text","parser_version:text","started_at:timestamptz","completed_at:timestamptz?","row_count:int","insert_count:int","duplicate_count:int","review_count:int","status:STARTED|PREVIEWED|CONFIRMED|COMPLETED|FAILED","created_by:uuid"],"identity":"id"},
+    "financial_obligations": {"kind":"SOURCE_PLUS_STATE","fields":["id:uuid","direction:RECEIVABLE|PAYABLE","invoice_status:UNBILLED|IN_PROGRESS|ISSUED|CANCELLED","settlement_status:UNPAID|PARTIAL|PAID","due_date:date?","supply_amount:numeric","vat_amount:numeric","total_amount:numeric","settled_amount:numeric","customer_id:uuid","site_id:uuid?","raw_text:text?","status:ACTIVE|VOID"],"identity":"id"},
+    "audit_logs": {"kind":"APPEND_ONLY_EVIDENCE","fields":["id:uuid","entity_type:text","entity_id:uuid","action:text","before_json:jsonb?","after_json:jsonb?","reason:text?","actor_id:uuid","created_at:timestamptz","source:USER|IMPORT|SYSTEM"],"identity":"id"},
+    "site_financial_summary_v2": {"kind":"CALCULATION_READ_MODEL","fields":["site_id:uuid","site_code:text","actual_labor_cost:numeric","actual_expense_cost:numeric","actual_total_cost:numeric","expected_profit:numeric?","cost_ratio:numeric?","cost_budget_remaining:numeric?"],"identity":"site_id"}
+  },
+  "relationships": [
+    {"from":"customer_aliases.customer_id","to":"customers.id","cardinality":"many-to-one"},
+    {"from":"sites.operational_customer_id","to":"customers.id","cardinality":"many-to-one"},
+    {"from":"work_logs.worker_id","to":"workers.id","cardinality":"many-to-one"},
+    {"from":"work_logs.site_id","to":"sites.id","cardinality":"many-to-one nullable"},
+    {"from":"transactions.worker_id","to":"workers.id","cardinality":"many-to-one nullable"},
+    {"from":"expense_allocations.transaction_id","to":"transactions.id","cardinality":"many-to-one"},
+    {"from":"expense_allocations.site_id","to":"sites.id","cardinality":"many-to-one nullable"},
+    {"from":"expense_allocations.work_log_id","to":"work_logs.id","cardinality":"many-to-one nullable"},
+    {"from":"financial_obligations.customer_id","to":"customers.id","cardinality":"many-to-one"},
+    {"from":"financial_obligations.site_id","to":"sites.id","cardinality":"many-to-one nullable"}
+  ],
+  "source_of_truth": {
+    "runtime":"Supabase after cutover; canonical files are historical migration/reconciliation input only",
+    "contract":"sites.contract_supply_amount",
+    "cost_budget":"sites.cost_budget_amount",
+    "labor":"active work_logs.labor_amount with cost_scope SITE",
+    "expense_source":"active transactions.original_amount",
+    "expense_assignment":"active confirmed expense_allocations",
+    "customer_operation":"sites.operational_customer_id",
+    "customer_evidence":"customer_aliases",
+    "financial_reporting":"site_financial_summary_v2"
+  },
+  "derived_fields": {
+    "countable_md":"NORMAL_WORK ? raw_md : 0",
+    "calculated_labor_amount":"daily_rate_snapshot * raw_md only when labor_source=CALCULATED and entry_type=NORMAL_WORK",
+    "actual_labor_cost":"sum(active SITE-scope work_logs.labor_amount by site)",
+    "actual_expense_cost":"sum(active confirmed expense_allocations.allocated_amount by site)",
+    "actual_total_cost":"actual_labor_cost + actual_expense_cost",
+    "expected_profit":"contract_supply_amount is null ? null : contract_supply_amount - actual_total_cost",
+    "cost_ratio":"contract_supply_amount is null or zero ? null : actual_total_cost / contract_supply_amount",
+    "cost_budget_remaining":"cost_budget_amount is null ? null : cost_budget_amount - actual_total_cost",
+    "transaction_mapping_status":"0=UNALLOCATED; 0<sum<original=PARTIAL; sum=original=FULL; invalid/ambiguous=REVIEW_REQUIRED"
+  },
+  "states": {
+    "automation":["AUTO","SUGGEST","REVIEW_REQUIRED"],
+    "transaction_mapping":["UNALLOCATED","PARTIAL","FULL","REVIEW_REQUIRED"],
+    "source_lifecycle":["ACTIVE","VOID","SUPERSEDED"],
+    "import_batch":["STARTED","PREVIEWED","CONFIRMED","COMPLETED","FAILED"],
+    "invoice":["UNBILLED","IN_PROGRESS","ISSUED","CANCELLED"],
+    "settlement":["UNPAID","PARTIAL","PAID"]
+  },
+  "invariants": [
+    "Existing UUIDs never change.",
+    "site_code is unique; site name is not unique and protected multi-contract sites never merge.",
+    "S067 and S068 remain independent contract/profit units; shared Yeosu wording never causes automatic cross-assignment.",
+    "Assignment changes never overwrite immutable source evidence.",
+    "Active allocation amounts are positive and their sum never exceeds active transaction original_amount; FULL requires equality.",
+    "Moving an allocation changes site totals but not company expense total.",
+    "Moving a work log changes site totals but not company labor total.",
+    "Changing workers.current_daily_rate never changes an existing work log snapshot or labor amount.",
+    "HOLIDAY has countable_md=0 labor_amount=0 cost_scope=NONE; OTHER has countable_md=0 and historical paid labor may be OVERHEAD.",
+    "Blank or invalid dates do not enter calendar queries or create ghost/+N entries.",
+    "NULL and zero contract amounts produce null cost_ratio; no truthy/falsy numeric fallback.",
+    "UI Excel and PDF consume the same financial read model and do not recalculate profit independently.",
+    "Import replay does not delete existing rows and inserts zero duplicate source events.",
+    "Source history is voided or superseded instead of hard deleted."
+  ],
+  "transition_rules": [
+    {"event":"workers.current_daily_rate changed","rule":"Use for future new work-log snapshot only."},
+    {"event":"CALCULATED raw_md changed","rule":"Recompute labor_amount from the existing snapshot."},
+    {"event":"MANUAL_OVERRIDE or HISTORICAL_IMPORT raw_md changed","rule":"Require explicit keep/replace labor decision and reason; never auto-recompute."},
+    {"event":"work-log site changed","rule":"Move labor scope; produce linked-expense suggestions; never force allocation movement."},
+    {"event":"transaction amount corrected","rule":"Preserve original evidence through void/supersede semantics and revalidate allocations."},
+    {"event":"source restored","rule":"Permit only when no active superseding record conflicts and all authorization/invariants pass."}
+  ],
+  "compatibility_strategy": {
+    "transaction_decision":"Retain transactions and enrich it; do not create card_transactions.",
+    "manual_expense_decision":"Represent manual/cash/account expenses in transactions with source_type=MANUAL.",
+    "physical_site_decision":"No physical_sites table now; nullable descriptive/group fields on sites are sufficient.",
+    "labor_decision":"Store labor_amount and daily_rate_snapshot on each work log.",
+    "summary_decision":"One security-invoker site_financial_summary_v2 database view is the reporting contract.",
+    "uuid_fk_transition":["add shadow UUID columns","backfill without changing IDs","validate orphans","dual read/write","add constraints","switch read paths","deprecate legacy text references later"],
+    "legacy_read":"Keep legacy columns/tables until parity gates pass.",
+    "legacy_write":"Stage dual-write with observability; never full-delete-and-reimport.",
+    "canonical":"Historical input only after operational cutover."
+  }
+}
