@@ -1,0 +1,58 @@
+INOPNC SW4 Phase 4.1 — user decision handoff
+
+Rows: 40 (31 inherited + 9 canonical-only rechecks)
+Categories: {"DECISION_REQUIRED":35,"BATCH_KEEP":3,"INVALID_FLAG":2,"INFORMATIONAL":0}
+
+Priority decisions:
+- P4-0001 S017:송도센터파크
+  candidate=5603ec61-debc-40d3-bef8-c602be4f9f43 송도센터파크탑라이트 설계변경으로 인한 보수의건
+  recommendation=DEFER confidence=MEDIUM
+  aggregate=WL 1 2025-09-02..2025-09-02; TX 0 total 0
+  workers=김재형:1
+  themes=송도센터파크 물량조사,앱개발미팅등
+  alternatives=d518d26a-3405-436a-9ea9-da20896dd8f4 | 송도센터파크 | 삼표피앤씨 주식회사 | budget=19962800 | status=active | WL=34(2025-09-04..2026-09-03) | TX=10/135800
+- P4-0003 S064:대전도안 지하차도
+  candidate=5b925522-72de-4297-a8bd-2091c6e1e071 대전지하차도 PCWALL 상부 단차보강작업
+  recommendation=DEFER confidence=MEDIUM
+  aggregate=WL 27 2025-10-18..2026-06-08; TX 10 total 280460
+  workers=강영권:10 | 김재형:9 | 권용호:8
+  themes=오후 일산지하차도 삼일AS, 생산 소명건설 Rps부재 파단 임시조치 | 290100 | 단차5개헌치 굴절렌탈 장비들어옴
+  alternatives=2c636eae-9796-491c-80f9-45de9ca46d6f | 대전도안 지하차도 PC단차 보수공사 | (주)삼일씨엔에스 | budget=12200000 | status=completed | WL=1(2026-03-31..2026-03-31) | TX=0/0
+- P4-0004 S067:여수 죽림더프라우드 (현대건설)
+  candidate=9ddbc746-f1a2-47da-99d5-483239c91fb4 여수 죽림더프라우드(현대건설)지하주차장 PC부재 보수 2차
+  recommendation=DEFER confidence=MEDIUM
+  aggregate=WL 12 2026-04-11..2026-08-31; TX 0 total 0
+  workers=송용호:10 | 윤정수:2
+  themes=지하2층잔여마감 | 지하1층균열보수 | 지하2층 균열보수
+  alternatives=7cdd5e25-3c79-443f-bd17-105508a72661 | 여수 죽림더프라우드(현대건설)지하주차장 PC부재 보수(9월, 11월) | 삼표피앤씨 주식회사 | budget=33489000 | status=completed | WL=18(2025-09-24..2025-10-31) | TX=76/2680780 || 3471d20e-b920-4f46-94ae-4b67c2fcbc10 | 여수죽림 선투입보수(성보산업개발) | 이건테크 주식회사 | budget=6500000 | status=completed | WL=8(2025-06-16..2025-08-23) | TX=18/315700
+- P4-0005 S068:여수 죽림더프라우드 (현대건설)
+  candidate=819c0b09-d093-4717-a09d-86896d527845 심표설계 삼표포항공장(여수죽림 발코니)
+  recommendation=LINK:819c0b09-d093-4717-a09d-86896d527845 confidence=MEDIUM
+  aggregate=WL 64 2025-03-06..2026-01-06; TX 155 total 4445960
+  workers=김재형:23 | 권용호:14 | 강영권:10
+  themes=10mm컷팅 | 홀13장(39공) | 철판 홀타공 18장
+  alternatives=908f5f78-d868-46b6-bdfa-2fb6ae5a00cc | 여수 죽림 내민발코니 철판 확공 보수 | 삼표피앤씨 주식회사 | budget=17000000 | status=completed | WL=2(2025-11-01..2026-01-20) | TX=0/0 || 9ddbc746-f1a2-47da-99d5-483239c91fb4 | 여수 죽림더프라우드(현대건설)지하주차장 PC부재 보수 2차 | 삼표피앤씨 주식회사 | budget=0 | status=active | WL=12(2026-04-11..2026-08-31) | TX=0/0 || 7cdd5e25-3c79-443f-bd17-105508a72661 | 여수 죽림더프라우드(현대건설)지하주차장 PC부재 보수(9월, 11월) | 삼표피앤씨 주식회사 | budget=33489000 | status=completed | WL=18(2025-09-24..2025-10-31) | TX=76/2680780 || 020eae00-97cb-4f37-ad1e-0c2fbcbfb797 | 공덕자이 PC발코니 부재 보수공사 | (주)금형건설 | budget=3800000 | status=completed | WL=8(2025-09-06..2025-11-12) | TX=9/170600
+- P4-0007 S091:송도센터파크
+  candidate=d518d26a-3405-436a-9ea9-da20896dd8f4 송도센터파크
+  recommendation=LINK:d518d26a-3405-436a-9ea9-da20896dd8f4 confidence=MEDIUM
+  aggregate=WL 34 2025-09-04..2026-09-03; TX 10 total 135800
+  workers=김재형:14 | 권용호:9 | 송용호:4
+  themes=안전교육 및  물량조사 | 주간 큐토스점검대비작업 | 가설사무실구간 기둥 면보수
+가설사무실구간 기둥 면보수 *삼표지급
+  alternatives=
+- P4-0017 S147:대전도안 지하차도
+  candidate=2c636eae-9796-491c-80f9-45de9ca46d6f 대전도안 지하차도 PC단차 보수공사
+  recommendation=LINK:2c636eae-9796-491c-80f9-45de9ca46d6f confidence=MEDIUM
+  aggregate=WL 1 2026-03-31..2026-03-31; TX 0 total 0
+  workers=권용호:1
+  themes=
+  alternatives=
+- P4-0031 외국인(필립)
+  candidate=9137b6a9-30e9-4b6c-a0ce-417d8d311a5b 외국인(필립)
+  recommendation=DEFER confidence=LOW
+  aggregate=WL  ..; TX  total 
+  workers=
+  themes=
+  alternatives=f6490d29-623f-44a4-8d03-94a6bf01dbca
+
+Rules: Never merge S067 and S068. user_decision and user_note are blank. No Production mutation or Phase 5 work has started.

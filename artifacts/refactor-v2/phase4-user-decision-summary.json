@@ -1,0 +1,33 @@
+{
+  "source_review_rows": 31,
+  "review_rows_total": 40,
+  "categories": {
+    "DECISION_REQUIRED": 35,
+    "BATCH_KEEP": 3,
+    "INVALID_FLAG": 2,
+    "INFORMATIONAL": 0
+  },
+  "decisions_required_by_entity": {
+    "site": 30,
+    "worker": 3,
+    "customer": 2
+  },
+  "read_only_evidence": {
+    "production_sites": 155,
+    "worklogs": 2260,
+    "transactions": 3324
+  },
+  "canonical_only_recheck": {
+    "sites": 6,
+    "customers": 2,
+    "workers": 1
+  },
+  "user_decisions_pre_filled": false,
+  "production_only_retention": true,
+  "priority_readiness": {
+    "yeosu": "READY",
+    "daejeon": "READY",
+    "songdo": "READY",
+    "philip": "READY"
+  }
+}
