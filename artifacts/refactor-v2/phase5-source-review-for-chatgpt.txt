@@ -1,0 +1,114 @@
+# PHASE 5.3 SOURCE TRACE REVIEW HANDOFF
+Evidence scope: exact-fingerprint source_trace + Canonical worklog + ±2 trace context. Original XLSX is not present; unresolved raw-cell questions remain deferred.
+
+## A. MD semantic conflicts
+P5D-0001 | key=WL-0be4e5e69953f67118f5e58a | production=bd326f91-d845-4dfe-b13a-a53a943b629b
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 139 / 0be4e5e69953f67118f5e58a504d25d546e033c318a0fa0cc05dec6e9d4514a6
+raw=2025-01-22 | 송용호 | S058 | md=1/1 | labor=270000 | memo="포항환호공원1BL 힐스테이트 · 지하주차장 노출 마감 보수 · *통으로넘김공수에서 제외"
+result=RAW_ONE_COUNTABLE_ZERO (MEDIUM) — Source-linked row records raw MD 1 and labor, while contemporaneous memo explicitly excludes the work from countable MD; preserve both meanings
+
+P5D-0002 | key=WL-17357332746c4341cc52c236 | production=e646f971-d103-4c62-a9e4-7b01477b2865
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 145 / 17357332746c4341cc52c236313dcaf30214c9d1dadc4d566c5759f6faf2324e
+raw=2025-01-23 | 송용호 | S058 | md=1/1 | labor=270000 | memo="포항환호공원1BL 힐스테이트 · 지하주차장 노출 마감 보수 · *통으로넘김공수에서 제외"
+result=RAW_ONE_COUNTABLE_ZERO (MEDIUM) — Source-linked row records raw MD 1 and labor, while contemporaneous memo explicitly excludes the work from countable MD; preserve both meanings
+
+P5D-0003 | key=WL-40281007de0244adf4a870bd | production=89bfdf3f-6f49-4b03-9f7a-15a85edacf3b
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 151 / 40281007de0244adf4a870bd6e7f48e856ce712e7a5f3e9309e3acfeb6f322c1
+raw=2025-01-24 | 송용호 | S058 | md=1/1 | labor=270000 | memo="포항환호공원1BL 힐스테이트 · 지하주차장 노출 마감 보수 · *통으로넘김공수에서 제외"
+result=RAW_ONE_COUNTABLE_ZERO (MEDIUM) — Source-linked row records raw MD 1 and labor, while contemporaneous memo explicitly excludes the work from countable MD; preserve both meanings
+
+P5D-0005 | key=WL-eb2d080ec4835b108d70a14c | production=a853d69e-fd7d-4349-a6db-c73187a92af9
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 154 / eb2d080ec4835b108d70a14ce9eee42652a7f50c2390c9bebc6fe80ebe6e5ad3
+raw=2025-01-25 | 송용호 | S058 | md=1/1 | labor=270000 | memo="포항환호공원1BL 힐스테이트 · 지하주차장 2층 주차장 · *통으로넘김공수에서 제외"
+result=RAW_ONE_COUNTABLE_ZERO (MEDIUM) — Source-linked row records raw MD 1 and labor, while contemporaneous memo explicitly excludes the work from countable MD; preserve both meanings
+
+P5D-0055 | key=WL-d3ee5076cf92492a92cf9fe5 | production=deb5e8b3-e27f-4254-a5c6-ac3698dbb1b5
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 474 / d3ee5076cf92492a92cf9fe5b4f34b23975c7624bf7502683dcb3acd951d4256
+raw=2025-04-13 | 권용호 | S093 | md=0/0 | labor=0 | memo=""
+result=CANONICAL_MD_CONFIRMED (HIGH) — Exact source row records MD 0, labor 0, and empty memo; Production MD 1 is not supported
+
+## B. Paired split results
+P5D-0019 <-> P5D-0318 | rows=315,318 | fingerprints=dc325793e94c811d3398d18f483578157116627c86d0d2f277f14ab72f126f32,1649a1e29e9b1f5284376f0294ee797ea551c4e79e0cb3a596c991755bf8859c | md=1 | labor=675000 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+P5D-0072 <-> P5D-0337 | rows=584,587 | fingerprints=1ef0d67e15cf98c155c72fbd00199349803aed97def9f9c3de4adc8e85fd450f,f7cf3373570e4f95b78614e91d538c24c9a264053270da8bb80e86be68437ed1 | md=1 | labor=220000 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+P5D-0080 <-> P5D-0338 | rows=598,600 | fingerprints=d2b7df10e6c411b2a8baba6666ca814c3f63635adc7dc04729a2a8d7618ab791,ca23448bed117c18ef8bf1bd4b0bd65a47f27579db04c9c49ca96824395445ba | md=1 | labor=675000 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+P5D-0087 <-> P5D-0342 | rows=632,634 | fingerprints=b91d5998d09c71cd8b22a466285cc16e5171f199199933b26fc6b869d2316f6d,6566af3409bd5e610cf9777805bf3d38bc1c69034c0db0f42d5b8f51ada64ded | md=0 | labor=0 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+P5D-0103 <-> P5D-0350 | rows=782,784 | fingerprints=86ce753bd04a195302da0aab62f2c28ed4d67445974e0c7361a79b88c8b31f26,7a7be560828da4bda6a99241c73baaef5b48a9f11bfe84495436e40b68a033e9 | md=1 | labor=675000 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+P5D-0117 <-> P5D-0362 | rows=1066,1067 | fingerprints=e2044d5a43cfc0de612bb7c0c668a4937cfd1c062600beb4098f83ee2b974d5c,5e219b53b3f9ed5808dbcff8d311a24bcc56c4e49cc460e6ea3ed37c38bd5f15 | md=1 | labor=450000 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+P5D-0130 <-> P5D-0366 | rows=1254,1255 | fingerprints=d5f6f861310a41b6aac993bd76b46a11a0959cc35ac4180490defbb068e12531,31de29381e0c5db3cb8bf0ea92c4391eb36eb4e5d98f2a0025d9501dbbe6326b | md=1 | labor=675000 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+P5D-0132 <-> P5D-0367 | rows=1270,1271 | fingerprints=1b2a6aecdde0342ab13505cdae67b967f7767e44df0f235fda8c33ead4432f2e,2e5aa3bcf8afee729cc868bfa85f8eadf3be13d52723d90e2b19f7b90f0ffcfd | md=3.5 | labor=1575000 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+P5D-0149 <-> P5D-0373 | rows=1378,1379 | fingerprints=4250e523c8b916da8e8fc8a06c82363c15cbe5831116355ec2664df1f51de5a7,bf3600be5e1431e0fe62458d49569c9d9729ae1850838a543af0cfac5ff52f6b | md=3 | labor=1350000 | SOURCE_CONFIRMED_CANONICAL_SPLIT
+
+## C. Resolved multi-field group
+Fully confirmed: 93; partially confirmed: 0. Exact source identifiers are in the result JSON.
+
+## D. Ambiguous multi-field
+Keep Production: 0; still review: 2.
+
+## E. Six special memo conflicts
+P5D-0463 | key=WL-a65ab9f898cf95375ded3788 | production=7b92073f-7de9-48ee-910e-02a8ed499fd5
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 536 / a65ab9f898cf95375ded3788f436b00167e2cfbde89f89f6ead7e78c0f0ce134
+raw=2025-05-01 | 송용호 | S071 | md=1/1 | labor=270000 | memo="[화성]페인트칠하러 갔으나 비가와서 0.5공수"
+result=REVIEW_REQUIRED (LOW) — Special MD/site/business memo conflict requires original workbook content beyond the generated trace package
+
+P5D-0464 | key=WL-d38bcd5e488fcf189894a464 | production=522c3c0c-0ab4-449e-8bbb-4b448170bb7e
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 534 / d38bcd5e488fcf189894a4642671e04824cd45b06a73631dd045bf1b6524f1af
+raw=2025-05-01 | 권용호 | S071 | md=1/1 | labor=220000 | memo="[화성]페인트칠하러 갔으나 비가와서 0.5공수"
+result=REVIEW_REQUIRED (LOW) — Special MD/site/business memo conflict requires original workbook content beyond the generated trace package
+
+P5D-0503 | key=WL-bf4fb5fdc4cc0db760e33d60 | production=fbc49332-412d-40ad-b5dc-fec96cdab718
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 609 / bf4fb5fdc4cc0db760e33d6080580bfd304453e8f631ec884aa748673bd54390
+raw=2025-05-26 | 권용호 | S071 | md=1/1 | labor=220000 | memo="송도 4차"
+result=REVIEW_REQUIRED (LOW) — Special MD/site/business memo conflict requires original workbook content beyond the generated trace package
+
+P5D-0507 | key=WL-c450b3ddfbce98ea6fb7e62b | production=7e35dd84-2ccb-46ba-8df3-7f59c514592d
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 619 / c450b3ddfbce98ea6fb7e62b582388683aad2ce4645e1d61c3ec8baa8274eb16
+raw=2025-05-29 | 김재형 | S033 | md=1/1 | labor=450000 | memo="반포래미안 방문 후 안성일죽으로 이동"
+result=REVIEW_REQUIRED (LOW) — Special MD/site/business memo conflict requires original workbook content beyond the generated trace package
+
+P5D-0667 | key=WL-5b41c5a7d060dd79c8132b0d | production=f65357d0-0bab-498b-aa9e-49549c7ab83a
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 1883 / 5b41c5a7d060dd79c8132b0d6951b55667ecab7300de232bfb68304183b4464d
+raw=2026-02-03 | 최현준 | S085 | md=1/1 | labor=200000 | memo="기둥퍼티"
+result=REVIEW_REQUIRED (LOW) — Special MD/site/business memo conflict requires original workbook content beyond the generated trace package
+
+P5D-0668 | key=WL-7d1b3bccb9f02abcfc6b13b8 | production=897fa33f-e029-42b5-bbfc-6c9a4e26c53b
+source=source_cashbook.xlsx / 현장별_실시간_금전출납부 / row 1891 / 7d1b3bccb9f02abcfc6b13b869654740acf2b9604beee02aa8a20f806b8eb4e2
+raw=2026-02-04 | 최현준 | S085 | md=1/1 | labor=200000 | memo="기둥퍼티"
+result=REVIEW_REQUIRED (LOW) — Special MD/site/business memo conflict requires original workbook content beyond the generated trace package
+
+## F. Memo 238 aggregate
+Canonical=113; Production=95; merge both=24; insufficient=6.
+
+## G. Deferred identities
+S111 | 용인 Y1 SK하이닉스 FAB동 | 2026-01-15..2026-04-04 | customer=주식회사 연우구조 | terms=1층,마감,박스,퍼티 | STILL_DEFER
+source refs=현장별_실시간_금전출납부:1714:860dcc52469416c01e76c4908e33f0b5a5a53b2b9d4c76c0211c2a1ab2ba25b5 | 현장별_실시간_금전출납부:1715:9b257ce69cfad6496d82c54b0e21e6b241cfb1044e3280bd7102220929364c54 | 현장별_실시간_금전출납부:1723:7307069ae318f0af4528db31947208710a74250bbb95a481e72181fd2dbc7b34 | 현장별_실시간_금전출납부:1725:f672b388819969b27fbc2d5fe8ca3918ffbd2a028195f7fafcefd34283c70cda | 현장별_실시간_금전출납부:1745:10de9b1d754ce2d12cd30c6b8d29031180b47123d3c52437640f71b1ad939d7d | 현장별_실시간_금전출납부:1746:a4f78f9ee9b597546b8a68d6a33d1d889ee4fbcc40229e57d20670616a2e8514 | 현장별_실시간_금전출납부:1795:c7e21d281ef28823ca44e5fd5eaa1729b1529cd3f3918a604f0f6d658c486b73 | 현장별_실시간_금전출납부:1797:bec1ed340d8e9ab835763991acd77026e4cabeec6369299dfc60d377e5aa22b3 | 현장별_실시간_금전출납부:1803:03e881c2216f1d2eb15060e41f2b25557b5964ce29090dbf154b9ce4775ed6c4 | 현장별_실시간_금전출납부:1804:865c05e4b7ae7cff4bd9ac13f2397006cc9d99d3b162e64803085030a3d627f0 | 현장별_실시간_금전출납부:1900:3b9dd24a0325560441af6979287f56061e8ae9790430f02e484bb601316ec892 | 현장별_실시간_금전출납부:1942:9f115a530e89ca136e1656022b021e756c018c2bd91256a410a5523e75b68a6e | 현장별_실시간_금전출납부:2194:b9cc2cebc47e4104084ad44f15ce6d737de719c76a38c7938d48b6f309971264 | 현장별_실시간_금전출납부:2230:cf67ef19ed3d67865a897422c791cc872c478f5eaad2aa04f3b4126f3e6a11c6
+
+S130 | SK하이닉스 Y1 CUB(SK에코플랜트) 반도체 PC공사 6·7층 PC부재 보수 기술용역 | 2026-04-03..2026-07-22 | customer=삼표피앤씨 주식회사 | terms=6층,7층,8층,마감,철야 | STILL_DEFER
+source refs=현장별_실시간_금전출납부:2225:3fd96b4b01252ae0cfd3e1eeff7e6f580d51ab9bfbf13909a044f058735736fc | 현장별_실시간_금전출납부:2226:210cebfb44e8addc395a445c63edd573bc25331d83b34583de887a68a855c540 | 현장별_실시간_금전출납부:2231:8011e72cc962b6406586a1f8ed1f13239a673b84b99c3bf449970e7f0f093718 | 현장별_실시간_금전출납부:2232:2a33e81d9420305e7c5ab7f35490d156324850d6dc88dac6d57d82bb469abcab | 현장별_실시간_금전출납부:2708:a7978d33f7fbbb26698215a288b7375ddb6801b551985db4f03e51bf50c36681 | 현장별_실시간_금전출납부:2709:79867cb07c54a4fe7b0c3bc1933205266a28a6ffb9390693787a651557b335e3 | 현장별_실시간_금전출납부:2710:352607cef0a9fefdf1847a0d67062e8958c407251ca87d6f656d78d291aaf6ca
+
+S150 | 용인 Y1 SK하이닉스 FAB동 | 2026-08-02..2026-08-07 | customer= | terms=8층,주간,컷팅 | STILL_DEFER
+source refs=현장별_실시간_금전출납부:2742:e2a0b42932442387537244eb9d4ae81fe99c426bf528b379def569411af1349b | 현장별_실시간_금전출납부:2758:fd6f9e0af7bd2a1eb3dcf723608a604cd976008508abfcd8493292e80df4ab3c | 현장별_실시간_금전출납부:2761:529666890f1615ce4c50b6abe6ea5931ea21863f6e397f63e56e00a40e08f9ec
+
+S151 | 용인 Y1 IBL CUB동 이색보수 철야공사(2026-03) | 2026-03-03..2026-03-30 | customer=아이에스동서(주) | terms=4층,5층,6층,마감,철야 | STILL_DEFER
+source refs=현장별_실시간_금전출납부:2043:9bbbce31e770fb926e2105c09a14be44e4c7e0e8ffe1d99eb2cb52a2c1efcda7 | 현장별_실시간_금전출납부:2045:80b74e6f9e3ff849be984ea8779efc0c4cc721f86e37790cd77f156eb7fe9ddb | 현장별_실시간_금전출납부:2075:076c957f300b7d2dfb2d3ed255c484e0f0a61aa566dad3341a79b38811cbde40 | 현장별_실시간_금전출납부:2077:42c5640dcab1bd917e5ba2ed12d1c12968bbce6ba24518361ceaa01544437136 | 현장별_실시간_금전출납부:2086:ac803eec5443a7e164e95828f928c3181188c3f50179ae99d351ded57b6afa06 | 현장별_실시간_금전출납부:2089:a2b50198b79e3c1960891162a3398bfc7ca4ab6cfb739b3461f282c1e13693eb | 현장별_실시간_금전출납부:2100:27a2e437a938e03d6d0757940bbc21e294a8cecb13def8a9a32cc6379cda8f80 | 현장별_실시간_금전출납부:2101:f403bc8e28e82c936861f6c0fa8f31fc23e1c9a8345a274419a5eb49830a84bb | 현장별_실시간_금전출납부:2151:44febf9351428ef56929c4c90ee830451dea8dd55c377f3c4e87254a02badfd2 | 현장별_실시간_금전출납부:2152:332c850d83150c3d9a734312fced57b1231a229a2b2d30d5b797c340a1d30d81 | 현장별_실시간_금전출납부:2175:313e32fd96b8282441ea9a1cb2b2b2252e75d226b02b72205c8d230ce67c394a | 현장별_실시간_금전출납부:2177:60c8865f6571202ab2f242df4354bef864b57bb93e4ddbd53e6b4c568b4aff8d | 현장별_실시간_금전출납부:2181:89738f887e585a7776c2571b0cbd2f5dc5e462fc1393078c593000c6f9fdbd82 | 현장별_실시간_금전출납부:2204:44e9135d8930700db2e0ac0b99c7d1ee31a53ce9b541520a99df716456437cc2 | 현장별_실시간_금전출납부:2205:d96933de82fe0243033a5e0cbeeb4c1e9f504cc91182d2a9e9e81546be6ee218
+
+S152 | 용인 Y1 IBL CUB동 이색보수 철야공사(2026-04) | 2026-04-01..2026-04-06 | customer=아이에스동서(주) | terms=6층,7층,마감,철야 | STILL_DEFER
+source refs=현장별_실시간_금전출납부:2215:a2b9b70ef15db40c395e732a65bf082a7031692477a6857500b3156ba49583b8 | 현장별_실시간_금전출납부:2216:7439fe6a0e44d0be34393c6c10236e24d75cc7e9f809af478612264f9d9a831a | 현장별_실시간_금전출납부:2219:de0ea71236203c28c52e0dd4f6080f1b22cbae084492978c331eeb03683a59ee | 현장별_실시간_금전출납부:2220:9d28307319b28caa48d37c663304b02d702ec9301d727877a6627e0f1de6603e | 현장별_실시간_금전출납부:2239:e14944f524799cc6f016ed60eb40e7c2086c59f990be41273efd8070567b2772 | 현장별_실시간_금전출납부:2240:d633381093c0f715708fffd7d019e4a3f830b9edb77adb638b0f63e8b9feb03e
+
+S153 | 용인 Y1 IBL CUB동 이색보수 철야공사(2026-05) | 2026-05-11..2026-05-13 | customer=아이에스동서(주) | terms=7층,마감,주간,철야 | STILL_DEFER
+source refs=현장별_실시간_금전출납부:2391:8d149742713281fe61e1518aa05b54291f79e0c29df798eef323f5e6091fd686 | 현장별_실시간_금전출납부:2393:dbcfe1c5f37f94ecc9b19661a807de7f508b60a6646e1ee57ab18d8179bf2e9e | 현장별_실시간_금전출납부:2398:27e53d2d6fa1a4b2cd4e325804003968e944915b709a74aa118abd28696c3d4e | 현장별_실시간_금전출납부:2400:7d74ccf22138c9ed6844177f84144864bb095e41980f887c4dfb3bb796b7505e | 현장별_실시간_금전출납부:2404:d1cd129f5c7e9149a04d2315168bbfc5672a0c766f9d529abacfa36cc8a69b26 | 현장별_실시간_금전출납부:2406:cc2519db8e95e030fc71041b784f2f8d2e250365d7f2cd7b5287e0d34eaa37cf
+
+S154 | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수 주간공사(2026-06/8층) | 2026-05-27..2026-06-08 | customer=아이에스동서(주) | terms=7층,8층,마감,주간 | STILL_DEFER
+source refs=현장별_실시간_금전출납부:2476:437dfeda7afad64088148e493e5d22e048a744a2c6bb65bad387731e7d5563f5 | 현장별_실시간_금전출납부:2477:0495470d19928ec80d728ec54f3621713a6d044c9a895c816cb58986429e8176 | 현장별_실시간_금전출납부:2483:789dfc6dcab3b647540c3435789232f5e53fc83d654e6891b49cafef02b3016f | 현장별_실시간_금전출납부:2488:c479cf1bddc99bd430937cc554e0bd17bbc9da983b307a2235141ad4a92913e5 | 현장별_실시간_금전출납부:2491:af46d58b1f3fe5a3ef1ffe663c0a1ac63182341a223f943dccc32dab84dedd72 | 현장별_실시간_금전출납부:2499:1b243ca6a9dc71bf062422b2e1dccb4944ae95897cc51144bb5979025ef4bb33 | 현장별_실시간_금전출납부:2503:d56cb49a6bdf7e9b4769c2b7c69a84fc48c220e56d25baaefe5cfc0b75778aee | 현장별_실시간_금전출납부:2511:7e05fa3316db6d76e7e66550eae291cd2de957e620c715627ddf2f5b05445bcb | 현장별_실시간_금전출납부:2516:d810947296d1c4bcce1b50b5687a7efe8811a7c29746c64cb701dd04dbf4c98d | 현장별_실시간_금전출납부:2529:52dd89f2912b6dd22ff69d9773e56697293baab57f6e425dbe9afec624107aef
+
+S155 | 용인 Y1 IBL CUB 1~8층 E/V 홀타공(코어) 보수공사 | 2026-07-10..2026-07-11 | customer=주식회사 대양(DAEYANG, INC) | terms=1층,2층,4층,87653층,코어 | STILL_DEFER
+source refs=현장별_실시간_금전출납부:2667:9c35ae0264b67667b247704e632950a8ea1adbd5a35fa7ceb029db2edb066580 | 현장별_실시간_금전출납부:2668:e06812c3438ad3bd0fdf140b5f5f2ab5f17f0d77ed46c08a87d07612370be0a5 | 현장별_실시간_금전출납부:2671:8b89b0750d424d4b674d5598b5b0fdcac5d51b86f302b7c61dad70f15e7c0f74 | 현장별_실시간_금전출납부:2672:6865ecb4ef8ae94a6fb7f511368cd7dd4ee3a39f1477fe88bf3f3e08a036b66d
+
+S168 | 잠실 전력구 PC부재 보수공사 | 2025-03-29..2025-03-29 | customer=아이에스동서(주) 이천지점 | terms= | STILL_DEFER
+source refs=현장별_실시간_금전출납부:417:e0cfc8acbe9529cd82030fff25e29286f0e81f5e65fad084f65c759838f11608
+
+## H. Regression conflicts
+Count: 0
+[]
+
+## I. 53 missing candidates
+Rechecked=53; confirmed=53; regression conflicts=0. Full source identifiers are in the result JSON.
