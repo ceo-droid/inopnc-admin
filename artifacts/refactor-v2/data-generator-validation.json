@@ -1,0 +1,428 @@
+{
+  "dataset_version": "2026-09-03.v2",
+  "generator_version": "1.0.0",
+  "source_sha256": "38e602b1e6c17e6af4931e019890738ef10e71001f15dfb86fa9aa1b8a64f327",
+  "source_schema": {
+    "sheets": [
+      "현장별_실시간_요약",
+      "현장별_실시간_금전출납부"
+    ],
+    "used_ranges": {
+      "현장별_실시간_요약": "A1:R142",
+      "현장별_실시간_금전출납부": "A1:Z2883"
+    },
+    "detail_header_excel_row": 1,
+    "summary_header_excel_row": 4
+  },
+  "actual": {
+    "source_rows": 2881,
+    "source_trace_rows": 2881,
+    "source_fingerprint_duplicates": 0,
+    "exact_meaningful_source_duplicates": 0,
+    "source_date_range": {
+      "min": "2024-11-01",
+      "max": "2026-09-02"
+    },
+    "source_classification": {
+      "WORKLOG_AND_EXPENSE": 1333,
+      "WORKLOG_ONLY": 1005,
+      "EXPENSE_ONLY": 542,
+      "EXCLUDED_CANCELLED": 1
+    },
+    "sites": 138,
+    "contract_amount_known_sites": 121,
+    "zero_unknown_legacy_amount_sites": 17,
+    "worklogs": 2338,
+    "worklog_date_range": {
+      "min": "2025-01-01",
+      "max": "2026-08-31"
+    },
+    "raw_md": 2281,
+    "countable_md": 2200,
+    "labor": 663620000,
+    "countable_labor": 630005000,
+    "other_overhead_labor": 33615000,
+    "holiday_countable_md": 0,
+    "other_countable_md": 0,
+    "expenses": 4885,
+    "expense_total": 216525934,
+    "category_totals": {
+      "아침": 12022049,
+      "점심": 15362712,
+      "저녁": 16067392,
+      "간식": 10364251,
+      "자재": 19694919,
+      "주유": 36819633,
+      "숙박": 29069668,
+      "장비": 57485000,
+      "기타": 19640310
+    },
+    "direct_cost": 880145934,
+    "duplicate_candidate_groups": 5,
+    "unresolved_labor_rows": 3,
+    "review_rows": 128,
+    "yeosu": {
+      "source_rows_affected": 6,
+      "worklog_rows_moved": 2,
+      "expense_records_moved": 13,
+      "reallocated_labor": 540000,
+      "reallocated_expense": 259005,
+      "reallocated_total": 799005,
+      "s067_cost": 20730855,
+      "s067_contract_supply_amount": 39989000,
+      "s067_expected_profit": 19258145,
+      "s067_cost_ratio": 0.5184139388331791,
+      "s068_cost": 9837520,
+      "s068_contract_supply_amount": 17030000,
+      "s068_expected_profit": 7192480,
+      "s068_cost_ratio": 0.5776582501467997,
+      "combined_cost": 30568375
+    }
+  },
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "source_rows",
+      "actual": 2881,
+      "expected": 2881,
+      "pass": true
+    },
+    {
+      "name": "source_trace_rows",
+      "actual": 2881,
+      "expected": 2881,
+      "pass": true
+    },
+    {
+      "name": "source_fingerprint_duplicates",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "exact_meaningful_source_duplicates",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "sites",
+      "actual": 138,
+      "expected": 138,
+      "pass": true
+    },
+    {
+      "name": "contract_amount_known_sites",
+      "actual": 121,
+      "expected": 121,
+      "pass": true
+    },
+    {
+      "name": "zero_unknown_legacy_amount_sites",
+      "actual": 17,
+      "expected": 17,
+      "pass": true
+    },
+    {
+      "name": "worklogs",
+      "actual": 2338,
+      "expected": 2338,
+      "pass": true
+    },
+    {
+      "name": "raw_md",
+      "actual": 2281,
+      "expected": 2281,
+      "pass": true
+    },
+    {
+      "name": "countable_md",
+      "actual": 2200,
+      "expected": 2200,
+      "pass": true
+    },
+    {
+      "name": "labor",
+      "actual": 663620000,
+      "expected": 663620000,
+      "pass": true
+    },
+    {
+      "name": "countable_labor",
+      "actual": 630005000,
+      "expected": 630005000,
+      "pass": true
+    },
+    {
+      "name": "other_overhead_labor",
+      "actual": 33615000,
+      "expected": 33615000,
+      "pass": true
+    },
+    {
+      "name": "holiday_countable_md",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "other_countable_md",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "expenses",
+      "actual": 4885,
+      "expected": 4885,
+      "pass": true
+    },
+    {
+      "name": "expense_total",
+      "actual": 216525934,
+      "expected": 216525934,
+      "pass": true
+    },
+    {
+      "name": "direct_cost",
+      "actual": 880145934,
+      "expected": 880145934,
+      "pass": true
+    },
+    {
+      "name": "duplicate_candidate_groups",
+      "actual": 5,
+      "expected": 5,
+      "pass": true
+    },
+    {
+      "name": "unresolved_labor_rows",
+      "actual": 3,
+      "expected": 3,
+      "pass": true
+    },
+    {
+      "name": "source_date_min",
+      "actual": "2024-11-01",
+      "expected": "2024-11-01",
+      "pass": true
+    },
+    {
+      "name": "source_date_max",
+      "actual": "2026-09-02",
+      "expected": "2026-09-02",
+      "pass": true
+    },
+    {
+      "name": "worklog_date_min",
+      "actual": "2025-01-01",
+      "expected": "2025-01-01",
+      "pass": true
+    },
+    {
+      "name": "worklog_date_max",
+      "actual": "2026-08-31",
+      "expected": "2026-08-31",
+      "pass": true
+    },
+    {
+      "name": "source_classification",
+      "actual": {
+        "WORKLOG_AND_EXPENSE": 1333,
+        "WORKLOG_ONLY": 1005,
+        "EXPENSE_ONLY": 542,
+        "EXCLUDED_CANCELLED": 1
+      },
+      "expected": {
+        "WORKLOG_AND_EXPENSE": 1333,
+        "WORKLOG_ONLY": 1005,
+        "EXPENSE_ONLY": 542,
+        "EXCLUDED_CANCELLED": 1
+      },
+      "pass": true
+    },
+    {
+      "name": "category_totals",
+      "actual": {
+        "아침": 12022049,
+        "점심": 15362712,
+        "저녁": 16067392,
+        "간식": 10364251,
+        "자재": 19694919,
+        "주유": 36819633,
+        "숙박": 29069668,
+        "장비": 57485000,
+        "기타": 19640310
+      },
+      "expected": {
+        "아침": 12022049,
+        "점심": 15362712,
+        "저녁": 16067392,
+        "간식": 10364251,
+        "자재": 19694919,
+        "주유": 36819633,
+        "숙박": 29069668,
+        "장비": 57485000,
+        "기타": 19640310
+      },
+      "pass": true
+    },
+    {
+      "name": "zero_codes",
+      "actual": [
+        "S071",
+        "S081",
+        "S096",
+        "S098",
+        "S107",
+        "S112",
+        "S119",
+        "S128",
+        "S149",
+        "S150",
+        "S164",
+        "S165",
+        "S166",
+        "S168",
+        "S169",
+        "S171",
+        "S173"
+      ],
+      "expected": [
+        "S071",
+        "S081",
+        "S096",
+        "S098",
+        "S107",
+        "S112",
+        "S119",
+        "S128",
+        "S149",
+        "S150",
+        "S164",
+        "S165",
+        "S166",
+        "S168",
+        "S169",
+        "S171",
+        "S173"
+      ],
+      "pass": true
+    },
+    {
+      "name": "yeosu.source_rows_affected",
+      "actual": 6,
+      "expected": 6,
+      "pass": true
+    },
+    {
+      "name": "yeosu.worklog_rows_moved",
+      "actual": 2,
+      "expected": 2,
+      "pass": true
+    },
+    {
+      "name": "yeosu.expense_records_moved",
+      "actual": 13,
+      "expected": 13,
+      "pass": true
+    },
+    {
+      "name": "yeosu.reallocated_labor",
+      "actual": 540000,
+      "expected": 540000,
+      "pass": true
+    },
+    {
+      "name": "yeosu.reallocated_expense",
+      "actual": 259005,
+      "expected": 259005,
+      "pass": true
+    },
+    {
+      "name": "yeosu.reallocated_total",
+      "actual": 799005,
+      "expected": 799005,
+      "pass": true
+    },
+    {
+      "name": "yeosu.s067_cost",
+      "actual": 20730855,
+      "expected": 20730855,
+      "pass": true
+    },
+    {
+      "name": "yeosu.s067_contract_supply_amount",
+      "actual": 39989000,
+      "expected": 39989000,
+      "pass": true
+    },
+    {
+      "name": "yeosu.s067_expected_profit",
+      "actual": 19258145,
+      "expected": 19258145,
+      "pass": true
+    },
+    {
+      "name": "yeosu.s068_cost",
+      "actual": 9837520,
+      "expected": 9837520,
+      "pass": true
+    },
+    {
+      "name": "yeosu.s068_contract_supply_amount",
+      "actual": 17030000,
+      "expected": 17030000,
+      "pass": true
+    },
+    {
+      "name": "yeosu.s068_expected_profit",
+      "actual": 7192480,
+      "expected": 7192480,
+      "pass": true
+    },
+    {
+      "name": "financial_equation",
+      "actual": 880145934,
+      "expected": 880145934,
+      "pass": true
+    },
+    {
+      "name": "yeosu_total_cost_preserved",
+      "actual": 30568375,
+      "expected": 30568375,
+      "pass": true
+    }
+  ],
+  "output_hashes": {
+    "sites_canonical.csv": "deed20f3b21200375845eedc09b188c835770a9b4d55c61b6a58d03ca7c5b666",
+    "worklogs_canonical.csv": "666d341cfd42337e95bc39a164889b85544106427d708be96e63dab7a4a35c17",
+    "expenses_canonical.csv": "05c2362ac9a5d09f0d58813687d29d9fe1740602c4e49823a86287fd6d2fe622",
+    "review_required.csv": "8819d55c6d5d32d07a464c2ef71f573659390481c50b6b7e5944306b8ca45b06",
+    "source_trace.csv": "486603c750089e519173890bd28557b2cfef5137bc76cbb9e7946418441d9cf3",
+    "generator_changes.csv": "d2af51d2cf2131407cd459758d121ad7c7066033a1ca9380676fe5224e419660",
+    "README.txt": "4c4b16a59aa3569bf2536a6b41a74ec7fcde780e48dafff2b39ca870329d21c8",
+    "manifest.meaningful": "7d5e98a3f79b5a98ec4d251f1f99017dcc8ed483d0b30585be4e33a20a7418fc",
+    "master.meaningful": "74731db22bbaaceb53528e4d1aaf69fbabf3dfb08952c60843eef2360903e454",
+    "validation.meaningful": "a3dcc6022d4969e40942512294dfe2866bb193f7e405d61a679fc013a20e0c7c"
+  },
+  "determinism": {
+    "status": "PASS",
+    "runs": 2,
+    "compared_hashes": {
+      "sites_canonical.csv": "deed20f3b21200375845eedc09b188c835770a9b4d55c61b6a58d03ca7c5b666",
+      "worklogs_canonical.csv": "666d341cfd42337e95bc39a164889b85544106427d708be96e63dab7a4a35c17",
+      "expenses_canonical.csv": "05c2362ac9a5d09f0d58813687d29d9fe1740602c4e49823a86287fd6d2fe622",
+      "review_required.csv": "8819d55c6d5d32d07a464c2ef71f573659390481c50b6b7e5944306b8ca45b06",
+      "source_trace.csv": "486603c750089e519173890bd28557b2cfef5137bc76cbb9e7946418441d9cf3",
+      "generator_changes.csv": "d2af51d2cf2131407cd459758d121ad7c7066033a1ca9380676fe5224e419660",
+      "README.txt": "4c4b16a59aa3569bf2536a6b41a74ec7fcde780e48dafff2b39ca870329d21c8",
+      "manifest.meaningful": "7d5e98a3f79b5a98ec4d251f1f99017dcc8ed483d0b30585be4e33a20a7418fc",
+      "master.meaningful": "74731db22bbaaceb53528e4d1aaf69fbabf3dfb08952c60843eef2360903e454",
+      "validation.meaningful": "a3dcc6022d4969e40942512294dfe2866bb193f7e405d61a679fc013a20e0c7c"
+    },
+    "excluded_time_fields": [
+      "manifest.generated_at"
+    ]
+  }
+}
