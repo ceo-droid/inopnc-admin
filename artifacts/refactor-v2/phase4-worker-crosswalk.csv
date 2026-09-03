@@ -1,0 +1,38 @@
+canonical_worker_name,production_worker_uuid,production_worker_name,production_daily,classification,matching_basis,recommended_action,review_reason
+1톤스카이,653181f9-8715-4d7d-a759-892e0ef7ca13,1톤스카이,600000,REVIEW_REQUIRED,Equipment-looking canonical worker identity,DEFER,Common equipment is not a person
+강영권,4515e020-ac4c-4911-be0f-67f556aba4f1,강영권,300000,EXACT,normalized exact worker name,LINK,
+강영권외,26e2dc40-26a7-4cd7-83fc-8e5525b726c5,강영권외,150000,EXACT,normalized exact worker name,LINK,
+광주유도원,8738eaed-d278-4dfa-8100-ab127e2eca99,광주유도원,160000,EXACT,normalized exact worker name,LINK,
+권용호,c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a,권용호,220000,EXACT,normalized exact worker name,LINK,
+김경화,0a899289-3102-49ce-bf52-bc42eb08a492,김경화,220000,EXACT,normalized exact worker name,LINK,
+김광일,d247cf83-9c00-4fb3-9534-5b73c10ef165,김광일,250000,EXACT,normalized exact worker name,LINK,
+김광철,1ffa5aa0-d417-4597-ba11-af735d1b573d,김광철,210000,EXACT,normalized exact worker name,LINK,
+김문식,9bf412b3-3227-4113-9841-b86735235fc5,김문식,300000,EXACT,normalized exact worker name,LINK,
+김민준,7e5591c7-570a-416c-8d82-b6c0266dca82,김민준,250000,EXACT,normalized exact worker name,LINK,
+김승수,75f9b56f-289e-42c3-851b-39169027a09a,김승수,160000,EXACT,normalized exact worker name,LINK,
+김시준,df3b89b2-5b09-4d8c-9186-34ca6a9177f3,김시준,220000,EXACT,normalized exact worker name,LINK,
+김재형,2d962ad4-743d-4517-bf91-08fee94b2a75,김재형,450000,EXACT,normalized exact worker name,LINK,
+김혜영,5adabb8b-c17e-4309-af4b-ea1104fa2ec2,김혜영,0,EXACT,normalized exact worker name,LINK,
+김희준,d445c473-de31-4d28-87cb-16b2ac2e53d9,김희준,220000,EXACT,normalized exact worker name,LINK,
+박종세,c48b90fe-a143-49b9-afe6-71a17c8bfb05,박종세,150000,EXACT,normalized exact worker name,LINK,
+송용호,c5f89d3d-b5a4-409e-9b1d-261b4c541930,송용호,270000,EXACT,normalized exact worker name,LINK,
+외국인(필립),9137b6a9-30e9-4b6c-a0ce-417d8d311a5b,외국인(필립),1300000,REVIEW_REQUIRED,필립 and 외국인(필립) coexist,DEFER,Automatic same-person decision prohibited
+유도원(강효선),c16b0c2c-87da-4d73-9552-ad573935b7a2,유도원(강효선),150000,EXACT,normalized exact worker name,LINK,
+유도원(양해정),4fcbbe35-8895-49e0-a830-53d93892fa7c,유도원(양해정),160000,EXACT,normalized exact worker name,LINK,
+유도원(이천만),db5ba95a-951e-482e-84a6-bc8898c99f57,유도원(이천만),160000,EXACT,normalized exact worker name,LINK,
+윤정수,9ff3a8b1-f23c-4aa5-9e6a-417464554745,윤정수,160000,EXACT,normalized exact worker name,LINK,
+윤호렬,e28b7af1-7f5d-4048-a955-17b1b54cee1d,윤호렬,160000,EXACT,normalized exact worker name,LINK,
+이동철,bc53ac53-a90b-454f-b34f-8608c6e922fe,이동철,220000,EXACT,normalized exact worker name,LINK,
+이두환,fd472d03-9168-4d6e-b05f-fbbaaf5c4ef8,이두환,250000,EXACT,normalized exact worker name,LINK,
+이문규지원,c06495ef-2631-4e4d-aa00-d25ba5547db2,이문규지원,300000,EXACT,normalized exact worker name,LINK,
+이문규지원1,db86ce7a-d9a8-4430-9726-e7ac1b609224,이문규지원1,300000,EXACT,normalized exact worker name,LINK,
+이수유도원,c4804f1f-e7a5-4afb-b5f1-0f571f37fde2,이수유도원,160000,EXACT,normalized exact worker name,LINK,
+이용주,3f5893ce-7aa4-4052-b179-3e0fbd0f4487,이용주,200000,EXACT,normalized exact worker name,LINK,
+이장환,4325f7f4-48c0-477c-8c35-25ce73ca5888,이장환,250000,EXACT,normalized exact worker name,LINK,
+이찬우,beb2d145-ef81-4ffe-aba0-e595de842152,이찬우,160000,EXACT,normalized exact worker name,LINK,
+임지만,,,,CANONICAL_ONLY,No Production exact identity,KEEP_CANONICAL_ONLY,
+최경훈,145cb980-f688-459b-b423-156605e7e46b,최경훈,220000,EXACT,normalized exact worker name,LINK,
+최현준,e8546d19-1108-4e61-8953-b526ab9e5e91,최현준,200000,EXACT,normalized exact worker name,LINK,
+,9137b6a9-30e9-4b6c-a0ce-417d8d311a5b,외국인(필립),1300000,PRODUCTION_ONLY,No canonical identity claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending review
+,653181f9-8715-4d7d-a759-892e0ef7ca13,1톤스카이,600000,PRODUCTION_ONLY,No canonical identity claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending review
+,f6490d29-623f-44a4-8d03-94a6bf01dbca,필립,130000,PRODUCTION_ONLY,No canonical identity claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending review

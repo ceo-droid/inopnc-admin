@@ -1,0 +1,52 @@
+canonical_customer_name,production_customer_uuid,production_customer_name,classification,matching_basis,recommended_action,review_reason
+(주) 지엠에스코리아,34d003e9-2b71-494f-bffd-aca77c1e13ed,(주) 지엠에스코리아,EXACT,literal name after spacing/punctuation normalization,LINK,
+(주)건성,26b79ff0-27d7-4c28-b478-3e7dd4a5e586,(주)건성,EXACT,literal name after spacing/punctuation normalization,LINK,
+(주)금형건설,ed097d36-eefc-436f-a1ce-8cbfa6ddfe6a,(주)금형건설,EXACT,literal name after spacing/punctuation normalization,LINK,
+(주)대우에스티,268519b7-2edb-439c-8929-3df7d47189f4,(주)대우에스티,EXACT,literal name after spacing/punctuation normalization,LINK,
+(주)삼일씨엔에스,97c1bf88-dffb-4d74-86c2-6c97a7f93ad0,(주)삼일씨엔에스,EXACT,literal name after spacing/punctuation normalization,LINK,
+(주)삼표산업 인천몰탈공장,c57bcfcb-85fd-4f09-9525-80abd68da1ef,(주)삼표산업 인천몰탈공장,EXACT,literal name after spacing/punctuation normalization,LINK,
+(주)케이세웅,46a2dfdd-6b27-442e-abb5-7b1d80d1b417,(주)케이세웅,EXACT,literal name after spacing/punctuation normalization,LINK,
+(주)케이세웅건설 충주피씨공장,e3747875-589a-43f1-a9c3-c68f5f8d8214,(주)케이세웅건설 충주피씨공장,EXACT,literal name after spacing/punctuation normalization,LINK,
+(주)케이씨산업,dba99ce5-fc0c-45cb-a070-d81b85b48be3,(주)케이씨산업,EXACT,literal name after spacing/punctuation normalization,LINK,
+까뮤이앤씨,7e27a740-6b35-4b67-8b08-fa456969af7d,(주)까뮤이앤씨,AUTO_SAFE_ALIAS,single corporate-form or approved operational/legal alias,LINK,
+삼표피앤씨,c502ef97-2be4-4349-b7ba-bcce1292ec4b,삼표피앤씨 주식회사,AUTO_SAFE_ALIAS,single corporate-form or approved operational/legal alias,LINK,
+삼표피앤씨 주식회사,c502ef97-2be4-4349-b7ba-bcce1292ec4b,삼표피앤씨 주식회사,EXACT,literal name after spacing/punctuation normalization,LINK,
+세움PC엔지니어링,98a1b8c2-3c90-4227-a162-6c7b8b07c349,세움PC엔지니어링,EXACT,literal name after spacing/punctuation normalization,LINK,
+아이에스동서(주),7a75725f-0037-45fd-b3f4-c7797f2fc386,아이에스동서(주),EXACT,literal name after spacing/punctuation normalization,LINK,
+아이에스동서(주) 이천지점,e83993a2-2ba9-4bac-aa8d-cc5e3cc5d849,아이에스동서(주) 이천지점,EXACT,literal name after spacing/punctuation normalization,LINK,
+에이치디씨현대피씨이(주),,,CANONICAL_ONLY,No normalized Production match,KEEP_CANONICAL_ONLY,
+오리엔트(주),5ed1ba99-6788-4a20-8a20-781d60758017,오리엔트(주),EXACT,literal name after spacing/punctuation normalization,LINK,
+유한회사 대영,c9477135-5a37-4bf5-b47b-945a48054508,유한회사 대영,EXACT,literal name after spacing/punctuation normalization,LINK,
+정효특수건설(주),5307d6b1-1420-4a23-8270-bf742e33a1fe,정효특수건설(주),EXACT,literal name after spacing/punctuation normalization,LINK,
+제이와이 컨스트럭션,9d947d38-4242-4c36-a509-dc5d225e58d4,제이와이 컨스트럭션,EXACT,literal name after spacing/punctuation normalization,LINK,
+주식회사 대명피씨,8ebb7fff-79fa-43af-8caa-a9c8e801ca7a,주식회사 대명피씨,EXACT,literal name after spacing/punctuation normalization,LINK,
+"주식회사 대양(DAEYANG, INC)",,,CANONICAL_ONLY,No normalized Production match,KEEP_CANONICAL_ONLY,
+주식회사 명인이엔지,140cf217-c05e-4759-8ab6-ded54b35bc08,주식회사 명인이엔지,EXACT,literal name after spacing/punctuation normalization,LINK,
+주식회사 선진피앤피,e7a7b02e-1553-4700-bde4-8d089f376715,주식회사 선진피앤피,EXACT,literal name after spacing/punctuation normalization,LINK,
+주식회사 소명건설,5c9a7876-23bf-4e44-8383-a33ab7ea19ba,주식회사 소명건설,EXACT,literal name after spacing/punctuation normalization,LINK,
+주식회사 연우구조,deb82aca-4f83-49c1-b49d-ccd5572aa8fc,주식회사 연우구조,EXACT,literal name after spacing/punctuation normalization,LINK,
+주식회사 이수이앤씨,1ebf87df-f22e-4d45-91a7-35341c607e4e,주식회사 이수이앤씨,EXACT,literal name after spacing/punctuation normalization,LINK,
+주식회사 이앤디몰구조엔지니어링,fd77c95c-7738-475a-ab23-156d58aa5842,주식회사 이앤디몰구조엔지니어링,EXACT,literal name after spacing/punctuation normalization,LINK,
+주식회사 주한산업,d5fb81b9-f17e-4e46-a0b9-4a80469ff4f8,주식회사 주한산업,EXACT,literal name after spacing/punctuation normalization,LINK,
+주식회사이노피앤씨,027922a7-96c4-4920-b1be-d39e6809bc08,주식회사이노피앤씨,EXACT,literal name after spacing/punctuation normalization,LINK,
+진솔하이테크,6fa01aa2-7cab-4b73-abd0-8397ba510bbe,진솔하이테크,EXACT,literal name after spacing/punctuation normalization,LINK,
+한국오션플랫폼 주식회사,a6152147-7bd1-4a6d-ac34-efd5c6eb3be3,한국오션플랫폼 주식회사,EXACT,literal name after spacing/punctuation normalization,LINK,
+현대PCE,1c296ee2-ea23-4c86-afa2-1b1a33a4171d,현대PCE,EXACT,literal name after spacing/punctuation normalization,LINK,
+휴무,aefd1507-b22a-4943-9eb0-7dbcfff6f81f,휴무,EXACT,literal name after spacing/punctuation normalization,LINK,
+,5754d6cf-4195-4927-bc94-ec95234faeeb,(주)연우건축기술사사무소,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,ce1d97f6-ddf5-46ca-bf6d-a14eb17323bd,주식회사 벤드라인,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,73a0eb4c-a4af-4182-89fd-794ef09732f7,킴앤씨,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,ed1561b9-ce42-4f8e-aaf8-ec64d0a756a2,카우퍼종합건설 주식회사,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,2b3105e3-9756-437a-aeb7-8785ebf78c34,주식회사베스트엔지니어링,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,89ea930b-69ba-4cc1-93f5-a109bb09a8ba,주식회사 대관,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,201e492a-9d6c-46d2-9e0d-3c1171f4baf4,이건테크 주식회사,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,67a9bfd1-0ecd-4c9f-b2aa-d1de36c2e48e,에쓰유(SU)산업,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,2cc32b6f-fd16-4f9a-8cbb-f7dc1ca2cb2a,티앤에스 주식회사,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,223a6637-9116-4b6b-b320-045b232834c6,주식회사 해동산업,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,64f64296-767d-4b25-b834-48c9faaa1024,안산건재상(부광),PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,307b6f29-87ad-43e9-b2dd-e7a0da5ebe1f,확인중,INVALID_LOOKING_VALUE,Known placeholder-looking value,INVALID_LOOKING_VALUE,Preserve pending user decision
+,5d555de0-2b05-4ff3-b9b1-6ed0c9bdd98f,(주)에센디엔텍,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,6958398b-4b3e-439a-b174-b7067f2039d7,NPC-1000 10말남음,INVALID_LOOKING_VALUE,Known placeholder-looking value,INVALID_LOOKING_VALUE,Preserve pending user decision
+,3392c79d-d457-4802-ad1b-34bd6cc8eea6,창영,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,5dd93d84-0e9b-4550-bacb-171bbf9cc50b,동해기공,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision
+,86861850-5b09-418b-9184-8ff3cd85c7ca,승현피앤씨 주식회사,PRODUCTION_ONLY,No canonical operational customer claimed this UUID,KEEP_PRODUCTION_ONLY,Preserve pending user decision

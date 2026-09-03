@@ -1,0 +1,83 @@
+{
+  "dataset_version": "2026-09-03.v2",
+  "source_sha256": "38e602b1e6c17e6af4931e019890738ef10e71001f15dfb86fa9aa1b8a64f327",
+  "production_counts": {
+    "customers": 48,
+    "sites": 155,
+    "workers": 34,
+    "work_logs": 2260,
+    "transactions": 3324,
+    "checklists": 15
+  },
+  "canonical_counts": {
+    "sites": 138,
+    "customers": 34,
+    "workers": 34,
+    "work_logs": 2338,
+    "expenses": 4885
+  },
+  "site_classifications": {
+    "AUTO_SAFE_LINK": 66,
+    "CANONICAL_ONLY": 6,
+    "DUPLICATE_NAME_SEPARATE_CONTRACT": 13,
+    "EXACT": 39,
+    "PRODUCTION_ONLY": 32,
+    "REVIEW_REQUIRED": 14
+  },
+  "customer_classifications": {
+    "AUTO_SAFE_ALIAS": 2,
+    "CANONICAL_ONLY": 2,
+    "EXACT": 30,
+    "INVALID_LOOKING_VALUE": 2,
+    "PRODUCTION_ONLY": 15
+  },
+  "worker_classifications": {
+    "CANONICAL_ONLY": 1,
+    "EXACT": 31,
+    "PRODUCTION_ONLY": 3,
+    "REVIEW_REQUIRED": 2
+  },
+  "automatic_links": {
+    "sites": 105,
+    "customers": 32,
+    "workers": 31
+  },
+  "review_required": 31,
+  "canonical_only": {
+    "sites": 6,
+    "customers": 2,
+    "workers": 1
+  },
+  "production_only": {
+    "sites": 32,
+    "customers": 15,
+    "workers": 3
+  },
+  "duplicate_uuid_claims": [],
+  "post_canonical_worklogs": {
+    "cutoff": "2026-08-31",
+    "count": 4,
+    "min_date": "2026-09-01",
+    "max_date": "2026-09-03"
+  },
+  "reference_coverage": {
+    "work_logs": {
+      "site_refs": 126,
+      "worker_refs": 33
+    },
+    "transactions": {
+      "site_refs": 74
+    }
+  },
+  "date_ranges": {
+    "work_logs": [
+      "2025-01-01",
+      "2026-09-03"
+    ],
+    "transactions": [
+      "2025-01-01",
+      "2026-01-29"
+    ]
+  },
+  "blocking_issues": []
+}
