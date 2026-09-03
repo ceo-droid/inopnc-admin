@@ -1,0 +1,9 @@
+path,classification,reason,action_taken
+C:\Users\bobo\Desktop\260828\260828\inopnc-sw4-clean\node_modules,SAFE_TO_DELETE,Regenerable dependency installation in prior workspace,NONE
+C:\Users\bobo\Desktop\260828\260828\inopnc-sw4-clean\dist,SAFE_TO_DELETE,Regenerable build output in prior workspace,NONE
+C:\Users\bobo\Desktop\260828\260828\inopnc-sw4-v2\.tmp\node_modules-phase01-quarantine,SAFE_TO_DELETE,Incomplete regenerable npm ci output quarantined after Remove-Item was blocked by execution policy,MOVED_FROM_ACTIVE_NODE_MODULES
+C:\Users\bobo\Desktop\260828\260828\inopnc-sw4-clean\data-migration,ARCHIVE_RECOMMENDED,Prior ignored canonical bundle is historical evidence and not V2 source of truth,NONE
+C:\Users\bobo\Desktop\260828\260828\inopnc-sw4-clean\artifacts\refactor,ARCHIVE_RECOMMENDED,Prior reconciliation and audit artifacts,NONE
+C:\Users\bobo\Desktop\260828\260828\inopnc-sw4-clean\docs\refactor,ARCHIVE_RECOMMENDED,Prior phase documentation and business-decision history,NONE
+C:\Users\bobo\Desktop\260828\260828\inopnc-sw4-clean,KEEP,Existing development worktree and branch must be preserved,NONE
+C:\Users\bobo\Desktop\260828\260828\inopnc-sw4-v2,KEEP,New origin-main V2 worktree,NONE

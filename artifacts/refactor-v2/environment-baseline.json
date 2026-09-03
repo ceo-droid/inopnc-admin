@@ -1,0 +1,57 @@
+{
+  "generated_at_kst": "2026-09-03",
+  "status": "PASS",
+  "blocker": null,
+  "workspace": "C:\\Users\\bobo\\Desktop\\260828\\260828\\inopnc-sw4-v2",
+  "repository": "https://github.com/ceo-droid/inopnc-sw4.git",
+  "branch": "refactor/v2-data-integrity-20260903",
+  "base_ref": "origin/main",
+  "base_head": "0595d4e2ebe1a93d51e1457e6a109fe1af024ffc",
+  "identity": {
+    "github": "PASS",
+    "supabase_project_ref": "gbdcwxrnemirswlecwwh",
+    "supabase": "PASS",
+    "vercel_project_name": "inopnc-sw4-publish",
+    "vercel_project_id": "prj_exCqRjCgA3rg76AhfgZ2rUgEXyOo",
+    "vercel_org_id": "team_2Z9tFmBMiqtuJxFxAoXww8RI",
+    "vercel": "PASS",
+    "vercel_source": "existing workspace .vercel/project.json; new worktree has no local .vercel directory"
+  },
+  "source_excel": {
+    "status": "FOUND_ONE",
+    "searched_roots": [
+      "C:\\Users\\bobo"
+    ],
+    "pattern": "cashbook_sorted_OUT1809_zero*.xlsx",
+    "candidate_count": 1,
+    "original_path": "C:\\Users\\bobo\\Desktop\\260828\\260828\\cashbook_sorted_OUT1809_zero.xlsx",
+    "size_bytes": 573387,
+    "last_write_time": "2026-09-02 16:11:44 +09:00",
+    "sha256": "38e602b1e6c17e6af4931e019890738ef10e71001f15dfb86fa9aa1b8a64f327",
+    "copy_path": "C:\\Users\\bobo\\Desktop\\260828\\260828\\inopnc-sw4-v2\\data-input\\source_cashbook.xlsx",
+    "copy_created": true,
+    "copy_sha256": "38e602b1e6c17e6af4931e019890738ef10e71001f15dfb86fa9aa1b8a64f327",
+    "copy_sha_match": true
+  },
+  "runtime": {
+    "node": "v22.23.1",
+    "npm": "10.9.8",
+    "python": "3.14.0",
+    "xlsx": "^0.18.5",
+    "papaparse": "^5.5.3",
+    "supabase_js": "^2.95.3"
+  },
+  "verification": {
+    "npm_ci": "PASS: 867 packages installed from lockfile",
+    "build": "PASS",
+    "test": "PASS: 2 files, 4 tests",
+    "lint": "BASELINE_FAIL: 59 errors, 7 warnings; no autofix"
+  },
+  "mutations": {
+    "production_db_changed": false,
+    "vercel_deployed": false,
+    "git_pushed": false,
+    "source_excel_modified": false,
+    "canonical_generated": false
+  }
+}

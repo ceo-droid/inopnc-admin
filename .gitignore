@@ -28,3 +28,8 @@ dist-ssr
 
 .vercel
 supabase/.temp/
+
+# Local-only data integrity workspace
+data-input/
+data-generated/
+.tmp/
