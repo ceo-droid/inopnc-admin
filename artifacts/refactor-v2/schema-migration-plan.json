@@ -1,0 +1,29 @@
+{
+  "plan_version":"2026-09-03.phase3-draft",
+  "risk_level":"HIGH_REQUIRES_STAGED_APPROVAL",
+  "migration_groups":[
+    {"id":"M0","purpose":"read-only preflight and immutable UUID/count snapshot","file":"00_preflight_v2.sql"},
+    {"id":"M1","purpose":"nullable columns and new empty tables only","file":"01_schema_additive_v2.sql"},
+    {"id":"M2","purpose":"indexes, safe/not-valid constraints, allocation total guard","file":"02_constraints_v2.sql"},
+    {"id":"M3","purpose":"separately approved cutoff-aware reconciliation/backfill","file":"05_backfill_plan_v2.sql","executable":false},
+    {"id":"M4","purpose":"security-invoker financial read model after backfill gates","file":"03_financial_view_v2.sql"},
+    {"id":"M5","purpose":"shadow-test then cut over role/site RLS","file":"04_rls_v2_draft.sql"},
+    {"id":"M6","purpose":"legacy deprecation in a much later release","included":false}
+  ],
+  "objects_to_add":["customer_aliases","expense_allocations","import_batches","audit_logs","app_user_roles","site_access"],
+  "columns_to_add":{
+    "sites":["site_code","operational_customer_id","contract_supply_amount","cost_budget_amount","physical_location_name","site_group_key"],
+    "work_logs":["work_date","site_uuid","worker_uuid","entry_type","raw_md","countable_md","daily_rate_snapshot","labor_amount","labor_source","cost_scope","source_type","source_namespace","source_row_key","source_fingerprint","import_batch_id","mapping_status","mapping_basis","review_reason","is_active","superseded_by"],
+    "transactions":["transaction_date","approved_at","source_type","source_namespace","worker_id","card_last4","approval_no","merchant","original_amount","source_category","source_row_key","source_fingerprint","import_batch_id","status","is_void","superseded_by"],
+    "checklists":["direction","invoice_status","settlement_status","due_date","supply_amount","vat_amount","total_amount","customer_id","site_uuid","raw_text"]
+  },
+  "constraints_to_add_later":["validated UUID foreign keys","state checks after backfill","site_code NOT NULL after complete mapping","remove legacy name/tuple unique indexes only in M6","cross-row allocation total constraint trigger"],
+  "views_to_add":[{"name":"site_financial_summary_v2","security":"security_invoker","double_count_rule":"active allocation presence suppresses legacy transaction-site fallback for that transaction"}],
+  "indexes":["partial unique site_code","scoped active source fingerprints","work log date/site and worker/date","transaction date/worker/card/import batch","allocation transaction/site/work log","checklist site/due and customer/status"],
+  "rls_transition":{"sequence":["create membership data","populate and verify coverage","add scoped shadow policies","test five roles","switch authenticated clients","remove permissive legacy policies in separate approval"],"production_manager":"company_scope NPC-1000 only","admin_only":"NPC-3000Q","authorization_source":"server-managed tables/app_metadata; never user_metadata"},
+  "backfill_dependencies":["archived preflight counts and UUID sets","reviewed site-code/identity mappings","historical labor evidence","source namespace/fingerprint specification","cutoffs: work logs 2026-08-31 and workbook 2026-09-02","post-cutoff Production preservation set"],
+  "validation_gates":["existing row counts and UUID sets unchanged after schema-only M1/M2","new tables empty before M3","no orphan shadow UUIDs","S067/S068 remain distinct","allocation total never exceeds nonnegative source amount","per-site/company financial parity","duplicate file replay inserts zero source rows","worker/site/partner/production_manager/admin authorization tests","production_manager cannot access NPC-3000Q"],
+  "allocation_status_strategy":"derive UNALLOCATED/PARTIAL/FULL/REVIEW_REQUIRED from source and active allocations; do not duplicate it on allocation rows",
+  "refund_strategy":"negative approval/refund semantics block allocation migration until modeled as correction-linked source events; active allocations remain positive",
+  "rollback":"forward compatibility switch using preserved legacy columns; never regenerate UUIDs or overwrite Production from canonical"
+}
