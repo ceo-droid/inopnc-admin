@@ -1,0 +1,129 @@
+{
+  "dataset_version": "2026-09-03.v2",
+  "generated_from_phase5": true,
+  "total_material_decisions": 779,
+  "p0_critical": 193,
+  "p1_identity": 121,
+  "p2_missing": 70,
+  "p3_low_risk": 293,
+  "p4_retention": 102,
+  "memo_format_only": 0,
+  "memo_canonical_richer": 10,
+  "memo_business_difference": 51,
+  "memo_review_required": 232,
+  "site_business_corrections": 61,
+  "site_uuid_consolidations": 13,
+  "site_correction_groups": {
+    "LEGACY_COMPONENT_TO_PRIMARY": 13,
+    "OTHER_SITE_CORRECTION": 20,
+    "YEOSU_S067_S068": 4,
+    "YONGIN_Y1": 37
+  },
+  "md_corrections": 19,
+  "worker_corrections": 1,
+  "true_missing_worklog_candidates": 62,
+  "unresolved_by_reason": {
+    "DEFERRED_SITE_IDENTITY": {
+      "count": 66,
+      "site_codes": [
+        "S111",
+        "S130",
+        "S150",
+        "S151",
+        "S152",
+        "S153",
+        "S154",
+        "S155",
+        "S168"
+      ],
+      "date_range": "2025-03-29..2026-08-07",
+      "workers": [
+        "강영권외",
+        "권용호",
+        "김재형",
+        "송용호",
+        "윤정수"
+      ]
+    },
+    "CANONICAL_ONLY_SITE": {
+      "count": 1,
+      "site_codes": [
+        "S167"
+      ],
+      "date_range": "2025-11-07..2025-11-07",
+      "workers": [
+        "김재형"
+      ]
+    },
+    "CANONICAL_ONLY_WORKER": {
+      "count": 3,
+      "site_codes": [
+        "S093"
+      ],
+      "date_range": "2025-03-17..2025-03-19",
+      "workers": [
+        "임지만"
+      ]
+    },
+    "NON_WORKER_VALUE": {
+      "count": 1,
+      "site_codes": [
+        "S118"
+      ],
+      "date_range": "2026-03-23..2026-03-23",
+      "workers": [
+        "1톤스카이"
+      ]
+    },
+    "MISSING_PRODUCTION_REFERENCE": {
+      "count": 37,
+      "site_codes": [
+        "S065",
+        "S100",
+        "S163",
+        "S164",
+        "S166"
+      ],
+      "date_range": "2025-01-09..2026-04-22",
+      "workers": [
+        "강영권",
+        "권용호",
+        "김재형",
+        "송용호",
+        "이두환",
+        "이장환",
+        "이찬우"
+      ]
+    },
+    "AMBIGUOUS_MULTIPLE_CANDIDATES": {
+      "count": 0,
+      "site_codes": [],
+      "date_range": "",
+      "workers": []
+    },
+    "OTHER": {
+      "count": 0,
+      "site_codes": [],
+      "date_range": "",
+      "workers": []
+    }
+  },
+  "canonical_only_by_reason": {
+    "KNOWN_VALID_DUPLICATE_MISSING": 6,
+    "SPECIAL_HOLIDAY_OTHER": 2,
+    "TRUE_MISSING_PRODUCTION_WORKLOG": 62
+  },
+  "production_only_by_reason": {
+    "LIKELY_VALID_EXTRA": 3,
+    "POSSIBLE_CANONICAL_COUNTERPART": 99
+  },
+  "deferred_identities": 9,
+  "known_duplicate_rows_protected": 10,
+  "source_accounting": {
+    "canonical_rows": 2338,
+    "production_rows": 2260,
+    "production_pre_cutoff": 2256,
+    "post_canonical": 4
+  },
+  "user_decisions_pre_filled": false
+}

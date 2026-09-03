@@ -1,0 +1,2730 @@
+# PHASE 5.1R — WORKLOG USER DECISION REVIEW
+
+Production is unchanged. Fill user_decision/user_note only in the JSON decision dataset after review.
+
+
+## 1. MD corrections (19)
+
+Count: 19
+
+[P5D-0001] CORRECTION_MD
+Canonical key: WL-0be4e5e69953f67118f5e58a
+Production UUID: bd326f91-d845-4dfe-b13a-a53a943b629b
+Date / worker / site: 2025-01-22 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="포항환호공원1BL 힐스테이트 지하주차장 노출 마감 보수 *통으로넘김공수에서 제외"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호공원1BL 힐스테이트 · 지하주차장 노출 마감 보수 · *통으로넘김공수에서 제외"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0002] CORRECTION_MD
+Canonical key: WL-17357332746c4341cc52c236
+Production UUID: e646f971-d103-4c62-a9e4-7b01477b2865
+Date / worker / site: 2025-01-23 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="포항환호공원1BL 힐스테이트 지하주차장 노출 마감 보수 *통으로넘김공수에서 제외"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호공원1BL 힐스테이트 · 지하주차장 노출 마감 보수 · *통으로넘김공수에서 제외"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0003] CORRECTION_MD
+Canonical key: WL-40281007de0244adf4a870bd
+Production UUID: 89bfdf3f-6f49-4b03-9f7a-15a85edacf3b
+Date / worker / site: 2025-01-24 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="포항환호공원1BL 힐스테이트 지하주차장 노출 마감 보수 *통으로넘김공수에서 제외"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호공원1BL 힐스테이트 · 지하주차장 노출 마감 보수 · *통으로넘김공수에서 제외"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0005] CORRECTION_MD
+Canonical key: WL-eb2d080ec4835b108d70a14c
+Production UUID: a853d69e-fd7d-4349-a6db-c73187a92af9
+Date / worker / site: 2025-01-25 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="포항환호공원1BL 힐스테이트 지하주차장 2층 주차장 *통으로넘김공수에서 제외"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호공원1BL 힐스테이트 · 지하주차장 2층 주차장 · *통으로넘김공수에서 제외"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0008] CORRECTION_MD
+Canonical key: WL-e03be66c5552e4e209ce36d3
+Production UUID: b9d63d5a-676c-40fe-b358-fbdc234a58a1
+Date / worker / site: 2025-02-05 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="포항환호1블럭 지하3층 노출 마감보수 완료"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호1블럭 지하3층 · 노출 마감보수 완료"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0011] CORRECTION_MD
+Canonical key: WL-33e2948de43ecfba3064aeab
+Production UUID: 5c219dff-06d0-4ea9-85c0-60d8df022399
+Date / worker / site: 2025-02-08 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="포항환호1블럭 지하2층 노출 마감보수"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호1블럭 지하2층 · 노출 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0012] CORRECTION_MD
+Canonical key: WL-ddc885d50cfb90e708e42608
+Production UUID: 0bcd6ebd-026f-4c1f-bb7a-8f019120ef12
+Date / worker / site: 2025-02-10 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="포항환호1블럭 지하2층 노출 마감보수"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호1블럭 지하2층 · 노출 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0013] CORRECTION_MD
+Canonical key: WL-9ea7c102b48860064512e5d0
+Production UUID: bec21356-4e2f-4df0-93c9-3bc842ae5975
+Date / worker / site: 2025-02-11 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="포항환호1블럭 지하2층 노출 마감보수"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호1블럭 지하2층 · 노출 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0055] CORRECTION_MD
+Canonical key: WL-d3ee5076cf92492a92cf9fe5
+Production UUID: deb5e8b3-e27f-4254-a5c6-ac3698dbb1b5
+Date / worker / site: 2025-04-13 / 권용호 / S093
+Current: site=dcb40097-9c17-489f-a7cc-af4c5902fd32 (울산샤힌), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=권용호, raw_md=0, countable_md=0, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0063] CORRECTION_MD
+Canonical key: WL-e7befb7d865e159a2a27bd82
+Production UUID: c51ab7b8-d586-4510-9a39-1b12abb511ce
+Date / worker / site: 2025-04-30 / 김재형 / S033
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=김재형, raw_md=0.5, countable_md=0.5, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0115] CORRECTION_MD
+Canonical key: WL-2375e37567f839f6e2d15e7e
+Production UUID: a0808c0d-e8c7-4e58-8e2e-794c83db549d
+Date / worker / site: 2025-09-09 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="포항내려감"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=0, countable_md=0, memo="포항내려감"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0164] CORRECTION_MD
+Canonical key: WL-ca1c7ced504c2fee282ed0a8
+Production UUID: f58f9e20-0eef-4430-afd6-2ae7beab8bbc
+Date / worker / site: 2026-02-07 / 김재형 / S098
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0, memo="화성공장 제품테스트후 안산 카달로그및 견적서작성등"
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=1, countable_md=0, memo="화성공장 제품테스트후 안산 카달로그및 견적서작성등"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0165] CORRECTION_MD
+Canonical key: WL-dac1bc46eccadeb8a4ffff80
+Production UUID: e01d6323-9974-4555-8514-9f54dc63a298
+Date / worker / site: 2026-02-18 / 김재형 / S098
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0, memo="화성공장및안산사옥"
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=1, countable_md=0, memo="화성공장및안산사옥"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0168] CORRECTION_MD
+Canonical key: WL-2ea7c6f7a977a642476bb8d8
+Production UUID: 552d5328-19e1-404a-8aaf-e8935a725b76
+Date / worker / site: 2026-03-05 / 김재형 / S098
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0, memo="사무실 서류업무"
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=1, countable_md=0, memo="사무실 서류업무"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0169] CORRECTION_MD
+Canonical key: WL-9c423dedbf8180153535741d
+Production UUID: 12498590-12b6-4cbe-b403-6efbdd2741f7
+Date / worker / site: 2026-03-06 / 김재형 / S098
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0, memo="안산사무실"
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=1, countable_md=0, memo="안산사무실"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0174] CORRECTION_MD
+Canonical key: WL-4c8e646ed78853ce7ac2bd79
+Production UUID: 61ebde83-07ed-4b01-a9cd-af7824f483d9
+Date / worker / site: 2026-04-19 / 외국인(필립) / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=9137b6a9-30e9-4b6c-a0ce-417d8d311a5b (외국인(필립)), md=0, memo="30번제조(현찰지급)"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=외국인(필립), raw_md=1, countable_md=1, memo="30번제조(현찰지급)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0181] CORRECTION_MD
+Canonical key: WL-8d41d0179277dc756c0df8a6
+Production UUID: b7ce496a-7100-441b-88e9-7a050a66d4c6
+Date / worker / site: 2026-05-14 / 김재형 / S125
+Current: site=c65ceacb-e796-4e4e-9603-2f630cdf37c1 (대전성남동(우미건설)지하주차장), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0, memo=""
+Expected: site=S125 -> c65ceacb-e796-4e4e-9603-2f630cdf37c1, worker=김재형, raw_md=1, countable_md=1, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0182] CORRECTION_MD
+Canonical key: WL-329f46a9aadde7d611aff97a
+Production UUID: 8f24e752-ddb6-49e4-8777-d08b5a4c30dd
+Date / worker / site: 2026-05-25 / 김재형 / S125
+Current: site=c65ceacb-e796-4e4e-9603-2f630cdf37c1 (대전성남동(우미건설)지하주차장), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0, memo="오전 대전지하차도방문했다가 성남동가서 작업대나오시"
+Expected: site=S125 -> c65ceacb-e796-4e4e-9603-2f630cdf37c1, worker=김재형, raw_md=1, countable_md=1, memo="오전 대전지하차도방문했다가 성남동가서 작업대나오시"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+[P5D-0189] CORRECTION_MD
+Canonical key: WL-f98edcbb472d31cf221189b7
+Production UUID: 6ffdf9d2-264a-4364-b31c-8f3326a64735
+Date / worker / site: 2026-07-24 / 김재형 / S104
+Current: site=8bdf2dfa-66ae-43bf-a856-d3be9be31f2d (천안업성 성성호수이편한세상), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0, memo="Hcs균열보수"
+Expected: site=S104 -> 8bdf2dfa-66ae-43bf-a856-d3be9be31f2d, worker=김재형, raw_md=1, countable_md=1, memo="Hcs균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MD / HIGH
+
+
+## 2. Worker correction (1)
+
+Count: 1
+
+[P5D-0093] CORRECTION_WORKER
+Canonical key: WL-aba06c186cbb18add08722c0
+Production UUID: 33194807-2c88-47c2-8fce-b716d213e776
+Date / worker / site: 2025-06-22 / 권용호 / S107
+Current: site=2b68472f-0e28-40e2-8ed7-7fd963fb15eb (휴무), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0, memo="* 휴무"
+Expected: site=S107 -> 2b68472f-0e28-40e2-8ed7-7fd963fb15eb, worker=권용호, raw_md=0, countable_md=0, memo="* 휴무"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_WORKER / HIGH
+
+
+## 3. Business site corrections
+
+Count: 61
+
+[P5D-0016] CORRECTION_SITE
+Canonical key: WL-284551a9a253d77fd8a851d7
+Production UUID: ce7c5626-f01c-4e34-8be7-9a29ce413701
+Date / worker / site: 2025-03-05 / 권용호 / S067
+Current: site=12f46c0d-286e-48b1-be2e-70de8c268676 (힐스테이트 송도레이크4차 PC부재보수(2월건성,3월삼표,4월건성)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0017] CORRECTION_SITE
+Canonical key: WL-91410fbea964f3209028bae5
+Production UUID: 371dc5ee-462d-428d-bf47-1544be713a23
+Date / worker / site: 2025-03-06 / 권용호 / S067
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0020] CORRECTION_SITE
+Canonical key: WL-170a43b6e68d56b5ac24cf55
+Production UUID: d1b940e7-2f6e-4530-b744-aa8c3d403489
+Date / worker / site: 2025-03-07 / 권용호 / S067
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0021] CORRECTION_SITE
+Canonical key: WL-0236c1e9e4912b86e437efe2
+Production UUID: 3d355f9b-d5ff-4cb8-8fb5-94b36a45fde4
+Date / worker / site: 2025-03-08 / 권용호 / S092
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S092 -> da24a359-d76e-4f31-bc31-b72917804f60, worker=권용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0022] CORRECTION_SITE
+Canonical key: WL-07e5e33219f8301dd685853b
+Production UUID: a1374aa5-f128-46f1-88ea-3e9dcf4cda26
+Date / worker / site: 2025-03-08 / 김재형 / S092
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S092 -> da24a359-d76e-4f31-bc31-b72917804f60, worker=김재형, raw_md=1, countable_md=1, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0023] CORRECTION_SITE
+Canonical key: WL-149f2699ed71de19057bd432
+Production UUID: c64bd6a8-c7e0-4852-b1ac-0e9543a0bbb8
+Date / worker / site: 2025-03-10 / 송용호 / S092
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S092 -> da24a359-d76e-4f31-bc31-b72917804f60, worker=송용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0024] CORRECTION_SITE
+Canonical key: WL-660b85f6999cfb8cffc35230
+Production UUID: 17fef112-fa81-4cf8-b1d1-488d1857f911
+Date / worker / site: 2025-03-10 / 권용호 / S092
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S092 -> da24a359-d76e-4f31-bc31-b72917804f60, worker=권용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0025] CORRECTION_SITE
+Canonical key: WL-2b8235719f7dea49fe6f0937
+Production UUID: 837e89c8-8eff-427d-8e97-51c7385b0d69
+Date / worker / site: 2025-03-11 / 송용호 / S092
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S092 -> da24a359-d76e-4f31-bc31-b72917804f60, worker=송용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0026] CORRECTION_SITE
+Canonical key: WL-6570d08bffb721250967f58a
+Production UUID: 3630b443-e5ac-48db-afad-d195de97a9c8
+Date / worker / site: 2025-03-18 / 김재형 / S093
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=김재형, raw_md=1, countable_md=1, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0027] CORRECTION_SITE
+Canonical key: WL-776fa87d6c37a83a0bf2183d
+Production UUID: a7e2a775-1e58-4d11-98a3-73976fe0c646
+Date / worker / site: 2025-03-19 / 김재형 / S093
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=김재형, raw_md=1, countable_md=1, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0029] CORRECTION_SITE
+Canonical key: WL-bb3193a48b2c425c83a26e31
+Production UUID: f887202e-bbba-4497-99f0-c32fd3347f78
+Date / worker / site: 2025-03-21 / 송용호 / S008
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S008 -> 34107a34-f86f-4d60-bc83-efc0797732fa, worker=송용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0030] CORRECTION_SITE
+Canonical key: WL-a9e86cae9c2ab63522fc74c5
+Production UUID: 07b65875-9549-4aa2-8240-b3a6f93650c9
+Date / worker / site: 2025-03-22 / 송용호 / S008
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S008 -> 34107a34-f86f-4d60-bc83-efc0797732fa, worker=송용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0031] CORRECTION_SITE
+Canonical key: WL-66af4881148e007a24679562
+Production UUID: a4da6d54-94a6-4883-8a36-76013fd48ba6
+Date / worker / site: 2025-03-25 / 김재형 / S098
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=1, countable_md=0, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0033] CORRECTION_SITE
+Canonical key: WL-43297282d236d4688b495a98
+Production UUID: 0c174710-e540-416d-baf2-c6ea6dec6532
+Date / worker / site: 2025-03-27 / 권용호 / S033
+Current: site=bf4a0840-212d-44c1-b764-df2ef94cae67 (동탄파크릭스(동부건설) PC부재 노출마감), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="누락추가(근거: 2503 출력일보) | 현장명 매칭확인필요(원본:반포래미안)"
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=권용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보) | 현장명 매칭확인필요(원본:반포래미안)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0036] CORRECTION_SITE
+Canonical key: WL-79a7ebf7867c008d586df957
+Production UUID: 6c152ff3-7f2a-47cb-8c00-5a5887159a66
+Date / worker / site: 2025-03-28 / 권용호 / S033
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="누락추가(근거: 2503 출력일보) | 현장명 매칭확인필요(원본:반포래미안)"
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=권용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보) | 현장명 매칭확인필요(원본:반포래미안)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0039] CORRECTION_SITE
+Canonical key: WL-1cc6b61127eded4a306038fb
+Production UUID: d9918a74-d723-4f33-b275-2d9006c9c6b5
+Date / worker / site: 2025-03-31 / 권용호 / S003
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=권용호, raw_md=1, countable_md=1, memo="누락추가(근거: 2503 출력일보)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0052] CORRECTION_SITE
+Canonical key: WL-b06287f517f1e049839af540
+Production UUID: 88885c94-017f-4914-8093-18bfcb15e15a
+Date / worker / site: 2025-04-10 / 김재형 / S071
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="* 안산 서류업무 *보수재 제조"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=1, countable_md=1, memo="* 안산 서류업무 *보수재 제조"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0111] CORRECTION_SITE
+Canonical key: WL-c41cc8f6d3ea7b803f8d04fb
+Production UUID: 7e185141-deb0-4340-8d2b-61d78b9797cd
+Date / worker / site: 2025-08-23 / 권용호 / S071
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="화성여주공장100말"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="화성여주공장100말"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0113] CORRECTION_SITE
+Canonical key: WL-9b91a9fe9157d8b103775c33
+Production UUID: 9751bfbf-a466-4c10-9f5e-1210f3c8808d
+Date / worker / site: 2025-09-02 / 김재형 / S091
+Current: site=5603ec61-debc-40d3-bef8-c602be4f9f43 (송도센터파크탑라이트 설계변경으로 인한 보수의건), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="송도센터파크 물량조사,앱개발미팅등"
+Expected: site=S091 -> d518d26a-3405-436a-9ea9-da20896dd8f4, worker=김재형, raw_md=1, countable_md=1, memo="송도센터파크 물량조사앱개발미팅등"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0118] CORRECTION_SITE
+Canonical key: WL-26bc3d78c0b5fdbaab312fbf
+Production UUID: 8511f53a-c340-4540-8081-17d1a66a5f21
+Date / worker / site: 2025-10-03 / 김재형 / S071
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="스톤웍스 NPC-1000 20말 생산"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=1, countable_md=1, memo="스톤웍스 NPC-1000 20말 생산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0120] CORRECTION_SITE
+Canonical key: WL-a3d5520a81f78ec2189a3660
+Production UUID: 5445efd4-3b1b-4233-861f-aad4bd36ae69
+Date / worker / site: 2025-10-18 / 김재형 / S002
+Current: site=5b925522-72de-4297-a8bd-2091c6e1e071 (대전지하차도 PCWALL 상부 단차보강작업), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0.5, memo="오후 일산지하차도 삼일AS, 생산 소명건설 Rps부재 파단 임시조치"
+Expected: site=S002 -> 0ef0a27b-051c-47c6-88f5-5ae8c0608003, worker=김재형, raw_md=0.5, countable_md=0.5, memo="오후 일산지하차도 삼일AS 생산 소명건설 Rps부재 파단 임시조치"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0121] CORRECTION_SITE
+Canonical key: WL-95d4ff1aea0e15aa815c0d58
+Production UUID: d405581d-ff2d-4936-975e-0cd6859860ff
+Date / worker / site: 2025-10-19 / 김재형 / S071
+Current: site=a6ae13b4-44ae-4640-bee3-8c9146851992 (이천중리2차우미 지하주차장 PC거더마감보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=1, countable_md=1, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0122] CORRECTION_SITE
+Canonical key: WL-4a31fe5845752ca504933a09
+Production UUID: 90b07769-680f-4f5d-9e01-cc8d424ab895
+Date / worker / site: 2025-10-30 / 권용호 / S034
+Current: site=2aa9666d-415d-4291-94f0-356b7b4db3e6 (안성일죽 물류센터PC마감 2차 기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="한성이라고했는데.."
+Expected: site=S034 -> ad41c8b8-acb7-44d9-b78a-4451b3266965, worker=권용호, raw_md=1, countable_md=1, memo="한성이라고했는데.."
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0124] CORRECTION_SITE
+Canonical key: WL-804676dd917573724afbc359
+Production UUID: 8b9b0d70-7685-41de-a992-74ab6e8a55f0
+Date / worker / site: 2025-11-03 / 송용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="안전교육및렌탈필기 보호구 지급"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=송용호, raw_md=1, countable_md=1, memo="안전교육및렌탈필기 보호구 지급"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0125] CORRECTION_SITE
+Canonical key: WL-c6a728f738f361ca854ebc16
+Production UUID: 709b565d-a3c6-4720-a887-0bedc9d60340
+Date / worker / site: 2025-11-03 / 김재형 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="안전교육및렌탈필기 보호구 지급"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=김재형, raw_md=1, countable_md=1, memo="안전교육및렌탈필기 보호구 지급"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0126] CORRECTION_SITE
+Canonical key: WL-59cbfdcf483fb5c2e829222a
+Production UUID: 0f8455fd-bcd1-48e1-b009-77ccc5825ef0
+Date / worker / site: 2025-11-05 / 김재형 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="렌탈시험 실기 합격 후 삼표 송도 센터파크 회의 참석"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=김재형, raw_md=1, countable_md=1, memo="렌탈시험 실기 합격 후 삼표 송도 센터파크 회의 참석"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0127] CORRECTION_SITE
+Canonical key: WL-daac0c63c5eef29440a0c488
+Production UUID: c13e9892-3912-427a-a635-529a2dc7941d
+Date / worker / site: 2025-11-05 / 송용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0.5, memo="렌탈시험 실기 합격 후 귀가"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=송용호, raw_md=0.5, countable_md=0.5, memo="렌탈시험 실기 합격 후 귀가"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0128] CORRECTION_SITE
+Canonical key: WL-3b7d0e763fa3f13aa8e5b722
+Production UUID: dbabc804-efff-48bb-91c5-a6b5d956a4cf
+Date / worker / site: 2025-11-07 / 김재형 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="인천검단19블럭 PC마감 샘플 재보수 아이에스동서 용인11월7일(금) 철야 현장명:용인y1 cub 인원:유도원1명(이영애),작업자1명 장비:고소작업대 1대 작업내용:str룸 5개"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=김재형, raw_md=2.5, countable_md=2.5, memo="인천검단19블럭 PC마감 샘플 재보수 아이에스동서 용인11월7일(금) 철야 현장명:용인y1 cub 인원:유도원1명(이영애)작업자1명 장비:고소작업대 1대 작업내용:str룸 5개"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0129] CORRECTION_SITE
+Canonical key: WL-61eb5d0f6c54de4a8098ef0d
+Production UUID: 48ef2822-4537-4720-a0ab-8858996cfa8f
+Date / worker / site: 2025-11-08 / 김재형 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="철야후 취침"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=김재형, raw_md=1, countable_md=1, memo="철야후 취침"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0131] CORRECTION_SITE
+Canonical key: WL-3625b44dfcd6e52c61cf1f46
+Production UUID: 2c70681a-0021-428f-9dae-8f273651b188
+Date / worker / site: 2025-11-14 / 권용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2, memo="*확인이 필요함. 카드를 사용한 이력이 있어 추가해 놓음(25.11월27일)"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=권용호, raw_md=2, countable_md=2, memo="*확인이 필요함. 카드를 사용한 이력이 있어 추가해 놓음(25.11월27일)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0137] CORRECTION_SITE
+Canonical key: WL-5324ebd6b5e11dfae9d15886
+Production UUID: a8a05c05-80bf-42d8-a05a-885a037a6dde
+Date / worker / site: 2025-11-22 / 권용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="* 카드내역과 권용호 출력일보와 대조하여 추가로 기입 25년11월27일"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=권용호, raw_md=2.5, countable_md=2.5, memo="* 카드내역과 권용호 출력일보와 대조하여 추가로 기입 25년11월27일"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0139] CORRECTION_SITE
+Canonical key: WL-299b05cc52bd5d0d2d13f932
+Production UUID: d764193c-c905-471d-aa4a-180f403db4a2
+Date / worker / site: 2025-11-24 / 권용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="(철야)"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=권용호, raw_md=2.5, countable_md=2.5, memo="(철야)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0140] CORRECTION_SITE
+Canonical key: WL-3e47a1e3eb6955874a3057ab
+Production UUID: 0b53a2ed-a9ee-4e71-a3d6-533e5a5a7a82
+Date / worker / site: 2025-11-24 / 송용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=2.5, memo="(철야)"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=송용호, raw_md=2.5, countable_md=2.5, memo="(철야)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0141] CORRECTION_SITE
+Canonical key: WL-524480a831bb5d3dbfd29a6c
+Production UUID: f60fed7e-eab7-448e-8edb-676cd640760c
+Date / worker / site: 2025-11-25 / 권용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="(철야)"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=권용호, raw_md=2.5, countable_md=2.5, memo="(철야)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0142] CORRECTION_SITE
+Canonical key: WL-e187b7810965d1b75712a73e
+Production UUID: 7968bff5-2421-4f94-8473-f37f392a358f
+Date / worker / site: 2025-11-25 / 송용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=2.5, memo="(철야)"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=송용호, raw_md=2.5, countable_md=2.5, memo="(철야)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0143] CORRECTION_SITE
+Canonical key: WL-1edb429f57c9e7b3b8f33cb6
+Production UUID: 0ab25481-8f7f-478c-9683-3ecdd7d06c66
+Date / worker / site: 2025-11-26 / 송용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="11월25일 철야로 쉼."
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=송용호, raw_md=1, countable_md=1, memo="11월25일 철야로 쉼."
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0144] CORRECTION_SITE
+Canonical key: WL-c1de973b4b3ff0ce6ec95f97
+Production UUID: 6391de55-4cde-4ba5-a847-d5028da5d2bb
+Date / worker / site: 2025-11-26 / 이두환 / S083
+Current: site=27b30fce-8a5f-4d40-ab88-b8fe256c9bf3 (용인Y1CUB 코어계단실 단차보수), worker=fd472d03-9168-4d6e-b05f-fbbaaf5c4ef8 (이두환), md=2.5, memo=""
+Expected: site=S083 -> bf7cba46-eee4-4f3e-b5bf-f76ac25c9920, worker=이두환, raw_md=2.5, countable_md=2.5, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0145] CORRECTION_SITE
+Canonical key: WL-7e7b73ed9edb0acb098e4374
+Production UUID: 67ce1f7c-0ece-452d-9c57-448f1edf45de
+Date / worker / site: 2025-11-29 / 송용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=2.5, memo="철야"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=송용호, raw_md=2.5, countable_md=2.5, memo="철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0146] CORRECTION_SITE
+Canonical key: WL-a750d71efcda2f4460c1f7a2
+Production UUID: 81077ce0-f1c6-42a7-bbd5-01cd52007c3f
+Date / worker / site: 2025-11-29 / 권용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo=""
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=권용호, raw_md=2.5, countable_md=2.5, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0147] CORRECTION_SITE
+Canonical key: WL-5d269d8586e3a4116cd80c69
+Production UUID: 72e0bed1-94a3-4013-9035-9824b1d87361
+Date / worker / site: 2025-12-02 / 권용호 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="철야"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=권용호, raw_md=2.5, countable_md=2.5, memo="철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0148] CORRECTION_SITE
+Canonical key: WL-7b9ba73fe3a6ad2caec29041
+Production UUID: 6af1d0c7-0a85-4b0c-b732-f2772f57dff5
+Date / worker / site: 2025-12-02 / 김재형 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="철야"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=김재형, raw_md=2.5, countable_md=2.5, memo="철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0150] CORRECTION_SITE
+Canonical key: WL-c792e756ab61fedca9a4f3cb
+Production UUID: b95ff81a-0d8b-462f-bbea-b499060b95b1
+Date / worker / site: 2025-12-05 / 권용호 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2, memo="철야 결빙"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=권용호, raw_md=2, countable_md=2, memo="철야 결빙"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0151] CORRECTION_SITE
+Canonical key: WL-0ce606cf575f9cae1b27de8b
+Production UUID: 3a67d13d-c127-4070-a46f-8e548b99c9be
+Date / worker / site: 2025-12-06 / 권용호 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo=""
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=권용호, raw_md=2.5, countable_md=2.5, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0152] CORRECTION_SITE
+Canonical key: WL-ba1a002279ea8524cb187c80
+Production UUID: 1b7f3e8b-0873-4c6a-b12b-bb1c44600acc
+Date / worker / site: 2025-12-06 / 김재형 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo=""
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=김재형, raw_md=2.5, countable_md=2.5, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0153] CORRECTION_SITE
+Canonical key: WL-080648d91f51877394a15d7c
+Production UUID: 5a4c6a87-6849-4cac-aa55-2a0801520d19
+Date / worker / site: 2025-12-10 / 권용호 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo=""
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=권용호, raw_md=2.5, countable_md=2.5, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0154] CORRECTION_SITE
+Canonical key: WL-74e46b8f1d2b1b20be8a864a
+Production UUID: fa1e360d-9179-4928-85e1-d5a6b8796945
+Date / worker / site: 2025-12-10 / 김재형 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo=""
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=김재형, raw_md=2.5, countable_md=2.5, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0155] CORRECTION_SITE
+Canonical key: WL-5d66730925f6ca187bc24f60
+Production UUID: 99df410a-991c-4eaf-b549-2114d65c4eac
+Date / worker / site: 2025-12-11 / 권용호 / S083
+Current: site=27b30fce-8a5f-4d40-ab88-b8fe256c9bf3 (용인Y1CUB 코어계단실 단차보수), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2, memo="상주공장 코어 계단실 단차보수3~5층 12시퇴근"
+Expected: site=S083 -> bf7cba46-eee4-4f3e-b5bf-f76ac25c9920, worker=권용호, raw_md=2, countable_md=2, memo="상주공장 코어 계단실 단차보수3~5층 12시퇴근"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0156] CORRECTION_SITE
+Canonical key: WL-bd5603fbe3109032a0617e01
+Production UUID: 425245ee-e8b4-4508-ad94-3b41f3151d0e
+Date / worker / site: 2025-12-11 / 김재형 / S083
+Current: site=27b30fce-8a5f-4d40-ab88-b8fe256c9bf3 (용인Y1CUB 코어계단실 단차보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2, memo="상주공장 코어 계단실 단차보수3~5층 12시퇴근"
+Expected: site=S083 -> bf7cba46-eee4-4f3e-b5bf-f76ac25c9920, worker=김재형, raw_md=2, countable_md=2, memo="상주공장 코어 계단실 단차보수3~5층 12시퇴근"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0157] CORRECTION_SITE
+Canonical key: WL-1d652453d2e30b176e78e1ec
+Production UUID: cc600a89-cf41-4568-999a-d469e5faa781
+Date / worker / site: 2025-12-12 / 권용호 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="지상2층 외각라인 및 굴절 기둥 마감 작업"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=권용호, raw_md=2.5, countable_md=2.5, memo="지상2층 외각라인 및 굴절 기둥 마감 작업"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0159] CORRECTION_SITE
+Canonical key: WL-a0ded0709447b8f71044d61c
+Production UUID: fa236711-34c3-468a-bcb7-dc75959719c5
+Date / worker / site: 2025-12-16 / 권용호 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="지상2층 기둥 결빙구간 제거 및 마감보수"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=권용호, raw_md=2.5, countable_md=2.5, memo="지상2층 기둥 결빙구간 제거 및 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0160] CORRECTION_SITE
+Canonical key: WL-b01e47121e39df7d68b99216
+Production UUID: 28a395b0-0a84-4a1b-9016-98c44f6fe0e1
+Date / worker / site: 2025-12-16 / 김재형 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="지상2층 기둥 결빙구간 제거 및 마감보수"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=김재형, raw_md=2.5, countable_md=2.5, memo="지상2층 기둥 결빙구간 제거 및 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0162] CORRECTION_SITE
+Canonical key: WL-bedcfb32888aa8cb5689fe48
+Production UUID: 65340e8d-4fa6-48d8-b5c5-6282d2ff0c96
+Date / worker / site: 2025-12-23 / 권용호 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="2층 유도원"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=권용호, raw_md=2.5, countable_md=2.5, memo="2층 유도원"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0163] CORRECTION_SITE
+Canonical key: WL-3eb8c49ad10646d61175be55
+Production UUID: b3cdc686-5ecb-4b9b-927b-1a749d47243a
+Date / worker / site: 2026-01-20 / 김재형 / S067
+Current: site=908f5f78-d868-46b6-bdfa-2fb6ae5a00cc (여수 죽림 내민발코니 철판 확공 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="본부장점검 대비 균열보수 2BL"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=김재형, raw_md=1, countable_md=1, memo="본부장점검 대비 균열보수 2BL"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0166] CORRECTION_SITE
+Canonical key: WL-1af2346797e503539cfe39d5
+Production UUID: 518a3aa1-9872-4e41-81f6-97fd72756c97
+Date / worker / site: 2026-02-28 / 권용호 / S105
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="지상4층  마감"
+Expected: site=S105 -> 418b5d43-83c3-43ed-be95-9696891e0be0, worker=권용호, raw_md=2.5, countable_md=2.5, memo="지상4층 마감"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0167] CORRECTION_SITE
+Canonical key: WL-744c2f144480a2412fd94c83
+Production UUID: 6c2aa992-c7d0-494c-b7ed-bf82c98e208a
+Date / worker / site: 2026-02-28 / 김재형 / S105
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="지상4층  마감"
+Expected: site=S105 -> 418b5d43-83c3-43ed-be95-9696891e0be0, worker=김재형, raw_md=2.5, countable_md=2.5, memo="지상4층 마감"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0183] CORRECTION_SITE
+Canonical key: WL-78adfef9937576af0c308752
+Production UUID: c82b4230-ca1d-432e-b566-cd56e82d7529
+Date / worker / site: 2026-06-29 / 권용호 / S165
+Current: site=bfc6fa05-10e8-4e63-8693-97d20586649f (SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수 기술용역(2층)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="삼표8층철야"
+Expected: site=S165 -> f58b7fa1-c5fa-47a5-ac78-6c226da1019b, worker=권용호, raw_md=2.5, countable_md=2.5, memo="삼표8층철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0184] CORRECTION_SITE
+Canonical key: WL-9dac72545485701eb21fb382
+Production UUID: d30264a4-6329-470f-bcc5-c39fee4ac374
+Date / worker / site: 2026-06-29 / 송용호 / S165
+Current: site=bfc6fa05-10e8-4e63-8693-97d20586649f (SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수 기술용역(2층)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=2.5, memo="삼표8층철야"
+Expected: site=S165 -> f58b7fa1-c5fa-47a5-ac78-6c226da1019b, worker=송용호, raw_md=2.5, countable_md=2.5, memo="삼표8층철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0185] CORRECTION_SITE
+Canonical key: WL-17445965b828e20588516bc9
+Production UUID: ccc2b863-e207-48cc-a718-c066a646f24d
+Date / worker / site: 2026-06-30 / 권용호 / S165
+Current: site=bfc6fa05-10e8-4e63-8693-97d20586649f (SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수 기술용역(2층)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="8층철야"
+Expected: site=S165 -> f58b7fa1-c5fa-47a5-ac78-6c226da1019b, worker=권용호, raw_md=2.5, countable_md=2.5, memo="8층철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0186] CORRECTION_SITE
+Canonical key: WL-95d1f3d1d7e9e54c9c41e759
+Production UUID: 0e5dfcb8-e309-4a63-9775-dc5231349423
+Date / worker / site: 2026-06-30 / 송용호 / S165
+Current: site=bfc6fa05-10e8-4e63-8693-97d20586649f (SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수 기술용역(2층)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=2.5, memo="8층철야"
+Expected: site=S165 -> f58b7fa1-c5fa-47a5-ac78-6c226da1019b, worker=송용호, raw_md=2.5, countable_md=2.5, memo="8층철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0187] CORRECTION_SITE
+Canonical key: WL-219476b771d8a580d1c2113d
+Production UUID: 510c170a-f50d-4f11-b95a-0e91118a8660
+Date / worker / site: 2026-07-01 / 권용호 / S165
+Current: site=bfc6fa05-10e8-4e63-8693-97d20586649f (SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수 기술용역(2층)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="8층 기둥노출마감(마무리)"
+Expected: site=S165 -> f58b7fa1-c5fa-47a5-ac78-6c226da1019b, worker=권용호, raw_md=2.5, countable_md=2.5, memo="8층 기둥노출마감(마무리)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+[P5D-0188] CORRECTION_SITE
+Canonical key: WL-95c5b92a8ea50d72ad73fd63
+Production UUID: c90689da-cbc2-4693-979b-0792dfcdbc4d
+Date / worker / site: 2026-07-01 / 송용호 / S165
+Current: site=bfc6fa05-10e8-4e63-8693-97d20586649f (SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수 기술용역(2층)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=2.5, memo="8층 기둥노출마감 (마무리)"
+Expected: site=S165 -> f58b7fa1-c5fa-47a5-ac78-6c226da1019b, worker=송용호, raw_md=2.5, countable_md=2.5, memo="8층 기둥노출마감 (마무리)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_SITE / HIGH
+
+
+## 4. Material multi-field corrections
+
+Count: 99
+
+[P5D-0004] MULTI_FIELD_CORRECTION
+Canonical key: WL-623bc07581095878c46a4d40
+Production UUID: f24e5265-4e77-4f55-8430-e7a8874dfcde
+Date / worker / site: 2025-01-24 / 권용호 / S071
+Current: site=4e2e9be4-4f93-4520-8adf-0df85dc9a86f (인천주안힐스테이트 균열보수(25년1월청구)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="인천주안힐스테이트 (준공후 균열보수) 지붕층 균열보수 후 [이노피앤씨] 화성공장제조 공장 방문"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=0.5, countable_md=0.5, memo="화성공장제조 공장 방문"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0006] MULTI_FIELD_CORRECTION
+Canonical key: WL-0bfe58c381c8ea20c55c7967
+Production UUID: 7f78ea94-8039-459c-8ce7-e73cdefe4a3f
+Date / worker / site: 2025-02-03 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="공수없음"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호1블럭 지하3층 · 노출 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0007] MULTI_FIELD_CORRECTION
+Canonical key: WL-e8ceed79cf9b102d7b422e5f
+Production UUID: 628a5ec7-b989-44d5-9de7-7efafe770425
+Date / worker / site: 2025-02-04 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="공수체크하지않음."
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호1블럭 지하3층 · 노출 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0009] MULTI_FIELD_CORRECTION
+Canonical key: WL-259320e314f045c39e6afc24
+Production UUID: f988ae76-49cb-4fd4-9f2c-f65eb2362b7f
+Date / worker / site: 2025-02-06 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="공수 체크 않함"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호1블럭 지하2층 · 노출 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0010] MULTI_FIELD_CORRECTION
+Canonical key: WL-b945a4e7ffcb455b0aa8fc26
+Production UUID: fdc721ae-3459-4492-957c-70e90b20fc75
+Date / worker / site: 2025-02-07 / 송용호 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=0, memo="공수체크 않됨.포항환호1블럭 지하2층 노출 마감보수"
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항환호1블럭 지하2층 · 노출 마감보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0014] MULTI_FIELD_CORRECTION
+Canonical key: WL-b616cd1931b165532040ec76
+Production UUID: ed8eaf5f-5ea8-4d1c-b319-e404fe0aca9f
+Date / worker / site: 2025-02-13 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="화성 보수재 제작()"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0015] MULTI_FIELD_CORRECTION
+Canonical key: WL-d520ba443ec0dfb372318063
+Production UUID: 86442c5a-487d-40e4-8d8c-78ccfb3ea675
+Date / worker / site: 2025-03-04 / 송용호 / S003
+Current: site=97ad1dbb-5165-4878-a819-700601172e16 (방배5구역), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=송용호, raw_md=1, countable_md=1, memo="송도4차 지하주차장 2층 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0018] MULTI_FIELD_CORRECTION
+Canonical key: WL-99cdf7daa8e3a056322aa6d5
+Production UUID: 8651c54d-0461-41b2-be48-e6d6dc673840
+Date / worker / site: 2025-03-06 / 송용호 / S010
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보) | 현장명 매칭확인필요(원본:G피씨안성)"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=0.5, countable_md=0.5, memo="안성물류센터샘플 0.5공수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0019] MULTI_FIELD_CORRECTION
+Canonical key: WL-dc325793e94c811d3398d18f
+Production UUID: 04ee12b0-def3-4d3c-8fef-141b291b195c
+Date / worker / site: 2025-03-06 / 김재형 / S003
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=김재형, raw_md=0.5, countable_md=0.5, memo="송도4차전기박스"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0028] MULTI_FIELD_CORRECTION
+Canonical key: WL-ac5220fe4aa01a22837f2311
+Production UUID: 501bd741-3cf5-4f38-93c1-46037dbd5d08
+Date / worker / site: 2025-03-21 / 권용호 / S003
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=0.5, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=권용호, raw_md=0.5, countable_md=0.5, memo="송도4차램프 면보수 0.5공수 일찍끝남"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0032] MULTI_FIELD_CORRECTION
+Canonical key: WL-3f3c339ddaad96b110fb1336
+Production UUID: e227e5f6-6069-40cb-9334-87c75aec707f
+Date / worker / site: 2025-03-26 / 송용호 / S003
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=송용호, raw_md=1, countable_md=1, memo="송도4차램프면보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0034] MULTI_FIELD_CORRECTION
+Canonical key: WL-a06d26c2c0b50cd52f115683
+Production UUID: 31a25891-6285-40b5-b17c-f9d715d8abe8
+Date / worker / site: 2025-03-27 / 송용호 / S003
+Current: site=bf4a0840-212d-44c1-b764-df2ef94cae67 (동탄파크릭스(동부건설) PC부재 노출마감), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=송용호, raw_md=1, countable_md=1, memo="송도4차램프지하1층 균열 보수 404동앞"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0035] MULTI_FIELD_CORRECTION
+Canonical key: WL-6a91614627fbf3572316c6d9
+Production UUID: 2e0d9b1d-8bd1-4465-a8a5-3855cf52b80f
+Date / worker / site: 2025-03-28 / 송용호 / S003
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=송용호, raw_md=1, countable_md=1, memo="잭서포트 미비구간 보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0037] MULTI_FIELD_CORRECTION
+Canonical key: WL-fc790aaef0e1646790138090
+Production UUID: 1e0fbc93-2050-44c1-ac7b-07fa67e2a82a
+Date / worker / site: 2025-03-28 / 김재형 / S055
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S055 -> 29655d43-31af-4707-b8c5-fd506ab8fcfa, worker=김재형, raw_md=1, countable_md=1, memo="삼표청주공장 기계시연 및 삼일 여주점봉 서비스"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0038] MULTI_FIELD_CORRECTION
+Canonical key: WL-79a4caf1b3b4672121b89289
+Production UUID: 45feb3c5-5fa5-4744-b9dc-67bcb8a5575d
+Date / worker / site: 2025-03-29 / 송용호 / S003
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=송용호, raw_md=1, countable_md=1, memo="송도4차"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0040] MULTI_FIELD_CORRECTION
+Canonical key: WL-aa95de553400fa6b58909bb3
+Production UUID: 071c9e52-536f-4a89-91d1-cedc6196471b
+Date / worker / site: 2025-04-01 / 송용호 / S066
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="[삼표]광주삼동힐스테이트"
+Expected: site=S066 -> 78db9ec3-4577-4582-ab0e-c880ca954dff, worker=송용호, raw_md=1, countable_md=1, memo="광주삼동힐스테이트 · 균열보수 자리 마감"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0041] MULTI_FIELD_CORRECTION
+Canonical key: WL-0e95b0f65fd4b7328f910a25
+Production UUID: 552f8143-3a03-491c-bde6-38bb601fbe0d
+Date / worker / site: 2025-04-02 / 송용호 / S021
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo=""
+Expected: site=S021 -> 70311803-50f0-45ad-958a-386055af6d93, worker=송용호, raw_md=1, countable_md=1, memo="세종2차가온마을1단지"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0042] MULTI_FIELD_CORRECTION
+Canonical key: WL-654d1a00031daa66eab54cb8
+Production UUID: 8ab88969-5b48-4f5b-b8d5-0cd7047092d7
+Date / worker / site: 2025-04-02 / 김재형 / S098
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=1, countable_md=0, memo="청주공장 기계 시현"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0043] MULTI_FIELD_CORRECTION
+Canonical key: WL-f1b20427867d1baf7dcb54b1
+Production UUID: 9d7a43ba-b4b4-4c61-845e-0c2e2034cf24
+Date / worker / site: 2025-04-03 / 권용호 / S021
+Current: site=c7bbb8d1-9824-41f4-ac3d-9f38791295b1 (경산제4물류센터(현대건설)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S021 -> 70311803-50f0-45ad-958a-386055af6d93, worker=권용호, raw_md=1, countable_md=1, memo="포항환호1블럭 · 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0044] MULTI_FIELD_CORRECTION
+Canonical key: WL-504d35562b69383978ef7432
+Production UUID: 20b852f4-08d4-4314-9ea8-d4585f0fa976
+Date / worker / site: 2025-04-04 / 송용호 / S021
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo=""
+Expected: site=S021 -> 70311803-50f0-45ad-958a-386055af6d93, worker=송용호, raw_md=1, countable_md=1, memo="세종2차가온마을1단지 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0045] MULTI_FIELD_CORRECTION
+Canonical key: WL-6370e831304e2a39a39241da
+Production UUID: 4467b60f-33bc-4f6d-bf8c-3d52906c5a04
+Date / worker / site: 2025-04-04 / 권용호 / S021
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S021 -> 70311803-50f0-45ad-958a-386055af6d93, worker=권용호, raw_md=1, countable_md=1, memo="세종2차가온마을1단지 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0046] MULTI_FIELD_CORRECTION
+Canonical key: WL-c5bc1b633ac76f6c547fee37
+Production UUID: a6363324-5a73-47a4-bcc5-cac9f5e8f444
+Date / worker / site: 2025-04-04 / 김재형 / S092
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S092 -> da24a359-d76e-4f31-bc31-b72917804f60, worker=김재형, raw_md=1, countable_md=1, memo="창원 대원1구역(마크로엔)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0047] MULTI_FIELD_CORRECTION
+Canonical key: WL-4927c95da6f92a1963f679c5
+Production UUID: 059d8988-cc4d-44dd-99e8-1ee52a3fbef9
+Date / worker / site: 2025-04-05 / 송용호 / S021
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo=""
+Expected: site=S021 -> 70311803-50f0-45ad-958a-386055af6d93, worker=송용호, raw_md=1, countable_md=1, memo="세종2차가온마을1단지 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0048] MULTI_FIELD_CORRECTION
+Canonical key: WL-2b9a4db6a07c12fd57a29f70
+Production UUID: 365b0d46-c88b-4c80-919d-a1c6c550a79b
+Date / worker / site: 2025-04-07 / 권용호 / S021
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S021 -> 70311803-50f0-45ad-958a-386055af6d93, worker=권용호, raw_md=1, countable_md=1, memo="세종2차가온마을1단지 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0049] MULTI_FIELD_CORRECTION
+Canonical key: WL-d34515af6f0134c7e56751bc
+Production UUID: 324e27b9-3f5f-4faf-b05c-af29fa0966e6
+Date / worker / site: 2025-04-07 / 송용호 / S021
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo=""
+Expected: site=S021 -> 70311803-50f0-45ad-958a-386055af6d93, worker=송용호, raw_md=1, countable_md=1, memo="세종2차가온마을1단지 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0050] MULTI_FIELD_CORRECTION
+Canonical key: WL-8e9dbb01f9f7b03fec298d87
+Production UUID: 09f899e1-7b93-4ec3-bada-8675fe4eeaa5
+Date / worker / site: 2025-04-08 / 송용호 / S023
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo=""
+Expected: site=S023 -> 81518e5e-c844-427d-bec7-c61a1a82cfa3, worker=송용호, raw_md=1, countable_md=1, memo="부천일루미스테이트 하자보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0051] MULTI_FIELD_CORRECTION
+Canonical key: WL-7eb08c6d2b765b7d44965984
+Production UUID: dbb157c3-58db-47df-995c-8dc418c2bb86
+Date / worker / site: 2025-04-10 / 송용호 / S008
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo=""
+Expected: site=S008 -> 34107a34-f86f-4d60-bc83-efc0797732fa, worker=송용호, raw_md=1, countable_md=1, memo="서대구힐스테이트"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0053] MULTI_FIELD_CORRECTION
+Canonical key: WL-1d19829bbefdeac04f84e82e
+Production UUID: 05c4f8c3-3599-4824-92c9-25a18d44a579
+Date / worker / site: 2025-04-11 / 권용호 / S008
+Current: site=dcb40097-9c17-489f-a7cc-af4c5902fd32 (울산샤힌), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=0.5, memo=""
+Expected: site=S008 -> 34107a34-f86f-4d60-bc83-efc0797732fa, worker=권용호, raw_md=0.5, countable_md=0.5, memo="서대구힐스테이트 끝나고 · 울산으로 넘어와서 1.5공수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0054] MULTI_FIELD_CORRECTION
+Canonical key: WL-68b29f3c424f704358665d9c
+Production UUID: 43ea1563-32b1-4b4c-b802-ec96ae77b719
+Date / worker / site: 2025-04-11 / 송용호 / S008
+Current: site=dcb40097-9c17-489f-a7cc-af4c5902fd32 (울산샤힌), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo=""
+Expected: site=S008 -> 34107a34-f86f-4d60-bc83-efc0797732fa, worker=송용호, raw_md=1, countable_md=1, memo="서대구힐스테이트"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0056] MULTI_FIELD_CORRECTION
+Canonical key: WL-e83e2b0cc9fad7ad4ff89756
+Production UUID: b672566a-d1fa-485d-9c05-82b06b91e2ff
+Date / worker / site: 2025-04-14 / 김재형 / S098
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=0.5, countable_md=0, memo="삼표산업견적수주"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0057] MULTI_FIELD_CORRECTION
+Canonical key: WL-3f67b766c89c50b0266dedda
+Production UUID: f15a0d51-3455-4b70-9a57-929e2bb3559c
+Date / worker / site: 2025-04-15 / 권용호 / S003
+Current: site=bf4a0840-212d-44c1-b764-df2ef94cae67 (동탄파크릭스(동부건설) PC부재 노출마감), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=권용호, raw_md=1, countable_md=1, memo="송도4차 한 후 이동 예정"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0058] MULTI_FIELD_CORRECTION
+Canonical key: WL-ce234133834053ba89cc8416
+Production UUID: 2f32e4eb-5ba4-4634-9813-516340ce90ce
+Date / worker / site: 2025-04-16 / 권용호 / S071
+Current: site=bf4a0840-212d-44c1-b764-df2ef94cae67 (동탄파크릭스(동부건설) PC부재 노출마감), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]보수재"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0059] MULTI_FIELD_CORRECTION
+Canonical key: WL-d601315e43ffeebe4ecb9ace
+Production UUID: e9b8d641-5002-4d1e-9443-6be6a0774194
+Date / worker / site: 2025-04-17 / 권용호 / S067
+Current: site=bf4a0840-212d-44c1-b764-df2ef94cae67 (동탄파크릭스(동부건설) PC부재 노출마감), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="여수죽림현장"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0060] MULTI_FIELD_CORRECTION
+Canonical key: WL-a94d5732a93848926a066822
+Production UUID: 76c08828-05ec-41c8-aec3-c98f19067daf
+Date / worker / site: 2025-04-20 / 김재형 / S098
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=1, countable_md=0, memo="안성일죽물류센터갈 짐 챙기러 안산 사무실에 들름."
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0061] MULTI_FIELD_CORRECTION
+Canonical key: WL-1dd7471e8fb27ec94b7693ba
+Production UUID: ebc6abd5-b288-4baf-8218-3dabea3aa921
+Date / worker / site: 2025-04-29 / 권용호 / S003
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=권용호, raw_md=1, countable_md=1, memo="송도 4차"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0062] MULTI_FIELD_CORRECTION
+Canonical key: WL-78b241122742f6e7fab1932a
+Production UUID: b386221a-1a60-4cd6-9125-13f86b83adef
+Date / worker / site: 2025-04-29 / 김재형 / S071
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=1, countable_md=1, memo="반포 래미안간다고 했는데 화성에서 100말 포항것 출고시키고 안산들렸다가 오후에 화성가서 채반기 설치 보러감."
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0064] MULTI_FIELD_CORRECTION
+Canonical key: WL-ebce8d2511a9f907b61e9ca3
+Production UUID: 2f5b4339-068d-4343-ac11-d8bb6a87aaaf
+Date / worker / site: 2025-04-30 / 권용호 / S071
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]보수재"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0065] MULTI_FIELD_CORRECTION
+Canonical key: WL-f9f8478950d1b08806476cab
+Production UUID: 3c5a22e2-f9ee-4467-93da-54c143a579da
+Date / worker / site: 2025-05-02 / 송용호 / S074
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S074 -> 9663923c-070f-4753-9476-b5142829a389, worker=송용호, raw_md=1, countable_md=1, memo="포항환호공원2블럭"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0066] MULTI_FIELD_CORRECTION
+Canonical key: WL-73a26fffdbe35569dd62c8bd
+Production UUID: 8a775088-46ba-4c0a-8fa4-0df5a166c34e
+Date / worker / site: 2025-05-05 / 김재형 / S071
+Current: site=c00550ed-9531-4124-b7e7-6c1eccdf7982 (광주첨단센트럴(현대엔지니어링)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=1, countable_md=1, memo="[화성]오후 예정"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0067] MULTI_FIELD_CORRECTION
+Canonical key: WL-916751b8652e5440be5b3d3d
+Production UUID: dbf06b42-9bce-46a0-8daa-17564e0b5681
+Date / worker / site: 2025-05-13 / 권용호 / S067
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="여수죽림"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0068] MULTI_FIELD_CORRECTION
+Canonical key: WL-05404fa482489ed107f31792
+Production UUID: 0de7bcfb-eec2-4bef-b52c-6fb9a8a3b2e6
+Date / worker / site: 2025-05-14 / 권용호 / S067
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="여수죽림"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0069] MULTI_FIELD_CORRECTION
+Canonical key: WL-0e7e63d7fa3dd59cc8ed37df
+Production UUID: 475c0441-e2e8-44b0-9abf-399a6e7f111c
+Date / worker / site: 2025-05-15 / 김재형 / S007
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S007 -> 2ce232ba-d17d-486d-8c77-7ec5c427f043, worker=김재형, raw_md=1, countable_md=1, memo="여주공장"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0070] MULTI_FIELD_CORRECTION
+Canonical key: WL-62d0de2d07a2a7bd7eeb2821
+Production UUID: 46878fe8-9bb7-46c1-b9e5-7eb9f6e7cc90
+Date / worker / site: 2025-05-15 / 송용호 / S007
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S007 -> 2ce232ba-d17d-486d-8c77-7ec5c427f043, worker=송용호, raw_md=1, countable_md=1, memo="여주공장"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0071] MULTI_FIELD_CORRECTION
+Canonical key: WL-ae1000193bc4e381fe75ae02
+Production UUID: e981bfe3-5baa-4569-ba69-60405da516a2
+Date / worker / site: 2025-05-16 / 김재형 / S098
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S098 -> ef14d53d-fc45-4054-991f-6878b2e56dd4, worker=김재형, raw_md=1, countable_md=0, memo="[미팅]삼표산업 · [오후]병원방문"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0072] MULTI_FIELD_CORRECTION
+Canonical key: WL-1ef0d67e15cf98c155c72fbd
+Production UUID: 519d6c1b-4fc9-4c50-8767-82de195081b5
+Date / worker / site: 2025-05-18 / 권용호 / S107
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S107 -> 2b68472f-0e28-40e2-8ed7-7fd963fb15eb, worker=권용호, raw_md=0, countable_md=0, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0073] MULTI_FIELD_CORRECTION
+Canonical key: WL-6475f471874373ab304aa22c
+Production UUID: 28ed0648-26b5-46ab-b069-01c1bc8b3f9e
+Date / worker / site: 2025-05-20 / 권용호 / S127
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S127 -> ae2031f8-7c7f-48c1-a256-512579484eb1, worker=권용호, raw_md=1, countable_md=1, memo="순천덕암"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0074] MULTI_FIELD_CORRECTION
+Canonical key: WL-c60c53c275caf0b203ee0f10
+Production UUID: b7a2f34d-d940-4bd7-a47f-2824ecd646aa
+Date / worker / site: 2025-05-20 / 송용호 / S029
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S029 -> 99632d90-511a-44d6-afd4-3f6769d29c91, worker=송용호, raw_md=1, countable_md=1, memo="당진"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0075] MULTI_FIELD_CORRECTION
+Canonical key: WL-dc5e19c78c735780d079a129
+Production UUID: be0ba491-c75e-44fc-8ff3-aa1025cb9af6
+Date / worker / site: 2025-05-20 / 김재형 / S029
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S029 -> 99632d90-511a-44d6-afd4-3f6769d29c91, worker=김재형, raw_md=1, countable_md=1, memo="당진 지하주차장 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0076] MULTI_FIELD_CORRECTION
+Canonical key: WL-9eda663bc7a6027cb6c74a7c
+Production UUID: 7f8c665f-d3f4-4b45-a61d-86222039232c
+Date / worker / site: 2025-05-21 / 송용호 / S040
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S040 -> ce807ee2-7e23-48e2-81e5-a33f10a2fc19, worker=송용호, raw_md=1, countable_md=1, memo="익산마동힐스테이트 · 지하주차장 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0077] MULTI_FIELD_CORRECTION
+Canonical key: WL-d45e885b8fa37699376d655c
+Production UUID: b90c5114-b093-4c45-b91a-665b546543b5
+Date / worker / site: 2025-05-21 / 권용호 / S067
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="여수죽림 공장보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0078] MULTI_FIELD_CORRECTION
+Canonical key: WL-f70372e806ea54ffd5587e45
+Production UUID: 397766b7-11db-4804-847d-0d14ac11169f
+Date / worker / site: 2025-05-21 / 김재형 / S029
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S029 -> 99632d90-511a-44d6-afd4-3f6769d29c91, worker=김재형, raw_md=1, countable_md=1, memo="오전에 안산들려서 특허작업넘기고 오전 10시에 당진 지하주차장 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0079] MULTI_FIELD_CORRECTION
+Canonical key: WL-3beca09bb673ca6688cf5579
+Production UUID: 1bda42cb-07f8-4eb5-97a2-32d089323593
+Date / worker / site: 2025-05-22 / 권용호 / S067
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="여수죽림 공장보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0080] MULTI_FIELD_CORRECTION
+Canonical key: WL-d2b7df10e6c411b2a8baba66
+Production UUID: ee441ed0-7cd7-4126-b242-2c190db689cb
+Date / worker / site: 2025-05-22 / 김재형 / S029
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S029 -> 99632d90-511a-44d6-afd4-3f6769d29c91, worker=김재형, raw_md=0.5, countable_md=0.5, memo="균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0081] MULTI_FIELD_CORRECTION
+Canonical key: WL-e9a135835146ca676cb8d923
+Production UUID: 76bfea85-bf02-4a6f-888f-a995938ff011
+Date / worker / site: 2025-05-22 / 송용호 / S029
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S029 -> 99632d90-511a-44d6-afd4-3f6769d29c91, worker=송용호, raw_md=1, countable_md=1, memo="당진 지하주차장 균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0082] MULTI_FIELD_CORRECTION
+Canonical key: WL-3f17075301d237217672742b
+Production UUID: 7df9bb10-279f-4f67-b574-d14d51017727
+Date / worker / site: 2025-05-27 / 송용호 / S034
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S034 -> ad41c8b8-acb7-44d9-b78a-4451b3266965, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0083] MULTI_FIELD_CORRECTION
+Canonical key: WL-c5c62748fa75a90e5dd572c5
+Production UUID: 961e674b-c32f-47b4-a091-b23a61961ce4
+Date / worker / site: 2025-05-27 / 김재형 / S037
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S037 -> bf4a0840-212d-44c1-b764-df2ef94cae67, worker=김재형, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0084] MULTI_FIELD_CORRECTION
+Canonical key: WL-d714a0ac91f9dc359e188203
+Production UUID: 4cb65cd9-dd45-4ee0-a6a1-1bc6c453412d
+Date / worker / site: 2025-05-27 / 권용호 / S003
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0085] MULTI_FIELD_CORRECTION
+Canonical key: WL-0cd827e15c38aa4df23b273e
+Production UUID: 3a169e0a-6fe0-4dd2-afb1-93e4d20d1c1d
+Date / worker / site: 2025-05-30 / 김재형 / S033
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=김재형, raw_md=0.5, countable_md=0.5, memo="사용자확정 분할: 2025-05-30 반포래미안 0.5공수 + 안성일죽 물류센터 0.5공수 · 원합계 1.0공수/450000원 보존 · 분할 1/2"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0086] MULTI_FIELD_CORRECTION
+Canonical key: WL-79f237926842a798a9d0e6c8
+Production UUID: 6a8f2caf-a8ac-478f-9d14-cc4a8104cd9e
+Date / worker / site: 2025-05-30 / 김재형 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=김재형, raw_md=0.5, countable_md=0.5, memo="사용자확정 분할: 2025-05-30 반포래미안 0.5공수 + 안성일죽 물류센터 0.5공수 · 원합계 1.0공수/450000원 보존 · 분할 2/2"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0087] MULTI_FIELD_CORRECTION
+Canonical key: WL-b91d5998d09c71cd8b22a466
+Production UUID: f1593b5b-55b4-41d0-b913-25c13d9a8900
+Date / worker / site: 2025-06-01 / 김재형 / S107
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="케이원 김포로지스(SK에코플랜트)물류센터 PC부재 보수"
+Expected: site=S107 -> 2b68472f-0e28-40e2-8ed7-7fd963fb15eb, worker=김재형, raw_md=0, countable_md=0, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0088] MULTI_FIELD_CORRECTION
+Canonical key: WL-e7c975148876a7f638c9bf9d
+Production UUID: 020675c5-614b-4ffb-91cb-2773b01daaea
+Date / worker / site: 2025-06-06 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="화성보수재생산 및 출고"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0089] MULTI_FIELD_CORRECTION
+Canonical key: WL-28539354fd2363b3da2ebce0
+Production UUID: 32870ed7-1211-463f-94d8-2d6a23d469d3
+Date / worker / site: 2025-06-11 / 권용호 / S027
+Current: site=501c2606-3c41-4d8c-ba8e-eec823baf669 (대전 도안1단지(현대건설) 지하주차장 PC부재 보수), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[삼일]인천검단현장투입"
+Expected: site=S027 -> 8bee6a1c-0e78-486e-8b37-7382b8dafcd2, worker=권용호, raw_md=1, countable_md=1, memo="인천검단현장투입"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0090] MULTI_FIELD_CORRECTION
+Canonical key: WL-e0370636be6d78c64f719115
+Production UUID: fd3682a8-3a5e-4205-86bc-e630f82ef726
+Date / worker / site: 2025-06-11 / 송용호 / S027
+Current: site=501c2606-3c41-4d8c-ba8e-eec823baf669 (대전 도안1단지(현대건설) 지하주차장 PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="[삼일]인천검단현장투입"
+Expected: site=S027 -> 8bee6a1c-0e78-486e-8b37-7382b8dafcd2, worker=송용호, raw_md=1, countable_md=1, memo="인천검단현장투입"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0091] MULTI_FIELD_CORRECTION
+Canonical key: WL-6eaa994e0fdad5149880f86a
+Production UUID: d3208168-f647-4b55-b028-c14e5bf8d07f
+Date / worker / site: 2025-06-12 / 김재형 / S003
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=김재형, raw_md=1, countable_md=1, memo="송도4차"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0092] MULTI_FIELD_CORRECTION
+Canonical key: WL-29020aa3981993e1ad36d0a9
+Production UUID: 077f17b4-4ca5-447e-8dba-9df8bb06f24e
+Date / worker / site: 2025-06-21 / 송용호 / S027
+Current: site=b55587d1-d9b8-4232-b288-58a7186d402b (HS 동탄파크릭스 1, 2BL PC부재(마감)보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="[삼일]인천검단현장투입"
+Expected: site=S027 -> 8bee6a1c-0e78-486e-8b37-7382b8dafcd2, worker=송용호, raw_md=1, countable_md=1, memo="인천검단현장투입"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0094] MULTI_FIELD_CORRECTION
+Canonical key: WL-e0f888b505f57603a7f84ab7
+Production UUID: d85dd023-008a-4be0-bc7d-c46955016629
+Date / worker / site: 2025-06-22 / 김재형 / S107
+Current: site=2b68472f-0e28-40e2-8ed7-7fd963fb15eb (휴무), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=0, memo="청주sk하이닉스m15x보수* 휴무"
+Expected: site=S107 -> 2b68472f-0e28-40e2-8ed7-7fd963fb15eb, worker=김재형, raw_md=0, countable_md=0, memo="* 휴무"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0095] MULTI_FIELD_CORRECTION
+Canonical key: WL-66a289f49ee04a03a27072e3
+Production UUID: 15cb7bdb-a2ec-41d5-853d-555d19a476ce
+Date / worker / site: 2025-06-27 / 권용호 / S027
+Current: site=6a0aa6e1-a1fe-45a4-b59a-a1d054a222aa (창원 더퍼스트(현대건설) 지하주차장 PC부재보수), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[삼일]인천검단현장투입"
+Expected: site=S027 -> 8bee6a1c-0e78-486e-8b37-7382b8dafcd2, worker=권용호, raw_md=1, countable_md=1, memo="인천검단현장투입"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0096] MULTI_FIELD_CORRECTION
+Canonical key: WL-60adc2864525dadbe3d80d40
+Production UUID: 88502ffe-0f3b-4076-ba75-2425dea9f1e9
+Date / worker / site: 2025-06-30 / 권용호 / S027
+Current: site=501c2606-3c41-4d8c-ba8e-eec823baf669 (대전 도안1단지(현대건설) 지하주차장 PC부재 보수), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[삼일]인천검단현장투입"
+Expected: site=S027 -> 8bee6a1c-0e78-486e-8b37-7382b8dafcd2, worker=권용호, raw_md=1, countable_md=1, memo="인천검단현장투입"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0097] MULTI_FIELD_CORRECTION
+Canonical key: WL-523119b5b2295b4fb3b12c93
+Production UUID: db896d74-fa85-4a48-8e5d-2301610ba4b1
+Date / worker / site: 2025-07-01 / 권용호 / S071
+Current: site=501c2606-3c41-4d8c-ba8e-eec823baf669 (대전 도안1단지(현대건설) 지하주차장 PC부재 보수), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[[이노피앤씨] 화성공장제조]보수재생산\n[삼표]대전도안 리버파크 1BL"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="화성공장제조 보수재생산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0098] MULTI_FIELD_CORRECTION
+Canonical key: WL-2026e58d28fcd9d9a8bd83fd
+Production UUID: 0013483c-2ea1-4800-9875-268f0a022fcb
+Date / worker / site: 2025-07-11 / 권용호 / S062
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[삼표]대전도안 리버파크 1BL\n타핑구간 PC부재 보수"
+Expected: site=S062 -> 501c2606-3c41-4d8c-ba8e-eec823baf669, worker=권용호, raw_md=1, countable_md=1, memo="대전도안 리버파크 1BL · 타핑구간 PC부재 보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0099] MULTI_FIELD_CORRECTION
+Canonical key: WL-d919c08285c0199c4f2c0963
+Production UUID: 578aff87-043f-4653-b5c1-a0d543d19e78
+Date / worker / site: 2025-07-11 / 김재형 / S092
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S092 -> da24a359-d76e-4f31-bc31-b72917804f60, worker=김재형, raw_md=1, countable_md=1, memo="창원마크로엔 방수액하자인데 무료로 가서 현장에서 보수해줌."
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0100] MULTI_FIELD_CORRECTION
+Canonical key: WL-d1f017b69574eb57f763ae03
+Production UUID: 9f6a1c27-1123-4362-a66b-23bc49a159f1
+Date / worker / site: 2025-07-12 / 김재형 / S074
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S074 -> 9663923c-070f-4753-9476-b5142829a389, worker=김재형, raw_md=1, countable_md=1, memo="포항환호공원 2BL"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0101] MULTI_FIELD_CORRECTION
+Canonical key: WL-3449da369dda6544cf6fbbc7
+Production UUID: ec9f2bb0-2bbe-4e1d-a7be-ab3a25a8edee
+Date / worker / site: 2025-07-13 / 김재형 / S092
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S092 -> da24a359-d76e-4f31-bc31-b72917804f60, worker=김재형, raw_md=1, countable_md=1, memo="창원마크로엔 방수액하자인데 무료로 가서 현장에서 보수."
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0102] MULTI_FIELD_CORRECTION
+Canonical key: WL-3c49ceaf8a389e83e69caf95
+Production UUID: 66c2e455-55a1-400c-a5ad-efbc6f1f6298
+Date / worker / site: 2025-07-15 / 김재형 / S034
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S034 -> ad41c8b8-acb7-44d9-b78a-4451b3266965, worker=김재형, raw_md=1, countable_md=1, memo="이천중리1블럭(우미건설한성)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0103] MULTI_FIELD_CORRECTION
+Canonical key: WL-86ce753bd04a195302da0aab
+Production UUID: 6614e1c7-1a17-45ab-8a94-ab75e4d71a3e
+Date / worker / site: 2025-07-17 / 김재형 / S058
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=김재형, raw_md=0.5, countable_md=0.5, memo="포항환호공원1BL포항환호공원2BL"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0104] MULTI_FIELD_CORRECTION
+Canonical key: WL-57e544215c27ac506a545a52
+Production UUID: 659c6ed4-5d57-4641-a5dd-b9ed7a11955b
+Date / worker / site: 2025-07-24 / 김재형 / S069
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S069 -> 81f58ea5-0cdb-4c84-8680-66f5b351c169, worker=김재형, raw_md=1, countable_md=1, memo="샘플세대 고양장황(제일풍경채)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0105] MULTI_FIELD_CORRECTION
+Canonical key: WL-7eaf7f9d080fffd65944e297
+Production UUID: 1439cf27-2b70-4351-803e-e299bc3a9d07
+Date / worker / site: 2025-07-25 / 김재형 / S069
+Current: site=819c0b09-d093-4717-a09d-86896d527845 (심표설계 삼표포항공장(여수죽림 발코니)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S069 -> 81f58ea5-0cdb-4c84-8680-66f5b351c169, worker=김재형, raw_md=1, countable_md=1, memo="샘플세대 고양장황(제일풍경채)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0106] MULTI_FIELD_CORRECTION
+Canonical key: WL-6e7ffb8baf1ef06fbaa76cdd
+Production UUID: dd64ff7d-6053-4845-a3b3-1a31eef5582d
+Date / worker / site: 2025-07-28 / 김재형 / S053
+Current: site=501c2606-3c41-4d8c-ba8e-eec823baf669 (대전 도안1단지(현대건설) 지하주차장 PC부재 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S053 -> 168e1c9a-0686-44c8-a54c-33c7a2180f83, worker=김재형, raw_md=1, countable_md=1, memo="삼표 대전도마 샘플"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0107] MULTI_FIELD_CORRECTION
+Canonical key: WL-f2e850389cf63df4a7600de7
+Production UUID: 417d0555-9237-462c-b74a-3c8d1bb9a16f
+Date / worker / site: 2025-08-01 / 김재형 / S074
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S074 -> 9663923c-070f-4753-9476-b5142829a389, worker=김재형, raw_md=1, countable_md=1, memo="포항환호2BL · Q-TOS점검대비 미비구간 보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0108] MULTI_FIELD_CORRECTION
+Canonical key: WL-960053534ea2664e41218650
+Production UUID: 64ea5b37-fcf4-4eae-b126-21101f0430d4
+Date / worker / site: 2025-08-02 / 김재형 / S074
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S074 -> 9663923c-070f-4753-9476-b5142829a389, worker=김재형, raw_md=1, countable_md=1, memo="포항환호2BL · Q-TOS점검대비 미비구간 보수저녁에내려오고"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0109] MULTI_FIELD_CORRECTION
+Canonical key: WL-54150a377691c29e347e8b0f
+Production UUID: 78321c49-5a49-4590-ac10-48542cf0512b
+Date / worker / site: 2025-08-22 / 김재형 / S074
+Current: site=3a17153c-9d21-4759-a804-c6cf1da4d82a (포항 환호공원1블럭(현대건설) 지하주차장 PC부재 보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo=""
+Expected: site=S074 -> 9663923c-070f-4753-9476-b5142829a389, worker=김재형, raw_md=1, countable_md=1, memo="포항환호2BL · Q-TOS점검대비 미비구간 보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0112] MULTI_FIELD_CORRECTION
+Canonical key: WL-8f1bbe149078d463d079d008
+Production UUID: c424482b-817c-4552-83d4-7789accf90ce
+Date / worker / site: 2025-08-28 / 김재형 / S071
+Current: site=ef14d53d-fc45-4054-991f-6878b2e56dd4 (기타), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="디에이치방배 유도,화성공장 시험"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=0.5, countable_md=0.5, memo="디에이치방배 유도화성공장 시험"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0114] MULTI_FIELD_CORRECTION
+Canonical key: WL-b1e31a834eadbe86a6115386
+Production UUID: 05ef9629-602d-404c-a744-1faa1cebe00a
+Date / worker / site: 2025-09-05 / 김재형 / S131
+Current: site=127e46f3-9d4d-4fba-b276-bcf53791befd (SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=2.5, memo="삼표기둥 마감작업철야"
+Expected: site=S131 -> 127e46f3-9d4d-4fba-b276-bcf53791befd, worker=김재형, raw_md=2.5, countable_md=2.5, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0116] MULTI_FIELD_CORRECTION
+Canonical key: WL-912ba1889ebd374c54f07730
+Production UUID: 504a62b6-6891-441e-8113-e57bb1812fd4
+Date / worker / site: 2025-09-20 / 김재형 / S071
+Current: site=ad41c8b8-acb7-44d9-b78a-4451b3266965 (이천중리지구우미 지하주차장pc거더균열보수및면보수마감), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="이천중리대마,[이노피앤씨] 화성공장제조공장제품제조\n이천중리대마,화성공장제품제조"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=1, countable_md=1, memo="이천중리대마화성공장제품제조"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0117] MULTI_FIELD_CORRECTION
+Canonical key: WL-e2044d5a43cfc0de612bb7c0
+Production UUID: 97a6b37f-6f03-4ecc-95d4-e9a5e0a24339
+Date / worker / site: 2025-09-22 / 김재형 / S006
+Current: site=2aa9666d-415d-4291-94f0-356b7b4db3e6 (안성일죽 물류센터PC마감 2차 기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="지하1층 스카이 작업"
+Expected: site=S006 -> 2aa9666d-415d-4291-94f0-356b7b4db3e6, worker=김재형, raw_md=0.5, countable_md=0.5, memo="오후"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0119] MULTI_FIELD_CORRECTION
+Canonical key: WL-317d6e228cc22a3813b9a769
+Production UUID: 1ccbe681-6db2-4a4c-a665-e8911d583d75
+Date / worker / site: 2025-10-18 / 김재형 / S006
+Current: site=2aa9666d-415d-4291-94f0-356b7b4db3e6 (안성일죽 물류센터PC마감 2차 기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="안전교육장, 1층도크 ,3층도크, 및 지하1층 ,지상1층,미비구간 지상4층거더턱미비구간,3층코어기둥 2개 보수"
+Expected: site=S006 -> 2aa9666d-415d-4291-94f0-356b7b4db3e6, worker=김재형, raw_md=0.5, countable_md=0.5, memo="사용자확정 분할: 2025-10-18 일산지하차도 0.5공수 + 안성일죽 물류센터 0.5공수 · 합계 1.0공수/450000원 · 분할 2/2 · 지피씨 안성일죽 동원물류 작업"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0123] MULTI_FIELD_CORRECTION
+Canonical key: WL-0dc71b95e32db6e07eb17267
+Production UUID: b508d0af-7070-4fe0-9cf8-4eef487c1a6c
+Date / worker / site: 2025-11-01 / 송용호 / S067
+Current: site=908f5f78-d868-46b6-bdfa-2fb6ae5a00cc (여수 죽림 내민발코니 철판 확공 보수), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="마감\n오후 3시 22분에 주유함. (독감후 일찍 퇴근)"
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=송용호, raw_md=1, countable_md=1, memo="오후 3시 22분에 주유함. (독감후 일찍 퇴근)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0130] MULTI_FIELD_CORRECTION
+Canonical key: WL-d5f6f861310a41b6aac993bd
+Production UUID: 4786d835-3ef7-4c6e-ab38-3de360f2a60f
+Date / worker / site: 2025-11-12 / 김재형 / S090
+Current: site=cbe2f007-9e29-4902-8d76-343d5cef005b (아산 탕정지구 A-2BL 공동주택 지하주차장 인젝션 균열보수), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="오전7시까지 10시까지 음성까지 가서 밴드라인공장가서 발코니 자름(지피씨)공덕자이랑가치받기로함\n오전7시까지 10시까지 남은 균열 에폭시주입(그라우팅기기 막혀 청소하느라 늦음)"
+Expected: site=S090 -> cbe2f007-9e29-4902-8d76-343d5cef005b, worker=김재형, raw_md=0.5, countable_md=0.5, memo="오전7시까지 10시까지 남은 균열 에폭시주입(그라우팅기기 막혀 청소하느라 늦음)"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0132] MULTI_FIELD_CORRECTION
+Canonical key: WL-1b2a6aecdde0342ab13505cd
+Production UUID: e4a10042-1e25-432b-a6a0-d3abe0510ba0
+Date / worker / site: 2025-11-15 / 김재형 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="1015350\n브라켓마무리이동작업 통로구간5개 후 IS용인Y1IBLCUB이색보수 철야25.11"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=김재형, raw_md=2.5, countable_md=2.5, memo="브라켓마무리이동작업 통로구간5개 후 IS용인Y1IBLCUB이색보수 철야25.11"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0133] MULTI_FIELD_CORRECTION
+Canonical key: WL-64599f8bf269b0b8dde63a27
+Production UUID: 9dae7049-3a87-4aff-8813-8fe0a3a8f532
+Date / worker / site: 2025-11-15 / 권용호 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=2.5, memo="744590\n브라켓마무리이동작업 통로구간5개 후 IS용인Y1IBLCUB이색보수 철야25.11"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=권용호, raw_md=2.5, countable_md=2.5, memo="브라켓마무리이동작업 통로구간5개 후 IS용인Y1IBLCUB이색보수 철야25.11"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0134] MULTI_FIELD_CORRECTION
+Canonical key: WL-57613b715d3c3e41324a9238
+Production UUID: 95544d4b-2ec7-4e17-8186-ac0c8c27926e
+Date / worker / site: 2025-11-18 / 권용호 / S083
+Current: site=ad41c8b8-acb7-44d9-b78a-4451b3266965 (이천중리지구우미 지하주차장pc거더균열보수및면보수마감), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="212740"
+Expected: site=S083 -> bf7cba46-eee4-4f3e-b5bf-f76ac25c9920, worker=권용호, raw_md=1, countable_md=1, memo=""
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0135] MULTI_FIELD_CORRECTION
+Canonical key: WL-45daa9c61645031c9cd25042
+Production UUID: 27e49f2b-bece-412b-952e-052801c26ade
+Date / worker / site: 2025-11-20 / 김재형 / S063
+Current: site=5a20db88-710f-4c13-afc9-c4663d6592ae (PC기둥 미니브라켓 설계누락 외), worker=fd472d03-9168-4d6e-b05f-fbbaaf5c4ef8 (이두환), md=1, memo="241750"
+Expected: site=S063 -> 5a20db88-710f-4c13-afc9-c4663d6592ae, worker=김재형, raw_md=1, countable_md=1, memo="2025-11-20 CUB 2.5공수 + 미니브라켓 1.0공수 · 원본출역 근거 합계 3.5공수/1050000원 · 분리 2/2 · 예정 파주운정GTX 작업을 미니브라켓 현장으로 정규화"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0136] MULTI_FIELD_CORRECTION
+Canonical key: WL-e9788bc8f025f3b4f6e552be
+Production UUID: ff9ff32c-c32e-47f8-9204-17b243a7f565
+Date / worker / site: 2025-11-20 / 김재형 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="290100\n오후에 is동서철야 * 한번 더 확인"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=김재형, raw_md=2.5, countable_md=2.5, memo="오후에 is동서철야 * 한번 더 확인"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0138] MULTI_FIELD_CORRECTION
+Canonical key: WL-f507d7bbb58c8713f0e682db
+Production UUID: a238e982-6dc7-4857-9970-706bc2005399
+Date / worker / site: 2025-11-22 / 김재형 / S075
+Current: site=dd456f1f-4032-4026-ad3e-5b1b2a0b34de (용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="균열보수(철야)"
+Expected: site=S075 -> 974ddc6a-97c5-48a5-b13a-5361af92c896, worker=김재형, raw_md=2.5, countable_md=2.5, memo="균열보수(철야) · 파주운정 아산탕정(샘플1) iscub 철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0149] MULTI_FIELD_CORRECTION
+Canonical key: WL-4250e523c8b916da8e8fc8a0
+Production UUID: bda84283-4845-4e19-a2f2-8bb6ff20dc4c
+Date / worker / site: 2025-12-05 / 김재형 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2, memo="철야 결빙"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=김재형, raw_md=2, countable_md=2, memo="철야 결빙 · 오전에 갔다가 오후에 아이에스 동서 철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0158] MULTI_FIELD_CORRECTION
+Canonical key: WL-ce03ef6f123905213ff71cfa
+Production UUID: 599fda98-e75a-4166-8647-8f52b0d5df77
+Date / worker / site: 2025-12-12 / 김재형 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="지상2층 외각라인 및 굴절 기둥 마감 작업"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=김재형, raw_md=2.5, countable_md=2.5, memo="지상2층 외각라인 및 굴절 기둥 마감 작업 · 야간후 사무실 서류업무"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0161] MULTI_FIELD_CORRECTION
+Canonical key: WL-a7a5040584205f195d43d616
+Production UUID: c165ab61-f713-483d-ac05-5ba0f7a312a0
+Date / worker / site: 2025-12-23 / 김재형 / S050
+Current: site=974ddc6a-97c5-48a5-b13a-5361af92c896 (용인 Y1 IBL CUB동 이색보수 철야공사(11월)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=2.5, memo="2층 거의마무리"
+Expected: site=S050 -> 05b1575c-b4f0-48c7-9a45-4d45e031cc2d, worker=김재형, raw_md=2.5, countable_md=2.5, memo="12BL 회의 · 2층 거의마무리"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0190] MULTI_FIELD_CORRECTION
+Canonical key: WL-a079a4dc0722ff42b6a67b6d
+Production UUID: f0758578-a180-4138-b476-0d3091a0ef30
+Date / worker / site: 2026-08-18 / 권용호 / S148
+Current: site=ca04e2a4-cdc6-4a05-b307-f37c8a596b42 (인천검단19BL 거더조인트채움보수), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="지붕층 거더 우레탄폼작업(첫날)"
+Expected: site=S148 -> 216a794c-d602-4735-9bce-4adbcf870b9a, worker=권용호, raw_md=1, countable_md=1, memo="김혜영이씀.도면보고"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+[P5D-0191] MULTI_FIELD_CORRECTION
+Canonical key: WL-86703a73b594367a021b107c
+Production UUID: ebd4291f-c9a1-410b-9776-d9d42ef90d97
+Date / worker / site: 2026-08-22 / 김재형 / S059
+Current: site=39fdb97d-1203-4ac2-872f-d71ad9d8672a (이천안평리물류센터(GPC)), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="지하1층 하역장마감 지상4층 면처리마감(1차마무리)"
+Expected: site=S059 -> 3e9d2aad-ead8-4f41-b557-0572fc40d7eb, worker=김재형, raw_md=1, countable_md=1, memo="이천중리만듣고씀. 김혜영."
+Evidence: unique same-event correction candidate
+Recommendation / confidence: USE_CANONICAL_MULTI_FIELD / LOW
+
+
+## 5. Deferred identities — timeline summary
+
+S111: 14 rows, 2026-01-15..2026-04-04; months=2026-01, 2026-02, 2026-03, 2026-04; workers=권용호, 김재형
+Candidates:
+- dd456f1f-4032-4026-ad3e-5b1b2a0b34de | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사 | 2025-10-24..2026-06-08 | STILL_DEFER
+
+S130: 7 rows, 2026-04-03..2026-07-22; months=2026-04, 2026-07; workers=권용호, 김재형, 송용호, 윤정수
+Candidates:
+- f58b7fa1-c5fa-47a5-ac78-6c226da1019b | SK하이닉스 Y1 CUB(SK에코플랜트) 반도체 PC공사 6층 PC부재 보수 | 2026-04-03..2026-04-04 | STILL_DEFER
+- ef9c3818-7163-438b-8e5d-f0e50e9298ff | SK하이닉스 Y1 CUB(SK에코플랜트) 반도체 PC공사 5층 PC부재 보수 | 2026-03-20..2026-03-21 | STILL_DEFER
+- bfc6fa05-10e8-4e63-8693-97d20586649f | SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수 기술용역(2층) | 2025-11-14..2026-08-25 | STILL_DEFER
+- 127e46f3-9d4d-4fba-b276-bcf53791befd | SK하이닉스 Y1 CUB동(SK에코플랜트) PC부재 보수 | 2025-09-05..2026-07-22 | STILL_DEFER
+- b6cf6218-b702-4e53-9396-ca18ea47a277 | SK하이닉스 Y1 CUB동(SK에코플랜트) 4층 마감보수 | 2026-02-14..2026-03-07 | STILL_DEFER
+
+S150: 3 rows, 2026-08-02..2026-08-07; months=2026-08; workers=김재형
+Candidates:
+- dd456f1f-4032-4026-ad3e-5b1b2a0b34de | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사 | 2025-10-24..2026-06-08 | STILL_DEFER
+
+S151: 15 rows, 2026-03-03..2026-03-30; months=2026-03; workers=권용호, 김재형, 송용호, 윤정수
+Candidates:
+- 418b5d43-83c3-43ed-be95-9696891e0be0 | 용인 Y1 IBL CUB동 이색보수 철야공사(2월) | 2026-02-10..2026-02-25 | STILL_DEFER
+- 974ddc6a-97c5-48a5-b13a-5361af92c896 | 용인 Y1 IBL CUB동 이색보수 철야공사(11월) | 2025-12-02..2025-12-23 | STILL_DEFER
+- 05b1575c-b4f0-48c7-9a45-4d45e031cc2d | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수 철야공사(12월) | 2026-07-10..2026-07-11 | STILL_DEFER
+- dd456f1f-4032-4026-ad3e-5b1b2a0b34de | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사 | 2025-10-24..2026-06-08 | STILL_DEFER
+- a09de46d-86ac-4840-a339-2149a816ced8 | 용인Y1 IBL CUB현장 보수 |  | STILL_DEFER
+
+S152: 6 rows, 2026-04-01..2026-04-06; months=2026-04; workers=송용호, 윤정수
+Candidates:
+- 418b5d43-83c3-43ed-be95-9696891e0be0 | 용인 Y1 IBL CUB동 이색보수 철야공사(2월) | 2026-02-10..2026-02-25 | STILL_DEFER
+- 974ddc6a-97c5-48a5-b13a-5361af92c896 | 용인 Y1 IBL CUB동 이색보수 철야공사(11월) | 2025-12-02..2025-12-23 | STILL_DEFER
+- 05b1575c-b4f0-48c7-9a45-4d45e031cc2d | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수 철야공사(12월) | 2026-07-10..2026-07-11 | STILL_DEFER
+- dd456f1f-4032-4026-ad3e-5b1b2a0b34de | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사 | 2025-10-24..2026-06-08 | STILL_DEFER
+- a09de46d-86ac-4840-a339-2149a816ced8 | 용인Y1 IBL CUB현장 보수 |  | STILL_DEFER
+
+S153: 6 rows, 2026-05-11..2026-05-13; months=2026-05; workers=권용호, 김재형, 송용호
+Candidates:
+- 418b5d43-83c3-43ed-be95-9696891e0be0 | 용인 Y1 IBL CUB동 이색보수 철야공사(2월) | 2026-02-10..2026-02-25 | STILL_DEFER
+- 974ddc6a-97c5-48a5-b13a-5361af92c896 | 용인 Y1 IBL CUB동 이색보수 철야공사(11월) | 2025-12-02..2025-12-23 | STILL_DEFER
+- 05b1575c-b4f0-48c7-9a45-4d45e031cc2d | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수 철야공사(12월) | 2026-07-10..2026-07-11 | STILL_DEFER
+- dd456f1f-4032-4026-ad3e-5b1b2a0b34de | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사 | 2025-10-24..2026-06-08 | STILL_DEFER
+- a09de46d-86ac-4840-a339-2149a816ced8 | 용인Y1 IBL CUB현장 보수 |  | STILL_DEFER
+
+S154: 10 rows, 2026-05-27..2026-06-08; months=2026-05, 2026-06; workers=김재형, 송용호
+Candidates:
+- dd456f1f-4032-4026-ad3e-5b1b2a0b34de | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수공사 | 2025-10-24..2026-06-08 | STILL_DEFER
+- 05b1575c-b4f0-48c7-9a45-4d45e031cc2d | 용인 Y1 SK하이닉스 IBL CUB동 PC 이색 보수 철야공사(12월) | 2026-07-10..2026-07-11 | STILL_DEFER
+- 418b5d43-83c3-43ed-be95-9696891e0be0 | 용인 Y1 IBL CUB동 이색보수 철야공사(2월) | 2026-02-10..2026-02-25 | STILL_DEFER
+- df54b839-2cd3-416b-b2c1-db81b70b681a | 용인Y1하이닉스 IBL CUB 6층 PC 기둥 할석 및 미장 보수공사 | 2026-01-16..2026-01-16 | STILL_DEFER
+
+S155: 4 rows, 2026-07-10..2026-07-11; months=2026-07; workers=권용호, 김재형
+Candidates:
+- a09de46d-86ac-4840-a339-2149a816ced8 | 용인Y1 IBL CUB현장 보수 |  | STILL_DEFER
+- 418b5d43-83c3-43ed-be95-9696891e0be0 | 용인 Y1 IBL CUB동 이색보수 철야공사(2월) | 2026-02-10..2026-02-25 | STILL_DEFER
+- 974ddc6a-97c5-48a5-b13a-5361af92c896 | 용인 Y1 IBL CUB동 이색보수 철야공사(11월) | 2025-12-02..2025-12-23 | STILL_DEFER
+
+S168: 1 rows, 2025-03-29..2025-03-29; months=2025-03; workers=강영권외
+Candidates:
+- 247f1c4d-d22c-4ff0-8b4d-dbe17795de75 | PC부재 커플러 보수공사 |  | STILL_DEFER
+
+
+## 6. True missing Production candidates
+
+Count: 62
+
+[P5D-0316] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-f20a55bf700b54d2a441d605
+Production UUID: (none)
+Date / worker / site: 2025-02-19 / 권용호 / S071
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="화성 보수재 생산"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0317] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-2e6e54f9ef40efda128982e8
+Production UUID: (none)
+Date / worker / site: 2025-03-04 / 이찬우 / S077
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S077 -> 97ad1dbb-5165-4878-a819-700601172e16, worker=이찬우, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0318] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-1649a1e29e9b1f5284376f02
+Production UUID: (none)
+Date / worker / site: 2025-03-06 / 김재형 / S055
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S055 -> 29655d43-31af-4707-b8c5-fd506ab8fcfa, worker=김재형, raw_md=0.5, countable_md=0.5, memo="여주점봉"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0319] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-2187c864a879b378ea76af3a
+Production UUID: (none)
+Date / worker / site: 2025-03-10 / 이찬우 / S033
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=이찬우, raw_md=0.5, countable_md=0.5, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0320] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-41019ff0fae10b8794e1f0e3
+Production UUID: (none)
+Date / worker / site: 2025-03-11 / 이장환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이장환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0321] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-e32e4bc30c80e890afe1a7ab
+Production UUID: (none)
+Date / worker / site: 2025-03-11 / 이찬우 / S033
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=이찬우, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0322] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-28473a3b131cb6136741a9b7
+Production UUID: (none)
+Date / worker / site: 2025-03-12 / 이장환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이장환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0323] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-336925d9a9a7dff07a5d3c2f
+Production UUID: (none)
+Date / worker / site: 2025-03-13 / 이장환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이장환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0324] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-5f31f550204040da898e54ab
+Production UUID: (none)
+Date / worker / site: 2025-03-14 / 이장환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이장환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0325] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-e17c3ca23eb97751f232f938
+Production UUID: (none)
+Date / worker / site: 2025-03-15 / 이장환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이장환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0326] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-926d9dc97c24cdcb75ad192c
+Production UUID: (none)
+Date / worker / site: 2025-03-17 / 이장환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이장환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0327] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-c22a8af0c3274e7d23219dec
+Production UUID: (none)
+Date / worker / site: 2025-03-17 / 이두환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이두환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0328] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-8a8d42cb38e54da9af864afc
+Production UUID: (none)
+Date / worker / site: 2025-03-18 / 이장환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이장환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0329] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-e44374d14c519995b482bb2c
+Production UUID: (none)
+Date / worker / site: 2025-03-18 / 이두환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이두환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0330] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-0992f60b88c8d31192ef8c3a
+Production UUID: (none)
+Date / worker / site: 2025-03-19 / 이장환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이장환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0331] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-8a1740e48030e622660a3a00
+Production UUID: (none)
+Date / worker / site: 2025-03-19 / 이두환 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=이두환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0332] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-7ef4ce07185abe8bbda9990a
+Production UUID: (none)
+Date / worker / site: 2025-03-28 / 강영권외 / S018
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=강영권외, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0333] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-d8556e620f0e2fb191990583
+Production UUID: (none)
+Date / worker / site: 2025-03-31 / 강영권외 / S018
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=강영권외, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0334] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-4f2a11a04c77cc1618e42593
+Production UUID: (none)
+Date / worker / site: 2025-04-10 / 권용호 / S071
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]보수재 제조*믹서기고장으로 20번돌림"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0335] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-a84e78e0d806bac8527ddbd0
+Production UUID: (none)
+Date / worker / site: 2025-04-13 / 권용호 / S093
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S093 -> dcb40097-9c17-489f-a7cc-af4c5902fd32, worker=권용호, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0336] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-a40cede6754add15de6e32a7
+Production UUID: (none)
+Date / worker / site: 2025-04-30 / 김재형 / S071
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=0.5, countable_md=0.5, memo="[KC]반포 래미안 갔다가 작업이 않된다 해서 화성으로 이동함. 오전 10시경"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0337] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-f7cf3373570e4f95b78614e9
+Production UUID: (none)
+Date / worker / site: 2025-05-18 / 권용호 / S010
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="5월 금전출납장 데이터 기반 생성"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0338] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-ca23448bed117c18ef8bf1bd
+Production UUID: (none)
+Date / worker / site: 2025-05-22 / 김재형 / S040
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S040 -> ce807ee2-7e23-48e2-81e5-a33f10a2fc19, worker=김재형, raw_md=0.5, countable_md=0.5, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0339] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-8031c92015b2a49f7cf597a6
+Production UUID: (none)
+Date / worker / site: 2025-05-30 / 송용호 / S010
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0340] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-383fe10b882199bf14a0ff13
+Production UUID: (none)
+Date / worker / site: 2025-05-31 / 송용호 / S067
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=송용호, raw_md=1, countable_md=1, memo="출역0824 누락후보"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0341] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-8f4e33287061b693636d81c8
+Production UUID: (none)
+Date / worker / site: 2025-05-31 / 권용호 / S067
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=권용호, raw_md=1, countable_md=1, memo="출역0824 누락후보"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0342] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-6566af3409bd5e610cf97778
+Production UUID: (none)
+Date / worker / site: 2025-06-01 / 김재형 / S094
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S094 -> de08a5a5-c9de-4405-acce-5819699ea197, worker=김재형, raw_md=0, countable_md=0, memo="케이원 김포로지스(SK에코플랜트)물류센터 PC부재 보수"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0343] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-5a08b9ef0b74dd6966afb077
+Production UUID: (none)
+Date / worker / site: 2025-06-06 / 김재형 / S071
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=김재형, raw_md=1, countable_md=1, memo="보수재생산"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0344] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-c02b7b54ca6ee6f215e72499
+Production UUID: (none)
+Date / worker / site: 2025-06-09 / 권용호 / S071
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]화성 공장 보수재 제조 및 폐기물 처리 지게차인계 npc 원료 벌크차 받는날"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0345] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-b5cdf54641b845a017762de3
+Production UUID: (none)
+Date / worker / site: 2025-06-12 / 권용호 / S003
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=권용호, raw_md=1, countable_md=1, memo="송도4차"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0346] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-e839766fb1b13e1d72d249c9
+Production UUID: (none)
+Date / worker / site: 2025-06-12 / 송용호 / S003
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S003 -> 12f46c0d-286e-48b1-be2e-70de8c268676, worker=송용호, raw_md=1, countable_md=1, memo="송도4차"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0347] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-06fe101a18f31acec17ac95a
+Production UUID: (none)
+Date / worker / site: 2025-06-13 / 권용호 / S071
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="화성보수재생산 및 출고 · 오후1시 노루페인트30통 수령예정"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0348] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-32957944d121bdad688abff0
+Production UUID: (none)
+Date / worker / site: 2025-06-30 / 송용호 / S017
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S017 -> 5603ec61-debc-40d3-bef8-c602be4f9f43, worker=송용호, raw_md=1, countable_md=1, memo="송도4차 · 지하2층 큐토스 점검보수"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0349] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-72180b1a38c9808979c0571e
+Production UUID: (none)
+Date / worker / site: 2025-07-01 / 송용호 / S017
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S017 -> 5603ec61-debc-40d3-bef8-c602be4f9f43, worker=송용호, raw_md=1, countable_md=1, memo="송도4차 · 지하2층 큐토스 점검보수"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0350] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-7a7be560828da4bda6a99241
+Production UUID: (none)
+Date / worker / site: 2025-07-17 / 김재형 / S074
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S074 -> 9663923c-070f-4753-9476-b5142829a389, worker=김재형, raw_md=0.5, countable_md=0.5, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0351] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-68b12a89082f19ee9087cb79
+Production UUID: (none)
+Date / worker / site: 2025-07-26 / 권용호 / S071
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="화성보수재 생산"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0352] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-be8048516468efa15c910c46
+Production UUID: (none)
+Date / worker / site: 2025-07-29 / 권용호 / S071
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="화성보수재 생산"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0353] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-583c1ce9858dcf9d37db8061
+Production UUID: (none)
+Date / worker / site: 2025-08-21 / 송용호 / S067
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S067 -> 7cdd5e25-3c79-443f-bd17-105508a72661, worker=송용호, raw_md=1, countable_md=1, memo="여수죽림"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0354] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-3b71c24f9f2e674870a2097f
+Production UUID: (none)
+Date / worker / site: 2025-09-05 / 송용호 / S131
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S131 -> 127e46f3-9d4d-4fba-b276-bcf53791befd, worker=송용호, raw_md=2.5, countable_md=2.5, memo="삼표기둥 마감작업철야"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0355] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-bb300cdbab05d67f5c890726
+Production UUID: (none)
+Date / worker / site: 2025-09-05 / 송용호 / S058
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0356] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-63e356879de1497df88c200b
+Production UUID: (none)
+Date / worker / site: 2025-09-09 / 송용호 / S058
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S058 -> 3a17153c-9d21-4759-a804-c6cf1da4d82a, worker=송용호, raw_md=1, countable_md=1, memo="포항내려감"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0357] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-c8b8da1012e3722cd5bf28a2
+Production UUID: (none)
+Date / worker / site: 2025-09-09 / 김재형 / S131
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S131 -> 127e46f3-9d4d-4fba-b276-bcf53791befd, worker=김재형, raw_md=1, countable_md=1, memo="철야 기둥 마감"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0358] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-d7b7836fd407b75d313c1dba
+Production UUID: (none)
+Date / worker / site: 2025-09-09 / 김재형 / S006
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S006 -> 2aa9666d-415d-4291-94f0-356b7b4db3e6, worker=김재형, raw_md=1, countable_md=1, memo="철야끝나고 바로출발 오전6시20분도착"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0359] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-1f66ba6918a594f0c29de5a9
+Production UUID: (none)
+Date / worker / site: 2025-09-10 / 김재형 / S091
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S091 -> d518d26a-3405-436a-9ea9-da20896dd8f4, worker=김재형, raw_md=1, countable_md=1, memo="부재커팅"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0360] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-3d92d80d254cbb76288a20c0
+Production UUID: (none)
+Date / worker / site: 2025-09-19 / 김재형 / S006
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S006 -> 2aa9666d-415d-4291-94f0-356b7b4db3e6, worker=김재형, raw_md=0.5, countable_md=0.5, memo="안성어딘지정확히한번더확인할것"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0361] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-5331292bcb57429e2fa6dd00
+Production UUID: (none)
+Date / worker / site: 2025-09-22 / 송용호 / S006
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S006 -> 2aa9666d-415d-4291-94f0-356b7b4db3e6, worker=송용호, raw_md=1, countable_md=1, memo="지하1층 스카이 작업"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0362] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-5e219b53b3f9ed5808dbcff8
+Production UUID: (none)
+Date / worker / site: 2025-09-22 / 김재형 / S034
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S034 -> ad41c8b8-acb7-44d9-b78a-4451b3266965, worker=김재형, raw_md=0.5, countable_md=0.5, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0363] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-e6841ea0a5968fcf3cebef38
+Production UUID: (none)
+Date / worker / site: 2025-09-30 / 김재형 / S006
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S006 -> 2aa9666d-415d-4291-94f0-356b7b4db3e6, worker=김재형, raw_md=0.5, countable_md=0.5, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0365] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-bf627bee3bb21423bb876a7b
+Production UUID: (none)
+Date / worker / site: 2025-10-18 / 송용호 / S006
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S006 -> 2aa9666d-415d-4291-94f0-356b7b4db3e6, worker=송용호, raw_md=1, countable_md=1, memo="안전교육장 1층도크3층도크 및 지하1층지상1층미비구간 지상4층거더턱미비구간3층코어기둥 2개 보수"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0366] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-31de29381e0c5db3cb8bf0ea
+Production UUID: (none)
+Date / worker / site: 2025-11-12 / 김재형 / S049
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S049 -> 020eae00-97cb-4f37-ad1e-0c2fbcbfb797, worker=김재형, raw_md=0.5, countable_md=0.5, memo="11시50분까지 음성(밴드라인공장) 도착후 발코니턱컷팅(1매)"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0367] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-2e5aa3bcf8afee729cc868bf
+Production UUID: (none)
+Date / worker / site: 2025-11-15 / 김재형 / S063
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S063 -> 5a20db88-710f-4c13-afc9-c4663d6592ae, worker=김재형, raw_md=1, countable_md=1, memo="브라켓마무리이동작업 통로구간5개 후 IS용인Y1IBLCUB이색보수 철야25.11"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0369] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-f4957cd8d5b0a444ca55428c
+Production UUID: (none)
+Date / worker / site: 2025-11-20 / 이두환 / S063
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S063 -> 5a20db88-710f-4c13-afc9-c4663d6592ae, worker=이두환, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0372] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-ae4e0af8c6c46ca1474455c2
+Production UUID: (none)
+Date / worker / site: 2025-11-27 / 김재형 / S056
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S056 -> 2ff5d22d-5cb2-4242-904b-ca2abe41fe88, worker=김재형, raw_md=1, countable_md=1, memo="샘플 및 협의"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0373] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-bf3600be5e1431e0fe62458d
+Production UUID: (none)
+Date / worker / site: 2025-12-05 / 김재형 / S064
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S064 -> 5b925522-72de-4297-a8bd-2091c6e1e071, worker=김재형, raw_md=1, countable_md=1, memo="2025-12-05 용인 Y1 2.0공수 + 대전지하차도 PCWALL 1.0공수 · 합계 3.0공수/900000원 · 분리 2/2 · 대전도안리버파크 단차보수 단건을 PCWALL 표준현장으로 정규화"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0374] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-313d41709d8ff348da1ec68e
+Production UUID: (none)
+Date / worker / site: 2025-12-16 / 김재형 / S006
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S006 -> 2aa9666d-415d-4291-94f0-356b7b4db3e6, worker=김재형, raw_md=1, countable_md=1, memo="지하1층지상3층 펀치리스트"
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0377] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-3d7ef6f5b7a56ce7deb58066
+Production UUID: (none)
+Date / worker / site: 2026-01-15 / 이문규지원1 / S035
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S035 -> ae1a4bec-35c3-4401-be6a-1e082e45b071, worker=이문규지원1, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0378] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-5757fdba42d23c66616171cf
+Production UUID: (none)
+Date / worker / site: 2026-01-15 / 이문규지원 / S035
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S035 -> ae1a4bec-35c3-4401-be6a-1e082e45b071, worker=이문규지원, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0379] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-36429a01be92fc40cac1f092
+Production UUID: (none)
+Date / worker / site: 2026-01-16 / 이문규지원 / S035
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S035 -> ae1a4bec-35c3-4401-be6a-1e082e45b071, worker=이문규지원, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0380] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-850faae9c88fc68f2e55acea
+Production UUID: (none)
+Date / worker / site: 2026-01-16 / 이문규지원1 / S035
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S035 -> ae1a4bec-35c3-4401-be6a-1e082e45b071, worker=이문규지원1, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0381] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-1c09294208726bc5092986bf
+Production UUID: (none)
+Date / worker / site: 2026-01-17 / 이문규지원 / S089
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S089 -> c94892d8-e7a3-4888-8267-0b7734a7b8bf, worker=이문규지원, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0382] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-3991140f0e6b9e0564b5fbbf
+Production UUID: (none)
+Date / worker / site: 2026-01-17 / 이문규지원1 / S089
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S089 -> c94892d8-e7a3-4888-8267-0b7734a7b8bf, worker=이문규지원1, raw_md=1, countable_md=1, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+[P5D-0383] TRUE_MISSING_PRODUCTION_WORKLOG
+Canonical key: WL-e3b29136d9962aec58364639
+Production UUID: (none)
+Date / worker / site: 2026-01-17 / 최현준 / S085
+Current: site= (), worker= (), md=null, memo=""
+Expected: site=S085 -> c00550ed-9531-4124-b7e7-6c1eccdf7982, worker=최현준, raw_md=0, countable_md=0, memo=""
+Evidence: no unclaimed Production candidate under approved identities
+Recommendation / confidence: INSERT_MISSING_CANDIDATE / MEDIUM
+
+
+## 7. Memo business differences
+
+Count: 51
+
+[P5D-0405] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-6be942de6772771e47247c92
+Production UUID: 19f65303-26ae-4239-b813-109e8cb6483a
+Date / worker / site: 2025-02-24 / 강영권 / S018
+Current: site=5d4991b9-bdd3-449c-a152-6d27cff37271 (아이에스동서 부산기장  PC세그먼트 볼트박스 보수 및 마감공사), worker=4515e020-ac4c-4911-be0f-67f556aba4f1 (강영권), md=1, memo="[IS동서][지엠에스코리아] IS세그먼트"
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=강영권, raw_md=1, countable_md=1, memo="부산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0406] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-742dd6543c98fd1f8c649c31
+Production UUID: 355fee70-ba44-42d4-920e-ce04cdf97967
+Date / worker / site: 2025-02-24 / 권용호 / S018
+Current: site=5d4991b9-bdd3-449c-a152-6d27cff37271 (아이에스동서 부산기장  PC세그먼트 볼트박스 보수 및 마감공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[IS동서][지엠에스코리아] IS세그먼트"
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=권용호, raw_md=1, countable_md=1, memo="부산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0410] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-86a86edbdd750475cc0ea806
+Production UUID: c394c3e1-0e26-48ac-933c-8f9b3eec399a
+Date / worker / site: 2025-02-25 / 강영권 / S018
+Current: site=5d4991b9-bdd3-449c-a152-6d27cff37271 (아이에스동서 부산기장  PC세그먼트 볼트박스 보수 및 마감공사), worker=4515e020-ac4c-4911-be0f-67f556aba4f1 (강영권), md=1, memo="[IS동서][지엠에스코리아] IS세그먼트"
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=강영권, raw_md=1, countable_md=1, memo="부산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0411] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-d4d475d817ea60d97d63d493
+Production UUID: 2c7860fc-7758-45da-8604-0206e95d91fd
+Date / worker / site: 2025-02-25 / 권용호 / S018
+Current: site=5d4991b9-bdd3-449c-a152-6d27cff37271 (아이에스동서 부산기장  PC세그먼트 볼트박스 보수 및 마감공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[IS동서][지엠에스코리아] IS세그먼트"
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=권용호, raw_md=1, countable_md=1, memo="부산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0412] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-34848b724616e0d6e8945f13
+Production UUID: c3816454-646e-44bc-bc71-af8d8c662ed2
+Date / worker / site: 2025-02-26 / 강영권 / S018
+Current: site=5d4991b9-bdd3-449c-a152-6d27cff37271 (아이에스동서 부산기장  PC세그먼트 볼트박스 보수 및 마감공사), worker=4515e020-ac4c-4911-be0f-67f556aba4f1 (강영권), md=1, memo="[IS동서][지엠에스코리아] IS세그먼트"
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=강영권, raw_md=1, countable_md=1, memo="부산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0414] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-ade297b57eb35f4ba8ef65be
+Production UUID: cd149145-22e3-4059-a5df-50db6d1c9eba
+Date / worker / site: 2025-02-26 / 권용호 / S018
+Current: site=5d4991b9-bdd3-449c-a152-6d27cff37271 (아이에스동서 부산기장  PC세그먼트 볼트박스 보수 및 마감공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[IS동서][지엠에스코리아] IS세그먼트"
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=권용호, raw_md=1, countable_md=1, memo="부산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0416] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-bbca25586c200919268c1f4c
+Production UUID: d1809c2b-12ea-4854-9a82-de51e38e8a0a
+Date / worker / site: 2025-02-27 / 강영권 / S018
+Current: site=5d4991b9-bdd3-449c-a152-6d27cff37271 (아이에스동서 부산기장  PC세그먼트 볼트박스 보수 및 마감공사), worker=4515e020-ac4c-4911-be0f-67f556aba4f1 (강영권), md=1, memo="[IS동서][지엠에스코리아] IS세그먼트"
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=강영권, raw_md=1, countable_md=1, memo="부산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0418] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-ed48e0b362ab4ce21647e03d
+Production UUID: 5ceb8860-c8e3-45bf-81a0-08ffbe40665f
+Date / worker / site: 2025-02-27 / 권용호 / S018
+Current: site=5d4991b9-bdd3-449c-a152-6d27cff37271 (아이에스동서 부산기장  PC세그먼트 볼트박스 보수 및 마감공사), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="[IS동서][지엠에스코리아] IS세그먼트"
+Expected: site=S018 -> 5d4991b9-bdd3-449c-a152-6d27cff37271, worker=권용호, raw_md=1, countable_md=1, memo="부산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0423] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-e81168cd8a2a4f5a3c9e4599
+Production UUID: 58d8821c-784d-49c3-8ef7-78ef5716caec
+Date / worker / site: 2025-03-12 / 송용호 / S054
+Current: site=1881dfa7-1412-40ae-aca9-44f7ec4cc7d9 (동양 인천검단레이트), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="누락추가(근거: 2503 출력일보)"
+Expected: site=S054 -> 1881dfa7-1412-40ae-aca9-44f7ec4cc7d9, worker=송용호, raw_md=1, countable_md=1, memo="인천검단 *저수조 오염 세척작업후 퇴근"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0463] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-a65ab9f898cf95375ded3788
+Production UUID: 7b92073f-7de9-48ee-910e-02a8ed499fd5
+Date / worker / site: 2025-05-01 / 송용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=송용호, raw_md=1, countable_md=1, memo="[화성]페인트칠하러 갔으나 비가와서 0.5공수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0464] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-d38bcd5e488fcf189894a464
+Production UUID: 522c3c0c-0ab4-449e-8bbb-4b448170bb7e
+Date / worker / site: 2025-05-01 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]페인트칠하러 갔으나 비가와서 0.5공수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0466] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-f6d8e3f0ba2431a4e3155329
+Production UUID: a3e2de30-7ecd-47b8-a546-eb0110454287
+Date / worker / site: 2025-05-02 / 권용호 / S033
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=권용호, raw_md=1, countable_md=1, memo="반포래미안"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0469] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-27a6bb2cfd2f3ab62d9edc7b
+Production UUID: 4c5c7ed0-63b0-4bc4-8952-ffc4d1a27138
+Date / worker / site: 2025-05-05 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0470] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-ce7358853dbeda90ebcbbc8d
+Production UUID: 2a5383d5-6bf7-4988-83a4-69f840368f7e
+Date / worker / site: 2025-05-05 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0471] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-ead827689f6a5b92d82ddd98
+Production UUID: 62ce8763-177c-49e2-ae85-ba4566d564e2
+Date / worker / site: 2025-05-06 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0473] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-f5756f63e012dc33fed78ee4
+Production UUID: 3936113b-236c-4298-83df-8f3ea02fb619
+Date / worker / site: 2025-05-06 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0474] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-2a1d49d8ec95f59281c34e2b
+Production UUID: 8eba0f24-6947-40a6-ab0d-e4003a061641
+Date / worker / site: 2025-05-07 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0476] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-d10b17ffea2c2ba482ba446a
+Production UUID: 75a338f6-e3a2-4b0f-9c2c-79028308d2dc
+Date / worker / site: 2025-05-07 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0477] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-21eb08bf2d898a7cd2729679
+Production UUID: 84a5116a-ebfa-437c-895f-dcdaa18c5358
+Date / worker / site: 2025-05-08 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0479] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-8f9ca99c22dff17cdd314324
+Production UUID: d622503a-f6f8-4475-be58-49d779b6e742
+Date / worker / site: 2025-05-08 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0480] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-41e1541369e588fb910f6cb1
+Production UUID: 0d4f3dbb-fb7c-4139-9269-eb56e84b21c0
+Date / worker / site: 2025-05-09 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0481] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-4273879e72989aa63b779f65
+Production UUID: 28b670a8-b853-410b-979c-7a0df585a9c7
+Date / worker / site: 2025-05-09 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0483] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-1b659ffd6b1866fdc4448596
+Production UUID: 03033bf7-726a-431a-99bd-511429b5b3dc
+Date / worker / site: 2025-05-10 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]보수재 생산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0484] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-934532fd1d46b62fe199fb98
+Production UUID: 825d2dac-4a9d-4706-9c9c-65495aece33b
+Date / worker / site: 2025-05-10 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0486] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-0464f84f6a44ccf9fd24fad7
+Production UUID: f26ed257-fdad-4a9c-ab35-c24ffe256669
+Date / worker / site: 2025-05-12 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]보수재 생산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0488] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-2771c8ea98fdb8ce15a09c72
+Production UUID: d9338266-50dc-4aeb-8198-c230e8270e1b
+Date / worker / site: 2025-05-12 / 송용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=송용호, raw_md=1, countable_md=1, memo="[화성]페인트작업"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0490] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-9801f8adfc77d5d8a6cd2d7d
+Production UUID: a654e51b-c503-445c-a246-648afa97c6f5
+Date / worker / site: 2025-05-15 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]보수재 생산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0491] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-42428b99660afa61f9d80e21
+Production UUID: e790276e-5214-4ee3-b863-018e1c11d2cb
+Date / worker / site: 2025-05-16 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성] 보수재 생산·제조근무"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0493] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-23e3621e03380e5234731b2a
+Production UUID: 14a39aad-17a1-49d3-a839-67580e571b6d
+Date / worker / site: 2025-05-17 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0494] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-36a1317dea55d51f0a394c88
+Production UUID: 58c909ca-9093-42e1-9bf6-1d64f78b0ea3
+Date / worker / site: 2025-05-17 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0496] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-149bcec288c5a1815c3be230
+Production UUID: 38e934e4-8b43-46b3-8c96-9e72ef2bfdfb
+Date / worker / site: 2025-05-19 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0497] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-d9238086e29ff4126c057edc
+Production UUID: 2a8a69d1-8368-4f0b-ab56-2cd2e95338bb
+Date / worker / site: 2025-05-19 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0500] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-9431934a74ab526b54a693f8
+Production UUID: eeeefbde-d8c9-4ec0-9495-059e7df9d72a
+Date / worker / site: 2025-05-23 / 송용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=송용호, raw_md=1, countable_md=1, memo="[화성]"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0501] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-deae09e7748707d84c058c5d
+Production UUID: 1884c7b0-f618-44ee-bfe6-6d350525dd26
+Date / worker / site: 2025-05-23 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="[화성]보수재 생산"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0503] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-bf4fb5fdc4cc0db760e33d60
+Production UUID: fbc49332-412d-40ad-b5dc-fec96cdab718
+Date / worker / site: 2025-05-26 / 권용호 / S071
+Current: site=89e6af95-832d-42d6-aae4-ec9cb0ba60cd (화성제조), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S071 -> 89e6af95-832d-42d6-aae4-ec9cb0ba60cd, worker=권용호, raw_md=1, countable_md=1, memo="송도 4차"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0504] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-6b76c10c68ef2656a3f65b5d
+Production UUID: 1a0f7a68-a480-4e88-b0c8-47e410897959
+Date / worker / site: 2025-05-28 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0505] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-fc7f2505ffdaaf86ed8f12c0
+Production UUID: d643d5d5-c10f-4b04-a963-33de4873e574
+Date / worker / site: 2025-05-28 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0506] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-716c2513e64d356d7c9edb5e
+Production UUID: 577bc6b3-94ea-4aa8-82cc-11598409fd2b
+Date / worker / site: 2025-05-29 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0507] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-c450b3ddfbce98ea6fb7e62b
+Production UUID: 7e35dd84-2ccb-46ba-8df3-7f59c514592d
+Date / worker / site: 2025-05-29 / 김재형 / S033
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=김재형, raw_md=1, countable_md=1, memo="반포래미안 방문 후 안성일죽으로 이동"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0508] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-ed03291dcc1062bfbb915736
+Production UUID: 4853cc64-68e7-4c28-86aa-779f488bda0c
+Date / worker / site: 2025-05-29 / 송용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="5월 금전출납장 데이터 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=송용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0509] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-3dc7a65dbed3b74ea156294e
+Production UUID: 284fbf62-9b11-46b4-bbfe-167b4aba79ea
+Date / worker / site: 2025-05-30 / 권용호 / S010
+Current: site=36be6eb3-f373-45a2-ba32-39000f322194 (안성일죽 물류센터PC마감 1차기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="5월 출력일보 기반 생성"
+Expected: site=S010 -> 36be6eb3-f373-45a2-ba32-39000f322194, worker=권용호, raw_md=1, countable_md=1, memo="안성일죽물류센터"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0595] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-f2146217c54ccb740cf8a127
+Production UUID: a854f691-2f28-4513-86d9-64b43ba91061
+Date / worker / site: 2025-08-09 / 김재형 / S002
+Current: site=0ef0a27b-051c-47c6-88f5-5ae8c0608003 (일산지하차도 PC부재 균열 및 부분터치업), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="삼일"
+Expected: site=S002 -> 0ef0a27b-051c-47c6-88f5-5ae8c0608003, worker=김재형, raw_md=1, countable_md=1, memo="일산현장보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0643] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-9cecf13bdcdb046da93e39e9
+Production UUID: 7b2c49e0-3d78-484e-9a29-9c148180a0e1
+Date / worker / site: 2025-11-15 / 권용호 / S063
+Current: site=5a20db88-710f-4c13-afc9-c4663d6592ae (PC기둥 미니브라켓 설계누락 외), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="26.04확인후작성"
+Expected: site=S063 -> 5a20db88-710f-4c13-afc9-c4663d6592ae, worker=권용호, raw_md=1, countable_md=1, memo="브라켓마무리이동작업 통로구간5개 후 IS용인Y1IBLCUB이색보수25.11 철야"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0654] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-895b942477c4404689aa3b96
+Production UUID: 09e5317f-a976-4fee-a451-6da6ae8ca458
+Date / worker / site: 2025-12-23 / 권용호 / S033
+Current: site=ab405b52-9df3-4979-b47c-dd01eee0f695 (반포래미안 PC부재 보수공사 1차,최종기성), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="오전에 반포에서 카드결제한 내역확인"
+Expected: site=S033 -> ab405b52-9df3-4979-b47c-dd01eee0f695, worker=권용호, raw_md=1, countable_md=1, memo="102동 지하2층 램프 1차 올퍼티"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0667] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-5b41c5a7d060dd79c8132b0d
+Production UUID: f65357d0-0bab-498b-aa9e-49549c7ab83a
+Date / worker / site: 2026-02-03 / 최현준 / S085
+Current: site=c00550ed-9531-4124-b7e7-6c1eccdf7982 (광주첨단센트럴(현대엔지니어링)), worker=e8546d19-1108-4e61-8953-b526ab9e5e91 (최현준), md=1, memo="보양"
+Expected: site=S085 -> c00550ed-9531-4124-b7e7-6c1eccdf7982, worker=최현준, raw_md=1, countable_md=1, memo="기둥퍼티"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0668] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-7d1b3bccb9f02abcfc6b13b8
+Production UUID: 897fa33f-e029-42b5-bbfc-6c9a4e26c53b
+Date / worker / site: 2026-02-04 / 최현준 / S085
+Current: site=c00550ed-9531-4124-b7e7-6c1eccdf7982 (광주첨단센트럴(현대엔지니어링)), worker=e8546d19-1108-4e61-8953-b526ab9e5e91 (최현준), md=1, memo="보양"
+Expected: site=S085 -> c00550ed-9531-4124-b7e7-6c1eccdf7982, worker=최현준, raw_md=1, countable_md=1, memo="기둥퍼티"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0671] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-13e2b7c7ab0c8550ccd7560e
+Production UUID: a9b703cd-cc53-44d8-b8b5-db1939a41590
+Date / worker / site: 2026-02-11 / 권용호 / S109
+Current: site=b94f7783-7dde-4095-b4f8-516f90eab060 (KC산업 여주공장 기둥V컷팅보수건), worker=c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a (권용호), md=1, memo="2차퍼티 표면균열퍼티"
+Expected: site=S109 -> b94f7783-7dde-4095-b4f8-516f90eab060, worker=권용호, raw_md=1, countable_md=1, memo="기둥균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0672] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-c65d19f04a9ecc2bd7df4817
+Production UUID: 0821daa8-7f54-4267-9416-2367b26ec669
+Date / worker / site: 2026-02-11 / 최현준 / S109
+Current: site=b94f7783-7dde-4095-b4f8-516f90eab060 (KC산업 여주공장 기둥V컷팅보수건), worker=e8546d19-1108-4e61-8953-b526ab9e5e91 (최현준), md=1, memo="2차퍼티 표면균열퍼티"
+Expected: site=S109 -> b94f7783-7dde-4095-b4f8-516f90eab060, worker=최현준, raw_md=1, countable_md=1, memo="기둥균열보수"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0674] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-8db43ce72ba6ada0de82c4f0
+Production UUID: 09a7bc71-fdcf-4fe5-af2e-ad69a3cecfca
+Date / worker / site: 2026-08-14 / 김재형 / S149
+Current: site=d5387884-fb9a-4fe5-8381-baeec4652e43 (광주 중외공원 옥상조형물), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=1, memo="2단지 옥상조형물 면보수"
+Expected: site=S149 -> d5387884-fb9a-4fe5-8381-baeec4652e43, worker=김재형, raw_md=1, countable_md=1, memo="김혜영이씀."
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0676] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-7827e14ce0a3e4b0cc9a2405
+Production UUID: 8b05eb55-7b86-4b8f-9638-87d1207b254b
+Date / worker / site: 2026-08-20 / 송용호 / S122
+Current: site=39fdb97d-1203-4ac2-872f-d71ad9d8672a (이천안평리물류센터(GPC)), worker=c5f89d3d-b5a4-409e-9b1d-261b4c541930 (송용호), md=1, memo="지상4층기둥 마감 상부(하부)"
+Expected: site=S122 -> 39fdb97d-1203-4ac2-872f-d71ad9d8672a, worker=송용호, raw_md=1, countable_md=1, memo="김혜영이씀. 지상4층 기둥"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
+
+[P5D-0677] MEMO_BUSINESS_DIFFERENCE
+Canonical key: WL-9af8a97265acde296b4fcdd6
+Production UUID: 6d4aecb2-2eec-4ec0-a7d2-e90eef8184b7
+Date / worker / site: 2026-08-21 / 김재형 / S077
+Current: site=97ad1dbb-5165-4878-a819-700601172e16 (방배5구역), worker=2d962ad4-743d-4517-bf91-08fee94b2a75 (김재형), md=0.5, memo="지하4층 인젝션주입  해체"
+Expected: site=S077 -> 97ad1dbb-5165-4878-a819-700601172e16, worker=김재형, raw_md=0.5, countable_md=0.5, memo="김혜영이씀"
+Evidence: unique same-event correction candidate
+Recommendation / confidence: REVIEW_REQUIRED / MEDIUM
