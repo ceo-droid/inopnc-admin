@@ -1,0 +1,84 @@
+{
+  "dataset_version": "2026-09-03.v2",
+  "source_sha": "38e602b1e6c17e6af4931e019890738ef10e71001f15dfb86fa9aa1b8a64f327",
+  "primary_links": {
+    "sites": {
+      "S017": "5603ec61-debc-40d3-bef8-c602be4f9f43",
+      "S035": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+      "S064": "5b925522-72de-4297-a8bd-2091c6e1e071",
+      "S067": "7cdd5e25-3c79-443f-bd17-105508a72661",
+      "S068": "819c0b09-d093-4717-a09d-86896d527845",
+      "S090": "cbe2f007-9e29-4902-8d76-343d5cef005b",
+      "S091": "d518d26a-3405-436a-9ea9-da20896dd8f4",
+      "S106": "806a28f4-9cdb-4daf-8524-722de025c0b7",
+      "S112": "581e9847-9126-4932-a66b-f4429c2f2b0f",
+      "S118": "90a0a1ef-2507-46b7-a1a1-3b68a33e921b",
+      "S125": "c65ceacb-e796-4e4e-9603-2f630cdf37c1",
+      "S127": "ae2031f8-7c7f-48c1-a256-512579484eb1",
+      "S132": "364b1248-5fb1-4db8-aadf-d5ea9e5a775e",
+      "S137": "bb3bf261-1cf9-4594-b044-03d6e46971eb",
+      "S138": "df54b839-2cd3-416b-b2c1-db81b70b681a",
+      "S147": "2c636eae-9796-491c-80f9-45de9ca46d6f",
+      "S148": "216a794c-d602-4735-9bce-4adbcf870b9a",
+      "S172": "493e1e2d-452c-4aef-8b2c-22aa7331c9b3"
+    },
+    "workers": {
+      "외국인(필립)": "9137b6a9-30e9-4b6c-a0ce-417d8d311a5b"
+    },
+    "customers": {}
+  },
+  "legacy_components": {
+    "S067": [
+      "3471d20e-b920-4f46-94ae-4b67c2fcbc10",
+      "9ddbc746-f1a2-47da-99d5-483239c91fb4"
+    ],
+    "S068": [
+      "908f5f78-d868-46b6-bdfa-2fb6ae5a00cc"
+    ]
+  },
+  "deferred": [
+    "P4-0009",
+    "P4-0013",
+    "P4-0019",
+    "P4-0020",
+    "P4-0021",
+    "P4-0022",
+    "P4-0023",
+    "P4-0024",
+    "P4-0026"
+  ],
+  "canonical_only": [
+    "P4-0025",
+    "P4C-0032",
+    "P4C-0033",
+    "P4C-0035",
+    "P4C-0036",
+    "P4C-0037",
+    "P4C-0038",
+    "P4C-0039",
+    "P4C-0040"
+  ],
+  "invalid_values": [
+    "P4-0028",
+    "P4-0029"
+  ],
+  "non_worker_values": [
+    "P4-0030"
+  ],
+  "protected_rules": {
+    "S067": "Regular PC-member repair; never merge with S068.",
+    "S068": "Independent projecting-balcony steel expansion/cutting; never merge with S067.",
+    "S148_S167": "S148 UUID cannot be claimed by S167.",
+    "philip": "외국인(필립) and 필립 remain separate Production identities."
+  },
+  "separate_worker_uuid": "f6490d29-623f-4aa5-9e6a-417464554745",
+  "duplicate_uuid_claims": [],
+  "counts": {
+    "total": 40,
+    "link": 19,
+    "defer": 9,
+    "keep_canonical_only": 9,
+    "invalid_looking_value": 2,
+    "non_worker_value": 1
+  }
+}
