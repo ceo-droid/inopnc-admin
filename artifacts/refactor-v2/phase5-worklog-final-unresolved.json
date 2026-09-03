@@ -1,0 +1,1170 @@
+{
+  "dataset_version": "2026-09-03.v2",
+  "unresolved_rows": 116,
+  "multi_field_still_review": 2,
+  "memo_still_review": 6,
+  "deferred_identity_worklogs": 108,
+  "global_migration_blocker": false,
+  "rows": [
+    {
+      "decision_id": "P5D-0194",
+      "canonical_worklog_key": "WL-01aea5c7dac601c13beea2ba",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0195",
+      "canonical_worklog_key": "WL-40dbbd42af4479259ffb0440",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0196",
+      "canonical_worklog_key": "WL-8562741fd626e2d4d114e3d6",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0197",
+      "canonical_worklog_key": "WL-8e785ea6d94c5eeb069032ac",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0200",
+      "canonical_worklog_key": "WL-d6bba2b0c4233b2e9c0ed1a6",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0201",
+      "canonical_worklog_key": "WL-b18213f701639dc5d83f2052",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0202",
+      "canonical_worklog_key": "WL-c3aa8f14eed10ebecbe4c0e5",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0203",
+      "canonical_worklog_key": "WL-5d8dd3a79b3867fe10c7afd6",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0204",
+      "canonical_worklog_key": "WL-e0cfc8acbe9529cd82030fff",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0205",
+      "canonical_worklog_key": "WL-968619eb95ff39cceba4527a",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0208",
+      "canonical_worklog_key": "WL-24b5701d9b006224812cbdff",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0207",
+      "canonical_worklog_key": "WL-08ed459d53a6326c95c2a935",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0209",
+      "canonical_worklog_key": "WL-1124aca4f4b10954605c1c72",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0211",
+      "canonical_worklog_key": "WL-44f9d83a4449d73327a1f092",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0212",
+      "canonical_worklog_key": "WL-ab99171053682ffbb8cd7bdc",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0464",
+      "canonical_worklog_key": "WL-d38bcd5e488fcf189894a464",
+      "production_worklog_uuid": "522c3c0c-0ab4-449e-8bbb-4b448170bb7e",
+      "final_action": "DEFER_REVIEW",
+      "reason": "Special MD/site/business memo conflict requires original workbook content beyond the generated trace package",
+      "missing_evidence": "Original XLSX raw memo/MD/site cell content",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "Original workbook raw-cell review and explicit user decision"
+    },
+    {
+      "decision_id": "P5D-0463",
+      "canonical_worklog_key": "WL-a65ab9f898cf95375ded3788",
+      "production_worklog_uuid": "7b92073f-7de9-48ee-910e-02a8ed499fd5",
+      "final_action": "DEFER_REVIEW",
+      "reason": "Special MD/site/business memo conflict requires original workbook content beyond the generated trace package",
+      "missing_evidence": "Original XLSX raw memo/MD/site cell content",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "Original workbook raw-cell review and explicit user decision"
+    },
+    {
+      "decision_id": "P5D-0215",
+      "canonical_worklog_key": "WL-d43dd8d5c389f3c4805fb1e2",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0214",
+      "canonical_worklog_key": "WL-cebc3df9b6474d4838685d7e",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0503",
+      "canonical_worklog_key": "WL-bf4fb5fdc4cc0db760e33d60",
+      "production_worklog_uuid": "fbc49332-412d-40ad-b5dc-fec96cdab718",
+      "final_action": "DEFER_REVIEW",
+      "reason": "Special MD/site/business memo conflict requires original workbook content beyond the generated trace package",
+      "missing_evidence": "Original XLSX raw memo/MD/site cell content",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "Original workbook raw-cell review and explicit user decision"
+    },
+    {
+      "decision_id": "P5D-0507",
+      "canonical_worklog_key": "WL-c450b3ddfbce98ea6fb7e62b",
+      "production_worklog_uuid": "7e35dd84-2ccb-46ba-8df3-7f59c514592d",
+      "final_action": "DEFER_REVIEW",
+      "reason": "Special MD/site/business memo conflict requires original workbook content beyond the generated trace package",
+      "missing_evidence": "Original XLSX raw memo/MD/site cell content",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "Original workbook raw-cell review and explicit user decision"
+    },
+    {
+      "decision_id": "P5D-0114",
+      "canonical_worklog_key": "WL-b1e31a834eadbe86a6115386",
+      "production_worklog_uuid": "05ef9629-602d-404c-a744-1faa1cebe00a",
+      "final_action": "DEFER_REVIEW",
+      "reason": "Source confirms worker but does not independently confirm memo",
+      "missing_evidence": "Original XLSX evidence for unresolved changed fields",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "Original workbook raw-cell review and explicit user decision"
+    },
+    {
+      "decision_id": "P5D-0220",
+      "canonical_worklog_key": "WL-c619a85ca1cba4e850286d7e",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0219",
+      "canonical_worklog_key": "WL-aa629ea4030edacda71aa9c0",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0221",
+      "canonical_worklog_key": "WL-16a441aa932c7755a49f02c5",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0223",
+      "canonical_worklog_key": "WL-ddbac81fa5a61dc9cfba268b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0222",
+      "canonical_worklog_key": "WL-4e7d9e744489460b4ddc9378",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0224",
+      "canonical_worklog_key": "WL-96b29a4caba34731f00c2762",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0134",
+      "canonical_worklog_key": "WL-57613b715d3c3e41324a9238",
+      "production_worklog_uuid": "95544d4b-2ec7-4e17-8186-ac0c8c27926e",
+      "final_action": "DEFER_REVIEW",
+      "reason": "Source confirms site but does not independently confirm memo",
+      "missing_evidence": "Original XLSX evidence for unresolved changed fields",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "Original workbook raw-cell review and explicit user decision"
+    },
+    {
+      "decision_id": "P5D-0228",
+      "canonical_worklog_key": "WL-467801861f2dd2b3485d7b65",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0230",
+      "canonical_worklog_key": "WL-2119b955623cc9a9af0c308b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0229",
+      "canonical_worklog_key": "WL-159c97c33489e79cc57b9787",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0231",
+      "canonical_worklog_key": "WL-3c1a5a860a88d52e7b95c135",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0233",
+      "canonical_worklog_key": "WL-d5fd67b57db3ef78d0b98e6c",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0232",
+      "canonical_worklog_key": "WL-b2585243cb7a886014ec6fec",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0235",
+      "canonical_worklog_key": "WL-860dcc52469416c01e76c490",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0236",
+      "canonical_worklog_key": "WL-9b257ce69cfad6496d82c54b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0237",
+      "canonical_worklog_key": "WL-7307069ae318f0af4528db31",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0238",
+      "canonical_worklog_key": "WL-f672b388819969b27fbc2d5f",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0239",
+      "canonical_worklog_key": "WL-10de9b1d754ce2d12cd30c6b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0240",
+      "canonical_worklog_key": "WL-a4f78f9ee9b597546b8a68d6",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0242",
+      "canonical_worklog_key": "WL-c7e21d281ef28823ca44e5fd",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0241",
+      "canonical_worklog_key": "WL-bec1ed340d8e9ab835763991",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0243",
+      "canonical_worklog_key": "WL-03e881c2216f1d2eb15060e4",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0244",
+      "canonical_worklog_key": "WL-865c05e4b7ae7cff4bd9ac13",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0245",
+      "canonical_worklog_key": "WL-e683d23312ea9e69cb8d03db",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0246",
+      "canonical_worklog_key": "WL-65bbcf747447db67bdb454c9",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0667",
+      "canonical_worklog_key": "WL-5b41c5a7d060dd79c8132b0d",
+      "production_worklog_uuid": "f65357d0-0bab-498b-aa9e-49549c7ab83a",
+      "final_action": "DEFER_REVIEW",
+      "reason": "Special MD/site/business memo conflict requires original workbook content beyond the generated trace package",
+      "missing_evidence": "Original XLSX raw memo/MD/site cell content",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "Original workbook raw-cell review and explicit user decision"
+    },
+    {
+      "decision_id": "P5D-0247",
+      "canonical_worklog_key": "WL-27db570f2ab7b9dbb3d56c1e",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0668",
+      "canonical_worklog_key": "WL-7d1b3bccb9f02abcfc6b13b8",
+      "production_worklog_uuid": "897fa33f-e029-42b5-bbfc-6c9a4e26c53b",
+      "final_action": "DEFER_REVIEW",
+      "reason": "Special MD/site/business memo conflict requires original workbook content beyond the generated trace package",
+      "missing_evidence": "Original XLSX raw memo/MD/site cell content",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "Original workbook raw-cell review and explicit user decision"
+    },
+    {
+      "decision_id": "P5D-0248",
+      "canonical_worklog_key": "WL-59f1fd335ac79ba40c25ec9f",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0249",
+      "canonical_worklog_key": "WL-3b9dd24a0325560441af6979",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0251",
+      "canonical_worklog_key": "WL-e94186af27bd951edcd071d2",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0250",
+      "canonical_worklog_key": "WL-18d9b5cd280bdc8f2153a2fe",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0252",
+      "canonical_worklog_key": "WL-9f115a530e89ca136e165602",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0253",
+      "canonical_worklog_key": "WL-290d9aa94eb613d61f1dd83b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0255",
+      "canonical_worklog_key": "WL-8894e1bb1facc42d076eab3f",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0254",
+      "canonical_worklog_key": "WL-1cebff4429a59fba602cd784",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0257",
+      "canonical_worklog_key": "WL-9bbbce31e770fb926e2105c0",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0256",
+      "canonical_worklog_key": "WL-80b74e6f9e3ff849be984ea8",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0258",
+      "canonical_worklog_key": "WL-076c957f300b7d2dfb2d3ed2",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0259",
+      "canonical_worklog_key": "WL-42c5640dcab1bd917e5ba2ed",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0261",
+      "canonical_worklog_key": "WL-ac803eec5443a7e164e95828",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0260",
+      "canonical_worklog_key": "WL-a2b50198b79e3c1960891162",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0262",
+      "canonical_worklog_key": "WL-27a2e437a938e03d6d075794",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0263",
+      "canonical_worklog_key": "WL-f403bc8e28e82c936861f6c0",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0266",
+      "canonical_worklog_key": "WL-44febf9351428ef56929c4c9",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0265",
+      "canonical_worklog_key": "WL-332c850d83150c3d9a734312",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0267",
+      "canonical_worklog_key": "WL-5b30a8a3fc233cc66b938398",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0268",
+      "canonical_worklog_key": "WL-313e32fd96b8282441ea9a1c",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0269",
+      "canonical_worklog_key": "WL-60c8865f6571202ab2f242df",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0270",
+      "canonical_worklog_key": "WL-89738f887e585a7776c2571b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0271",
+      "canonical_worklog_key": "WL-b9cc2cebc47e4104084ad44f",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0272",
+      "canonical_worklog_key": "WL-44e9135d8930700db2e0ac0b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0273",
+      "canonical_worklog_key": "WL-d96933de82fe0243033a5e0c",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0275",
+      "canonical_worklog_key": "WL-a2b9b70ef15db40c395e732a",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0274",
+      "canonical_worklog_key": "WL-7439fe6a0e44d0be34393c6c",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0277",
+      "canonical_worklog_key": "WL-de0ea71236203c28c52e0dd4",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0276",
+      "canonical_worklog_key": "WL-9d28307319b28caa48d37c66",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0279",
+      "canonical_worklog_key": "WL-3fd96b4b01252ae0cfd3e1ee",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0278",
+      "canonical_worklog_key": "WL-210cebfb44e8addc395a445c",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0282",
+      "canonical_worklog_key": "WL-cf67ef19ed3d67865a897422",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0281",
+      "canonical_worklog_key": "WL-8011e72cc962b6406586a1f8",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0280",
+      "canonical_worklog_key": "WL-2a33e81d9420305e7c5ab7f3",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0283",
+      "canonical_worklog_key": "WL-4349c034c5a7f0d872402cf3",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0285",
+      "canonical_worklog_key": "WL-e14944f524799cc6f016ed60",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0284",
+      "canonical_worklog_key": "WL-d633381093c0f715708fffd7",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0286",
+      "canonical_worklog_key": "WL-12645cca05d4297c654698cf",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0287",
+      "canonical_worklog_key": "WL-8c5af2f61465d4ab2ec987ce",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0288",
+      "canonical_worklog_key": "WL-a883480a4e0ae33429ca483b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0289",
+      "canonical_worklog_key": "WL-8d149742713281fe61e1518a",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0290",
+      "canonical_worklog_key": "WL-dbcfe1c5f37f94ecc9b19661",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0291",
+      "canonical_worklog_key": "WL-27e53d2d6fa1a4b2cd4e3258",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0292",
+      "canonical_worklog_key": "WL-7d74ccf22138c9ed6844177f",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0294",
+      "canonical_worklog_key": "WL-d1cd129f5c7e9149a04d2315",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0293",
+      "canonical_worklog_key": "WL-cc2519db8e95e030fc71041b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0296",
+      "canonical_worklog_key": "WL-437dfeda7afad64088148e49",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0295",
+      "canonical_worklog_key": "WL-0495470d19928ec80d728ec5",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0297",
+      "canonical_worklog_key": "WL-789dfc6dcab3b647540c3435",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0298",
+      "canonical_worklog_key": "WL-c479cf1bddc99bd430937cc5",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0299",
+      "canonical_worklog_key": "WL-af46d58b1f3fe5a3ef1ffe66",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0300",
+      "canonical_worklog_key": "WL-1b243ca6a9dc71bf062422b2",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0301",
+      "canonical_worklog_key": "WL-d56cb49a6bdf7e9b4769c2b7",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0302",
+      "canonical_worklog_key": "WL-7e05fa3316db6d76e7e66550",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0303",
+      "canonical_worklog_key": "WL-d810947296d1c4bcce1b50b5",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0304",
+      "canonical_worklog_key": "WL-52dd89f2912b6dd22ff69d97",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0305",
+      "canonical_worklog_key": "WL-9c35ae0264b67667b247704e",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0306",
+      "canonical_worklog_key": "WL-e06812c3438ad3bd0fdf140b",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0308",
+      "canonical_worklog_key": "WL-8b89b0750d424d4b674d5598",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0307",
+      "canonical_worklog_key": "WL-6865ecb4ef8ae94a6fb7f511",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0311",
+      "canonical_worklog_key": "WL-a7978d33f7fbbb26698215a2",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0310",
+      "canonical_worklog_key": "WL-79867cb07c54a4fe7b0c3bc1",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0309",
+      "canonical_worklog_key": "WL-352607cef0a9fefdf1847a0d",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0312",
+      "canonical_worklog_key": "WL-e2a0b42932442387537244eb",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0313",
+      "canonical_worklog_key": "WL-fd6f9e0af7bd2a1eb3dcf723",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    },
+    {
+      "decision_id": "P5D-0314",
+      "canonical_worklog_key": "WL-529666890f1615ce4c50b6ab",
+      "production_worklog_uuid": "",
+      "final_action": "DEFER_IDENTITY",
+      "reason": "Source chronology is retained, but Phase 4 candidate identity remains non-unique or contract-distinct",
+      "missing_evidence": "Approved unique Production identity/contract mapping",
+      "blocking_scope": "ROW_ONLY_NOT_GLOBAL_MIGRATION",
+      "future_resolution_requirement": "User-approved identity resolution with contract chronology"
+    }
+  ]
+}
