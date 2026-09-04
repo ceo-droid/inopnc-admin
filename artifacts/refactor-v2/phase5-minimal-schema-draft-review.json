@@ -1,0 +1,83 @@
+{
+  "phase": "5.7",
+  "status": "PASS",
+  "draft_only": true,
+  "current_worklog_rows": 2260,
+  "current_columns": ["date", "site_id", "worker_id", "md", "note"],
+  "new_columns": [
+    {"name": "entry_type", "type": "text", "nullable": true},
+    {"name": "raw_md", "type": "numeric(8,2)", "nullable": true},
+    {"name": "countable_md", "type": "numeric(8,2)", "nullable": true},
+    {"name": "labor_amount", "type": "bigint", "nullable": true},
+    {"name": "countable_labor_amount", "type": "bigint", "nullable": true},
+    {"name": "labor_source", "type": "text", "nullable": true},
+    {"name": "cost_scope", "type": "text", "nullable": true},
+    {"name": "source_namespace", "type": "text", "nullable": true},
+    {"name": "source_row_key", "type": "text", "nullable": true},
+    {"name": "source_fingerprint", "type": "text", "nullable": true},
+    {"name": "is_active", "type": "boolean", "nullable": true}
+  ],
+  "new_indexes": [
+    {
+      "name": "work_logs_v2_source_row_lookup_idx",
+      "unique": false,
+      "columns": ["source_namespace", "source_row_key"],
+      "predicate": "is_active IS TRUE and source identity values are present"
+    },
+    {
+      "name": "work_logs_v2_active_source_fingerprint_uidx",
+      "unique": true,
+      "columns": ["source_namespace", "source_fingerprint"],
+      "predicate": "is_active IS TRUE and source identity values are present"
+    }
+  ],
+  "new_constraints": [
+    "work_logs_v2_md_semantics_check",
+    "work_logs_v2_labor_semantics_check",
+    "work_logs_v2_entry_type_check",
+    "work_logs_v2_cost_scope_check"
+  ],
+  "new_tables": [],
+  "destructive_operations": 0,
+  "existing_rows_touched": 0,
+  "existing_uuid_delta": 0,
+  "legacy_value_delta": {
+    "date": 0,
+    "site_id": 0,
+    "worker_id": 0,
+    "md": 0,
+    "note": 0
+  },
+  "legacy_compatibility": {
+    "legacy_columns_preserved": true,
+    "legacy_md_read_path_preserved": true,
+    "existing_rls_unchanged": true,
+    "app_code_change_required_at_schema_addition": false
+  },
+  "representability_tests": {
+    "custom_md": {
+      "values": {"raw_md": 1, "countable_md": 0, "labor_amount": 270000, "countable_labor_amount": 0},
+      "result": "PASS"
+    },
+    "S098_OTHER": {
+      "values": {"entry_type": "OTHER", "countable_md": 0, "labor_amount": "POSITIVE_HISTORICAL_VALUE_ALLOWED", "countable_labor_amount": 0, "cost_scope": "overhead"},
+      "result": "PASS"
+    },
+    "S107_HOLIDAY": {
+      "values": {"entry_type": "HOLIDAY", "countable_md": 0, "labor_amount": 0, "countable_labor_amount": 0, "cost_scope": "none"},
+      "result": "PASS"
+    }
+  },
+  "custom_md_representable": true,
+  "other_representable": true,
+  "holiday_representable": true,
+  "fingerprint_idempotency_supported": true,
+  "known_duplicates_safe": 10,
+  "business_tuple_unique_created": false,
+  "insert_conflicts_unchanged": 5,
+  "insert_conflict_automatic_resolution": false,
+  "countable_labor_gap_fixed": true,
+  "schema_prerequisite_actions": 410,
+  "apply_ready": true,
+  "blocking_issues": []
+}
