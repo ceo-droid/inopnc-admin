@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "recovery_mode": "RECOVERY_REPLACEMENT_SELECT",
+  "recovery_select_count": 1,
+  "production_snapshot_persisted": true,
+  "production_phase5_count": 2260,
+  "production_current_count": 2260,
+  "runtime_new_production": 0,
+  "runtime_missing_production": 0,
+  "final_resolution_rows": 2451,
+  "update_eligible_original": 370,
+  "effective_updates": 353,
+  "update_noops": 17,
+  "runtime_row_drift_review": 0,
+  "insert_eligible_original": 62,
+  "effective_inserts": 57,
+  "insert_conflicts": 5,
+  "standalone_missing_inserts": 53,
+  "atomic_split_inserts": 9,
+  "no_write_keep": 1899,
+  "excluded_deferred": 116,
+  "custom_md_semantics": 4,
+  "BASE_CANONICAL_LEDGER": {
+    "rows": 2338,
+    "raw_md": 2281,
+    "countable_md": 2200,
+    "labor": 663620000,
+    "countable_labor": 630005000
+  },
+  "FINAL_RESOLVED_TARGET_LEDGER": {
+    "rows": 2338,
+    "raw_md": 2281,
+    "countable_md": 2196,
+    "labor": 663620000,
+    "countable_labor": 628925000
+  },
+  "DRY_RUN_APPLICABLE_LEDGER": {
+    "schema_supported_actions": 0,
+    "schema_prerequisite_actions": 410,
+    "update_noops": 17,
+    "runtime_drift_excluded": 0,
+    "insert_conflicts": 5
+  },
+  "countable_md_intentional_delta": -4,
+  "countable_labor_delta": -1080000,
+  "countable_labor_semantic_reason": "Four source-confirmed 통으로넘김공수 rows preserve historical labor_amount 270000 each while excluding that labor from countable_labor.",
+  "historical_labor_preserved": 4,
+  "memo_merge": 24,
+  "multi_field_confirmed": 93,
+  "atomic_split_groups": 9,
+  "known_duplicate_rows": 10,
+  "unexpected_fingerprint_duplicates": 0,
+  "schema_supported_actions": 0,
+  "schema_prerequisite_actions": 410,
+  "custom_md_schema_prerequisite": 4,
+  "protected_production_only": 102,
+  "protected_runtime_new": 0,
+  "safety": {
+    "planned_deletes": 0,
+    "hard_deletes": 0,
+    "table_clear_operations": 0,
+    "full_table_replacement": 0,
+    "existing_uuids_replaced": 0,
+    "dedup_simulation": 0
+  },
+  "second_pass": {
+    "updates": 0,
+    "inserts": 0
+  },
+  "blocking_issues": []
+}

@@ -1,0 +1,1942 @@
+{
+  "count": 57,
+  "conflicts": [
+    {
+      "resolution_scope": "CANONICAL_WORKLOG",
+      "decision_id": "P5D-0335",
+      "canonical_worklog_key": "WL-a84e78e0d806bac8527ddbd0",
+      "production_worklog_uuid": "",
+      "final_action": "INSERT_MISSING_CONFIRMED",
+      "current": {
+        "date": "",
+        "site_uuid": "",
+        "site_name": "",
+        "worker_uuid": "",
+        "worker_name": "",
+        "md": null,
+        "memo": ""
+      },
+      "target": {
+        "date": "2025-04-13",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "source_fingerprint": "a84e78e0d806bac8527ddbd050996a8a534cf5f3dab14563dc4ff25b3f9f2f70",
+      "source_review_classification": "NOT_IN_SOURCE_REVIEW_QUEUE",
+      "reason": "no unclaimed Production candidate under approved identities",
+      "confidence": "MEDIUM",
+      "migration_eligibility": "DRY_RUN_INSERT_ELIGIBLE",
+      "atomic_group_id": "",
+      "protected_flags": [],
+      "exclusion_reason": "INSERT_CONFLICT_EXISTING_SOURCE",
+      "match_basis": "legacy identity tuple proxy; source_fingerprint column not yet available"
+    },
+    {
+      "resolution_scope": "CANONICAL_WORKLOG",
+      "decision_id": "P5D-0337",
+      "canonical_worklog_key": "WL-f7cf3373570e4f95b78614e9",
+      "production_worklog_uuid": "",
+      "final_action": "APPLY_CANONICAL_SPLIT_ATOMIC",
+      "current": {
+        "date": "",
+        "site_uuid": "",
+        "site_name": "",
+        "worker_uuid": "",
+        "worker_name": "",
+        "md": null,
+        "memo": ""
+      },
+      "target": {
+        "date": "2025-05-18",
+        "site_code": "S010",
+        "site_uuid": "36be6eb3-f373-45a2-ba32-39000f322194",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "5월 금전출납장 데이터 기반 생성"
+      },
+      "source_fingerprint": "f7cf3373570e4f95b78614e91d538c24c9a264053270da8bb80e86be68437ed1",
+      "source_review_classification": "SOURCE_CONFIRMED_CANONICAL",
+      "reason": "Both sides of the pair have distinct source fingerprints and actual Excel rows; Canonical preserves each source event separately",
+      "confidence": "HIGH",
+      "migration_eligibility": "DRY_RUN_INSERT_ELIGIBLE",
+      "atomic_group_id": "P5SPLIT-02",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ],
+      "exclusion_reason": "INSERT_CONFLICT_EXISTING_SOURCE",
+      "match_basis": "legacy identity tuple proxy; source_fingerprint column not yet available"
+    },
+    {
+      "resolution_scope": "CANONICAL_WORKLOG",
+      "decision_id": "P5D-0354",
+      "canonical_worklog_key": "WL-3b71c24f9f2e674870a2097f",
+      "production_worklog_uuid": "",
+      "final_action": "INSERT_MISSING_CONFIRMED",
+      "current": {
+        "date": "",
+        "site_uuid": "",
+        "site_name": "",
+        "worker_uuid": "",
+        "worker_name": "",
+        "md": null,
+        "memo": ""
+      },
+      "target": {
+        "date": "2025-09-05",
+        "site_code": "S131",
+        "site_uuid": "127e46f3-9d4d-4fba-b276-bcf53791befd",
+        "worker": "송용호",
+        "raw_md": 2.5,
+        "countable_md": 2.5,
+        "labor_amount": 675000,
+        "countable_labor_amount": 675000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "삼표기둥 마감작업철야"
+      },
+      "source_fingerprint": "3b71c24f9f2e674870a2097fbab46bbe998cc0d683d25fac0bc48149af5b651e",
+      "source_review_classification": "NOT_IN_SOURCE_REVIEW_QUEUE",
+      "reason": "no unclaimed Production candidate under approved identities",
+      "confidence": "MEDIUM",
+      "migration_eligibility": "DRY_RUN_INSERT_ELIGIBLE",
+      "atomic_group_id": "",
+      "protected_flags": [],
+      "exclusion_reason": "INSERT_CONFLICT_EXISTING_SOURCE",
+      "match_basis": "legacy identity tuple proxy; source_fingerprint column not yet available"
+    },
+    {
+      "resolution_scope": "CANONICAL_WORKLOG",
+      "decision_id": "P5D-0356",
+      "canonical_worklog_key": "WL-63e356879de1497df88c200b",
+      "production_worklog_uuid": "",
+      "final_action": "INSERT_MISSING_CONFIRMED",
+      "current": {
+        "date": "",
+        "site_uuid": "",
+        "site_name": "",
+        "worker_uuid": "",
+        "worker_name": "",
+        "md": null,
+        "memo": ""
+      },
+      "target": {
+        "date": "2025-09-09",
+        "site_code": "S058",
+        "site_uuid": "3a17153c-9d21-4759-a804-c6cf1da4d82a",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "포항내려감"
+      },
+      "source_fingerprint": "63e356879de1497df88c200bbaa6de2282bd015bdb87d6780c5bbf1e78a63253",
+      "source_review_classification": "NOT_IN_SOURCE_REVIEW_QUEUE",
+      "reason": "no unclaimed Production candidate under approved identities",
+      "confidence": "MEDIUM",
+      "migration_eligibility": "DRY_RUN_INSERT_ELIGIBLE",
+      "atomic_group_id": "",
+      "protected_flags": [],
+      "exclusion_reason": "INSERT_CONFLICT_EXISTING_SOURCE",
+      "match_basis": "legacy identity tuple proxy; source_fingerprint column not yet available"
+    },
+    {
+      "resolution_scope": "CANONICAL_WORKLOG",
+      "decision_id": "P5D-0361",
+      "canonical_worklog_key": "WL-5331292bcb57429e2fa6dd00",
+      "production_worklog_uuid": "",
+      "final_action": "INSERT_MISSING_CONFIRMED",
+      "current": {
+        "date": "",
+        "site_uuid": "",
+        "site_name": "",
+        "worker_uuid": "",
+        "worker_name": "",
+        "md": null,
+        "memo": ""
+      },
+      "target": {
+        "date": "2025-09-22",
+        "site_code": "S006",
+        "site_uuid": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "지하1층 스카이 작업"
+      },
+      "source_fingerprint": "5331292bcb57429e2fa6dd0090e2d5204c461f7fa0470084a5513ea7abf5f80b",
+      "source_review_classification": "NOT_IN_SOURCE_REVIEW_QUEUE",
+      "reason": "no unclaimed Production candidate under approved identities",
+      "confidence": "MEDIUM",
+      "migration_eligibility": "DRY_RUN_INSERT_ELIGIBLE",
+      "atomic_group_id": "",
+      "protected_flags": [],
+      "exclusion_reason": "INSERT_CONFLICT_EXISTING_SOURCE",
+      "match_basis": "legacy identity tuple proxy; source_fingerprint column not yet available"
+    }
+  ],
+  "standalone_expected": 53,
+  "atomic_split_expected": 9,
+  "rows": [
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-f20a55bf700b54d2a441d605",
+      "source_fingerprint": "f20a55bf700b54d2a441d605594bc52ca30d83f5877a9a14be35a2ae1ed78b73",
+      "target": {
+        "date": "2025-02-19",
+        "site_code": "S071",
+        "site_uuid": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "화성 보수재 생산"
+      },
+      "legacy_projection": {
+        "date": "2025-02-19",
+        "site_id": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker_id": "c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a",
+        "md": 1,
+        "note": "화성 보수재 생산"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-2e6e54f9ef40efda128982e8",
+      "source_fingerprint": "2e6e54f9ef40efda128982e8634e8c6e5355df08016c42a7db34e387ec76cefc",
+      "target": {
+        "date": "2025-03-04",
+        "site_code": "S077",
+        "site_uuid": "97ad1dbb-5165-4878-a819-700601172e16",
+        "worker": "이찬우",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 160000,
+        "countable_labor_amount": 160000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-04",
+        "site_id": "97ad1dbb-5165-4878-a819-700601172e16",
+        "worker_id": "beb2d145-ef81-4ffe-aba0-e595de842152",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-1649a1e29e9b1f5284376f02",
+      "source_fingerprint": "1649a1e29e9b1f5284376f0294ee797ea551c4e79e0cb3a596c991755bf8859c",
+      "target": {
+        "date": "2025-03-06",
+        "site_code": "S055",
+        "site_uuid": "29655d43-31af-4707-b8c5-fd506ab8fcfa",
+        "worker": "김재형",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 225000,
+        "countable_labor_amount": 225000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "여주점봉"
+      },
+      "legacy_projection": {
+        "date": "2025-03-06",
+        "site_id": "29655d43-31af-4707-b8c5-fd506ab8fcfa",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0.5,
+        "note": "여주점봉"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "P5SPLIT-01",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-2187c864a879b378ea76af3a",
+      "source_fingerprint": "2187c864a879b378ea76af3ab8746724319b73096241814730c7981c41a63215",
+      "target": {
+        "date": "2025-03-10",
+        "site_code": "S033",
+        "site_uuid": "ab405b52-9df3-4979-b47c-dd01eee0f695",
+        "worker": "이찬우",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 80000,
+        "countable_labor_amount": 80000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-10",
+        "site_id": "ab405b52-9df3-4979-b47c-dd01eee0f695",
+        "worker_id": "beb2d145-ef81-4ffe-aba0-e595de842152",
+        "md": 0.5,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-41019ff0fae10b8794e1f0e3",
+      "source_fingerprint": "41019ff0fae10b8794e1f0e39c5df44d641902835a3428e39036675b4a2241d7",
+      "target": {
+        "date": "2025-03-11",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이장환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-11",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "4325f7f4-48c0-477c-8c35-25ce73ca5888",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-e32e4bc30c80e890afe1a7ab",
+      "source_fingerprint": "e32e4bc30c80e890afe1a7aba97ae6d1c0da0d97ab3ef4fcc6ea467db9b7e842",
+      "target": {
+        "date": "2025-03-11",
+        "site_code": "S033",
+        "site_uuid": "ab405b52-9df3-4979-b47c-dd01eee0f695",
+        "worker": "이찬우",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 160000,
+        "countable_labor_amount": 160000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-11",
+        "site_id": "ab405b52-9df3-4979-b47c-dd01eee0f695",
+        "worker_id": "beb2d145-ef81-4ffe-aba0-e595de842152",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-28473a3b131cb6136741a9b7",
+      "source_fingerprint": "28473a3b131cb6136741a9b794b8e82adda55ebc1d40435309fe45384e36e4a0",
+      "target": {
+        "date": "2025-03-12",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이장환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-12",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "4325f7f4-48c0-477c-8c35-25ce73ca5888",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-336925d9a9a7dff07a5d3c2f",
+      "source_fingerprint": "336925d9a9a7dff07a5d3c2f71f3c454fc8ad66644851b36f7bf37b716d0a2c6",
+      "target": {
+        "date": "2025-03-13",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이장환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-13",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "4325f7f4-48c0-477c-8c35-25ce73ca5888",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-5f31f550204040da898e54ab",
+      "source_fingerprint": "5f31f550204040da898e54abd8d2f653b8e1ead90b59ff227d33321ea5a66282",
+      "target": {
+        "date": "2025-03-14",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이장환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-14",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "4325f7f4-48c0-477c-8c35-25ce73ca5888",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-e17c3ca23eb97751f232f938",
+      "source_fingerprint": "e17c3ca23eb97751f232f938a6cbc666db700ac5373f87e78782401678a15156",
+      "target": {
+        "date": "2025-03-15",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이장환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-15",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "4325f7f4-48c0-477c-8c35-25ce73ca5888",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-c22a8af0c3274e7d23219dec",
+      "source_fingerprint": "c22a8af0c3274e7d23219decb4589dc05c37b7828bf0586ada90b552f0a3a45a",
+      "target": {
+        "date": "2025-03-17",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이두환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-17",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "fd472d03-9168-4d6e-b05f-fbbaaf5c4ef8",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-926d9dc97c24cdcb75ad192c",
+      "source_fingerprint": "926d9dc97c24cdcb75ad192c414c1722a5ca388d9bf7ba59f9edb67246b7967b",
+      "target": {
+        "date": "2025-03-17",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이장환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-17",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "4325f7f4-48c0-477c-8c35-25ce73ca5888",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-e44374d14c519995b482bb2c",
+      "source_fingerprint": "e44374d14c519995b482bb2c4af7d0d12376044380a00f5de57b3f7eeb959c14",
+      "target": {
+        "date": "2025-03-18",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이두환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-18",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "fd472d03-9168-4d6e-b05f-fbbaaf5c4ef8",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-8a8d42cb38e54da9af864afc",
+      "source_fingerprint": "8a8d42cb38e54da9af864afc2bd2567e68b757dc4be065153219978598e9f331",
+      "target": {
+        "date": "2025-03-18",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이장환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-18",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "4325f7f4-48c0-477c-8c35-25ce73ca5888",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-8a1740e48030e622660a3a00",
+      "source_fingerprint": "8a1740e48030e622660a3a008e56e9cb112568d99ddf27dac926084b93b092b9",
+      "target": {
+        "date": "2025-03-19",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이두환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-19",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "fd472d03-9168-4d6e-b05f-fbbaaf5c4ef8",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-0992f60b88c8d31192ef8c3a",
+      "source_fingerprint": "0992f60b88c8d31192ef8c3a4f77913ce75fa574b2ba8747d14ae2a6e6019aeb",
+      "target": {
+        "date": "2025-03-19",
+        "site_code": "S093",
+        "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker": "이장환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-19",
+        "site_id": "dcb40097-9c17-489f-a7cc-af4c5902fd32",
+        "worker_id": "4325f7f4-48c0-477c-8c35-25ce73ca5888",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-7ef4ce07185abe8bbda9990a",
+      "source_fingerprint": "7ef4ce07185abe8bbda9990a15641005488cf0c12b7724cce0969d00c18a2395",
+      "target": {
+        "date": "2025-03-28",
+        "site_code": "S018",
+        "site_uuid": "5d4991b9-bdd3-449c-a152-6d27cff37271",
+        "worker": "강영권외",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 150000,
+        "countable_labor_amount": 150000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-28",
+        "site_id": "5d4991b9-bdd3-449c-a152-6d27cff37271",
+        "worker_id": "26e2dc40-26a7-4cd7-83fc-8e5525b726c5",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-d8556e620f0e2fb191990583",
+      "source_fingerprint": "d8556e620f0e2fb191990583b03d9092e70f178c4bff9a40cb7f5dc90d26a122",
+      "target": {
+        "date": "2025-03-31",
+        "site_code": "S018",
+        "site_uuid": "5d4991b9-bdd3-449c-a152-6d27cff37271",
+        "worker": "강영권외",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 150000,
+        "countable_labor_amount": 150000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-03-31",
+        "site_id": "5d4991b9-bdd3-449c-a152-6d27cff37271",
+        "worker_id": "26e2dc40-26a7-4cd7-83fc-8e5525b726c5",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-4f2a11a04c77cc1618e42593",
+      "source_fingerprint": "4f2a11a04c77cc1618e425938b0464d2cd66e83172de48d6997753e6c9c05e75",
+      "target": {
+        "date": "2025-04-10",
+        "site_code": "S071",
+        "site_uuid": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "[화성]보수재 제조*믹서기고장으로 20번돌림"
+      },
+      "legacy_projection": {
+        "date": "2025-04-10",
+        "site_id": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker_id": "c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a",
+        "md": 1,
+        "note": "[화성]보수재 제조*믹서기고장으로 20번돌림"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-a40cede6754add15de6e32a7",
+      "source_fingerprint": "a40cede6754add15de6e32a702276a305e44c251aa27ddf09335433d7139a63f",
+      "target": {
+        "date": "2025-04-30",
+        "site_code": "S071",
+        "site_uuid": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker": "김재형",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 225000,
+        "countable_labor_amount": 225000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "[KC]반포 래미안 갔다가 작업이 않된다 해서 화성으로 이동함. 오전 10시경"
+      },
+      "legacy_projection": {
+        "date": "2025-04-30",
+        "site_id": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0.5,
+        "note": "[KC]반포 래미안 갔다가 작업이 않된다 해서 화성으로 이동함. 오전 10시경"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-ca23448bed117c18ef8bf1bd",
+      "source_fingerprint": "ca23448bed117c18ef8bf1bd4b0bd65a47f27579db04c9c49ca96824395445ba",
+      "target": {
+        "date": "2025-05-22",
+        "site_code": "S040",
+        "site_uuid": "ce807ee2-7e23-48e2-81e5-a33f10a2fc19",
+        "worker": "김재형",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 225000,
+        "countable_labor_amount": 225000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-05-22",
+        "site_id": "ce807ee2-7e23-48e2-81e5-a33f10a2fc19",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0.5,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "P5SPLIT-03",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-8031c92015b2a49f7cf597a6",
+      "source_fingerprint": "8031c92015b2a49f7cf597a608ae6018e6d316683b205c37e7caf32f20bf5316",
+      "target": {
+        "date": "2025-05-30",
+        "site_code": "S010",
+        "site_uuid": "36be6eb3-f373-45a2-ba32-39000f322194",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "안성일죽물류센터"
+      },
+      "legacy_projection": {
+        "date": "2025-05-30",
+        "site_id": "36be6eb3-f373-45a2-ba32-39000f322194",
+        "worker_id": "c5f89d3d-b5a4-409e-9b1d-261b4c541930",
+        "md": 1,
+        "note": "안성일죽물류센터"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-8f4e33287061b693636d81c8",
+      "source_fingerprint": "8f4e33287061b693636d81c8ed68b08b14442bff8fd7747a31112719fbd32124",
+      "target": {
+        "date": "2025-05-31",
+        "site_code": "S067",
+        "site_uuid": "7cdd5e25-3c79-443f-bd17-105508a72661",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "출역0824 누락후보"
+      },
+      "legacy_projection": {
+        "date": "2025-05-31",
+        "site_id": "7cdd5e25-3c79-443f-bd17-105508a72661",
+        "worker_id": "c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a",
+        "md": 1,
+        "note": "출역0824 누락후보"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": [
+        "YEOSU_SEPARATE_BUSINESS_IDENTITY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-383fe10b882199bf14a0ff13",
+      "source_fingerprint": "383fe10b882199bf14a0ff13f0c3f9577ba5f5af04e6ff7e5262dca607571018",
+      "target": {
+        "date": "2025-05-31",
+        "site_code": "S067",
+        "site_uuid": "7cdd5e25-3c79-443f-bd17-105508a72661",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "출역0824 누락후보"
+      },
+      "legacy_projection": {
+        "date": "2025-05-31",
+        "site_id": "7cdd5e25-3c79-443f-bd17-105508a72661",
+        "worker_id": "c5f89d3d-b5a4-409e-9b1d-261b4c541930",
+        "md": 1,
+        "note": "출역0824 누락후보"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": [
+        "YEOSU_SEPARATE_BUSINESS_IDENTITY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-6566af3409bd5e610cf97778",
+      "source_fingerprint": "6566af3409bd5e610cf9777805bf3d38bc1c69034c0db0f42d5b8f51ada64ded",
+      "target": {
+        "date": "2025-06-01",
+        "site_code": "S094",
+        "site_uuid": "de08a5a5-c9de-4405-acce-5819699ea197",
+        "worker": "김재형",
+        "raw_md": 0,
+        "countable_md": 0,
+        "labor_amount": 0,
+        "countable_labor_amount": 0,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "케이원 김포로지스(SK에코플랜트)물류센터 PC부재 보수"
+      },
+      "legacy_projection": {
+        "date": "2025-06-01",
+        "site_id": "de08a5a5-c9de-4405-acce-5819699ea197",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0,
+        "note": "케이원 김포로지스(SK에코플랜트)물류센터 PC부재 보수"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "P5SPLIT-04",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-5a08b9ef0b74dd6966afb077",
+      "source_fingerprint": "5a08b9ef0b74dd6966afb07774b266bbac0aa8b04a7e50c6280e65a00c2a47b7",
+      "target": {
+        "date": "2025-06-06",
+        "site_code": "S071",
+        "site_uuid": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker": "김재형",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 450000,
+        "countable_labor_amount": 450000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "보수재생산"
+      },
+      "legacy_projection": {
+        "date": "2025-06-06",
+        "site_id": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 1,
+        "note": "보수재생산"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-c02b7b54ca6ee6f215e72499",
+      "source_fingerprint": "c02b7b54ca6ee6f215e72499be380a3f4119e454bdbd342ff46451f1b4bbad78",
+      "target": {
+        "date": "2025-06-09",
+        "site_code": "S071",
+        "site_uuid": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "[화성]화성 공장 보수재 제조 및 폐기물 처리 지게차인계 npc 원료 벌크차 받는날"
+      },
+      "legacy_projection": {
+        "date": "2025-06-09",
+        "site_id": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker_id": "c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a",
+        "md": 1,
+        "note": "[화성]화성 공장 보수재 제조 및 폐기물 처리 지게차인계 npc 원료 벌크차 받는날"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-b5cdf54641b845a017762de3",
+      "source_fingerprint": "b5cdf54641b845a017762de3a08d4c94a06262030935e1da1182173541621895",
+      "target": {
+        "date": "2025-06-12",
+        "site_code": "S003",
+        "site_uuid": "12f46c0d-286e-48b1-be2e-70de8c268676",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "송도4차"
+      },
+      "legacy_projection": {
+        "date": "2025-06-12",
+        "site_id": "12f46c0d-286e-48b1-be2e-70de8c268676",
+        "worker_id": "c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a",
+        "md": 1,
+        "note": "송도4차"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-e839766fb1b13e1d72d249c9",
+      "source_fingerprint": "e839766fb1b13e1d72d249c92872bc384f5f82561a8c40b1792197636a85821d",
+      "target": {
+        "date": "2025-06-12",
+        "site_code": "S003",
+        "site_uuid": "12f46c0d-286e-48b1-be2e-70de8c268676",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "송도4차"
+      },
+      "legacy_projection": {
+        "date": "2025-06-12",
+        "site_id": "12f46c0d-286e-48b1-be2e-70de8c268676",
+        "worker_id": "c5f89d3d-b5a4-409e-9b1d-261b4c541930",
+        "md": 1,
+        "note": "송도4차"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-06fe101a18f31acec17ac95a",
+      "source_fingerprint": "06fe101a18f31acec17ac95af875239e984c442dca6624cbf15b60c13e20c9a8",
+      "target": {
+        "date": "2025-06-13",
+        "site_code": "S071",
+        "site_uuid": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "화성보수재생산 및 출고 · 오후1시 노루페인트30통 수령예정"
+      },
+      "legacy_projection": {
+        "date": "2025-06-13",
+        "site_id": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker_id": "c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a",
+        "md": 1,
+        "note": "화성보수재생산 및 출고 · 오후1시 노루페인트30통 수령예정"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-32957944d121bdad688abff0",
+      "source_fingerprint": "32957944d121bdad688abff0dd3cc355fae508ddc6d19a02d3c70a47d6d6876f",
+      "target": {
+        "date": "2025-06-30",
+        "site_code": "S017",
+        "site_uuid": "5603ec61-debc-40d3-bef8-c602be4f9f43",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "송도4차 · 지하2층 큐토스 점검보수"
+      },
+      "legacy_projection": {
+        "date": "2025-06-30",
+        "site_id": "5603ec61-debc-40d3-bef8-c602be4f9f43",
+        "worker_id": "c5f89d3d-b5a4-409e-9b1d-261b4c541930",
+        "md": 1,
+        "note": "송도4차 · 지하2층 큐토스 점검보수"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-72180b1a38c9808979c0571e",
+      "source_fingerprint": "72180b1a38c9808979c0571e9a1341c24b697da75cb4f65504e40c9cd969ad4e",
+      "target": {
+        "date": "2025-07-01",
+        "site_code": "S017",
+        "site_uuid": "5603ec61-debc-40d3-bef8-c602be4f9f43",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "송도4차 · 지하2층 큐토스 점검보수"
+      },
+      "legacy_projection": {
+        "date": "2025-07-01",
+        "site_id": "5603ec61-debc-40d3-bef8-c602be4f9f43",
+        "worker_id": "c5f89d3d-b5a4-409e-9b1d-261b4c541930",
+        "md": 1,
+        "note": "송도4차 · 지하2층 큐토스 점검보수"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-7a7be560828da4bda6a99241",
+      "source_fingerprint": "7a7be560828da4bda6a99241c73baaef5b48a9f11bfe84495436e40b68a033e9",
+      "target": {
+        "date": "2025-07-17",
+        "site_code": "S074",
+        "site_uuid": "9663923c-070f-4753-9476-b5142829a389",
+        "worker": "김재형",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 225000,
+        "countable_labor_amount": 225000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-07-17",
+        "site_id": "9663923c-070f-4753-9476-b5142829a389",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0.5,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "P5SPLIT-05",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-68b12a89082f19ee9087cb79",
+      "source_fingerprint": "68b12a89082f19ee9087cb795fd9886e821513f481f158c25c7e93bda81a2859",
+      "target": {
+        "date": "2025-07-26",
+        "site_code": "S071",
+        "site_uuid": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "화성보수재 생산"
+      },
+      "legacy_projection": {
+        "date": "2025-07-26",
+        "site_id": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker_id": "c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a",
+        "md": 1,
+        "note": "화성보수재 생산"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-be8048516468efa15c910c46",
+      "source_fingerprint": "be8048516468efa15c910c463cfc0f066b8a8281ba6db8358dae538b3ccefc51",
+      "target": {
+        "date": "2025-07-29",
+        "site_code": "S071",
+        "site_uuid": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker": "권용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 220000,
+        "countable_labor_amount": 220000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "화성보수재 생산"
+      },
+      "legacy_projection": {
+        "date": "2025-07-29",
+        "site_id": "89e6af95-832d-42d6-aae4-ec9cb0ba60cd",
+        "worker_id": "c0b28a7c-a4ee-45db-9bd8-6ece6ddfbe4a",
+        "md": 1,
+        "note": "화성보수재 생산"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-583c1ce9858dcf9d37db8061",
+      "source_fingerprint": "583c1ce9858dcf9d37db80611d28b45039a28f818fada91ed153d3b755e51cf6",
+      "target": {
+        "date": "2025-08-21",
+        "site_code": "S067",
+        "site_uuid": "7cdd5e25-3c79-443f-bd17-105508a72661",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "여수죽림"
+      },
+      "legacy_projection": {
+        "date": "2025-08-21",
+        "site_id": "7cdd5e25-3c79-443f-bd17-105508a72661",
+        "worker_id": "c5f89d3d-b5a4-409e-9b1d-261b4c541930",
+        "md": 1,
+        "note": "여수죽림"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": [
+        "YEOSU_SEPARATE_BUSINESS_IDENTITY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-bb300cdbab05d67f5c890726",
+      "source_fingerprint": "bb300cdbab05d67f5c8907266b7db246e1804892a5c6e7c96a4c5bb9f8203149",
+      "target": {
+        "date": "2025-09-05",
+        "site_code": "S058",
+        "site_uuid": "3a17153c-9d21-4759-a804-c6cf1da4d82a",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-09-05",
+        "site_id": "3a17153c-9d21-4759-a804-c6cf1da4d82a",
+        "worker_id": "c5f89d3d-b5a4-409e-9b1d-261b4c541930",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-d7b7836fd407b75d313c1dba",
+      "source_fingerprint": "d7b7836fd407b75d313c1dba9c43c6ff244476f4ebc6b3099b0ba0f0d0042cc3",
+      "target": {
+        "date": "2025-09-09",
+        "site_code": "S006",
+        "site_uuid": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker": "김재형",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 450000,
+        "countable_labor_amount": 450000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "철야끝나고 바로출발 오전6시20분도착"
+      },
+      "legacy_projection": {
+        "date": "2025-09-09",
+        "site_id": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 1,
+        "note": "철야끝나고 바로출발 오전6시20분도착"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-c8b8da1012e3722cd5bf28a2",
+      "source_fingerprint": "c8b8da1012e3722cd5bf28a2e211709decf400c93fdf188f2534bda5ec135c95",
+      "target": {
+        "date": "2025-09-09",
+        "site_code": "S131",
+        "site_uuid": "127e46f3-9d4d-4fba-b276-bcf53791befd",
+        "worker": "김재형",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 450000,
+        "countable_labor_amount": 450000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "철야 기둥 마감"
+      },
+      "legacy_projection": {
+        "date": "2025-09-09",
+        "site_id": "127e46f3-9d4d-4fba-b276-bcf53791befd",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 1,
+        "note": "철야 기둥 마감"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-1f66ba6918a594f0c29de5a9",
+      "source_fingerprint": "1f66ba6918a594f0c29de5a9aeca7af6c1ff70a967c34cf7e581c7c2ad49b476",
+      "target": {
+        "date": "2025-09-10",
+        "site_code": "S091",
+        "site_uuid": "d518d26a-3405-436a-9ea9-da20896dd8f4",
+        "worker": "김재형",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 450000,
+        "countable_labor_amount": 450000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "부재커팅"
+      },
+      "legacy_projection": {
+        "date": "2025-09-10",
+        "site_id": "d518d26a-3405-436a-9ea9-da20896dd8f4",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 1,
+        "note": "부재커팅"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-3d92d80d254cbb76288a20c0",
+      "source_fingerprint": "3d92d80d254cbb76288a20c0ce45b28a5d20e0d34c10dc29ed19e582f5e80992",
+      "target": {
+        "date": "2025-09-19",
+        "site_code": "S006",
+        "site_uuid": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker": "김재형",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 225000,
+        "countable_labor_amount": 225000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "안성어딘지정확히한번더확인할것"
+      },
+      "legacy_projection": {
+        "date": "2025-09-19",
+        "site_id": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0.5,
+        "note": "안성어딘지정확히한번더확인할것"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-5e219b53b3f9ed5808dbcff8",
+      "source_fingerprint": "5e219b53b3f9ed5808dbcff8d311a24bcc56c4e49cc460e6ea3ed37c38bd5f15",
+      "target": {
+        "date": "2025-09-22",
+        "site_code": "S034",
+        "site_uuid": "ad41c8b8-acb7-44d9-b78a-4451b3266965",
+        "worker": "김재형",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 225000,
+        "countable_labor_amount": 225000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-09-22",
+        "site_id": "ad41c8b8-acb7-44d9-b78a-4451b3266965",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0.5,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "P5SPLIT-06",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-e6841ea0a5968fcf3cebef38",
+      "source_fingerprint": "e6841ea0a5968fcf3cebef380468d555f3827735ccc3b562c105c85328bb06b7",
+      "target": {
+        "date": "2025-09-30",
+        "site_code": "S006",
+        "site_uuid": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker": "김재형",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 225000,
+        "countable_labor_amount": 225000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-09-30",
+        "site_id": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0.5,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-bf627bee3bb21423bb876a7b",
+      "source_fingerprint": "bf627bee3bb21423bb876a7bc6c13f6dc27d73b133c13e9d7786ba415eb64f66",
+      "target": {
+        "date": "2025-10-18",
+        "site_code": "S006",
+        "site_uuid": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker": "송용호",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 270000,
+        "countable_labor_amount": 270000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "안전교육장 1층도크3층도크 및 지하1층지상1층미비구간 지상4층거더턱미비구간3층코어기둥 2개 보수"
+      },
+      "legacy_projection": {
+        "date": "2025-10-18",
+        "site_id": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker_id": "c5f89d3d-b5a4-409e-9b1d-261b4c541930",
+        "md": 1,
+        "note": "안전교육장 1층도크3층도크 및 지하1층지상1층미비구간 지상4층거더턱미비구간3층코어기둥 2개 보수"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-31de29381e0c5db3cb8bf0ea",
+      "source_fingerprint": "31de29381e0c5db3cb8bf0ea92c4391eb36eb4e5d98f2a0025d9501dbbe6326b",
+      "target": {
+        "date": "2025-11-12",
+        "site_code": "S049",
+        "site_uuid": "020eae00-97cb-4f37-ad1e-0c2fbcbfb797",
+        "worker": "김재형",
+        "raw_md": 0.5,
+        "countable_md": 0.5,
+        "labor_amount": 225000,
+        "countable_labor_amount": 225000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "11시50분까지 음성(밴드라인공장) 도착후 발코니턱컷팅(1매)"
+      },
+      "legacy_projection": {
+        "date": "2025-11-12",
+        "site_id": "020eae00-97cb-4f37-ad1e-0c2fbcbfb797",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 0.5,
+        "note": "11시50분까지 음성(밴드라인공장) 도착후 발코니턱컷팅(1매)"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "P5SPLIT-07",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-2e5aa3bcf8afee729cc868bf",
+      "source_fingerprint": "2e5aa3bcf8afee729cc868bfa85f8eadf3be13d52723d90e2b19f7b90f0ffcfd",
+      "target": {
+        "date": "2025-11-15",
+        "site_code": "S063",
+        "site_uuid": "5a20db88-710f-4c13-afc9-c4663d6592ae",
+        "worker": "김재형",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 450000,
+        "countable_labor_amount": 450000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "브라켓마무리이동작업 통로구간5개 후 IS용인Y1IBLCUB이색보수 철야25.11"
+      },
+      "legacy_projection": {
+        "date": "2025-11-15",
+        "site_id": "5a20db88-710f-4c13-afc9-c4663d6592ae",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 1,
+        "note": "브라켓마무리이동작업 통로구간5개 후 IS용인Y1IBLCUB이색보수 철야25.11"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "P5SPLIT-08",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-f4957cd8d5b0a444ca55428c",
+      "source_fingerprint": "f4957cd8d5b0a444ca55428c01a857d059ab07d938ca836e743336285254368a",
+      "target": {
+        "date": "2025-11-20",
+        "site_code": "S063",
+        "site_uuid": "5a20db88-710f-4c13-afc9-c4663d6592ae",
+        "worker": "이두환",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 250000,
+        "countable_labor_amount": 250000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2025-11-20",
+        "site_id": "5a20db88-710f-4c13-afc9-c4663d6592ae",
+        "worker_id": "fd472d03-9168-4d6e-b05f-fbbaaf5c4ef8",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-ae4e0af8c6c46ca1474455c2",
+      "source_fingerprint": "ae4e0af8c6c46ca1474455c25eec40b5148993fa6bf3409e873d232ad343412a",
+      "target": {
+        "date": "2025-11-27",
+        "site_code": "S056",
+        "site_uuid": "2ff5d22d-5cb2-4242-904b-ca2abe41fe88",
+        "worker": "김재형",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 450000,
+        "countable_labor_amount": 450000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "샘플 및 협의"
+      },
+      "legacy_projection": {
+        "date": "2025-11-27",
+        "site_id": "2ff5d22d-5cb2-4242-904b-ca2abe41fe88",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 1,
+        "note": "샘플 및 협의"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-bf3600be5e1431e0fe62458d",
+      "source_fingerprint": "bf3600be5e1431e0fe62458d49569c9d9729ae1850838a543af0cfac5ff52f6b",
+      "target": {
+        "date": "2025-12-05",
+        "site_code": "S064",
+        "site_uuid": "5b925522-72de-4297-a8bd-2091c6e1e071",
+        "worker": "김재형",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 450000,
+        "countable_labor_amount": 450000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "2025-12-05 용인 Y1 2.0공수 + 대전지하차도 PCWALL 1.0공수 · 합계 3.0공수/900000원 · 분리 2/2 · 대전도안리버파크 단차보수 단건을 PCWALL 표준현장으로 정규화"
+      },
+      "legacy_projection": {
+        "date": "2025-12-05",
+        "site_id": "5b925522-72de-4297-a8bd-2091c6e1e071",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 1,
+        "note": "2025-12-05 용인 Y1 2.0공수 + 대전지하차도 PCWALL 1.0공수 · 합계 3.0공수/900000원 · 분리 2/2 · 대전도안리버파크 단차보수 단건을 PCWALL 표준현장으로 정규화"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "P5SPLIT-09",
+      "protected_flags": [
+        "ATOMIC_PAIR_REQUIRED",
+        "NO_PARTIAL_APPLY"
+      ]
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-313d41709d8ff348da1ec68e",
+      "source_fingerprint": "313d41709d8ff348da1ec68ef1b6b39ac63a1c58dbfdb53b463839351f7f62cd",
+      "target": {
+        "date": "2025-12-16",
+        "site_code": "S006",
+        "site_uuid": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker": "김재형",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 450000,
+        "countable_labor_amount": 450000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": "지하1층지상3층 펀치리스트"
+      },
+      "legacy_projection": {
+        "date": "2025-12-16",
+        "site_id": "2aa9666d-415d-4291-94f0-356b7b4db3e6",
+        "worker_id": "2d962ad4-743d-4517-bf91-08fee94b2a75",
+        "md": 1,
+        "note": "지하1층지상3층 펀치리스트"
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-5757fdba42d23c66616171cf",
+      "source_fingerprint": "5757fdba42d23c66616171cf87d734c4855727bf9c6522c91bf74d29515c972c",
+      "target": {
+        "date": "2026-01-15",
+        "site_code": "S035",
+        "site_uuid": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+        "worker": "이문규지원",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 300000,
+        "countable_labor_amount": 300000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2026-01-15",
+        "site_id": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+        "worker_id": "c06495ef-2631-4e4d-aa00-d25ba5547db2",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-3d7ef6f5b7a56ce7deb58066",
+      "source_fingerprint": "3d7ef6f5b7a56ce7deb58066ad25299da733487c816831f18630e8b20a7eea13",
+      "target": {
+        "date": "2026-01-15",
+        "site_code": "S035",
+        "site_uuid": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+        "worker": "이문규지원1",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 300000,
+        "countable_labor_amount": 300000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2026-01-15",
+        "site_id": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+        "worker_id": "db86ce7a-d9a8-4430-9726-e7ac1b609224",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-36429a01be92fc40cac1f092",
+      "source_fingerprint": "36429a01be92fc40cac1f092379d17dc156abf4f9f2b82356457dbcbad08e5e3",
+      "target": {
+        "date": "2026-01-16",
+        "site_code": "S035",
+        "site_uuid": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+        "worker": "이문규지원",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 300000,
+        "countable_labor_amount": 300000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2026-01-16",
+        "site_id": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+        "worker_id": "c06495ef-2631-4e4d-aa00-d25ba5547db2",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-850faae9c88fc68f2e55acea",
+      "source_fingerprint": "850faae9c88fc68f2e55acea2cd6d5be61194fa1d2f99aa4cc226825b5c5d1ad",
+      "target": {
+        "date": "2026-01-16",
+        "site_code": "S035",
+        "site_uuid": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+        "worker": "이문규지원1",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 300000,
+        "countable_labor_amount": 300000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2026-01-16",
+        "site_id": "ae1a4bec-35c3-4401-be6a-1e082e45b071",
+        "worker_id": "db86ce7a-d9a8-4430-9726-e7ac1b609224",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-1c09294208726bc5092986bf",
+      "source_fingerprint": "1c09294208726bc5092986bf3c7f589c44b3d879a02073dbf7f3357ad301056f",
+      "target": {
+        "date": "2026-01-17",
+        "site_code": "S089",
+        "site_uuid": "c94892d8-e7a3-4888-8267-0b7734a7b8bf",
+        "worker": "이문규지원",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 300000,
+        "countable_labor_amount": 300000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2026-01-17",
+        "site_id": "c94892d8-e7a3-4888-8267-0b7734a7b8bf",
+        "worker_id": "c06495ef-2631-4e4d-aa00-d25ba5547db2",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-3991140f0e6b9e0564b5fbbf",
+      "source_fingerprint": "3991140f0e6b9e0564b5fbbf1725085569624e68befc68c816723256e35e39b5",
+      "target": {
+        "date": "2026-01-17",
+        "site_code": "S089",
+        "site_uuid": "c94892d8-e7a3-4888-8267-0b7734a7b8bf",
+        "worker": "이문규지원1",
+        "raw_md": 1,
+        "countable_md": 1,
+        "labor_amount": 300000,
+        "countable_labor_amount": 300000,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2026-01-17",
+        "site_id": "c94892d8-e7a3-4888-8267-0b7734a7b8bf",
+        "worker_id": "db86ce7a-d9a8-4430-9726-e7ac1b609224",
+        "md": 1,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    },
+    {
+      "action": "SIMULATE_INSERT",
+      "physical_write_status": "V2_SCHEMA_REQUIRED",
+      "production_worklog_uuid": null,
+      "canonical_worklog_key": "WL-e3b29136d9962aec58364639",
+      "source_fingerprint": "e3b29136d9962aec583646390b75b231bf84e4659eb72df475f91b483138a1e7",
+      "target": {
+        "date": "2026-01-17",
+        "site_code": "S085",
+        "site_uuid": "c00550ed-9531-4124-b7e7-6c1eccdf7982",
+        "worker": "최현준",
+        "raw_md": 0,
+        "countable_md": 0,
+        "labor_amount": 0,
+        "countable_labor_amount": 0,
+        "entry_type": "NORMAL_WORK",
+        "cost_scope": "site",
+        "memo": ""
+      },
+      "legacy_projection": {
+        "date": "2026-01-17",
+        "site_id": "c00550ed-9531-4124-b7e7-6c1eccdf7982",
+        "worker_id": "e8546d19-1108-4e61-8953-b526ab9e5e91",
+        "md": 0,
+        "note": ""
+      },
+      "migration_prerequisite": "V2 work_logs columns and scoped active source fingerprint constraint",
+      "atomic_group_id": "",
+      "protected_flags": []
+    }
+  ]
+}
