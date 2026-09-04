@@ -1,0 +1,138 @@
+{
+  "phase": "5.8",
+  "status": "PASS",
+  "validation_scope": "STATIC_AND_OPTIONAL_SHADOW_ONLY",
+  "draft_sha256": "fb49be217aebd73e5b8abc6bac8af929020ecd99f357b3633ca96cf25b6b4bb2",
+  "columns_expected": [
+    "entry_type",
+    "raw_md",
+    "countable_md",
+    "labor_amount",
+    "countable_labor_amount",
+    "labor_source",
+    "cost_scope",
+    "source_namespace",
+    "source_row_key",
+    "source_fingerprint",
+    "is_active"
+  ],
+  "columns_found": [
+    "entry_type",
+    "raw_md",
+    "countable_md",
+    "labor_amount",
+    "countable_labor_amount",
+    "labor_source",
+    "cost_scope",
+    "source_namespace",
+    "source_row_key",
+    "source_fingerprint",
+    "is_active"
+  ],
+  "indexes_expected": 2,
+  "indexes_found": [
+    "work_logs_v2_source_row_lookup_idx",
+    "work_logs_v2_active_source_fingerprint_uidx"
+  ],
+  "second_index_validation": {
+    "index": "work_logs_v2_source_row_lookup_idx",
+    "purpose": "Active source-row lookup by namespace and stable source row key during migration and operational trace lookup.",
+    "classification": "REQUIRED_AND_SCOPED"
+  },
+  "constraints_expected": 4,
+  "constraints_found": [
+    "work_logs_v2_md_semantics_check",
+    "work_logs_v2_labor_semantics_check",
+    "work_logs_v2_entry_type_check",
+    "work_logs_v2_cost_scope_check"
+  ],
+  "legacy_columns_preserved": {
+    "columns": ["date", "site_id", "worker_id", "md", "note", "id"],
+    "result": "PASS"
+  },
+  "nullable_additive": {
+    "all_new_columns_initially_nullable": true,
+    "defaults_added": 0,
+    "existing_rows_automatically_populated": 0,
+    "is_active_initial_rewrite": false,
+    "result": "PASS"
+  },
+  "type_validation": {
+    "raw_md": "numeric(8,2)",
+    "countable_md": "numeric(8,2)",
+    "fractional_md_supported": true,
+    "labor_amount": "bigint",
+    "countable_labor_amount": "bigint",
+    "postgres_enum_objects_added": 0,
+    "result": "PASS"
+  },
+  "existing_row_rewrite_sql": 0,
+  "destructive_operations": {
+    "drop_table": 0,
+    "drop_column": 0,
+    "truncate": 0,
+    "delete": 0,
+    "update_work_logs": 0,
+    "insert_into_work_logs": 0,
+    "rename_column": 0,
+    "alter_existing_type": 0,
+    "create_table": 0,
+    "on_conflict_do_update": 0,
+    "table_recreation": 0,
+    "total": 0
+  },
+  "source_unique_strategy": {
+    "columns": ["source_namespace", "source_fingerprint"],
+    "unique_scope": "ACTIVE_SOURCE_MANAGED_ROWS_ONLY",
+    "predicate_requires": ["is_active IS TRUE", "source_namespace IS NOT NULL", "source_fingerprint IS NOT NULL"],
+    "legacy_null_fingerprints_allowed": true,
+    "global_fingerprint_only_unique": false,
+    "business_tuple_unique": false,
+    "result": "PASS"
+  },
+  "known_duplicates_safe": 10,
+  "custom_md_test": {
+    "input": {"entry_type": "NORMAL", "raw_md": 1, "countable_md": 0, "labor_amount": 270000, "countable_labor_amount": 0},
+    "result": "PASS"
+  },
+  "other_test": {
+    "input": {"entry_type": "OTHER", "raw_md": 1, "countable_md": 0, "labor_amount": 270000, "countable_labor_amount": 0, "cost_scope": "overhead"},
+    "result": "PASS"
+  },
+  "holiday_test": {
+    "input": {"entry_type": "HOLIDAY", "countable_md": 0, "labor_amount": 0, "countable_labor_amount": 0, "cost_scope": "none"},
+    "result": "PASS"
+  },
+  "invalid_value_tests": [
+    {"case": "raw_md = -1", "expected": "REJECT", "result": "PASS"},
+    {"case": "countable_md = -1", "expected": "REJECT", "result": "PASS"},
+    {"case": "raw_md = 0.5 and countable_md = 1", "expected": "REJECT", "result": "PASS"},
+    {"case": "labor_amount = -100", "expected": "REJECT", "result": "PASS"},
+    {"case": "labor_amount = 100 and countable_labor_amount = 200", "expected": "REJECT", "result": "PASS"}
+  ],
+  "insert_conflicts_untouched": 5,
+  "conflict_automatic_actions": 0,
+  "deferred_rows_untouched": 116,
+  "S067_S068_impact": "NONE",
+  "idempotency_classification": "IDEMPOTENT",
+  "idempotency_evidence": {
+    "columns": "ADD COLUMN IF NOT EXISTS",
+    "constraints": "catalog existence guard by relation and constraint name",
+    "indexes": "CREATE INDEX IF NOT EXISTS",
+    "controlled_apply_note": "Verify any pre-existing same-name object definition before application."
+  },
+  "shadow_validation": "SKIPPED_NO_SAFE_LOCAL_DB",
+  "shadow_validation_reason": "No local psql executable or explicitly configured safe local PostgreSQL database was available; Production access was prohibited.",
+  "postgres_compatibility": {
+    "classification": "STATICALLY_COMPATIBLE",
+    "features": ["DO block", "ADD COLUMN IF NOT EXISTS", "NOT VALID CHECK", "CREATE INDEX IF NOT EXISTS", "partial index predicate"],
+    "production_version_requeried": false
+  },
+  "forward_only": {
+    "existing_migrations_modified": 0,
+    "supabase_migration_files_changed": 0,
+    "schema_draft_modified_during_validation": false
+  },
+  "blocking_issues": [],
+  "apply_recommendation": "READY_FOR_CONTROLLED_SCHEMA_APPLY"
+}
