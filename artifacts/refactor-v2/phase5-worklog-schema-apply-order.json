@@ -1,0 +1,16 @@
+{
+  "phase": "5.6",
+  "type": "DESIGN_ONLY_NO_SQL",
+  "steps": [
+    {"order": 1, "name": "additive nullable schema", "gate": "Add exactly the 11 required nullable columns while preserving legacy columns and UUIDs."},
+    {"order": 2, "name": "schema verification", "gate": "Verify column presence, nullability, unchanged row count, and unchanged UUID set."},
+    {"order": 3, "name": "immutable resolution based backfill dry-run", "gate": "Use the immutable Phase 5 resolution; exclude 116 deferred rows and review five insert conflicts."},
+    {"order": 4, "name": "backfill", "gate": "Separate authorization required; preserve custom MD, historical labor, special-entry, and atomic-split semantics."},
+    {"order": 5, "name": "validation", "gate": "Verify ledgers, ten known duplicate rows, nine atomic groups, S067/S068 separation, UUID preservation, and idempotency."},
+    {"order": 6, "name": "constraint and index strengthening", "gate": "Add validated checks and active source-managed partial uniqueness only after backfill validation."},
+    {"order": 7, "name": "worklog migration", "gate": "Separate authorization required; no partial atomic groups or unresolved conflict writes."},
+    {"order": 8, "name": "post-migration validation", "gate": "Confirm totals, row identities, zero unintended deletes, and zero second-pass changes."}
+  ],
+  "production_db_changed": false,
+  "sql_generated": false
+}

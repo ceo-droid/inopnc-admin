@@ -1,0 +1,39 @@
+{
+  "phase": "5.6",
+  "strategy": "ADDITIVE_NULLABLE_FIRST",
+  "minimum_new_columns_count": 11,
+  "required_now": [
+    "entry_type",
+    "raw_md",
+    "countable_md",
+    "labor_amount",
+    "countable_labor_amount",
+    "labor_source",
+    "cost_scope",
+    "source_namespace",
+    "source_row_key",
+    "source_fingerprint",
+    "is_active"
+  ],
+  "countable_labor_amount": {"required_now": true, "reason": "Preserve historical paid labor independently from countable labor semantics."},
+  "initial_nullability": "NULLABLE",
+  "not_null_timing": "ONLY_AFTER_BACKFILL_VALIDATION",
+  "check_semantics": [
+    "raw_md >= 0",
+    "countable_md >= 0",
+    "countable_md <= raw_md",
+    "labor_amount >= 0",
+    "countable_labor_amount >= 0",
+    "countable_labor_amount <= labor_amount"
+  ],
+  "source_idempotency": {
+    "key": ["source_namespace", "source_fingerprint"],
+    "strategy": "PARTIAL_UNIQUE_FOR_ACTIVE_SOURCE_MANAGED_ROWS",
+    "forbidden_business_tuple_unique": ["date", "site", "worker", "md"]
+  },
+  "preserve": {
+    "legacy_columns": ["date", "site_id", "worker_id", "md", "note"],
+    "existing_uuids": true,
+    "known_valid_duplicate_rows": 10
+  }
+}

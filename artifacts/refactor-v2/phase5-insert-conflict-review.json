@@ -1,0 +1,63 @@
+{
+  "phase": "5.6",
+  "source": "artifacts/refactor-v2/phase5-worklog-insert-dry-run.json",
+  "conflict_count": 5,
+  "classification_note": "Legacy identity tuple proxy only; source_fingerprint is not present in the legacy schema. These rows are not automatically classified as known valid duplicates.",
+  "conflicts": [
+    {
+      "canonical_worklog_key": "WL-a84e78e0d806bac8527ddbd0",
+      "source_fingerprint": "a84e78e0d806bac8527ddbd050996a8a534cf5f3dab14563dc4ff25b3f9f2f70",
+      "date": "2025-04-13",
+      "site": {"site_code": "S093", "site_uuid": "dcb40097-9c17-489f-a7cc-af4c5902fd32"},
+      "worker": "권용호",
+      "conflicting_production_uuid": null,
+      "conflict_reason": "Legacy identity tuple proxy matched an existing Production row; the artifact does not retain the conflicting UUID.",
+      "classification": "REQUIRES_USER_REVIEW",
+      "future_treatment": "After source_fingerprint schema support, identify the exact Production row and choose KEEP_EXISTING, LINK_SOURCE, or INSERT only through explicit review."
+    },
+    {
+      "canonical_worklog_key": "WL-f7cf3373570e4f95b78614e9",
+      "source_fingerprint": "f7cf3373570e4f95b78614e91d538c24c9a264053270da8bb80e86be68437ed1",
+      "date": "2025-05-18",
+      "site": {"site_code": "S010", "site_uuid": "36be6eb3-f373-45a2-ba32-39000f322194"},
+      "worker": "권용호",
+      "conflicting_production_uuid": null,
+      "conflict_reason": "Atomic split child matched an existing Production legacy tuple; the artifact does not retain the conflicting UUID.",
+      "classification": "REQUIRES_USER_REVIEW",
+      "future_treatment": "Resolve the exact Production identity before treating P5SPLIT-02 as one atomic operation; partial application remains prohibited."
+    },
+    {
+      "canonical_worklog_key": "WL-3b71c24f9f2e674870a2097f",
+      "source_fingerprint": "3b71c24f9f2e674870a2097fbab46bbe998cc0d683d25fac0bc48149af5b651e",
+      "date": "2025-09-05",
+      "site": {"site_code": "S131", "site_uuid": "127e46f3-9d4d-4fba-b276-bcf53791befd"},
+      "worker": "송용호",
+      "conflicting_production_uuid": null,
+      "conflict_reason": "Legacy identity tuple proxy matched an existing Production row; the artifact does not retain the conflicting UUID.",
+      "classification": "REQUIRES_USER_REVIEW",
+      "future_treatment": "After source_fingerprint schema support, identify the exact Production row and choose KEEP_EXISTING, LINK_SOURCE, or INSERT only through explicit review."
+    },
+    {
+      "canonical_worklog_key": "WL-63e356879de1497df88c200b",
+      "source_fingerprint": "63e356879de1497df88c200bbaa6de2282bd015bdb87d6780c5bbf1e78a63253",
+      "date": "2025-09-09",
+      "site": {"site_code": "S058", "site_uuid": "3a17153c-9d21-4759-a804-c6cf1da4d82a"},
+      "worker": "송용호",
+      "conflicting_production_uuid": null,
+      "conflict_reason": "Legacy identity tuple proxy matched an existing Production row; the artifact does not retain the conflicting UUID.",
+      "classification": "REQUIRES_USER_REVIEW",
+      "future_treatment": "After source_fingerprint schema support, identify the exact Production row and choose KEEP_EXISTING, LINK_SOURCE, or INSERT only through explicit review."
+    },
+    {
+      "canonical_worklog_key": "WL-5331292bcb57429e2fa6dd00",
+      "source_fingerprint": "5331292bcb57429e2fa6dd0090e2d5204c461f7fa0470084a5513ea7abf5f80b",
+      "date": "2025-09-22",
+      "site": {"site_code": "S006", "site_uuid": "2aa9666d-415d-4291-94f0-356b7b4db3e6"},
+      "worker": "송용호",
+      "conflicting_production_uuid": null,
+      "conflict_reason": "Legacy identity tuple proxy matched an existing Production row; the artifact does not retain the conflicting UUID.",
+      "classification": "REQUIRES_USER_REVIEW",
+      "future_treatment": "After source_fingerprint schema support, identify the exact Production row and choose KEEP_EXISTING, LINK_SOURCE, or INSERT only through explicit review."
+    }
+  ]
+}

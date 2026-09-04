@@ -1,0 +1,51 @@
+{
+  "phase": "5.6",
+  "status": "PASS_REVIEW_ONLY",
+  "scope": "MATERIALIZE_CONFIRMED_REVIEW_ONLY",
+  "current_legacy_columns": ["date", "site_id", "worker_id", "md", "note"],
+  "schema_supported_actions": 0,
+  "schema_prerequisite_actions": 410,
+  "minimum_new_columns": 11,
+  "critical_correction": {
+    "column": "countable_labor_amount",
+    "phase3_draft_status": "OMITTED",
+    "phase5_6_status": "REQUIRED_NOW"
+  },
+  "custom_md_decisions": ["P5D-0001", "P5D-0002", "P5D-0003", "P5D-0005"],
+  "custom_md_semantics": {
+    "raw_md": 1,
+    "countable_md": 0,
+    "labor_amount": 270000,
+    "countable_labor_amount": 0
+  },
+  "special_entry_semantics": {
+    "S098_OTHER": {
+      "raw_md": "PRESERVE",
+      "countable_md": 0,
+      "labor_amount": "PRESERVE_HISTORICAL",
+      "countable_labor_amount": 0,
+      "cost_scope": "overhead"
+    },
+    "S107_HOLIDAY": {
+      "countable_md": 0,
+      "labor_amount": 0,
+      "countable_labor_amount": 0,
+      "cost_scope": "none"
+    }
+  },
+  "legacy_compatibility": {
+    "preserve_columns": ["date", "site_id", "worker_id", "md", "note"],
+    "preserve_existing_uuids": true,
+    "drop_or_rename": false
+  },
+  "validation_baseline": {
+    "insert_conflicts": 5,
+    "known_valid_duplicate_rows": 10,
+    "deferred_rows_excluded": 116,
+    "atomic_split_groups": 9,
+    "S067_S068_remain_separate": true
+  },
+  "production_db_changed": false,
+  "sql_generated": false,
+  "app_code_changed": false
+}
