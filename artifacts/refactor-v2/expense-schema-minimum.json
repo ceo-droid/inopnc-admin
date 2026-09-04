@@ -1,0 +1,40 @@
+{
+  "phase": "E2",
+  "status": "PASS_DRAFT_ONLY",
+  "target_project_ref": "drferwbxvlsvcxcadyos",
+  "remote_applied": false,
+  "model": {
+    "source": "transactions",
+    "assignment": "expense_allocations",
+    "calculation": ["expense_active_sources", "expense_financial_read_model"]
+  },
+  "transactions_additive_columns": [
+    "source_type",
+    "source_namespace",
+    "source_row_key",
+    "source_fingerprint",
+    "is_active",
+    "voided_at",
+    "void_reason",
+    "supersedes_transaction_id",
+    "updated_at"
+  ],
+  "reused_existing_columns": ["id", "date", "site_id", "worker_id", "category", "description", "amount", "created_at"],
+  "source_identity": {
+    "unique_key": ["source_namespace", "source_row_key"],
+    "partial_predicate": "source_namespace IS NOT NULL AND source_row_key IS NOT NULL",
+    "fingerprint_unique": false,
+    "business_tuple_unique": false,
+    "manual_source_key_nullable": true
+  },
+  "expense_allocations": {
+    "columns": ["id", "transaction_id", "site_id", "category", "allocated_amount", "is_active", "created_at", "updated_at", "voided_at", "void_reason", "supersedes_allocation_id", "assignment_note"],
+    "split_allocation": true,
+    "unallocated_row_required": false,
+    "source_evidence_copied": false
+  },
+  "overallocation_guard": "BEFORE INSERT OR UPDATE trigger locks the source transaction and rejects active allocation totals above transactions.amount",
+  "legacy_site_id": "PRESERVED_AS_FALLBACK_ONLY",
+  "legacy_fallback_end_condition": "End only after every active legacy transaction is represented by reviewed allocations, read-model parity is validated, and all clients use the allocation read model.",
+  "canonical": { "rows": 4885, "total": 216525934, "categories": ["아침", "점심", "저녁", "간식", "주유", "숙박", "자재", "장비", "기타"] }
+}

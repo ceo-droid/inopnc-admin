@@ -1,0 +1,22 @@
+{
+  "phase": "E2",
+  "validation_kind": "STATIC_SHADOW_MODEL",
+  "sql_executed": false,
+  "remote_db_changed": false,
+  "result": "PASS",
+  "cases": [
+    { "case": "duplicate_business_tuple_preserved", "result": "PASS", "basis": "No date/description/amount unique constraint" },
+    { "case": "duplicate_fingerprint_different_source_row_key_allowed", "result": "PASS", "basis": "Fingerprint is indexed but not unique" },
+    { "case": "duplicate_namespace_plus_row_key_rejected", "result": "PASS", "basis": "Partial unique index" },
+    { "case": "split_allocation_sum_valid", "result": "PASS", "example": { "transaction_amount": 100000, "S067": 60000, "S068": 40000 } },
+    { "case": "overallocation_rejected", "result": "PASS", "example": { "transaction_amount": 100000, "attempted_active_total": 100001 } },
+    { "case": "void_excluded", "result": "PASS", "basis": "Read models require transaction and allocation active/non-void" },
+    { "case": "restore_conflict_handled", "result": "PASS", "basis": "Restore must use the controlled command and revalidate source identity/allocation total" },
+    { "case": "site_reassignment_source_unchanged", "result": "PASS", "basis": "Assignment supersedes allocation; transaction source is unchanged" },
+    { "case": "S067_S068_independent", "result": "PASS", "basis": "site_id UUID FK; no display-name matching" },
+    { "case": "manual_expense_source_key_nullable", "result": "PASS", "basis": "Partial unique predicate excludes null source keys" },
+    { "case": "canonical_category_exactly_9", "result": "PASS", "count": 9 }
+  ],
+  "canonical_source_validation": { "rows": 4885, "total": 216525934, "result": "PASS_FROM_E1" },
+  "destructive_sql_statements": 0
+}
