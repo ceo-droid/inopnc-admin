@@ -1,0 +1,69 @@
+{
+  "phase": "5.10",
+  "inventory_scope": "LOCAL_CODE_AND_SCHEMA_REFERENCES_ONLY",
+  "auth": {
+    "migration_requirement": "NONE",
+    "supabase_auth_calls_found": 0,
+    "auth_users_references_found": 0,
+    "sign_in_calls_found": 0,
+    "sign_up_calls_found": 0,
+    "get_user_calls_found": 0,
+    "get_session_calls_found": 0,
+    "user_profile_mapping_found": false,
+    "worker_auth_linkage_found": false,
+    "same_password_preservation_functionally_required": false,
+    "decision_basis": "The current application and inspected schema references contain no Supabase Auth usage.",
+    "future_guard": "If Auth usage is introduced or discovered outside the inspected repository scope, stop and replace NONE with a separate managed Auth migration strategy."
+  },
+  "storage": {
+    "migration_requirement": "METADATA_ONLY",
+    "bucket_names_found": ["imports"],
+    "bucket_definition_sources": [
+      "supabase/migrations/20260212013856_1a3c5cf5-bd59-4152-94bc-f7b39e01d103.sql",
+      "supabase/migrations/20260216104755_8dc1912e-7499-4c3f-9722-ff9275d5a101.sql"
+    ],
+    "application_storage_calls_found": 0,
+    "upload_calls_found": 0,
+    "download_calls_found": 0,
+    "signed_url_calls_found": 0,
+    "storage_object_files_required_by_current_code": false,
+    "future_guard": "Before clone acceptance, list bucket/object metadata read-only. If objects exist and remain operationally required, escalate to FILES_REQUIRED and migrate payloads separately from SQL metadata."
+  },
+  "edge_functions": {
+    "migration_requirement": "REDEPLOY_REQUIRED",
+    "local_functions": ["import-expenses", "import-worklogs", "map-expenses"],
+    "application_invocations_found": [],
+    "invocation_count": 0,
+    "reason": "Application-owned function source exists locally and database clone tooling does not deploy it; redeploy is a separate gated operation even though no in-repo client invocation was found.",
+    "secret_values_inspected": false,
+    "secret_values_materialized": false
+  },
+  "database_objects": {
+    "export_from_current_state": true,
+    "types": [
+      "tables",
+      "views",
+      "materialized_views",
+      "functions",
+      "triggers",
+      "sequences",
+      "indexes",
+      "constraints",
+      "rls_policies",
+      "custom_enums_and_types"
+    ],
+    "migration_history_used_as_authority": false
+  },
+  "environment_and_secrets": {
+    "migration_mode": "MANUAL_RECONFIGURATION",
+    "values_printed": false,
+    "values_saved_to_artifacts": false,
+    "required_categories": [
+      "target Supabase URL",
+      "target publishable key",
+      "server-side secret keys if separately required",
+      "Edge Function secrets",
+      "Auth provider settings if future Auth requirement changes"
+    ]
+  }
+}

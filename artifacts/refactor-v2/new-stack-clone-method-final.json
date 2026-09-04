@@ -1,0 +1,124 @@
+{
+  "phase": "5.10",
+  "status": "PASS",
+  "mode": "READ_ONLY_PLAN_ONLY_NO_IMPORT",
+  "clone_method": "CONTROLLED_LOGICAL_CLONE_TO_EXISTING_TARGET",
+  "decision": "ADOPT",
+  "source_ref": "gbdcwxrnemirswlecwwh",
+  "target_ref": "drferwbxvlsvcxcadyos",
+  "repository": {
+    "branch": "main",
+    "head": "3f4fd51",
+    "origin": "https://github.com/ceo-droid/inopnc-admin.git",
+    "origin_match": true,
+    "worktree_clean": false,
+    "worktree_note": "Only prior planning artifacts are untracked; no database execution is authorized."
+  },
+  "target_link": {
+    "path": "supabase/.temp/project-ref",
+    "actual": "drferwbxvlsvcxcadyos",
+    "expected": "drferwbxvlsvcxcadyos",
+    "result": "PASS"
+  },
+  "migration_replay_allowed": false,
+  "forbidden_replay_file": "supabase/migrations/20260218120000_harden_bidirectional_dedup_constraints.sql",
+  "source_mutation_required": false,
+  "target_mutation_authorized_in_this_phase": false,
+  "current_schema_export_required": true,
+  "current_data_export_required": true,
+  "uuid_preservation": true,
+  "worklog_baseline": 2260,
+  "post_canonical_worklogs": 4,
+  "known_duplicate_rows_preserved": 10,
+  "S067_S068_independent": true,
+  "critical_tables_for_clone_validation": [
+    "customers",
+    "sites",
+    "workers",
+    "work_logs",
+    "transactions",
+    "checklists"
+  ],
+  "application_owned_object_scope": [
+    "tables",
+    "views",
+    "materialized_views",
+    "functions",
+    "triggers",
+    "sequences",
+    "indexes",
+    "constraints",
+    "rls_policies",
+    "custom_enums_and_types"
+  ],
+  "export_package": {
+    "directory": "C:/Users/bobo/Desktop/260828/260828/inopnc-admin/.tmp/db-clone",
+    "gitignored_by": ".tmp/",
+    "git_tracking_allowed": false,
+    "files": ["roles.sql", "schema.sql", "data.sql", "manifest.json", "source-validation.json"],
+    "credentials_in_artifacts_allowed": false
+  },
+  "future_export_strategy": {
+    "cli_version_validated": "2.116.0",
+    "connection_environment_variables": ["OLD_DB_URL", "NEW_DB_URL"],
+    "literal_connection_strings_allowed": false,
+    "commands_reviewed_not_executed": [
+      "supabase db dump --db-url \"$env:OLD_DB_URL\" --file \"$cloneDir\\roles.sql\" --role-only",
+      "supabase db dump --db-url \"$env:OLD_DB_URL\" --file \"$cloneDir\\schema.sql\"",
+      "supabase db dump --db-url \"$env:OLD_DB_URL\" --file \"$cloneDir\\data.sql\" --data-only --use-copy"
+    ],
+    "cli_flag_validation": {
+      "db_url": true,
+      "file": true,
+      "role_only": true,
+      "data_only": true,
+      "use_copy": true
+    },
+    "managed_schema_warning": "Default Supabase CLI database dumps exclude auth, storage, and extension-managed schemas."
+  },
+  "target_empty_state_gate": {
+    "required": true,
+    "unexpected_application_table_or_data": "BLOCK",
+    "automatic_cleanup_allowed": false,
+    "database_reset_allowed": false
+  },
+  "restore_order": [
+    "SOURCE_READ_ONLY_VALIDATION_SNAPSHOT",
+    "TARGET_EMPTY_STATE_SNAPSHOT",
+    "EXPORT_ROLES",
+    "EXPORT_CURRENT_APPLICATION_SCHEMA",
+    "EXPORT_CURRENT_APPLICATION_DATA",
+    "INSPECT_DUMPS_FOR_FORBIDDEN_DESTRUCTIVE_OPERATIONS",
+    "TARGET_SCHEMA_IMPORT_WITH_EXPLICIT_APPROVAL",
+    "SCHEMA_VALIDATION",
+    "TARGET_DATA_IMPORT_WITH_EXPLICIT_APPROVAL",
+    "COUNTS_AND_UUID_VALIDATION",
+    "AUTH_MIGRATION_OR_RECREATION_IF_REQUIREMENT_CHANGES",
+    "STORAGE_METADATA_MIGRATION_AND_OBJECT_INVENTORY_GATE",
+    "EDGE_FUNCTION_REDEPLOY",
+    "MANUAL_ENVIRONMENT_AND_SECRET_CONFIGURATION",
+    "CLONE_ACCEPTANCE_VALIDATION"
+  ],
+  "post_clone_invariants": {
+    "work_logs_before_v2_migration": 2260,
+    "source_uuids_preserved": true,
+    "unexpected_deletes": 0,
+    "orphan_rows": 0,
+    "known_duplicate_rows": 10,
+    "S067_S068_separate": true,
+    "post_canonical_rows": 4,
+    "source_production_changes": 0
+  },
+  "v2_schema_after_clone_only": {
+    "columns": 11,
+    "constraints": 4,
+    "indexes": 2,
+    "draft_sha256": "fb49be217aebd73e5b8abc6bac8af929020ecd99f357b3633ca96cf25b6b4bb2"
+  },
+  "old_production_changed": false,
+  "new_supabase_changed": false,
+  "sql_executed": false,
+  "git_pushed": false,
+  "vercel_deployed": false,
+  "next_phase": "READY_FOR_CONTROLLED_DATABASE_EXPORT"
+}

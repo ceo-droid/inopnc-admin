@@ -1,0 +1,89 @@
+{
+  "title": "INOPNC Admin Safe Database Clone Plan",
+  "status": "PASS_PLAN_ONLY",
+  "workspace": "C:/Users/bobo/Desktop/260828/260828/inopnc-admin",
+  "source": {
+    "project_ref": "gbdcwxrnemirswlecwwh",
+    "mode": "READ_ONLY",
+    "work_logs_baseline": 2260,
+    "post_canonical_work_logs": 4
+  },
+  "target": {
+    "project_ref": "drferwbxvlsvcxcadyos",
+    "linked_project_ref": "drferwbxvlsvcxcadyos",
+    "link_match": true,
+    "writes_authorized_in_this_phase": false
+  },
+  "recommended_clone_method": {
+    "name": "CONTROLLED_CURRENT_SCHEMA_AND_DATA_EXPORT_IMPORT",
+    "implementation_family": "Supabase CLI dump backed by pg_dump/restore semantics, using the current source schema rather than replaying local migration history",
+    "reason": "The exact target project already exists, while Supabase Restore to a New Project creates a separate new project. Current-schema export avoids replaying the destructive dedup migration and allows schema, data, UUIDs, and validation to be staged independently.",
+    "source_write_risk": "NONE_EXPECTED_READ_ONLY_EXPORT",
+    "target_write_scope": "EXPLICIT_AND_STAGED_DURING_FUTURE_AUTHORIZED_EXECUTION",
+    "uuid_preservation": "REQUIRED_EXPLICIT_IDS",
+    "auth_support": "SEPARATE_MANAGED_SCHEMA_PLAN_REQUIRED",
+    "storage_support": "METADATA_AND_OBJECT_FILES_REQUIRE_SEPARATE_PLANS",
+    "rls_support": "CURRENT_SCHEMA_EXPORT_CAN_PRESERVE_PUBLIC_POLICIES_SUBJECT_TO DEFINITION_REVIEW",
+    "repeatability": "HIGH_WITH_IMMUTABLE_DUMPS_HASHES_AND_EMPTY_TARGET_GATE",
+    "rollback_retry": "STOP_AND_RECREATE_OR_FORWARD_CORRECT_TARGET; NEVER MUTATE_SOURCE"
+  },
+  "clone_scope": {
+    "public_database_schema": "CLONE_FROM_CURRENT_SOURCE_SCHEMA_SNAPSHOT",
+    "table_data": "CLONE_AFTER_SCHEMA_VALIDATION",
+    "uuid_preservation": "MANDATORY_FOR_SITE_WORKLOG_WORKER_CUSTOMER_AND_ALL_REFERENCES",
+    "indexes": "PRESERVE_CURRENT_VALIDATED_DEFINITIONS",
+    "constraints": "PRESERVE_CURRENT_VALIDATED_DEFINITIONS",
+    "functions_triggers_views": "INVENTORY_AND_CLONE_WITH_SECURITY_AND_EXTERNAL_EFFECT REVIEW",
+    "rls_policies": "CLONE_AND_VERIFY_WITH ROLE_MATRIX",
+    "auth_database_objects_and_config": "SEPARATE_MANAGED_AUTH PROCEDURE; AUTH SETTINGS AND API KEYS RECONFIGURED MANUALLY",
+    "storage_metadata": "SEPARATE INVENTORY_AND_MIGRATION_GATE",
+    "storage_files": "SEPARATE OBJECT_COPY_WITH_COUNTS_SIZES_AND_HASH_VALIDATION",
+    "edge_functions": "DEPLOY_SEPARATELY_FROM REVIEWED LOCAL SOURCE",
+    "secrets_env_values": "RECREATE_SEPARATELY; NEVER EXPORT INTO ARTIFACTS"
+  },
+  "future_execution_order": [
+    {"order": 1, "step": "source SELECT-only snapshot", "write_target": false},
+    {"order": 2, "step": "source counts and hashes", "write_target": false},
+    {"order": 3, "step": "target empty-state snapshot", "write_target": false},
+    {"order": 4, "step": "schema clone", "requires_explicit_approval": true},
+    {"order": 5, "step": "schema validation"},
+    {"order": 6, "step": "data clone", "requires_explicit_approval": true},
+    {"order": 7, "step": "row-count validation"},
+    {"order": 8, "step": "UUID-set validation"},
+    {"order": 9, "step": "financial and worklog invariants"},
+    {"order": 10, "step": "auth, storage, and function handling under separate gates"},
+    {"order": 11, "step": "apply validated V2 additive schema to new target only", "draft_sha256": "fb49be217aebd73e5b8abc6bac8af929020ecd99f357b3633ca96cf25b6b4bb2"},
+    {"order": 12, "step": "V2 worklog migration on new target only"},
+    {"order": 13, "step": "connect new Vercel project after end-to-end validation"}
+  ],
+  "identity_and_data_invariants": {
+    "work_logs": 2260,
+    "post_canonical_work_logs": 4,
+    "uuid_sets_unchanged": true,
+    "legacy_values_unchanged": true,
+    "S067_S068_remain_separate": true,
+    "same_name_multi_contract_sites_remain_separate": true,
+    "known_valid_duplicates_preserved": true
+  },
+  "stop_conditions": [
+    "WRONG_SOURCE_REF",
+    "WRONG_TARGET_REF",
+    "TARGET_NOT_EMPTY_UNEXPECTEDLY",
+    "SOURCE_ROW_COUNT_DRIFT",
+    "UUID_SET_MISMATCH",
+    "DESTRUCTIVE_SQL_DETECTED",
+    "HARD_DELETE_DETECTED",
+    "TABLE_CLEAR_DETECTED",
+    "LEGACY_CLEANUP_DETECTED",
+    "S067_S068_MERGE_RISK",
+    "KNOWN_DUPLICATE_REMOVAL_RISK",
+    "AUTH_OR_STORAGE_SCOPE_UNRESOLVED"
+  ],
+  "current_execution_authorized": false,
+  "source_mutation_required": false,
+  "old_production_changed": false,
+  "new_supabase_changed": false,
+  "sql_executed": false,
+  "git_pushed": false,
+  "vercel_deployed": false
+}
