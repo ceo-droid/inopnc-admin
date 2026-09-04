@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback, useRef, type MutableRefObject } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import type { AppState, Site, Worker, WorkLog, Transaction, ChecklistItem, Customer } from '@/types';
+import { expenseCommands as expenseRepository } from '@/services/expenseCommands';
 import { normalizeMdValue } from '@/lib/helpers';
+import { isExpenseCategory } from '@/constants/expenseCategories';
 
 const EMPTY_STATE: AppState = { sites: [], customers: [], workers: [], workLogs: [], transactions: [], checklists: [] };
 const PAGED_TABLES = new Set(['work_logs', 'transactions', 'checklists']);
@@ -16,7 +18,8 @@ const TABLE_SELECTS: Record<string, string> = {
   customers: 'id,name,contact,created_at',
   workers: 'id,name,daily,created_at',
   work_logs: 'id,date,site_id,worker_id,md,note,created_at',
-  transactions: 'id,date,site_id,category,description,amount,created_at',
+  // Select all so an additive worker_id/source/status column is preserved when present.
+  transactions: '*',
   checklists:
     'id,type,date,title,amount,status,memo,supplier,quantity,unit_price,shipping_type,payment_status,created_at',
 };
@@ -164,14 +167,14 @@ function mapWorkLog(l: any): WorkLog {
   };
 }
 
-function mapTransaction(t: any): Transaction {
+export function mapTransaction(t: any): Transaction {
   return {
     id: t.id,
     date: t.date,
     site_id: t.site_id || '',
-    worker_id: '',
+    worker_id: t.worker_id || '',
     type: 'expense' as const,
-    category: t.category,
+    category: isExpenseCategory(String(t.category)) ? t.category : '기타',
     description: t.description || '',
     amount: t.amount || 0,
   };
@@ -315,14 +318,28 @@ export const useSupabaseData = (addToast: (msg: string, type: 'success' | 'error
 
   const setData: React.Dispatch<React.SetStateAction<AppState>> = useCallback((updater) => {
     setDataLocal((prev) => {
-      const next = typeof updater === 'function' ? updater(prev) : updater;
+      const requested = typeof updater === 'function' ? updater(prev) : updater;
+      const next = requested.transactions === prev.transactions ? requested : { ...requested, transactions: prev.transactions };
+      if (requested.transactions !== prev.transactions) addToastRef.current('경비는 전용 저장 명령을 사용해야 합니다.', 'error');
       writeCache(next);
       void syncChanges(prev, next, addToastRef, isSyncing);
       return next;
     });
   }, []);
 
-  return { data, setData, loading, reload: () => loadAll({ force: true }) };
+  const expenseCommands = {
+    createExpense: async (expense: Transaction) => {
+      const saved = await expenseRepository.createExpense(expense);
+      setDataLocal((prev) => { const next = { ...prev, transactions: [...prev.transactions, saved] }; writeCache(next); return next; });
+      return saved;
+    },
+    updateExpenseAssignment: expenseRepository.updateExpenseAssignment,
+    correctExpense: expenseRepository.correctExpense,
+    voidExpense: expenseRepository.voidExpense,
+    restoreExpense: expenseRepository.restoreExpense,
+  };
+
+  return { data, setData, expenseCommands, loading, reload: () => loadAll({ force: true }) };
 };
 
 function hasChanged<T>(prev: T, next: T): boolean {
@@ -381,14 +398,6 @@ async function syncChanges(
       tasks.push(
         syncTable('work_logs', prev.workLogs, next.workLogs, (l: WorkLog) => ({
           id: l.id, date: l.date, site_id: l.site_id, worker_id: l.worker_id, md: l.md, note: l.note || null,
-        }))
-      );
-    }
-
-    if (prev.transactions !== next.transactions) {
-      tasks.push(
-        syncTable('transactions', prev.transactions, next.transactions, (t: Transaction) => ({
-          id: t.id, date: t.date, site_id: t.site_id || null, category: t.category, amount: t.amount, description: t.description || null,
         }))
       );
     }

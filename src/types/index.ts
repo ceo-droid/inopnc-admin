@@ -1,4 +1,5 @@
-export type ExpenseCategory = '아침' | '점심' | '저녁' | '주유' | '숙박' | '자재' | '기타';
+import type { ExpenseCategory } from '@/constants/expenseCategories';
+export type { ExpenseCategory } from '@/constants/expenseCategories';
 
 export interface Transaction {
   id: string;
@@ -6,9 +7,14 @@ export interface Transaction {
   site_id: string;
   worker_id?: string;
   type: 'expense';
-  category: ExpenseCategory | string;
+  category: ExpenseCategory;
   description: string;
   amount: number;
+  is_active?: boolean;
+  status?: 'active' | 'void';
+  source_namespace?: string;
+  source_row_key?: string;
+  source_fingerprint?: string;
 }
 
 export interface Worker {

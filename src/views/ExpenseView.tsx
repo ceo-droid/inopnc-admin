@@ -6,18 +6,22 @@ import AppCard from '@/components/app/AppCard';
 import SearchableSelect from '@/components/app/SearchableSelect';
 import * as XLSX from 'xlsx';
 import Papa from 'papaparse';
-import { findBestMatch } from '@/lib/siteNameMatcher';
 import { decodeCSVBuffer, toISODate, parseAmount } from '@/lib/csvUtils';
+import { findBestMatch } from '@/lib/siteNameMatcher';
+import { EXPENSE_CATEGORIES, isExpenseCategory } from '@/constants/expenseCategories';
+import { isActiveExpense } from '@/lib/expenseIntegrity';
+import type { ExpenseCommandBoundary } from '@/services/expenseCommands';
 
 interface ExpenseViewProps {
   data: AppState;
   setData: React.Dispatch<React.SetStateAction<AppState>>;
+  expenseCommands: ExpenseCommandBoundary;
   addToast: (msg: string, type: 'success' | 'error' | 'info') => void;
   recentSiteIds: string[];
   recentWorkerIds: string[];
 }
 
-const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }: ExpenseViewProps) => {
+const ExpenseView = ({ data, setData, expenseCommands, addToast, recentSiteIds, recentWorkerIds }: ExpenseViewProps) => {
   type ProfitDetailMode = 'labor' | 'expense';
   const [expSiteId, setExpSiteId] = useState('');
   const [expWorkerId, setExpWorkerId] = useState('');
@@ -45,13 +49,11 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
     amount: '0',
   });
 
-  const categories: ExpenseCategory[] = ['아침', '점심', '저녁', '주유', '숙박', '자재', '기타'];
+  const categories: readonly ExpenseCategory[] = EXPENSE_CATEGORIES;
   const excelInputRef = useRef<HTMLInputElement>(null);
   const detailScrollRef = useRef<HTMLDivElement>(null);
-  const txKey = (date: string, description: string, amount: number) =>
-    `${normalizeText(date)}|${normalizeText(description)}|${Number(amount) || 0}`;
-
-  const sortedTransactions = [...data.transactions].sort((a, b) => b.date.localeCompare(a.date));
+  const activeTransactions = useMemo(() => data.transactions.filter(isActiveExpense), [data.transactions]);
+  const sortedTransactions = [...activeTransactions].sort((a, b) => b.date.localeCompare(a.date));
 
   const workersById = useMemo(() => Object.fromEntries(data.workers.map(w => [w.id, w] as const)), [data.workers]);
   const sitesById = useMemo(() => new Map(data.sites.map(s => [s.id, s] as const)), [data.sites]);
@@ -109,8 +111,8 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
       });
     });
 
-    data.transactions.forEach((t) => {
-      const siteId = resolveSiteId(t.site_id);
+    activeTransactions.forEach((t) => {
+      const siteId = sitesById.has(t.site_id) ? t.site_id : '';
       if (!siteId) return;
       expenseBySite.set(siteId, (expenseBySite.get(siteId) || 0) + (Number(t.amount) || 0));
     });
@@ -122,7 +124,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
       const profit = site.budget - totalCost;
       return { ...site, laborCost: laborAgg.gross, laborTax: laborAgg.tax, laborNet: laborAgg.net, expenseCost, totalCost, profit };
     });
-  }, [data.sites, data.workLogs, data.transactions, workersById, resolveSiteId]);
+  }, [data.sites, data.workLogs, activeTransactions, workersById, resolveSiteId, sitesById]);
 
   const filteredStats = useMemo(() => {
     if (!profitSearch) return siteStats;
@@ -181,8 +183,8 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
       workerName: string;
     }>>();
 
-    data.transactions.forEach((t) => {
-      const siteId = resolveSiteId(t.site_id);
+    activeTransactions.forEach((t) => {
+      const siteId = sitesById.has(t.site_id) ? t.site_id : '';
       if (!siteId) return;
 
       const workerName = t.worker_id ? (workersById[t.worker_id]?.name || '') : '';
@@ -201,7 +203,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
 
     map.forEach((rows) => rows.sort((a, b) => b.date.localeCompare(a.date)));
     return map;
-  }, [data.transactions, resolveSiteId, workersById]);
+  }, [activeTransactions, sitesById, workersById]);
 
   const selectedDetailSite = useMemo(
     () => (profitDetail ? (sitesById.get(profitDetail.siteId) || null) : null),
@@ -318,7 +320,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
     });
   };
 
-  const saveExpenseEdit = () => {
+  const saveExpenseEdit = async () => {
     if (!profitDetail || !editingExpenseId) return;
 
     const date = normalizeText(editingExpenseDraft.date);
@@ -339,45 +341,27 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
       return;
     }
 
-    const nextKey = txKey(date, description, amount);
-    const duplicate = data.transactions.some(
-      (t) => t.id !== editingExpenseId && txKey(t.date, t.description, Number(t.amount) || 0) === nextKey
-    );
-    if (duplicate) {
-      addToast('동일 경비 내역이 이미 존재합니다.', 'error');
-      return;
-    }
-
-    setData((prev) => ({
-      ...prev,
-      transactions: prev.transactions.map((t) =>
-        t.id === editingExpenseId
-          ? { ...t, date, category, description, amount, site_id: profitDetail.siteId }
-          : t
-      ),
-    }));
-
-    setEditingExpenseId(null);
-    addToast('경비 내역을 저장했습니다.', 'success');
+    try {
+      await expenseCommands.correctExpense(editingExpenseId, { date, category: category as ExpenseCategory, description, amount });
+      await expenseCommands.updateExpenseAssignment(editingExpenseId, profitDetail.siteId);
+      setEditingExpenseId(null);
+    } catch (error) { addToast(String(error instanceof Error ? error.message : error), 'error'); }
   };
 
-  const handleAddTransaction = () => {
+  const handleAddTransaction = async () => {
     if (!expCategory || !expAmount) return alert('항목(카테고리)과 금액을 입력해주세요.');
     const amount = parseInt(expAmount.replace(/,/g, ''), 10);
     const description = expDesc || expCategory;
-    const newKey = txKey(expDate, description, amount);
-    if (data.transactions.some((t) => txKey(t.date, t.description, Number(t.amount) || 0) === newKey)) {
-      addToast('이미 경비 내역이 존재합니다.', 'info');
-      return;
-    }
     const newItem: Transaction = {
       id: crypto.randomUUID(), date: expDate, site_id: expSiteId, worker_id: expWorkerId,
       type: 'expense', category: expCategory, description,
       amount,
     };
-    setData(prev => ({ ...prev, transactions: [...prev.transactions, newItem] }));
-    setExpDesc(''); setExpAmount(''); setExpCategory('');
-    addToast('지출 내역이 등록되었습니다.', 'success');
+    try {
+      await expenseCommands.createExpense(newItem);
+      setExpDesc(''); setExpAmount(''); setExpCategory('');
+      addToast('지출 내역이 등록되었습니다.', 'success');
+    } catch (error) { addToast(`등록 실패: ${String(error instanceof Error ? error.message : error)}`, 'error'); }
   };
 
   const processRows = (jsonData: Record<string, unknown>[]) => {
@@ -389,7 +373,6 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
     const sitesByName = new Map(data.sites.map(s => [s.name, s]));
     const workersByName = new Map(data.workers.map(w => [w.name, w]));
     const newTransactions: Transaction[] = [];
-    const newSites = [...data.sites];
 
     for (const row of jsonData) {
       const siteName = norm(row['현장'] ?? row['현장_표준화'] ?? row['예산현장명'] ?? row['현장명'] ?? row['site'] ?? '');
@@ -405,18 +388,7 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
         const found = sitesByName.get(siteName);
         if (found) { siteId = found.id; }
         else {
-          // 스마트 매칭: 약칭, 키워드 기반 자동 매칭
-          const match = findBestMatch(siteName, data.sites);
-          if (match) {
-            siteId = match.siteId;
-            sitesByName.set(siteName, data.sites.find(s => s.id === match.siteId)!);
-          } else {
-            const newId = crypto.randomUUID();
-            const newSite = { id: newId, name: siteName, budget: 0, company_name: '', status: 'active' as const };
-            newSites.push(newSite);
-            sitesByName.set(siteName, newSite);
-            siteId = newId;
-          }
+          siteId = '';
         }
       }
 
@@ -429,27 +401,12 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
       newTransactions.push({
         id: crypto.randomUUID(),
         date: dateStr, site_id: siteId, worker_id: workerId,
-        type: 'expense', category, description: desc, amount,
+        type: 'expense', category: isExpenseCategory(category) ? category : '기타', description: desc, amount,
+        source_namespace: 'expense-file-preview', source_row_key: String(newTransactions.length + 1),
       });
     }
-
-    // 중복 방지: 기존 데이터와 (date+description+amount) 조합이 동일한 건 제외
-    setData(prev => {
-      const existingKeys = new Set(prev.transactions.map(t => txKey(t.date, t.description, Number(t.amount) || 0)));
-      const acceptedKeys = new Set(existingKeys);
-      const uniqueNew = newTransactions.filter(t => {
-        const key = txKey(t.date, t.description, Number(t.amount) || 0);
-        if (acceptedKeys.has(key)) return false;
-        acceptedKeys.add(key);
-        return true;
-      });
-      const skipped = newTransactions.length - uniqueNew.length;
-      if (skipped > 0) {
-        addToast(`${skipped}건 중복 제외, ${uniqueNew.length}건 등록`, 'info');
-      }
-      return { ...prev, sites: newSites, transactions: [...prev.transactions, ...uniqueNew] };
-    });
-    addToast(`${newTransactions.length}건의 경비 내역이 등록되었습니다.`, 'success');
+    const reviewRequired = newTransactions.filter((row) => !row.site_id).length;
+    addToast(`${newTransactions.length}건 파싱 완료 (${reviewRequired}건 현장 검토 필요). source identity 스키마 적용 전에는 등록하지 않습니다.`, 'info');
   };
 
   const handleExpenseFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -491,24 +448,20 @@ const ExpenseView = ({ data, setData, addToast, recentSiteIds, recentWorkerIds }
     }
   };
 
-  const deleteTransaction = (id: string) => {
+  const deleteTransaction = async (id: string) => {
     if (confirm('삭제하시겠습니까?')) {
-      setData(prev => ({ ...prev, transactions: prev.transactions.filter(t => t.id !== id) }));
-      addToast('삭제되었습니다.', 'info');
+      try { await expenseCommands.voidExpense(id); }
+      catch (error) { addToast(String(error instanceof Error ? error.message : error), 'error'); }
     }
   };
 
-  const handleSaveEditTx = () => {
+  const handleSaveEditTx = async () => {
     if (!editingTx) return;
-    const editKey = txKey(editingTx.date, editingTx.description, Number(editingTx.amount) || 0);
-    const duplicate = data.transactions.some((t) => t.id !== editingTx.id && txKey(t.date, t.description, Number(t.amount) || 0) === editKey);
-    if (duplicate) {
-      addToast('수정 결과가 기존 내역과 중복됩니다.', 'error');
-      return;
-    }
-    setData(prev => ({ ...prev, transactions: prev.transactions.map(t => t.id === editingTx.id ? editingTx : t) }));
-    addToast('수정되었습니다.', 'success');
-    setEditingTx(null);
+    try {
+      await expenseCommands.correctExpense(editingTx.id, editingTx);
+      await expenseCommands.updateExpenseAssignment(editingTx.id, editingTx.site_id);
+      setEditingTx(null);
+    } catch (error) { addToast(String(error instanceof Error ? error.message : error), 'error'); }
   };
 
   const downloadExpenseTemplate = () => {

@@ -28,7 +28,7 @@ const Index = () => {
 
   const { darkMode, toggleTheme } = useTheme();
   const { toasts, addToast } = useToast();
-  const { data, setData, loading, reload } = useSupabaseData(addToast);
+  const { data, setData, expenseCommands, loading, reload } = useSupabaseData(addToast);
 
   const handleClearCache = async () => {
     try {
@@ -80,7 +80,7 @@ const Index = () => {
         ) : (
           <>
             {activeTab === 'home' && <HomeView data={data} setData={setData} addToast={addToast} selectedDate={selectedDate} setSelectedDate={setSelectedDate} setLogModalOpen={setLogModalOpen} setLogModalDate={setLogModalDate} recentSiteIds={recentSiteIds} recentWorkerIds={recentWorkerIds} />}
-            {activeTab === 'expenses' && <ExpenseView data={data} setData={setData} addToast={addToast} recentSiteIds={recentSiteIds} recentWorkerIds={recentWorkerIds} />}
+            {activeTab === 'expenses' && <ExpenseView data={data} setData={setData} expenseCommands={expenseCommands} addToast={addToast} recentSiteIds={recentSiteIds} recentWorkerIds={recentWorkerIds} />}
             {activeTab === 'checklist' && (
               <ChecklistView
                 data={data}

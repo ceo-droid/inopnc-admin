@@ -35,17 +35,15 @@ Deno.serve(async (req) => {
     // Get all work_logs
     const { data: workLogs } = await supabase.from("work_logs").select("date, worker_id, site_id");
     
-    // Build lookup: date+worker_id -> site_id (pick most common if multiple)
-    const dateSiteMap = new Map<string, string>();
+    // Build review candidates only; never auto-write a worker/date guess.
+    const dateSiteMap = new Map<string, Set<string>>();
     for (const wl of workLogs || []) {
       const key = `${wl.date}|${wl.worker_id}`;
-      if (!dateSiteMap.has(key)) {
-        dateSiteMap.set(key, wl.site_id);
-      }
+      if (!dateSiteMap.has(key)) dateSiteMap.set(key, new Set());
+      dateSiteMap.get(key)!.add(wl.site_id);
     }
 
-    let updated = 0;
-    const batchUpdates: Array<{ id: string; site_id: string }> = [];
+    const candidates: Array<{ id: string; candidate_site_ids: string[]; classification: string }> = [];
 
     for (const tx of unmatched) {
       // Extract worker name from description like "merchant (workerName)"
@@ -57,26 +55,12 @@ Deno.serve(async (req) => {
       if (!worker) continue;
 
       const key = `${tx.date}|${worker.id}`;
-      const siteId = dateSiteMap.get(key);
-      if (siteId) {
-        batchUpdates.push({ id: tx.id, site_id: siteId });
-      }
-    }
-
-    // Execute updates in batches
-    for (let i = 0; i < batchUpdates.length; i += 100) {
-      const batch = batchUpdates.slice(i, i + 100);
-      for (const item of batch) {
-        const { error } = await supabase
-          .from("transactions")
-          .update({ site_id: item.site_id })
-          .eq("id", item.id);
-        if (!error) updated++;
-      }
+      const siteIds = [...(dateSiteMap.get(key) || [])];
+      if (siteIds.length) candidates.push({ id: tx.id, candidate_site_ids: siteIds, classification: siteIds.length === 1 ? 'REVIEW_REQUIRED' : 'REVIEW_REQUIRED_AMBIGUOUS' });
     }
 
     return new Response(
-      JSON.stringify({ success: true, totalUnmatched: unmatched.length, updated, remaining: unmatched.length - updated }),
+      JSON.stringify({ success: true, totalUnmatched: unmatched.length, updated: 0, candidates }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (err) {

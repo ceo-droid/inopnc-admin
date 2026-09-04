@@ -17,7 +17,11 @@ Deno.serve(async (req) => {
     const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, serviceKey);
 
-    const { csvUrl, clearExisting } = await req.json();
+    const { csvUrl, clearExisting, confirmed } = await req.json();
+    if (clearExisting) {
+      return new Response(JSON.stringify({ success: false, code: 'CLEAR_EXISTING_FORBIDDEN' }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    }
 
     // Fetch CSV
     const csvResp = await fetch(csvUrl);
@@ -36,38 +40,11 @@ Deno.serve(async (req) => {
       siteMap.set(s.name.trim(), s.id);
     }
 
-    const fuzzyMatch = (name: string): string => {
+    const exactMatch = (name: string): string => {
       const trimmed = name.trim();
       if (siteMap.has(trimmed)) return siteMap.get(trimmed)!;
-      for (const [siteName, siteId] of siteMap) {
-        if (siteName.includes(trimmed) || trimmed.includes(siteName)) return siteId;
-      }
       return "";
     };
-
-    // Clear existing transactions if requested
-    if (clearExisting) {
-      await supabase.from("transactions").delete().neq("id", "00000000-0000-0000-0000-000000000000");
-    }
-
-    // Load existing transactions for dedup (when not clearing)
-    const existingKeys = new Set<string>();
-    if (!clearExisting) {
-      let from = 0;
-      const PAGE = 1000;
-      while (true) {
-        const { data: existing } = await supabase
-          .from("transactions")
-          .select("date, description, amount")
-          .range(from, from + PAGE - 1);
-        if (!existing || existing.length === 0) break;
-        for (const e of existing) {
-          existingKeys.add(`${e.date}|${e.description}|${e.amount}`);
-        }
-        if (existing.length < PAGE) break;
-        from += PAGE;
-      }
-    }
 
     // Process rows
     const transactions: Array<{
@@ -80,9 +57,7 @@ Deno.serve(async (req) => {
 
     let matched = 0;
     let unmatched = 0;
-    let skipped = 0;
     const unmatchedSites = new Set<string>();
-    const seenKeys = new Set<string>();
 
     for (const row of rows) {
       const rawDate = String(row.date || "").trim();
@@ -98,17 +73,9 @@ Deno.serve(async (req) => {
       const user = String(row.user || "").trim();
       const description = merchant + (user ? ` (${user})` : "");
 
-      // Dedup: skip if same date+description+amount already exists
-      const key = `${date}|${description}|${amount}`;
-      if (seenKeys.has(key) || existingKeys.has(key)) {
-        skipped++;
-        continue;
-      }
-      seenKeys.add(key);
-
       let siteId = "";
       if (siteName && siteName !== "기타") {
-        siteId = fuzzyMatch(siteName);
+        siteId = exactMatch(siteName);
         if (siteId) {
           matched++;
         } else {
@@ -120,26 +87,18 @@ Deno.serve(async (req) => {
       transactions.push({ date, site_id: siteId, category, description, amount });
     }
 
-    // Insert in batches of 500
-    let inserted = 0;
-    for (let i = 0; i < transactions.length; i += 500) {
-      const batch = transactions.slice(i, i + 500);
-      const { error } = await supabase.from("transactions").insert(batch);
-      if (error) {
-        console.error(`Batch ${i} error:`, error);
-        throw new Error(`Insert error at batch ${i}: ${error.message}`);
-      }
-      inserted += batch.length;
-    }
+    // Confirmed insertion is fail-closed until source identity columns/index exist.
+    if (confirmed) return new Response(JSON.stringify({ success: false, code: 'EXPENSE_SOURCE_IDENTITY_SCHEMA_REQUIRED' }),
+      { status: 409, headers: { ...corsHeaders, "Content-Type": "application/json" } });
 
     return new Response(
       JSON.stringify({
         success: true,
         total: transactions.length,
-        inserted,
+        inserted: 0,
         matched,
         unmatched,
-        skipped,
+        reviewRequired: unmatched,
         unmatchedSites: [...unmatchedSites],
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
